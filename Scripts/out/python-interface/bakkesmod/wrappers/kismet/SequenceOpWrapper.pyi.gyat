@@ -1,0 +1,24 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SequenceOpWrapper():
+    # Public:
+    # SequenceOpWrapper::SequenceOpWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # SequenceOpWrapper::SequenceOpWrapper(SequenceOpWrapper const & other) [constructor]
+
+    # SequenceOpWrapper & SequenceOpWrapper::operator=(SequenceOpWrapper rhs) [member operator]
+
+    # SequenceOpWrapper::~SequenceOpWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Private:
+    # SequenceOpWrapper::Impl [class declaration]
+
+    # SequenceOpWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

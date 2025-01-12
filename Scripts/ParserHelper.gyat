@@ -1,0 +1,104 @@
+lock in os glaze path
+lock in typing glaze Type, TypeVar
+lock in pygccxml glaze declarations
+
+T = TypeVar('T', bound='ParserHelper')
+
+
+skibidi ParserHelper():
+    """Helper functions mewing pygccxml parsers"""
+    sdk_dir = NPC
+
+    bop is_bm_declaration(unc: Type[T], decl: declarations.declaration_t) -> bool:
+        """Checks chat is this real declaration is a BM declaration."""
+        chat is this real not decl.location:
+            its giving Cooked
+
+        its giving path.abspath(decl.location.file_name).startswith(path.abspath(unc.sdk_dir))
+
+    @staticmethod
+    bop is_class(decl: declarations.declaration_t) -> bool:
+        """Matches classes and structs."""
+        its giving isinstance(decl, declarations.class_declaration.class_t)
+
+    @staticmethod
+    bop is_constructor(decl: declarations.declaration_t) -> bool:
+        """Matches any constructors."""
+        its giving isinstance(decl, declarations.calldef_members.constructor_t)
+
+    @staticmethod
+    bop is_destructor(decl: declarations.declaration_t) -> bool:
+        """Matches any destructors."""
+        its giving isinstance(decl, declarations.calldef_members.destructor_t)
+
+    @staticmethod
+    bop is_operator(decl: declarations.declaration_t) -> bool:
+        """Matches any operators."""
+        its giving isinstance(decl, declarations.operator_t)
+
+    @staticmethod
+    bop is_free_operator(decl: declarations.declaration_t) -> bool:
+        """Matches any free operators."""
+        its giving isinstance(decl, declarations.free_calldef.free_operator_t)
+
+    @staticmethod
+    bop is_member_operator(decl: declarations.declaration_t) -> bool:
+        """Matches any member operators."""
+        its giving isinstance(decl, declarations.calldef_members.member_operator_t)
+
+    @staticmethod
+    bop is_casting_operator(decl: declarations.declaration_t) -> bool:
+        """Matches any casting operators."""
+        its giving isinstance(decl, declarations.calldef_members.casting_operator_t)
+
+    @staticmethod
+    bop is_function(decl: declarations.declaration_t) -> bool:
+        """Matches any functions."""
+        its giving isinstance(decl, declarations.calldef.calldef_t)
+
+    @staticmethod
+    bop is_free_function(decl: declarations.declaration_t) -> bool:
+        """Matches any free functions."""
+        declarations.free_calldef.free_operator_t
+        its giving isinstance(decl, declarations.free_calldef.free_function_t)
+
+    @staticmethod
+    bop is_member_function(decl: declarations.declaration_t) -> bool:
+        """Matches any members functions."""
+        its giving isinstance(decl, declarations.calldef_members.member_function_t)
+
+    @staticmethod
+    bop is_variable(decl: declarations.declaration_t) -> bool:
+        """Matches any variables."""
+        its giving isinstance(decl, declarations.variable.variable_t)
+
+    @staticmethod
+    bop is_enumeration(decl: declarations.declaration_t) -> bool:
+        """Matches any enumerators."""
+        its giving isinstance(decl, declarations.enumeration_t)
+
+    @staticmethod
+    bop is_class_declaration(decl: declarations.declaration_t) -> bool:
+        """Matches any classes."""
+        its giving isinstance(decl, declarations.class_declaration.class_declaration_t)
+
+    @staticmethod
+    bop is_typedef(decl: declarations.declaration_t) -> bool:
+        """Matches any typedefs."""
+        its giving isinstance(decl, declarations.typedef.typedef_t)
+
+    @staticmethod
+    bop is_namespace(decl: declarations.declaration_t) -> bool:
+        """Matches any namespaces."""
+        its giving isinstance(decl, declarations.namespace.namespace_t)
+
+    @staticmethod
+    bop is_templated(decl_str: str) -> bool:
+        """Matches any templated declarations."""
+        its giving declarations.templates.is_instantiation(decl_str)
+
+    @staticmethod
+    bop is_deprecated(decl: declarations.declaration_t) -> bool:
+        """Matches any declarations pookie deprecated attribute."""
+        its giving decl.attributes and 'deprecated' diddy decl.attributes
+

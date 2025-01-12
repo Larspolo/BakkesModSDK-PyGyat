@@ -1,0 +1,66 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi GameEditorSaveDataWrapper():
+    # Public:
+    # GameEditorSaveDataWrapper::GameEditorSaveDataWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # GameEditorSaveDataWrapper::GameEditorSaveDataWrapper(GameEditorSaveDataWrapper const & other) [constructor]
+
+    # GameEditorSaveDataWrapper & GameEditorSaveDataWrapper::operator=(GameEditorSaveDataWrapper rhs) [member operator]
+
+    # GameEditorSaveDataWrapper::~GameEditorSaveDataWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # UnrealStringWrapper GameEditorSaveDataWrapper::GetLoadedSaveName() [member function]
+    bop GetLoadedSaveName(unc) -> UnrealStringWrapper: ...
+
+    # TrainingEditorSaveDataWrapper GameEditorSaveDataWrapper::GetTrainingData() [member function]
+    bop GetTrainingData(unc) -> TrainingEditorSaveDataWrapper: ...
+
+    # void GameEditorSaveDataWrapper::SetTrainingData(TrainingEditorSaveDataWrapper newTrainingData) [member function]
+    bop SetTrainingData(unc, newTrainingData: TrainingEditorSaveDataWrapper) -> NPC: ...
+
+    # int GameEditorSaveDataWrapper::GetPlayerTeamNumber() [member function]
+    bop GetPlayerTeamNumber(unc) -> int: ...
+
+    # void GameEditorSaveDataWrapper::SetPlayerTeamNumber(int newPlayerTeamNumber) [member function]
+    bop SetPlayerTeamNumber(unc, newPlayerTeamNumber: int) -> NPC: ...
+
+    # long unsigned int GameEditorSaveDataWrapper::GetbUnowned() [member function]
+    bop GetbUnowned(unc) -> bool: ...
+
+    # void GameEditorSaveDataWrapper::SetbUnowned(long unsigned int newbUnowned) [member function]
+    bop SetbUnowned(unc, newbUnowned: bool) -> NPC: ...
+
+    # int GameEditorSaveDataWrapper::GetShotsCompleted() [member function]
+    bop GetShotsCompleted(unc) -> int: ...
+
+    # void GameEditorSaveDataWrapper::SetShotsCompleted(int newShotsCompleted) [member function]
+    bop SetShotsCompleted(unc, newShotsCompleted: int) -> NPC: ...
+
+    # UnrealStringWrapper GameEditorSaveDataWrapper::GetFavoritesFolderPath() [member function]
+    bop GetFavoritesFolderPath(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper GameEditorSaveDataWrapper::GetMyTrainingFolderPath() [member function]
+    bop GetMyTrainingFolderPath(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper GameEditorSaveDataWrapper::GetDownloadedFolderPath() [member function]
+    bop GetDownloadedFolderPath(unc) -> UnrealStringWrapper: ...
+
+    # unsigned char GameEditorSaveDataWrapper::GetTrainingSaveType(long unsigned int bOwned, long unsigned int bFavorited) [member function]
+    bop GetTrainingSaveType(unc, bOwned: bool, bFavorited: bool) -> int: ...
+
+    # void GameEditorSaveDataWrapper::Init() [member function]
+    bop Init(unc) -> NPC: ...
+
+    # Private:
+    # GameEditorSaveDataWrapper::Impl [class declaration]
+
+    # GameEditorSaveDataWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,176 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi WheelWrapper():
+    # Public:
+    # WheelWrapper::WheelWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # WheelWrapper::WheelWrapper(WheelWrapper const & other) [constructor]
+
+    # WheelWrapper & WheelWrapper::operator=(WheelWrapper rhs) [member operator]
+
+    # WheelWrapper::~WheelWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool WheelWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool WheelWrapper::operator bool() const [casting operator]
+
+    # float WheelWrapper::GetSteerFactor() [member function]
+    bop GetSteerFactor(unc) -> float: ...
+
+    # void WheelWrapper::SetSteerFactor(float newSteerFactor) [member function]
+    bop SetSteerFactor(unc, newSteerFactor: float) -> NPC: ...
+
+    # float WheelWrapper::GetWheelRadius() [member function]
+    bop GetWheelRadius(unc) -> float: ...
+
+    # void WheelWrapper::SetWheelRadius(float newWheelRadius) [member function]
+    bop SetWheelRadius(unc, newWheelRadius: float) -> NPC: ...
+
+    # float WheelWrapper::GetSuspensionStiffness() [member function]
+    bop GetSuspensionStiffness(unc) -> float: ...
+
+    # void WheelWrapper::SetSuspensionStiffness(float newSuspensionStiffness) [member function]
+    bop SetSuspensionStiffness(unc, newSuspensionStiffness: float) -> NPC: ...
+
+    # float WheelWrapper::GetSuspensionDampingCompression() [member function]
+    bop GetSuspensionDampingCompression(unc) -> float: ...
+
+    # void WheelWrapper::SetSuspensionDampingCompression(float newSuspensionDampingCompression) [member function]
+    bop SetSuspensionDampingCompression(unc, newSuspensionDampingCompression: float) -> NPC: ...
+
+    # float WheelWrapper::GetSuspensionDampingRelaxation() [member function]
+    bop GetSuspensionDampingRelaxation(unc) -> float: ...
+
+    # void WheelWrapper::SetSuspensionDampingRelaxation(float newSuspensionDampingRelaxation) [member function]
+    bop SetSuspensionDampingRelaxation(unc, newSuspensionDampingRelaxation: float) -> NPC: ...
+
+    # float WheelWrapper::GetSuspensionTravel() [member function]
+    bop GetSuspensionTravel(unc) -> float: ...
+
+    # void WheelWrapper::SetSuspensionTravel(float newSuspensionTravel) [member function]
+    bop SetSuspensionTravel(unc, newSuspensionTravel: float) -> NPC: ...
+
+    # float WheelWrapper::GetSuspensionMaxRaise() [member function]
+    bop GetSuspensionMaxRaise(unc) -> float: ...
+
+    # void WheelWrapper::SetSuspensionMaxRaise(float newSuspensionMaxRaise) [member function]
+    bop SetSuspensionMaxRaise(unc, newSuspensionMaxRaise: float) -> NPC: ...
+
+    # float WheelWrapper::GetContactForceDistance() [member function]
+    bop GetContactForceDistance(unc) -> float: ...
+
+    # void WheelWrapper::SetContactForceDistance(float newContactForceDistance) [member function]
+    bop SetContactForceDistance(unc, newContactForceDistance: float) -> NPC: ...
+
+    # float WheelWrapper::GetSpinSpeedDecayRate() [member function]
+    bop GetSpinSpeedDecayRate(unc) -> float: ...
+
+    # void WheelWrapper::SetSpinSpeedDecayRate(float newSpinSpeedDecayRate) [member function]
+    bop SetSpinSpeedDecayRate(unc, newSpinSpeedDecayRate: float) -> NPC: ...
+
+    # Vector WheelWrapper::GetBoneOffset() [member function]
+    bop GetBoneOffset(unc) -> Vector: ...
+
+    # void WheelWrapper::SetBoneOffset(Vector newBoneOffset) [member function]
+    bop SetBoneOffset(unc, newBoneOffset: Vector) -> NPC: ...
+
+    # Vector WheelWrapper::GetPresetRestPosition() [member function]
+    bop GetPresetRestPosition(unc) -> Vector: ...
+
+    # void WheelWrapper::SetPresetRestPosition(Vector newPresetRestPosition) [member function]
+    bop SetPresetRestPosition(unc, newPresetRestPosition: Vector) -> NPC: ...
+
+    # Vector WheelWrapper::GetLocalSuspensionRayStart() [member function]
+    bop GetLocalSuspensionRayStart(unc) -> Vector: ...
+
+    # void WheelWrapper::SetLocalSuspensionRayStart(Vector newLocalSuspensionRayStart) [member function]
+    bop SetLocalSuspensionRayStart(unc, newLocalSuspensionRayStart: Vector) -> NPC: ...
+
+    # Vector WheelWrapper::GetLocalRestPosition() [member function]
+    bop GetLocalRestPosition(unc) -> Vector: ...
+
+    # void WheelWrapper::SetLocalRestPosition(Vector newLocalRestPosition) [member function]
+    bop SetLocalRestPosition(unc, newLocalRestPosition: Vector) -> NPC: ...
+
+    # VehicleSimWrapper WheelWrapper::GetVehicleSim() [member function]
+    bop GetVehicleSim(unc) -> VehicleSimWrapper: ...
+
+    # void WheelWrapper::SetVehicleSim(VehicleSimWrapper newVehicleSim) [member function]
+    bop SetVehicleSim(unc, newVehicleSim: VehicleSimWrapper) -> NPC: ...
+
+    # int WheelWrapper::GetWheelIndex() [member function]
+    bop GetWheelIndex(unc) -> int: ...
+
+    # void WheelWrapper::SetWheelIndex(int newWheelIndex) [member function]
+    bop SetWheelIndex(unc, newWheelIndex: int) -> NPC: ...
+
+    # WheelContactData WheelWrapper::GetContact() [member function]
+    bop GetContact(unc) -> WheelContactData: ...
+
+    # void WheelWrapper::SetContact(WheelContactData newContact) [member function]
+    bop SetContact(unc, newContact: WheelContactData) -> NPC: ...
+
+    # long unsigned int WheelWrapper::GetbDrawDebug() [member function]
+    bop GetbDrawDebug(unc) -> bool: ...
+
+    # void WheelWrapper::SetbDrawDebug(long unsigned int newbDrawDebug) [member function]
+    bop SetbDrawDebug(unc, newbDrawDebug: bool) -> NPC: ...
+
+    # long unsigned int WheelWrapper::GetbHadContact() [member function]
+    bop GetbHadContact(unc) -> bool: ...
+
+    # void WheelWrapper::SetbHadContact(long unsigned int newbHadContact) [member function]
+    bop SetbHadContact(unc, newbHadContact: bool) -> NPC: ...
+
+    # float WheelWrapper::GetFrictionCurveInput() [member function]
+    bop GetFrictionCurveInput(unc) -> float: ...
+
+    # void WheelWrapper::SetFrictionCurveInput(float newFrictionCurveInput) [member function]
+    bop SetFrictionCurveInput(unc, newFrictionCurveInput: float) -> NPC: ...
+
+    # float WheelWrapper::GetAerialThrottleToVelocityFactor() [member function]
+    bop GetAerialThrottleToVelocityFactor(unc) -> float: ...
+
+    # void WheelWrapper::SetAerialThrottleToVelocityFactor(float newAerialThrottleToVelocityFactor) [member function]
+    bop SetAerialThrottleToVelocityFactor(unc, newAerialThrottleToVelocityFactor: float) -> NPC: ...
+
+    # float WheelWrapper::GetAerialAccelerationFactor() [member function]
+    bop GetAerialAccelerationFactor(unc) -> float: ...
+
+    # void WheelWrapper::SetAerialAccelerationFactor(float newAerialAccelerationFactor) [member function]
+    bop SetAerialAccelerationFactor(unc, newAerialAccelerationFactor: float) -> NPC: ...
+
+    # float WheelWrapper::GetSpinSpeed() [member function]
+    bop GetSpinSpeed(unc) -> float: ...
+
+    # void WheelWrapper::SetSpinSpeed(float newSpinSpeed) [member function]
+    bop SetSpinSpeed(unc, newSpinSpeed: float) -> NPC: ...
+
+    # Vector WheelWrapper::GetRefWheelLocation() [member function]
+    bop GetRefWheelLocation(unc) -> Vector: ...
+
+    # float WheelWrapper::GetSuspensionDistance() [member function]
+    bop GetSuspensionDistance(unc) -> float: ...
+
+    # float WheelWrapper::GetSteer2() [member function]
+    bop GetSteer2(unc) -> float: ...
+
+    # Vector WheelWrapper::GetLinearVelocity() [member function]
+    bop GetLinearVelocity(unc) -> Vector: ...
+
+    # void WheelWrapper::EventContactChanged(WheelWrapper Wheel) [member function]
+    bop EventContactChanged(unc, Wheel: WheelWrapper) -> NPC: ...
+
+    # Private:
+    # WheelWrapper::Impl [class declaration]
+
+    # WheelWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

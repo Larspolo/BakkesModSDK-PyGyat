@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi AIControllerWrapper():
+    # Public:
+    # AIControllerWrapper::AIControllerWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # AIControllerWrapper::AIControllerWrapper(AIControllerWrapper const & other) [constructor]
+
+    # AIControllerWrapper & AIControllerWrapper::operator=(AIControllerWrapper rhs) [member operator]
+
+    # AIControllerWrapper::~AIControllerWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void AIControllerWrapper::DoNothing() [member function]
+    bop DoNothing(unc) -> NPC: ...
+
+    # Private:
+    # AIControllerWrapper::Impl [class declaration]
+
+    # AIControllerWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

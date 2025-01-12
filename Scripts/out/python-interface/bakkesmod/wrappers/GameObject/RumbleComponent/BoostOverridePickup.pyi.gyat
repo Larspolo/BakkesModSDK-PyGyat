@@ -1,0 +1,39 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BoostOverridePickup():
+    # Public:
+    # BoostOverridePickup::BoostOverridePickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BoostOverridePickup::BoostOverridePickup(BoostOverridePickup const & other) [constructor]
+
+    # BoostOverridePickup & BoostOverridePickup::operator=(BoostOverridePickup rhs) [member operator]
+
+    # BoostOverridePickup::~BoostOverridePickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # CarWrapper BoostOverridePickup::GetOtherCar() [member function]
+    bop GetOtherCar(unc) -> CarWrapper: ...
+
+    # void BoostOverridePickup::SetOtherCar(CarWrapper newOtherCar) [member function]
+    bop SetOtherCar(unc, newOtherCar: CarWrapper) -> NPC: ...
+
+    # void BoostOverridePickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void BoostOverridePickup::OnTargetChanged() [member function]
+    bop OnTargetChanged(unc) -> NPC: ...
+
+    # void BoostOverridePickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # BoostOverridePickup::Impl [class declaration]
+
+    # BoostOverridePickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

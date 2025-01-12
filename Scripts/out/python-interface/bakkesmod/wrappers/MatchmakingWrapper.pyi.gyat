@@ -1,0 +1,220 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi MatchmakingWrapper():
+    # Public:
+    # MatchmakingWrapper::MatchmakingWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # MatchmakingWrapper::MatchmakingWrapper(MatchmakingWrapper const & other) [constructor]
+
+    # MatchmakingWrapper & MatchmakingWrapper::operator=(MatchmakingWrapper rhs) [member operator]
+
+    # MatchmakingWrapper::~MatchmakingWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool MatchmakingWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool MatchmakingWrapper::operator bool() const [casting operator]
+
+    # bool MatchmakingWrapper::IsSearching() [member function]
+    bop IsSearching(unc) -> bool: ...
+
+    # int MatchmakingWrapper::GetActiveViewTab() [member function]
+    bop GetActiveViewTab(unc) -> int: ...
+
+    # void MatchmakingWrapper::SetRegionSelection(Region region, bool bSelected) [member function]
+    bop SetRegionSelection(unc, region: Region, bSelected: bool) -> NPC: ...
+
+    # void MatchmakingWrapper::SetPlaylistSelection(Playlist playlist, bool bSelected) [member function]
+    bop SetPlaylistSelection(unc, playlist: Playlist, bSelected: bool) -> NPC: ...
+
+    # void MatchmakingWrapper::StartMatchmaking(PlaylistCategory playlist_category) [member function]
+    bop StartMatchmaking(unc, playlist_category: PlaylistCategory) -> NPC: ...
+
+    # void MatchmakingWrapper::CancelMatchmaking() [member function]
+    bop CancelMatchmaking(unc) -> NPC: ...
+
+    # void MatchmakingWrapper::CreatePrivateMatch(Region region, CustomMatchSettings const & match_settings) [member function]
+    bop CreatePrivateMatch(unc, region: Region, match_settings: CustomMatchSettings) -> NPC: ...
+
+    # void MatchmakingWrapper::JoinPrivateMatch(std::string const & server_name, std::string const & server_password="") [member function]
+    bop JoinPrivateMatch(unc, server_name: str, server_password: str = "") -> NPC: ...
+
+    # int MatchmakingWrapper::SeasonEndDays() [member function]
+    bop SeasonEndDays(unc) -> int: ...
+
+    # int MatchmakingWrapper::SeasonEndHours() [member function]
+    bop SeasonEndHours(unc) -> int: ...
+
+    # int MatchmakingWrapper::SeasonEndMinutes() [member function]
+    bop SeasonEndMinutes(unc) -> int: ...
+
+    # int MatchmakingWrapper::GetSeasonTimeRemaining() [member function]
+    bop GetSeasonTimeRemaining(unc) -> int: ...
+
+    # int MatchmakingWrapper::GetSeasonEndTimeSeconds() [member function]
+    bop GetSeasonEndTimeSeconds(unc) -> int: ...
+
+    # bool MatchmakingWrapper::HasSeasonEnded() [member function]
+    bop HasSeasonEnded(unc) -> bool: ...
+
+    # int MatchmakingWrapper::GetTotalPopulation() [member function]
+    bop GetTotalPopulation(unc) -> int: ...
+
+    # static std::string MatchmakingWrapper::GetRegionID(Region region) [member function]
+    bop GetRegionID(unc, region: Region) -> str: ...
+
+    # static std::string MatchmakingWrapper::GetRegionLabel(Region region) [member function]
+    bop GetRegionLabel(unc, region: Region) -> str: ...
+
+    # Private:
+    # MatchmakingWrapper::Impl [class declaration]
+
+    # MatchmakingWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+# Region [enumeration]
+skibidi Region(Enum):
+    USE = 0
+    EU = 1
+    USW = 2
+    ASC = 3
+    ASM = 4
+    JPN = 5
+    ME = 6
+    OCE = 7
+    SAF = 8
+    SAM = 9
+
+# Playlist [enumeration]
+skibidi Playlist(Enum):
+    CASUAL_STANDARD = 0
+    CASUAL_DOUBLES = 1
+    CASUAL_DUELS = 2
+    CASUAL_CHAOS = 3
+    RANKED_STANDARD = 4
+    RANKED_DOUBLES = 5
+    RANKED_DUELS = 6
+    EXTRAS_RUMBLE = 12
+    EXTRAS_DROPSHOT = 13
+    EXTRAS_HOOPS = 14
+    EXTRAS_SNOWDAY = 15
+
+# PlaylistCategory [enumeration]
+skibidi PlaylistCategory(Enum):
+    CASUAL = 0
+    RANKED = 1
+    EXTRAS = 2
+
+skibidi ClubColorSet():
+    # Public:
+    # ClubColorSet::TeamColorID [variable]
+    @property
+    bop TeamColorID(unc) -> int: ...
+
+    # ClubColorSet::CustomColorID [variable]
+    @property
+    bop CustomColorID(unc) -> int: ...
+
+    # ClubColorSet::bTeamColorSet [variable]
+    @property
+    bop bTeamColorSet(unc) -> bool: ...
+
+    # ClubColorSet::bCustomColorSet [variable]
+    @property
+    bop bCustomColorSet(unc) -> bool: ...
+
+    # ClubColorSet::ClubColorSet(ClubColorSet const & arg0) [constructor]
+
+    # ClubColorSet::~ClubColorSet() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # ClubColorSet & ClubColorSet::operator=(ClubColorSet const & arg0) [member operator]
+
+    # ClubColorSet::ClubColorSet() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+
+skibidi CustomMatchTeamSettings():
+    # Public:
+    # CustomMatchTeamSettings::Name [variable]
+    @property
+    bop Name(unc) -> str: ...
+
+    # CustomMatchTeamSettings::Colors [variable]
+    @property
+    bop Colors(unc) -> ClubColorSet: ...
+
+    # CustomMatchTeamSettings::GameScore [variable]
+    @property
+    bop GameScore(unc) -> int: ...
+
+    # CustomMatchTeamSettings::CustomMatchTeamSettings(CustomMatchTeamSettings const & arg0) [constructor]
+
+    # CustomMatchTeamSettings::~CustomMatchTeamSettings() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # CustomMatchTeamSettings & CustomMatchTeamSettings::operator=(CustomMatchTeamSettings const & arg0) [member operator]
+
+    # CustomMatchTeamSettings::CustomMatchTeamSettings() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+
+skibidi CustomMatchSettings():
+    # Public:
+    # CustomMatchSettings::GameTags [variable]
+    @property
+    bop GameTags(unc) -> str: ...
+
+    # CustomMatchSettings::MapName [variable]
+    @property
+    bop MapName(unc) -> str: ...
+
+    # CustomMatchSettings::ServerName [variable]
+    @property
+    bop ServerName(unc) -> str: ...
+
+    # CustomMatchSettings::Password [variable]
+    @property
+    bop Password(unc) -> str: ...
+
+    # CustomMatchSettings::BlueTeamSettings [variable]
+    @property
+    bop BlueTeamSettings(unc) -> CustomMatchTeamSettings: ...
+
+    # CustomMatchSettings::OrangeTeamSettings [variable]
+    @property
+    bop OrangeTeamSettings(unc) -> CustomMatchTeamSettings: ...
+
+    # CustomMatchSettings::GameMode [variable]
+    @property
+    bop GameMode(unc) -> int: ...
+
+    # CustomMatchSettings::MaxPlayerCount [variable]
+    @property
+    bop MaxPlayerCount(unc) -> int: ...
+
+    # CustomMatchSettings::bPartyMembersOnly [variable]
+    @property
+    bop bPartyMembersOnly(unc) -> bool: ...
+
+    # CustomMatchSettings::bClubServer [variable]
+    @property
+    bop bClubServer(unc) -> bool: ...
+
+    # CustomMatchSettings::CustomMatchSettings(CustomMatchSettings const & arg0) [constructor]
+
+    # CustomMatchSettings::~CustomMatchSettings() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # CustomMatchSettings::CustomMatchSettings() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # CustomMatchSettings & CustomMatchSettings::operator=(CustomMatchSettings const & arg0) [member operator]
+
+
+

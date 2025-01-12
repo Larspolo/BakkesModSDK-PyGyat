@@ -1,0 +1,24 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi DataAssetDatabase_ESportsTeamWrapper():
+    # Public:
+    # DataAssetDatabase_ESportsTeamWrapper::DataAssetDatabase_ESportsTeamWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # DataAssetDatabase_ESportsTeamWrapper::DataAssetDatabase_ESportsTeamWrapper(DataAssetDatabase_ESportsTeamWrapper const & other) [constructor]
+
+    # DataAssetDatabase_ESportsTeamWrapper & DataAssetDatabase_ESportsTeamWrapper::operator=(DataAssetDatabase_ESportsTeamWrapper rhs) [member operator]
+
+    # DataAssetDatabase_ESportsTeamWrapper::~DataAssetDatabase_ESportsTeamWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Private:
+    # DataAssetDatabase_ESportsTeamWrapper::Impl [class declaration]
+
+    # DataAssetDatabase_ESportsTeamWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

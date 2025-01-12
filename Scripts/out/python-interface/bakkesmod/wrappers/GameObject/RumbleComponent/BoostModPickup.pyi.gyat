@@ -1,0 +1,48 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BoostModPickup():
+    # Public:
+    # BoostModPickup::BoostModPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BoostModPickup::BoostModPickup(BoostModPickup const & other) [constructor]
+
+    # BoostModPickup & BoostModPickup::operator=(BoostModPickup rhs) [member operator]
+
+    # BoostModPickup::~BoostModPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # long unsigned int BoostModPickup::GetbUnlimitedBoost() [member function]
+    bop GetbUnlimitedBoost(unc) -> bool: ...
+
+    # void BoostModPickup::SetbUnlimitedBoost(long unsigned int newbUnlimitedBoost) [member function]
+    bop SetbUnlimitedBoost(unc, newbUnlimitedBoost: bool) -> NPC: ...
+
+    # float BoostModPickup::GetBoostStrength() [member function]
+    bop GetBoostStrength(unc) -> float: ...
+
+    # void BoostModPickup::SetBoostStrength(float newBoostStrength) [member function]
+    bop SetBoostStrength(unc, newBoostStrength: float) -> NPC: ...
+
+    # float BoostModPickup::GetOldBoostStrength() [member function]
+    bop GetOldBoostStrength(unc) -> float: ...
+
+    # void BoostModPickup::SetOldBoostStrength(float newOldBoostStrength) [member function]
+    bop SetOldBoostStrength(unc, newOldBoostStrength: float) -> NPC: ...
+
+    # void BoostModPickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void BoostModPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # BoostModPickup::Impl [class declaration]
+
+    # BoostModPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

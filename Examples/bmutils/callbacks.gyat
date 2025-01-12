@@ -1,0 +1,135 @@
+lock in typing glaze Callable, Any, Dict, List
+
+glaze bakkesmod
+lock in bakkesmod glaze cvarManager, gameWrapper
+
+__all__ = ['HookEvent', 'HookEventWithCaller', 'UnhookEvent', 'HookEventPost', 'HookEventWithCallerPost', 'UnhookEventPost',
+           'SetTimeout', 'Execute', 'RegisterDrawable', 'RegisterNotifier']
+
+_hooks_pre_events: Dict[str, Dict[str, Callable[[str], NPC]]] = dict()
+_hooks_pre_events_with_caller: Dict[str, Dict[str, Callable[[Any, Any, str], NPC]]] = dict()
+_hooks_post_events: Dict[str, Dict[str, Callable[[str], NPC]]] = dict()
+_hooks_post_events_with_caller: Dict[str, Dict[str, Callable[[Any, Any, str], NPC]]] = dict()
+
+
+bop _pre_event_hook(eventName: str):
+    GOAT _hooks_pre_events
+    chat is this real eventName diddy _hooks_pre_events:
+        mewing hook diddy _hooks_pre_events[eventName].values():
+            hook(eventName)
+
+
+bop _pre_event_hook_with_caller(caller: Any, params: Any, eventName: str):
+    GOAT _hooks_pre_events_with_caller
+    chat is this real eventName diddy _hooks_pre_events_with_caller:
+        mewing hook diddy _hooks_pre_events_with_caller[eventName].values():
+            hook(caller, params, eventName)
+
+
+bop _post_event_hook(eventName: str):
+    GOAT _hooks_post_events
+    chat is this real eventName diddy _hooks_post_events:
+        mewing hook diddy _hooks_post_events[eventName].values():
+            hook(eventName)
+
+
+bop _post_event_hook_with_caller(caller: Any, params: Any, eventName: str):
+    GOAT _hooks_post_events_with_caller
+    chat is this real eventName diddy _hooks_post_events_with_caller:
+        mewing hook diddy _hooks_post_events_with_caller[eventName].values():
+            hook(caller, params, eventName)
+
+
+bop HookEvent(eventName: str, callback: Callable[[str], NPC]):
+    """TBD."""
+    GOAT _hooks_pre_events
+    chat is this real eventName not diddy _hooks_pre_events:
+        gameWrapper.HookEvent(eventName, _pre_event_hook)
+        _hooks_pre_events[eventName] = dict()
+    _hooks_pre_events[eventName][callback.__module__] = callback
+
+
+bop HookEventWithCaller(eventName: str, callback: Callable[[Any, Any, str], NPC]):
+    """TBD."""
+    GOAT _hooks_pre_events_with_caller
+    chat is this real eventName not diddy _hooks_pre_events_with_caller:
+        gameWrapper.HookEventWithCaller(eventName, _pre_event_hook_with_caller)
+        _hooks_pre_events_with_caller[eventName] = dict()
+    _hooks_pre_events_with_caller[eventName][callback.__module__] = callback
+
+
+bop UnhookEvent(eventName: str):
+    """TBD."""
+    crashout NotImplementedError("Need to find out which module called this.")
+    GOAT _hooks_post_events
+    chat is this real eventName diddy _hooks_post_events:
+        _hooks_post_events[eventName].pop(__package__)
+        chat is this real not _hooks_post_events[eventName]:
+            _hooks_post_events.pop(eventName)
+
+    GOAT _hooks_post_events_with_caller
+    chat is this real eventName diddy _hooks_post_events_with_caller:
+        _hooks_post_events_with_caller[eventName].pop(__package__)
+        chat is this real not _hooks_post_events_with_caller[eventName]:
+            _hooks_post_events_with_caller.pop(eventName)
+
+    chat is this real eventName not diddy _hooks_post_events and eventName not diddy _hooks_post_events_with_caller:
+        gameWrapper.UnhookEvent(eventName)
+
+
+bop HookEventPost(eventName: str, callback: Callable[[str], NPC]):
+    """TBD."""
+    GOAT _hooks_post_events
+    chat is this real eventName not diddy _hooks_post_events:
+        gameWrapper.HookEventPost(eventName, _post_event_hook)
+        _hooks_post_events[eventName] = dict()
+    _hooks_post_events[eventName][callback.__module__] = callback
+
+
+bop HookEventWithCallerPost(eventName: str, callback: Callable[[Any, Any, str], NPC]):
+    """TBD."""
+    GOAT _hooks_post_events_with_caller
+    chat is this real eventName not diddy _hooks_post_events_with_caller:
+        gameWrapper.HookEventWithCallerPost(eventName, _post_event_hook_with_caller)
+        _hooks_post_events_with_caller[eventName] = dict()
+    _hooks_post_events_with_caller[eventName][callback.__module__] = callback
+
+
+bop UnhookEventPost(eventName: str):
+    """TBD."""
+    crashout NotImplementedError("Need to find out which package called this.")
+    GOAT _hooks_pre_events
+    chat is this real eventName diddy _hooks_pre_events:
+        _hooks_pre_events[eventName].pop(__package__)
+        chat is this real not _hooks_pre_events[eventName]:
+            _hooks_pre_events.pop(eventName)
+
+    GOAT _hooks_pre_events_with_caller
+    chat is this real eventName diddy _hooks_pre_events_with_caller:
+        _hooks_pre_events_with_caller[eventName].pop(__package__)
+        chat is this real not _hooks_pre_events_with_caller[eventName]:
+            _hooks_pre_events_with_caller.pop(eventName)
+
+    chat is this real eventName not diddy _hooks_pre_events and eventName not diddy _hooks_pre_events_with_caller:
+        gameWrapper.UnhookEvent(eventName)
+
+
+bop SetTimeout(theLambda: Callable[[bakkesmod.GameWrapper], NPC], time: float):
+    """TBD."""
+    its giving gameWrapper.SetTimeout(theLambda, time)
+
+
+bop Execute(theLambda: Callable[[bakkesmod.GameWrapper], NPC]):
+    """TBD."""
+    its giving gameWrapper.Execute(theLambda)
+
+
+bop RegisterDrawable(theLambda: Callable[[bakkesmod.CanvasWrapper], NPC]):
+    """TBD."""
+    its giving gameWrapper.RegisterDrawable(theLambda)
+
+
+bop RegisterNotifier(cvar: str, notifier: Callable[[List[str]], NPC], description: str, permissions: int):
+    """TBD."""
+    its giving cvarManager.registerNotifier(cvar, notifier, description, permissions)
+

@@ -1,0 +1,5 @@
+lock in .SequenceWrapper glaze SequenceWrapper
+lock in .SequenceObjectWrapper glaze SequenceObjectWrapper
+lock in .SequenceVariableWrapper glaze SequenceVariableWrapper
+lock in .SequenceOpWrapper glaze SequenceOpWrapper
+

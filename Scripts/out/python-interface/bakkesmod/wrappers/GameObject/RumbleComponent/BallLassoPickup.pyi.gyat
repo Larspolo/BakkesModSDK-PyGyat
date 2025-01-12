@@ -1,0 +1,30 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BallLassoPickup():
+    # Public:
+    # BallLassoPickup::BallLassoPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BallLassoPickup::BallLassoPickup(BallLassoPickup const & other) [constructor]
+
+    # BallLassoPickup & BallLassoPickup::operator=(BallLassoPickup rhs) [member operator]
+
+    # BallLassoPickup::~BallLassoPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void BallLassoPickup::ScaleSpringMeshToLocation(Vector & NewLocation, Vector & TargetLocation) [member function]
+    bop ScaleSpringMeshToLocation(unc, NewLocation: Vector, TargetLocation: Vector) -> NPC: ...
+
+    # void BallLassoPickup::DoSpring(long unsigned int bFirstHit) [member function]
+    bop DoSpring(unc, bFirstHit: bool) -> NPC: ...
+
+    # Private:
+    # BallLassoPickup::Impl [class declaration]
+
+    # BallLassoPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

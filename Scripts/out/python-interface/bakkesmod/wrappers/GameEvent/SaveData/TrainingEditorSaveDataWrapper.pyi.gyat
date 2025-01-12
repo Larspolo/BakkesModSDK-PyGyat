@@ -1,0 +1,83 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi TrainingEditorSaveDataWrapper():
+    # Public:
+    # TrainingEditorSaveDataWrapper::TrainingEditorSaveDataWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # TrainingEditorSaveDataWrapper::TrainingEditorSaveDataWrapper(TrainingEditorSaveDataWrapper const & other) [constructor]
+
+    # TrainingEditorSaveDataWrapper & TrainingEditorSaveDataWrapper::operator=(TrainingEditorSaveDataWrapper rhs) [member operator]
+
+    # TrainingEditorSaveDataWrapper::~TrainingEditorSaveDataWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool TrainingEditorSaveDataWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool TrainingEditorSaveDataWrapper::operator bool() const [casting operator]
+
+    # UnrealStringWrapper TrainingEditorSaveDataWrapper::GetCode() [member function]
+    bop GetCode(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper TrainingEditorSaveDataWrapper::GetTM_Name() [member function]
+    bop GetTM_Name(unc) -> UnrealStringWrapper: ...
+
+    # unsigned char TrainingEditorSaveDataWrapper::GetType() [member function]
+    bop GetType(unc) -> int: ...
+
+    # void TrainingEditorSaveDataWrapper::SetType(unsigned char newType) [member function]
+    bop SetType(unc, newType: int) -> NPC: ...
+
+    # unsigned char TrainingEditorSaveDataWrapper::GetDifficulty() [member function]
+    bop GetDifficulty(unc) -> int: ...
+
+    # void TrainingEditorSaveDataWrapper::SetDifficulty(unsigned char newDifficulty) [member function]
+    bop SetDifficulty(unc, newDifficulty: int) -> NPC: ...
+
+    # UnrealStringWrapper TrainingEditorSaveDataWrapper::GetCreatorName() [member function]
+    bop GetCreatorName(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper TrainingEditorSaveDataWrapper::GetDescription() [member function]
+    bop GetDescription(unc) -> UnrealStringWrapper: ...
+
+    # int TrainingEditorSaveDataWrapper::GetNumRounds() [member function]
+    bop GetNumRounds(unc) -> int: ...
+
+    # void TrainingEditorSaveDataWrapper::SetNumRounds(int newNumRounds) [member function]
+    bop SetNumRounds(unc, newNumRounds: int) -> NPC: ...
+
+    # long long unsigned int TrainingEditorSaveDataWrapper::GetCreatedAt() [member function]
+    bop GetCreatedAt(unc) -> int: ...
+
+    # void TrainingEditorSaveDataWrapper::SetCreatedAt(long long unsigned int newCreatedAt) [member function]
+    bop SetCreatedAt(unc, newCreatedAt: int) -> NPC: ...
+
+    # long long unsigned int TrainingEditorSaveDataWrapper::GetUpdatedAt() [member function]
+    bop GetUpdatedAt(unc) -> int: ...
+
+    # void TrainingEditorSaveDataWrapper::SetUpdatedAt(long long unsigned int newUpdatedAt) [member function]
+    bop SetUpdatedAt(unc, newUpdatedAt: int) -> NPC: ...
+
+    # SteamID TrainingEditorSaveDataWrapper::GetCreatorPlayerID() [member function]
+    bop GetCreatorPlayerID(unc) -> SteamID: ...
+
+    # void TrainingEditorSaveDataWrapper::SetCreatorPlayerID(SteamID newCreatorPlayerID) [member function]
+    bop SetCreatorPlayerID(unc, newCreatorPlayerID: SteamID) -> NPC: ...
+
+    # void TrainingEditorSaveDataWrapper::Init() [member function]
+    bop Init(unc) -> NPC: ...
+
+    # UniqueIDWrapper TrainingEditorSaveDataWrapper::GetCreatorPlayerUniqueID() [member function]
+    bop GetCreatorPlayerUniqueID(unc) -> UniqueIDWrapper: ...
+
+    # Private:
+    # TrainingEditorSaveDataWrapper::Impl [class declaration]
+
+    # TrainingEditorSaveDataWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

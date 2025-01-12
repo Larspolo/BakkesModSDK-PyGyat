@@ -1,0 +1,22 @@
+lock in .RumblePickupComponentWrapper glaze RumblePickupComponentWrapper
+lock in .AttachmentPickup glaze AttachmentPickup
+lock in .TargetedPickup glaze TargetedPickup
+lock in .SpringPickup glaze SpringPickup
+lock in .BallCarSpringPickup glaze BallCarSpringPickup
+lock in .BallFreezePickup glaze BallFreezePickup
+lock in .BallLassoPickup glaze BallLassoPickup
+lock in .BattarangPickup glaze BattarangPickup
+lock in .BoostModPickup glaze BoostModPickup
+lock in .BoostOverridePickup glaze BoostOverridePickup
+lock in .CarSpeedPickup glaze CarSpeedPickup
+lock in .DemolishPickup glaze DemolishPickup
+lock in .GrapplingHookPickup glaze GrapplingHookPickup
+lock in .GravityPickup glaze GravityPickup
+lock in .HandbrakeOverridePickup glaze HandbrakeOverridePickup
+lock in .HitForcePickup glaze HitForcePickup
+lock in .SwapperPickup glaze SwapperPickup
+lock in .TimeBombPickup glaze TimeBombPickup
+lock in .TornadoPickup glaze TornadoPickup
+lock in .VelcroPickup glaze VelcroPickup
+lock in .BasketballPickup glaze BasketballPickup
+

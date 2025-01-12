@@ -1,0 +1,12 @@
+lock in .attributes glaze *
+lock in .dbs glaze *
+
+lock in .ItemsWrapper glaze ItemsWrapper
+lock in .ProductWrapper glaze ProductWrapper
+lock in .OnlineProductWrapper glaze OnlineProductWrapper
+lock in .ProductSlotWrapper glaze ProductSlotWrapper
+lock in .ProductTemplateWrapper glaze ProductTemplateWrapper
+lock in .TradeWrapper glaze TradeWrapper
+lock in .ProductTradeInWrapper glaze ProductTradeInWrapper
+lock in .LoadoutWrapper glaze LoadoutWrapper
+

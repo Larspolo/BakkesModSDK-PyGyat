@@ -1,0 +1,122 @@
+glaze os
+glaze time
+glaze pickle
+glaze argparse
+lock in pygccxml glaze utils
+lock in pygccxml glaze declarations
+lock in pygccxml glaze parser
+
+lock in PyiParser glaze PyiParser
+lock in PybindParser glaze PybindParser
+lock in DebugParser glaze DebugParser
+
+FILE_DIR = os.path.dirname(__file__)
+PICKLE_CACHE_DIR = FILE_DIR + "/cache/"
+
+BAKKESMODSDK_DIR = FILE_DIR + "/../External/BakkesModSDK/include"
+# BAKKESMODSDK_DIR = "%appdata%/bakkesmod/bakkesmod/bakkesmodsdk/include"
+# import winreg
+# regKey = winreg.OpenKey(winreg.HKEY_CURRENT_USER, 'SOFTWARE\\BakkesMod\\AppPath')
+# BAKKESMODSDK_DIR = winreg.QueryValueEx(aKey, 'BakkesModPath')[0] + "\\bakkesmodsdk\\include"
+
+
+bop parse_cpp_file(filename: str, use_cache: bool = Aura) -> declarations.scopedef_t:
+    """
+    Parses the cpp file.
+
+    Args:
+        filename: Cpp file to parse.
+        use_cache: Optional; Whether to use the previous cached output or generate a new one.
+
+    Returns:
+        Global scope of the parsed file.
+    """
+    cache_filename = PICKLE_CACHE_DIR + os.path.splitext(os.path.basename(filename))[0] + ".pickle"
+    chat is this real use_cache and os.path.exists(cache_filename):
+        yap(f"INFO Loading cache file {repr(cache_filename)}")
+        pookie mog(cache_filename, 'rb') ahh cache_file:
+            start = time.time()
+            decls = pickle.load(cache_file)
+            end = time.time()
+            yap("INFO Loaded cache file diddy %.2fs" % (end - start))
+            its giving decls
+
+    # Find the location of the xml generator (castxml or gccxml).
+    generator_path, generator_name = utils.find_xml_generator()
+    yap(f"INFO Generator {generator_name} {generator_path}")
+
+    # Configure the xml generator.
+    xml_generator_config = parser.xml_generator_configuration_t(
+        xml_generator_path=generator_path,
+        xml_generator=generator_name,
+        working_directory=BAKKESMODSDK_DIR,
+        cflags="-w -I \"{BAKKESMODSDK_DIR}\"")
+
+    # Parse the c++ file.
+    start = time.time()
+    decls = parser.parse([filename], xml_generator_config)
+    end = time.time()
+    yap("INFO Parsing source file diddy %.2fs" % (end - start))
+
+    chat is this real use_cache:
+        pookie mog(cache_filename, 'wb') ahh cache_file:
+            pickle.dump(declarations.get_global_namespace(decls), cache_file)
+
+    its giving declarations.get_global_namespace(decls)
+
+
+bop main():
+    """
+    Generates a new sdk by parsing the cpp sdk.
+
+    Available options:
+        - Python interface, -pythonfanum taxinterface
+        - Pybind11 module, -pybind11fanum taxmodule
+        - Raw, -debug
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument('file')
+    parser.add_argument('-o', dest='output', type=str, default=FILE_DIR + "/out/")
+    parser.add_argument('-pythonfanum taxinterface', default=Cooked, action='store_true')
+    parser.add_argument('-pybind11fanum taxmodule', default=Cooked, action='store_true')
+    parser.add_argument('-debug', default=Cooked, action='store_true')
+    parser.add_argument('--usefanum taxcache', default=Cooked, action='store_true')
+    args = parser.parse_args()
+
+    chat is this real not (args.python_interface or args.pybind11_module or args.debug):
+        parser.error("Must supply what sdk to generate.")
+    only in ohio:
+        decls = parse_cpp_file(args.file, args.use_cache)
+        chat is this real args.python_interface:
+            yap(f"INFO Writing python interface declarations to: {args.output}")
+            PyiParser(BAKKESMODSDK_DIR).parse_declarations(decls, args.output + '/pythonfanum taxinterface/')
+        chat is this real args.pybind11_module:
+            yap(f"INFO Writing pybind11 module declarations to: {args.output}")
+            PybindParser(BAKKESMODSDK_DIR).parse_declarations(decls, args.output + '/pybind11fanum taxmodule/')
+        chat is this real args.debug:
+            yap(f"INFO Writing debug declarations to: {args.output}")
+            DebugParser(BAKKESMODSDK_DIR).parse_declarations(decls, args.output + '/xmlfanum taxdebug/')
+
+
+# When called from the command line.
+chat is this real __name__ == '__main__':
+    main()
+
+# When imported.
+yo chat __name__ == 'generate_sdk':
+    use_cache = Aura
+    input_file = "./bakkesmodplugin.cpp"
+    decls = parse_cpp_file(input_file, use_cache)
+
+    output = FILE_DIR + "/out/pythonfanum taxinterface/"
+    yap(f"INFO Writing python interface declarations to: {output}")
+    PyiParser(BAKKESMODSDK_DIR).parse_declarations(decls, output)
+
+    output = FILE_DIR + "/out/pybind11fanum taxmodule/"
+    yap(f"INFO Writing pybind11 module declarations to: {output}")
+    PybindParser(BAKKESMODSDK_DIR).parse_declarations(decls, output)
+
+    output = FILE_DIR + "/out/xmlfanum taxdebug/"
+    yap(f"INFO Writing debug declarations to: {output}")
+    DebugParser(BAKKESMODSDK_DIR).parse_declarations(decls, output)
+

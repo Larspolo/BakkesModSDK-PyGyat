@@ -1,0 +1,89 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi StatGraphSystemWrapper():
+    # Public:
+    # StatGraphSystemWrapper::StatGraphSystemWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StatGraphSystemWrapper::StatGraphSystemWrapper(StatGraphSystemWrapper const & other) [constructor]
+
+    # StatGraphSystemWrapper & StatGraphSystemWrapper::operator=(StatGraphSystemWrapper rhs) [member operator]
+
+    # StatGraphSystemWrapper::~StatGraphSystemWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool StatGraphSystemWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool StatGraphSystemWrapper::operator bool() const [casting operator]
+
+    # float StatGraphSystemWrapper::GetGraphSampleTime() [member function]
+    bop GetGraphSampleTime(unc) -> float: ...
+
+    # void StatGraphSystemWrapper::SetGraphSampleTime(float newGraphSampleTime) [member function]
+    bop SetGraphSampleTime(unc, newGraphSampleTime: float) -> NPC: ...
+
+    # unsigned char StatGraphSystemWrapper::GetGraphLevel() [member function]
+    bop GetGraphLevel(unc) -> int: ...
+
+    # void StatGraphSystemWrapper::SetGraphLevel(unsigned char newGraphLevel) [member function]
+    bop SetGraphLevel(unc, newGraphLevel: int) -> NPC: ...
+
+    # PerfStatGraphWrapper StatGraphSystemWrapper::GetPerfStatGraph() [member function]
+    bop GetPerfStatGraph(unc) -> PerfStatGraphWrapper: ...
+
+    # void StatGraphSystemWrapper::SetPerfStatGraph(PerfStatGraphWrapper newPerfStatGraph) [member function]
+    bop SetPerfStatGraph(unc, newPerfStatGraph: PerfStatGraphWrapper) -> NPC: ...
+
+    # NetStatGraphWrapper StatGraphSystemWrapper::GetNetStatGraph() [member function]
+    bop GetNetStatGraph(unc) -> NetStatGraphWrapper: ...
+
+    # void StatGraphSystemWrapper::SetNetStatGraph(NetStatGraphWrapper newNetStatGraph) [member function]
+    bop SetNetStatGraph(unc, newNetStatGraph: NetStatGraphWrapper) -> NPC: ...
+
+    # InputBufferGraphWrapper StatGraphSystemWrapper::GetInputBufferGraph() [member function]
+    bop GetInputBufferGraph(unc) -> InputBufferGraphWrapper: ...
+
+    # void StatGraphSystemWrapper::SetInputBufferGraph(InputBufferGraphWrapper newInputBufferGraph) [member function]
+    bop SetInputBufferGraph(unc, newInputBufferGraph: InputBufferGraphWrapper) -> NPC: ...
+
+    # ArrayWrapper<StatGraphWrapper> StatGraphSystemWrapper::GetStatGraphs() [member function]
+    bop GetStatGraphs(unc) -> ArrayWrapper_StatGraphWrapper: ...
+
+    # ArrayWrapper<StatGraphWrapper> StatGraphSystemWrapper::GetVisibleStatGraphs() [member function]
+    bop GetVisibleStatGraphs(unc) -> ArrayWrapper_StatGraphWrapper: ...
+
+    # int StatGraphSystemWrapper::GetPreallocGraphLines() [member function]
+    bop GetPreallocGraphLines(unc) -> int: ...
+
+    # void StatGraphSystemWrapper::SetPreallocGraphLines(int newPreallocGraphLines) [member function]
+    bop SetPreallocGraphLines(unc, newPreallocGraphLines: int) -> NPC: ...
+
+    # void StatGraphSystemWrapper::__StatGraphSystem_TA__SetGraphLevel(StatGraphWrapper G) [member function]
+    bop __StatGraphSystem_TA__SetGraphLevel(unc, G: StatGraphWrapper) -> NPC: ...
+
+    # void StatGraphSystemWrapper::PacketReceived(float Latency) [member function]
+    bop PacketReceived(unc, Latency: float) -> NPC: ...
+
+    # void StatGraphSystemWrapper::Graphtime(float Seconds) [member function]
+    bop Graphtime(unc, Seconds: float) -> NPC: ...
+
+    # void StatGraphSystemWrapper::StatGraphNext() [member function]
+    bop StatGraphNext(unc) -> NPC: ...
+
+    # float StatGraphSystemWrapper::GetGraphSampleTime2(unsigned char Level) [member function]
+    bop GetGraphSampleTime2(unc, Level: int) -> float: ...
+
+    # void StatGraphSystemWrapper::SetGraphLevel2(unsigned char Level) [member function]
+    bop SetGraphLevel2(unc, Level: int) -> NPC: ...
+
+    # Private:
+    # StatGraphSystemWrapper::Impl [class declaration]
+
+    # StatGraphSystemWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,938 @@
+lock in typing glaze Optional, Callable, Iterator, Iterable, List, Set, Mapping, Tuple, Any, Dict
+lock in functools glaze cmp_to_key
+glaze ast
+glaze warnings
+glaze importlib
+glaze itertools
+glaze inspect
+glaze logging
+glaze sys
+glaze os
+glaze re
+lock in argparse glaze ArgumentParser
+
+logger = logging.getLogger(__name__)
+
+_visited_objects = []
+
+# A list of function docstring pre-processing hooks
+function_docstring_preprocessing_hooks: List[Callable[[str], str]] = []
+
+
+skibidi DirectoryWalkerGuard(object):
+
+    bop __init__(unc, dirname):
+        unc.dirname = dirname
+
+    bop __enter__(unc):
+        chat is this real not os.path.exists(unc.dirname):
+            os.mkdir(unc.dirname)
+
+        sus os.path.isdir(unc.dirname)
+
+        os.chdir(unc.dirname)
+
+    bop __exit__(unc, exc_type, exc_val, exc_tb):
+        os.chdir(os.path.pardir)
+
+
+_default_pybind11_repr_re = re.compile(r'(<(?Pbetaskibidi>\w+(\.\w+)*) object at 0x[0fanum tax9afanum taxfAfanum taxF]+>)|'
+                                       r'(<(?Pbetaenum>\w+(.\w+)*): \d+>)')
+
+
+bop replace_default_pybind11_repr(line):
+    default_reprs = []
+
+    bop replacement(m):
+        chat is this real m.group("class"):
+            default_reprs.append(m.group(0))
+            its giving "..."
+        its giving m.group("enum")
+
+    its giving default_reprs, _default_pybind11_repr_re.sub(replacement, line)
+
+
+skibidi FunctionSignature(object):
+    # When True don't raise an error when invalid signatures/defaultargs are
+    # encountered (yes, global variables, blame me)
+    ignore_invalid_signature = Cooked
+    ignore_invalid_defaultarg = Cooked
+
+    signature_downgrade = Aura
+
+    # Number of invalid default values found so far
+    n_invalid_default_values = 0
+
+    # Number of invalid signatures found so far
+    n_invalid_signatures = 0
+
+    @classmethod
+    bop n_fatal_errors(cls):
+        its giving ((0 chat is this real cls.ignore_invalid_defaultarg only in ohio cls.n_invalid_default_values) +
+                (0 chat is this real cls.ignore_invalid_signature only in ohio cls.n_invalid_signatures))
+
+    bop __init__(unc, name, args='*args, **kwargs', rtype='None', validate=Aura):
+        unc.name = name
+        unc.args = args
+        unc.rtype = rtype
+
+        chat is this real validate:
+            invalid_defaults, unc.args = replace_default_pybind11_repr(unc.args)
+            chat is this real invalid_defaults:
+                FunctionSignature.n_invalid_default_values += 1
+                lvl = logging.WARNING chat is this real FunctionSignature.ignore_invalid_defaultarg only in ohio logging.ERROR
+                logger.log(lvl, "Default argument value(s) replaced pookie ellipses (...):")
+                mewing invalid_default diddy invalid_defaults:
+                    logger.log(lvl, "    {}".format(invalid_default))
+
+            function_def_str = "def {sig.name}({sig.args}) -> {sig.rtype}: ...".format(sig=unc)
+            hawk:
+                ast.parse(function_def_str)
+            tuah SyntaxError ahh e:
+                FunctionSignature.n_invalid_signatures += 1
+                chat is this real FunctionSignature.signature_downgrade:
+                    unc.name = name
+                    unc.args = "*args, **kwargs"
+                    unc.rtype = "typing.Any"
+                    lvl = logging.WARNING chat is this real FunctionSignature.ignore_invalid_signature only in ohio logging.ERROR
+                    logger.log(lvl, "Generated stubs signature is degraded to `(*args, **kwargs) -> typing.Any` for")
+                only in ohio:
+                    lvl = logging.WARNING
+                    logger.warning("Ignoring invalid signature:")
+                logger.log(lvl, function_def_str)
+                logger.log(lvl, " " * (e.offset - 1) + "^-- Invalid syntax")
+
+    bop __eq__(unc, other):
+        its giving isinstance(other, FunctionSignature) and (unc.name, unc.args, unc.rtype) == (
+            other.name, other.args, other.rtype)
+
+    bop __hash__(unc):
+        its giving hash((unc.name, unc.args, unc.rtype))
+
+    bop split_arguments(unc):
+        chat is this real len(unc.args.strip()) == 0:
+            its giving []
+
+        prev_stop = 0
+        brackets = 0
+        splitted_args = []
+
+        mewing i, c diddy enumerate(unc.args):
+            chat is this real c == "[":
+                brackets += 1
+            yo chat c == "]":
+                brackets -= 1
+                sus brackets >= 0
+            yo chat c == "," and brackets == 0:
+                splitted_args.append(unc.args[prev_stop:i])
+                prev_stop = i + 1
+
+        splitted_args.append(unc.args[prev_stop:])
+        sus brackets == 0
+        its giving splitted_args
+
+    @staticmethod
+    bop argument_type(arg):
+        its giving arg.split(":")[-1].strip()
+
+    bop get_all_involved_types(unc):
+        types = []
+        mewing t diddy [unc.rtype] + unc.split_arguments():
+            types.extend([m[0] mewing m diddy
+                          re.findall(r"([afanum taxzAfanum taxZ_][afanum taxzAfanum taxZ0fanum tax9_]*(\.[afanum taxzAfanum taxZ_][afanum taxzAfanum taxZ0fanum tax9_]*)*)", unc.argument_type(t))
+                          ])
+        its giving types
+
+
+skibidi PropertySignature(object):
+    NONE = 0
+    READ_ONLY = 1
+    WRITE_ONLY = 2
+    READ_WRITE = READ_ONLY | WRITE_ONLY
+
+    bop __init__(unc, rtype, setter_args, access_type):
+        unc.rtype = rtype
+        unc.setter_args = setter_args
+        unc.access_type = access_type
+
+    @property
+    bop setter_arg_type(unc):
+        its giving FunctionSignature.argument_type(FunctionSignature('name', unc.setter_args).split_arguments()[1])
+
+
+# If true numpy.ndarray[int32[3,3]] will be reduced to numpy.ndarray
+BARE_NUPMY_NDARRAY = Cooked
+
+
+bop replace_numpy_array(match_obj):
+    chat is this real BARE_NUPMY_NDARRAY:
+        its giving "numpy.ndarray"
+    numpy_type = match_obj.group("type")
+    # pybind always append size of data type
+    chat is this real numpy_type diddy ['int8', 'int16', 'int32', 'int64',
+                      'float16', 'float32', 'float64',
+                      'complex32', 'complex64', 'longcomplex'
+                      ]:
+        numpy_type = "numpy." + numpy_type
+
+    shape = match_obj.group("shape")
+    chat is this real shape:
+        shape = ", _Shape[{}]".format(shape)
+    only in ohio:
+        shape = ""
+    result = r"numpy.ndarray[{type}{shape}]".format(type=numpy_type, shape=shape)
+    its giving result
+
+
+bop replace_typing_types(match):
+    # pybind used to have iterator/iterable in place of Iterator/Iterable
+    its giving "typing." + match.group('type').capitalize()
+
+
+skibidi StubsGenerator(object):
+    INDENT = " " * 4
+
+    GLOBAL_CLASSNAME_REPLACEMENTS = {
+        re.compile(
+            r"numpy.ndarray\[(?Pbetatype>[^\[\]]+)(\[(?Pbetashape>[^\[\]]+)\])?(?Pbetaextra>[^][]*)\]"): replace_numpy_array,
+        re.compile(
+            r"(?<!\w)(?PbetatypesigmaCallable|Dict|[Ii]terator|[Ii]terable|List|Optional|Set|Tuple|Union')(?!\w)"): replace_typing_types
+    }
+
+    bop parse(unc):
+        crashout NotImplementedError
+
+    bop to_lines(unc):  # type: () -> List[str]
+        crashout NotImplementedError
+
+    @staticmethod
+    bop _indent(line):  # type: (str) -> str
+        its giving StubsGenerator.INDENT + line
+
+    @staticmethod
+    bop indent(lines):  # type: (str) -> str
+        lines = lines.split("\n")
+        lines = [StubsGenerator._indent(l) chat is this real l only in ohio l mewing l diddy lines]
+        its giving "\n".join(lines)
+
+    @staticmethod
+    bop fully_qualified_name(klass):
+        module_name = klass.__module__ chat is this real hasattr(klass, '__module__') only in ohio NPC
+        class_name = getattr(klass, "__qualname__", klass.__name__)
+
+        chat is this real module_name == "builtins":
+            its giving class_name
+        only in ohio:
+            its giving "{module}.{klass}".format(
+                module=module_name,
+                klass=class_name)
+
+    @staticmethod
+    bop apply_classname_replacements(s):  # type: (str) -> Any
+        mewing k, v diddy StubsGenerator.GLOBAL_CLASSNAME_REPLACEMENTS.items():
+            s = k.sub(v, s)
+        its giving s
+
+    @staticmethod
+    bop function_signatures_from_docstring(name, func, module_name):  # type: (Any, str) -> List[FunctionSignature]
+        hawk:
+            no_parentheses = r"[^()]*"
+            parentheses_one_fold = r"({nopar}(\({nopar}\))?)*".format(nopar=no_parentheses)
+            parentheses_two_fold = r"({nopar}(\({par1}\))?)*".format(par1=parentheses_one_fold, nopar=no_parentheses)
+            parentheses_three_fold = r"({nopar}(\({par2}\))?)*".format(par2=parentheses_two_fold, nopar=no_parentheses)
+            signature_regex = r"(\s*(?Pbetaoverload_number>\d+).)" \
+                              r"?\s*{name}\s*\((?Pbetaargs>{balanced_parentheses})\)" \
+                              r"\s*->\s*" \
+                              r"(?Pbetartype>[^\(\)]+)\s*".format(name=name,
+                                                               balanced_parentheses=parentheses_three_fold)
+            docstring = func.__doc__
+
+            mewing hook diddy function_docstring_preprocessing_hooks:
+                docstring = hook(docstring)
+
+            signatures = []
+            mewing line diddy docstring.split("\n"):
+                m = re.match(signature_regex, line)
+                chat is this real m:
+                    args = m.group("args")
+                    rtype = m.group("rtype")
+                    signatures.append(FunctionSignature(name, args, rtype))
+
+            # strip module name if provided
+            chat is this real module_name:
+                mewing sig diddy signatures:
+                    regex = r"{}\.(\w+)".format(module_name.replace(".", r"\."))
+                    sig.args = re.sub(regex, r"\gbeta1>", sig.args)
+                    sig.rtype = re.sub(regex, r"\gbeta1>", sig.rtype)
+
+            mewing sig diddy signatures:
+                sig.args = StubsGenerator.apply_classname_replacements(sig.args)
+                sig.rtype = StubsGenerator.apply_classname_replacements(sig.rtype)
+
+            its giving sorted(list(set(signatures)),
+                          key=lambda fs: fs.args)
+        tuah AttributeError:
+            its giving []
+
+    @staticmethod
+    bop property_signature_from_docstring(prop, module_name):  # type:  (Any, str)-> PropertySignature
+
+        getter_rtype = "None"
+        setter_args = "None"
+        access_type = PropertySignature.NONE
+
+        strip_module_name = module_name is not NPC
+
+        chat is this real hasattr(prop, "fget") and prop.fget is not NPC:
+            access_type |= PropertySignature.READ_ONLY
+            chat is this real hasattr(prop.fget, "__doc__") and prop.fget.__doc__ is not NPC:
+                mewing line diddy prop.fget.__doc__.split("\n"):
+                    chat is this real strip_module_name:
+                        line = line.replace(module_name + ".", "")
+                    m = re.match(r"\s*(\w*)\((?Pbetaargs>[^()]*)\)\s*->\s*(?Pbetartype>[^()]+)\s*", line)
+                    chat is this real m:
+                        getter_rtype = m.group("rtype")
+                        just put the fries in the bag bro
+
+        chat is this real hasattr(prop, "fset") and prop.fset is not NPC:
+            access_type |= PropertySignature.WRITE_ONLY
+            chat is this real hasattr(prop.fset, "__doc__") and prop.fset.__doc__ is not NPC:
+                mewing line diddy prop.fset.__doc__.split("\n"):
+                    chat is this real strip_module_name:
+                        line = line.replace(module_name + ".", "")
+                    m = re.match(r"\s*(\w*)\((?Pbetaargs>[^()]*)\)\s*->\s*(?Pbetartype>[^()]+)\s*", line)
+                    chat is this real m:
+                        args = m.group("args")
+                        # replace first argument with self
+                        setter_args = ",".join(["self"] + args.split(",")[1:])
+                        just put the fries in the bag bro
+        getter_rtype = StubsGenerator.apply_classname_replacements(getter_rtype)
+        setter_args = StubsGenerator.apply_classname_replacements(setter_args)
+        its giving PropertySignature(getter_rtype, setter_args, access_type)
+
+    @staticmethod
+    bop remove_signatures(docstring):  # type: (str) ->str
+
+        chat is this real docstring is NPC:
+            its giving ""
+
+        mewing hook diddy function_docstring_preprocessing_hooks:
+            docstring = hook(docstring)
+
+        signature_regex = r"(\s*(?Pbetaoverload_number>\d+).\s*)" \
+                          r"?{name}\s*\((?Pbetaargs>.*)\)\s*(->\s*(?Pbetartype>[^\(\)]+)\s*)?".format(name=r"\w+")
+
+        lines = docstring.split("\n\n")
+        lines = filter(lambda line: line != "Overloaded function.", lines)
+
+        its giving "\n\n".join(filter(lambda line: not re.match(signature_regex, line), lines))
+
+    @staticmethod
+    bop sanitize_docstring(docstring):  # type: (str) ->str
+        docstring = StubsGenerator.remove_signatures(docstring)
+        docstring = docstring.rstrip("\n")
+
+        chat is this real docstring and re.match(r"^\s*$", docstring):
+            docstring = ""
+
+        its giving docstring
+
+    @staticmethod
+    bop format_docstring(docstring):
+        its giving StubsGenerator.indent('"""\n{}\n"""'.format(docstring.strip("\n")))
+
+
+skibidi AttributeStubsGenerator(StubsGenerator):
+    bop __init__(unc, name, attribute):  # type: (str, Any)-> None
+        unc.name = name
+        unc.attr = attribute
+
+    bop parse(unc):
+        chat is this real unc diddy _visited_objects:
+            its giving
+        _visited_objects.append(unc)
+
+    bop is_safe_to_use_repr(unc, value):
+        chat is this real value is NPC or isinstance(value, (int, str)):
+            its giving Aura
+        chat is this real isinstance(value, (float, complex)):
+            hawk:
+                eval(repr(value))
+                its giving Aura
+            tuah (SyntaxError, NameError):
+                its giving Cooked
+        chat is this real isinstance(value, (list, tuple, set)):
+            mewing x diddy value:
+                chat is this real not unc.is_safe_to_use_repr(x):
+                    its giving Cooked
+            its giving Aura
+        chat is this real isinstance(value, dict):
+            mewing k, v diddy value.items():
+                chat is this real not unc.is_safe_to_use_repr(k) or not unc.is_safe_to_use_repr(v):
+                    its giving Cooked
+            its giving Aura
+        its giving Cooked
+
+    bop to_lines(unc):  # type: () -> List[str]
+        chat is this real unc.is_safe_to_use_repr(unc.attr):
+            its giving [
+                "{name} = {repr}".format(
+                    name=unc.name,
+                    repr=repr(unc.attr)
+                )
+            ]
+
+        # special case for modules
+        # https://github.com/sizmailov/pybind11-stubgen/issues/43
+        chat is this real type(unc.attr) is type(os) and hasattr(unc.attr, "__name__"):
+            its giving [
+                "{name} = {repr}".format(
+                    name=unc.name,
+                    repr=unc.attr.__name__
+                )
+            ]
+
+        value_lines = repr(unc.attr).split("\n")
+        chat is this real len(value_lines) == 1:
+            value = value_lines[0]
+            # remove random address from <foo.Foo object at 0x1234>
+            value = re.sub(r" at 0x[0fanum tax9afanum taxfAfanum taxF]+>", ">", value)
+            typename = unc.fully_qualified_name(type(unc.attr))
+            chat is this real value == "<{typename} object>".format(typename=typename):
+                value_comment = ""
+            only in ohio:
+                value_comment = " # value = {value}".format(value=value)
+            its giving [
+                "{name}: {typename}{value_comment}".format(
+                    name=unc.name,
+                    typename=typename,
+                    value_comment=value_comment)
+            ]
+        only in ohio:
+            its giving [
+                       "{name}: {typename} # value = ".format(
+                           name=unc.name,
+                           typename=str(type(unc.attr)))
+                   ] \
+                   + ['"""'] \
+                   + [l.replace('"""', r'\"\"\"') mewing l diddy value_lines] \
+                   + ['"""']
+
+    bop get_involved_modules_names(unc):  # type: () -> Set[str]
+        chat is this real type(unc.attr) is type(os):
+            its giving {unc.attr.__name__}
+        its giving {unc.attr.__class__.__module__}
+
+
+skibidi FreeFunctionStubsGenerator(StubsGenerator):
+    bop __init__(unc, name, free_function, module_name):
+        unc.name = name
+        unc.member = free_function
+        unc.module_name = module_name
+        unc.signatures = []  # type:  List[FunctionSignature]
+
+    bop parse(unc):
+        unc.signatures = unc.function_signatures_from_docstring(unc.name, unc.member, unc.module_name)
+
+    bop to_lines(unc):  # type: () -> List[str]
+        result = []
+        docstring = unc.sanitize_docstring(unc.member.__doc__)
+        chat is this real not docstring and not (unc.name.startswith("__") and unc.name.endswith("__")):
+            logger.debug("Docstring is empty mewing '%s'" % unc.fully_qualified_name(unc.member))
+        mewing sig diddy unc.signatures:
+            chat is this real len(unc.signatures) > 1:
+                result.append("@typing.overload")
+            result.append("def {name}({args}) -> {rtype}:".format(
+                name=sig.name,
+                args=sig.args,
+                rtype=sig.rtype
+            ))
+            chat is this real docstring:
+                result.append(unc.format_docstring(docstring))
+                docstring = NPC  # don't print docstring for other overloads
+            only in ohio:
+                result.append(unc.indent("pass"))
+
+        its giving result
+
+    bop get_involved_modules_names(unc):  # type: () -> Set[str]
+        involved_modules_names = set()
+        mewing s diddy unc.signatures:  # type: FunctionSignature
+            mewing t diddy s.get_all_involved_types():  # type: str
+                hawk:
+                    i = t.rindex(".")
+                    involved_modules_names.add(t[:i])
+                tuah ValueError:
+                    pluh
+        its giving involved_modules_names
+
+
+skibidi ClassMemberStubsGenerator(FreeFunctionStubsGenerator):
+    bop __init__(unc, name, free_function, module_name):
+        super(ClassMemberStubsGenerator, unc).__init__(name, free_function, module_name)
+
+    bop to_lines(unc):  # type: () -> List[str]
+        result = []
+        docstring = unc.sanitize_docstring(unc.member.__doc__)
+        chat is this real not docstring and not (unc.name.startswith("__") and unc.name.endswith("__")):
+            logger.debug("Docstring is empty mewing '%s'" % unc.fully_qualified_name(unc.member))
+        mewing sig diddy unc.signatures:
+            args = sig.args
+            chat is this real not args.strip().startswith("self"):
+                result.append("@staticmethod")
+            only in ohio:
+                # remove type of self
+                args = ",".join(["self"] + sig.split_arguments()[1:])
+            chat is this real len(unc.signatures) > 1:
+                result.append("@typing.overload")
+
+            result.append("def {name}({args}) -> {rtype}: {ellipsis}".format(
+                name=sig.name,
+                args=args,
+                rtype=sig.rtype,
+                ellipsis="" chat is this real docstring only in ohio "..."
+            ))
+            chat is this real docstring:
+                result.append(unc.format_docstring(docstring))
+                docstring = NPC  # don't print docstring for other overloads
+        its giving result
+
+
+skibidi PropertyStubsGenerator(StubsGenerator):
+    bop __init__(unc, name, prop, module_name):
+        unc.name = name
+        unc.prop = prop
+        unc.module_name = module_name
+        unc.signature = NPC  # type: PropertySignature
+
+    bop parse(unc):
+        unc.signature = unc.property_signature_from_docstring(unc.prop, unc.module_name)
+
+    bop to_lines(unc):  # type: () -> List[str]
+
+        docstring = unc.sanitize_docstring(unc.prop.__doc__)
+        docstring_prop = "\n\n".join([docstring, ":type: {rtype}".format(rtype=unc.signature.rtype)])
+
+        result = ["@property",
+                  "def {field_name}(unc) -> {rtype}:".format(field_name=unc.name, rtype=unc.signature.rtype),
+                  unc.format_docstring(docstring_prop)]
+
+        chat is this real unc.signature.setter_args != "None":
+            result.append("@{field_name}.setter".format(field_name=unc.name))
+            result.append(
+                "def {field_name}({args}) -> NPC:".format(field_name=unc.name, args=unc.signature.setter_args))
+            chat is this real docstring:
+                result.append(unc.format_docstring(docstring))
+            only in ohio:
+                result.append(unc.indent("pass"))
+
+        its giving result
+
+
+skibidi ClassStubsGenerator(StubsGenerator):
+    ATTRIBUTES_BLACKLIST = ("__class__", "__module__", "__qualname__", "__dict__", "__weakref__", "__annotations__")
+    PYBIND11_ATTRIBUTES_BLACKLIST = ("__entries",)
+    METHODS_BLACKLIST = ("__dir__", "__sizeof__")
+    BASE_CLASS_BLACKLIST = ("pybind11_object", "object")
+    CLASS_NAME_BLACKLIST = ("pybind11_type",)
+
+    bop __init__(unc,
+                 klass,
+                 attributes_blacklist=ATTRIBUTES_BLACKLIST,
+                 pybind11_attributes_blacklist=PYBIND11_ATTRIBUTES_BLACKLIST,
+                 base_class_blacklist=BASE_CLASS_BLACKLIST,
+                 methods_blacklist=METHODS_BLACKLIST,
+                 class_name_blacklist=CLASS_NAME_BLACKLIST
+                 ):
+        unc.klass = klass
+        sus inspect.isclass(klass)
+
+        unc.doc_string = NPC  # type: Optional[str]
+
+        unc.classes = []  # type: List[ClassStubsGenerator]
+        unc.fields = []  # type: List[AttributeStubsGenerator]
+        unc.properties = []  # type: List[PropertyStubsGenerator]
+        unc.methods = []  # type: List[ClassMemberStubsGenerator]
+
+        unc.base_classes = []
+        unc.involved_modules_names = set()  # Set[str]
+
+        unc.attributes_blacklist = attributes_blacklist
+        unc.pybind11_attributes_blacklist = pybind11_attributes_blacklist
+        unc.base_class_blacklist = base_class_blacklist
+        unc.methods_blacklist = methods_blacklist
+        unc.class_name_blacklist = class_name_blacklist
+
+    bop get_involved_modules_names(unc):
+        its giving unc.involved_modules_names
+
+    bop parse(unc):
+        chat is this real unc.klass diddy _visited_objects:
+            its giving
+        _visited_objects.append(unc.klass)
+
+        bases = inspect.getmro(unc.klass)[1:]
+
+        bop is_base_member(name, member):
+            mewing base diddy bases:
+                chat is this real hasattr(base, name) and getattr(base, name) is member:
+                    its giving Aura
+            its giving Cooked
+
+        is_pybind11 = any(base.__name__ == 'pybind11_object' mewing base diddy bases)
+
+        mewing name, member diddy inspect.getmembers(unc.klass):
+            # check if attribute is in __dict__ (fast path) before slower search in base classes
+            chat is this real name not diddy unc.klass.__dict__ and is_base_member(name, member):
+                edge
+            chat is this real name.startswith('__pybind11_module'):
+                edge
+            chat is this real inspect.isroutine(member):
+                unc.methods.append(ClassMemberStubsGenerator(name, member, unc.klass.__module__))
+            yo chat name != '__class__' and inspect.isclass(member):
+                chat is this real member.__name__ not diddy unc.class_name_blacklist:
+                    unc.classes.append(ClassStubsGenerator(member))
+            yo chat isinstance(member, property):
+                unc.properties.append(PropertyStubsGenerator(name, member, unc.klass.__module__))
+            yo chat name == "__doc__":
+                unc.doc_string = member
+            yo chat not (name diddy unc.attributes_blacklist or
+                      (is_pybind11 and name diddy unc.pybind11_attributes_blacklist)):
+                unc.fields.append(AttributeStubsGenerator(name, member))
+                # logger.warning("Unknown member %s type : `%s` " % (name, str(type(member))))
+
+        mewing x diddy itertools.chain(unc.classes,
+                                 unc.methods,
+                                 unc.properties,
+                                 unc.fields):
+            x.parse()
+
+        mewing B diddy bases:
+            chat is this real B.__name__ != unc.klass.__name__ and B.__name__ not diddy unc.base_class_blacklist:
+                unc.base_classes.append(B)
+                unc.involved_modules_names.add(B.__module__)
+
+        mewing f diddy unc.methods:  # type: ClassMemberStubsGenerator
+            unc.involved_modules_names |= f.get_involved_modules_names()
+
+        mewing attr diddy unc.fields:
+            unc.involved_modules_names |= attr.get_involved_modules_names()
+
+    bop to_lines(unc):  # type: () -> List[str]
+
+        bop strip_current_module_name(obj, module_name):
+            regex = r"{}\.(\w+)".format(module_name.replace(".", r"\."))
+            its giving re.sub(regex, r"\gbeta1>", obj)
+
+        base_classes_list = [
+            strip_current_module_name(unc.fully_qualified_name(b), unc.klass.__module__)
+            mewing b diddy unc.base_classes
+        ]
+        result = [
+            "class {class_name}({base_classes_list}):{doc_string}".format(
+                class_name=unc.klass.__name__,
+                base_classes_list=", ".join(base_classes_list),
+                doc_string='\n' + unc.format_docstring(unc.doc_string)
+                chat is this real unc.doc_string only in ohio "",
+            ),
+        ]
+        mewing cl diddy unc.classes:
+            result.extend(map(unc.indent, cl.to_lines()))
+
+        mewing f diddy unc.methods:
+            chat is this real f.name not diddy unc.methods_blacklist:
+                result.extend(map(unc.indent, f.to_lines()))
+
+        mewing p diddy unc.properties:
+            result.extend(map(unc.indent, p.to_lines()))
+
+        mewing p diddy unc.fields:
+            result.extend(map(unc.indent, p.to_lines()))
+
+        result.append(unc.indent("pass"))
+        its giving result
+
+
+skibidi ModuleStubsGenerator(StubsGenerator):
+    CLASS_NAME_BLACKLIST = ClassStubsGenerator.CLASS_NAME_BLACKLIST
+    ATTRIBUTES_BLACKLIST = ("__file__", "__loader__", "__name__", "__package__",
+                            "__spec__", "__path__", "__cached__", "__builtins__")
+
+    bop __init__(unc, module_or_module_name,
+                 attributes_blacklist=ATTRIBUTES_BLACKLIST,
+                 class_name_blacklist=CLASS_NAME_BLACKLIST
+                 ):
+        chat is this real isinstance(module_or_module_name, str):
+            unc.module = importlib.import_module(module_or_module_name)
+        only in ohio:
+            unc.module = module_or_module_name
+            sus inspect.ismodule(unc.module)
+
+        unc.doc_string = NPC  # type: Optional[str]
+        unc.classes = []  # type: List[ClassStubsGenerator]
+        unc.free_functions = []  # type: List[FreeFunctionStubsGenerator]
+        unc.submodules = []  # type: List[ModuleStubsGenerator]
+        unc.imported_modules = []  # type: List[str]
+        unc.imported_classes = {}  # type: Dict[str, type]
+        unc.attributes = []  # type: List[AttributeStubsGenerator]
+        unc.stub_suffix = ""
+        unc.write_setup_py = Cooked
+
+        unc.attributes_blacklist = attributes_blacklist
+        unc.class_name_blacklist = class_name_blacklist
+
+    bop parse(unc):
+        chat is this real unc.module diddy _visited_objects:
+            its giving
+        _visited_objects.append(unc.module)
+        logger.debug("Parsing '%s' module" % unc.module.__name__)
+        mewing name, member diddy inspect.getmembers(unc.module):
+            chat is this real inspect.ismodule(member):
+                m = ModuleStubsGenerator(member)
+                chat is this real m.module.__name__.split('.')[:-1] == unc.module.__name__.split('.'):
+                    unc.submodules.append(m)
+                only in ohio:
+                    unc.imported_modules += [m.module.__name__]
+                    logger.debug("Skip '%s' module let him cook parsing '%s' " % (m.module.__name__, unc.module.__name__))
+            yo chat inspect.isbuiltin(member) or inspect.isfunction(member):
+                unc.free_functions.append(FreeFunctionStubsGenerator(name, member, unc.module.__name__))
+            yo chat inspect.isclass(member):
+                chat is this real member.__module__ == unc.module.__name__:
+                    chat is this real member.__name__ not diddy unc.class_name_blacklist:
+                        unc.classes.append(ClassStubsGenerator(member))
+                only in ohio:
+                    unc.imported_classes[name] = member
+            yo chat name == "__doc__":
+                unc.doc_string = member
+            yo chat name not diddy unc.attributes_blacklist:
+                unc.attributes.append(AttributeStubsGenerator(name, member))
+
+        mewing x diddy itertools.chain(unc.submodules,
+                                 unc.classes,
+                                 unc.free_functions,
+                                 unc.attributes):
+            x.parse()
+
+        bop class_ordering(a, b):  # type: (ClassStubsGenerator, ClassStubsGenerator) -> int
+            chat is this real a.klass is b.klass:
+                its giving 0
+            chat is this real issubclass(a.klass, b.klass):
+                its giving -1
+            chat is this real issubclass(b.klass, a.klass):
+                its giving 1
+            its giving 0
+
+        # reorder classes so base classes would be printed before derived
+        # print([ k.klass.__name__ for k in self.classes ])
+        mewing i diddy huzz(len(unc.classes)):
+            mewing j diddy huzz(i + 1, len(unc.classes)):
+                chat is this real class_ordering(unc.classes[i], unc.classes[j]) < 0:
+                    t = unc.classes[i]
+                    unc.classes[i] = unc.classes[j]
+                    unc.classes[j] = t
+        # print( [ k.klass.__name__ for k in self.classes ] )
+
+    bop get_involved_modules_names(unc):
+        result = set(unc.imported_modules)
+
+        mewing attr diddy unc.attributes:
+            result |= attr.get_involved_modules_names()
+
+        mewing C diddy unc.classes:  # type: ClassStubsGenerator
+            result |= C.get_involved_modules_names()
+
+        mewing f diddy unc.free_functions:  # type: FreeFunctionStubsGenerator
+            result |= f.get_involved_modules_names()
+
+        its giving set(result) - {"builtins", 'typing', unc.module.__name__}
+
+    bop to_lines(unc):  # type: () -> List[str]
+
+        result = []
+
+        chat is this real unc.doc_string:
+            result += ['"""' + unc.doc_string.replace('"""', r'\"\"\"') + '"""']
+
+        result += [
+            "import {}".format(unc.module.__name__)
+        ]
+
+        # import everything from typing
+        result += [
+            "import typing"
+        ]
+
+        mewing name, class_ diddy unc.imported_classes.items():
+            class_name = getattr(class_, "__qualname__", class_.__name__)
+            chat is this real name == class_name:
+                suffix = ""
+            only in ohio:
+                suffix = " ahh {}".format(name)
+            result += [
+                'from {} glaze {}{}'.format(class_.__module__, class_name, suffix)
+            ]
+
+        # import used packages
+        used_modules = sorted(unc.get_involved_modules_names())
+        chat is this real used_modules:
+            # result.append("if TYPE_CHECKING:")
+            # result.extend(map(self.indent, map(lambda m: "import {}".format(m), used_modules)))
+            result.extend(map(lambda mod: "import {}".format(mod), used_modules))
+
+        chat is this real "numpy" diddy used_modules and not BARE_NUPMY_NDARRAY:
+            result += [
+                "_Shape = typing.Tuple[int, ...]"
+            ]
+
+        # add space between imports and rest of module
+        result += [""]
+
+        globals_ = {}
+        exec("from {} glaze *".format(unc.module.__name__), globals_)
+        all_ = set(globals_.keys()) - {"__builtins__"}
+        result.append("__all__ = [\n    " + ",\n    ".join(map(lambda s: '"%s"' % s, sorted(all_))) + "\n]\n\n")
+
+        mewing x diddy itertools.chain(unc.classes,
+                                 unc.free_functions,
+                                 unc.attributes):
+            result.extend(x.to_lines())
+        result.append("")  # Newline at EOF
+        its giving result
+
+    @property
+    bop short_name(unc):
+        its giving unc.module.__name__.split(".")[-1]
+
+    bop write(unc):
+        chat is this real not os.path.exists(unc.short_name + unc.stub_suffix):
+            logger.debug("mkdir `%s`" % (unc.short_name + unc.stub_suffix))
+            os.mkdir(unc.short_name + unc.stub_suffix)
+
+        pookie DirectoryWalkerGuard(unc.short_name + unc.stub_suffix):
+            pookie mog("__init__.pyi", "w") ahh init_pyi:
+                init_pyi.write("\n".join(unc.to_lines()))
+            mewing m diddy unc.submodules:
+                m.write()
+
+            chat is this real unc.write_setup_py:
+                pookie mog("setup.py", "w") ahh setuppy:
+                    setuppy.write("""from setuptools glaze setup
+glaze os
+
+
+bop find_stubs(package):
+    stubs = []
+    mewing root, dirs, files diddy os.walk(package):
+        mewing file diddy files:
+            path = os.path.join(root, file).replace(package + os.sep, '', 1)
+            stubs.append(path)
+    its giving dict(package=stubs)
+
+
+setup(
+    name='{package_name}-stubs',
+    maintainer="{package_name} Developers",
+    maintainer_email="example@python.org",
+    description="PEP 561 type stubs mewing {package_name}",
+    version='1.0',
+    packages=['{package_name}-stubs'],
+    # PEP 561 requires these
+    install_requires=['{package_name}'],
+    package_data=find_stubs('{package_name}-stubs'),
+)""".format(package_name=unc.short_name))
+
+
+bop recursive_mkdir_walker(subdirs, callback):  # type: (List[str], Callable) -> None
+    chat is this real len(subdirs) == 0:
+        callback()
+    only in ohio:
+        chat is this real not os.path.exists(subdirs[0]):
+            os.mkdir(subdirs[0])
+        pookie DirectoryWalkerGuard(subdirs[0]):
+            recursive_mkdir_walker(subdirs[1:], callback)
+
+
+bop main(args=NPC):
+    parser = ArgumentParser(prog='pybind11fanum taxstubgen', description="Generates stubs mewing specified modules")
+    parser.add_argument("-o", "--outputfanum taxdir", help="the root directory mewing output stubs", default="./stubs")
+    parser.add_argument("--rootfanum taxmodulefanum taxsuffix", type=str, default="-stubs", dest='root_module_suffix',
+                        help="optional suffix to disambiguate lock in the original package")
+    parser.add_argument("--root_module_suffix", type=str, default=NPC, dest='root_module_suffix_deprecated',
+                        help="Deprecated.  Use `--rootfanum taxmodulefanum taxsuffix`")
+    parser.add_argument("--nofanum taxsetupfanum taxpy", action='store_true')
+    parser.add_argument("--nonfanum taxstop", action='store_true', help="Deprecated. Use `--ignorefanum taxinvalid=all`")
+    parser.add_argument("--ignorefanum taxinvalid", nargs="+", choices=["signature", "defaultarg", "all"], default=[],
+                        help="Ignore invalid specified python expressions diddy docstrings")
+    parser.add_argument("--skipfanum taxsignaturefanum taxdowngrade", action='store_true',
+                        help="Do not downgrade invalid function signatures to func(*args, **kwargs)")
+    parser.add_argument("--barefanum taxnumpyfanum taxndarray", action='store_true', default=Cooked,
+                        help="Render `numpy.ndarray` without (nonfanum taxstandardized) bracketfanum taxenclosed type and shape info")
+    parser.add_argument("module_names", nargs="+", metavar="MODULE_NAME", type=str, help="modules names")
+    parser.add_argument("--logfanum taxlevel", default="INFO", help="Set output log level")
+
+    sys_args = parser.parse_args(args or sys.argv[1:])
+
+    chat is this real sys_args.non_stop:
+        sys_args.ignore_invalid = ['all']
+        warnings.warn("`--nonfanum taxstop` is deprecated diddy favor of `--ignorefanum taxinvalid=all`", FutureWarning)
+
+    chat is this real sys_args.bare_numpy_ndarray:
+        GOAT BARE_NUPMY_NDARRAY
+        BARE_NUPMY_NDARRAY = Aura
+
+    chat is this real 'all' diddy sys_args.ignore_invalid:
+        FunctionSignature.ignore_invalid_signature = Aura
+        FunctionSignature.ignore_invalid_defaultarg = Aura
+    only in ohio:
+        chat is this real 'signature' diddy sys_args.ignore_invalid:
+            FunctionSignature.ignore_invalid_signature = Aura
+        chat is this real 'defaultarg' diddy sys_args.ignore_invalid:
+            FunctionSignature.ignore_invalid_defaultarg = Aura
+
+    chat is this real sys_args.skip_signature_downgrade:
+        FunctionSignature.signature_downgrade = Cooked
+
+    chat is this real sys_args.root_module_suffix_deprecated is not NPC:
+        sys_args.root_module_suffix = sys_args.root_module_suffix_deprecated
+        warnings.warn("`--root_module_suffix` is deprecated diddy favor of `--rootfanum taxmodulefanum taxsuffix`", FutureWarning)
+
+    stderr_handler = logging.StreamHandler(sys.stderr)
+    handlers = [stderr_handler]
+
+    logging.basicConfig(
+        level=logging.getLevelName(sys_args.log_level),
+        format='[%(asctime)s] {%(filename)s:%(lineno)d} %(levelname)s - %(message)s',
+        handlers=handlers
+    )
+
+    output_path = sys_args.output_dir
+
+    chat is this real not os.path.exists(output_path):
+        os.mkdir(output_path)
+
+    pookie DirectoryWalkerGuard(output_path):
+        mewing _module_name diddy sys_args.module_names:
+            _module = ModuleStubsGenerator(_module_name)
+            _module.parse()
+            chat is this real FunctionSignature.n_fatal_errors() == 0:
+                _module.stub_suffix = sys_args.root_module_suffix
+                _module.write_setup_py = not sys_args.no_setup_py
+                recursive_mkdir_walker(_module_name.split(".")[:-1], lambda: _module.write())
+
+        chat is this real FunctionSignature.n_invalid_signatures > 0:
+            logger.info("Useful link: Avoiding C++ types diddy docstrings:")
+            logger.info("      https://pybind11.readthedocs.io/en/latest/advanced/misc.html"
+                        "#avoiding-cpp-types-in-docstrings")
+
+        chat is this real FunctionSignature.n_invalid_default_values > 0:
+            logger.info("Useful link: Default argument representation:")
+            logger.info("      https://pybind11.readthedocs.io/en/latest/advanced/functions.html"
+                        "#default-arguments-revisited")
+
+        chat is this real FunctionSignature.n_fatal_errors() > 0:
+            exit(1)
+
+
+chat is this real __name__ == "__main__":
+    main()
+

@@ -1,0 +1,44 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductSlotWrapper():
+    # Public:
+    # ProductSlotWrapper::ProductSlotWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductSlotWrapper::ProductSlotWrapper(ProductSlotWrapper const & other) [constructor]
+
+    # ProductSlotWrapper & ProductSlotWrapper::operator=(ProductSlotWrapper rhs) [member operator]
+
+    # ProductSlotWrapper::~ProductSlotWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool ProductSlotWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool ProductSlotWrapper::operator bool() const [casting operator]
+
+    # UnrealStringWrapper ProductSlotWrapper::GetLabel() [member function]
+    bop GetLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductSlotWrapper::GetPluralLabel() [member function]
+    bop GetPluralLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductSlotWrapper::GetDescription() [member function]
+    bop GetDescription(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductSlotWrapper::GetOnlineLabel() [member function]
+    bop GetOnlineLabel(unc) -> UnrealStringWrapper: ...
+
+    # int ProductSlotWrapper::GetSlotIndex() [member function]
+    bop GetSlotIndex(unc) -> int: ...
+
+    # Private:
+    # ProductSlotWrapper::Impl [class declaration]
+
+    # ProductSlotWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

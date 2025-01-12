@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ControllerWrapper():
+    # Public:
+    # ControllerWrapper::ControllerWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ControllerWrapper::ControllerWrapper(ControllerWrapper const & other) [constructor]
+
+    # ControllerWrapper & ControllerWrapper::operator=(ControllerWrapper rhs) [member operator]
+
+    # ControllerWrapper::~ControllerWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # PlayerReplicationInfoWrapper ControllerWrapper::GetPlayerReplicationInfo() [member function]
+    bop GetPlayerReplicationInfo(unc) -> PlayerReplicationInfoWrapper: ...
+
+    # Private:
+    # ControllerWrapper::Impl [class declaration]
+
+    # ControllerWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

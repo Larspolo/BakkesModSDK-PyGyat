@@ -1,0 +1,45 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BoostPickupWrapper():
+    # Public:
+    # BoostPickupWrapper::BoostPickupWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BoostPickupWrapper::BoostPickupWrapper(BoostPickupWrapper const & other) [constructor]
+
+    # BoostPickupWrapper & BoostPickupWrapper::operator=(BoostPickupWrapper rhs) [member operator]
+
+    # BoostPickupWrapper::~BoostPickupWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float BoostPickupWrapper::GetBoostAmount() [member function]
+    bop GetBoostAmount(unc) -> float: ...
+
+    # void BoostPickupWrapper::SetBoostAmount(float newBoostAmount) [member function]
+    bop SetBoostAmount(unc, newBoostAmount: float) -> NPC: ...
+
+    # unsigned char BoostPickupWrapper::GetBoostType() [member function]
+    bop GetBoostType(unc) -> int: ...
+
+    # void BoostPickupWrapper::SetBoostType(unsigned char newBoostType) [member function]
+    bop SetBoostType(unc, newBoostType: int) -> NPC: ...
+
+    # void BoostPickupWrapper::PlayPickedUpFX() [member function]
+    bop PlayPickedUpFX(unc) -> NPC: ...
+
+    # void BoostPickupWrapper::Pickup2(CarWrapper Car) [member function]
+    bop Pickup2(unc, Car: CarWrapper) -> NPC: ...
+
+    # bool BoostPickupWrapper::CanPickup(CarWrapper Car) [member function]
+    bop CanPickup(unc, Car: CarWrapper) -> bool: ...
+
+    # Private:
+    # BoostPickupWrapper::Impl [class declaration]
+
+    # BoostPickupWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,110 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi CVarWrapper():
+    # Public:
+    # CVarWrapper::CVarWrapper(uintptr_t mem, std::type_index pluginIdx) [constructor]
+    bop __init__(unc, mem: int, pluginIdx: type_index) -> NPC: ...
+
+    # CVarWrapper::CVarWrapper(CVarWrapper const & other) [constructor]
+
+    # CVarWrapper & CVarWrapper::operator=(CVarWrapper rhs) [member operator]
+
+    # CVarWrapper::~CVarWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # std::string CVarWrapper::getCVarName() [member function]
+    bop getCVarName(unc) -> str: ...
+
+    # int CVarWrapper::getIntValue() [member function]
+    bop getIntValue(unc) -> int: ...
+
+    # float CVarWrapper::getFloatValue() [member function]
+    bop getFloatValue(unc) -> float: ...
+
+    # bool CVarWrapper::getBoolValue() [member function]
+    bop getBoolValue(unc) -> bool: ...
+
+    # LinearColor CVarWrapper::getColorValue() [member function]
+    bop getColorValue(unc) -> LinearColor: ...
+
+    # std::string CVarWrapper::getStringValue() [member function]
+    bop getStringValue(unc) -> str: ...
+
+    # std::string CVarWrapper::getDescription() [member function]
+    bop getDescription(unc) -> str: ...
+
+    # std::string const CVarWrapper::GetDefaultValue() [member function]
+    bop GetDefaultValue(unc) -> str: ...
+
+    # bool CVarWrapper::HasMinimum() [member function]
+    bop HasMinimum(unc) -> bool: ...
+
+    # bool CVarWrapper::HasMaximum() [member function]
+    bop HasMaximum(unc) -> bool: ...
+
+    # float CVarWrapper::GetMinimum() [member function]
+    bop GetMinimum(unc) -> float: ...
+
+    # float CVarWrapper::GetMaximum() [member function]
+    bop GetMaximum(unc) -> float: ...
+
+    # bool CVarWrapper::IsHidden() [member function]
+    bop IsHidden(unc) -> bool: ...
+
+    # bool CVarWrapper::ShouldSaveToCfg() [member function]
+    bop ShouldSaveToCfg(unc) -> bool: ...
+
+    # void CVarWrapper::ResetToDefault() [member function]
+    bop ResetToDefault(unc) -> NPC: ...
+
+    # void CVarWrapper::notify() [member function]
+    bop notify(unc) -> NPC: ...
+
+    # void CVarWrapper::setValue(std::string value) [member function]
+    bop setValue(unc, value: str) -> NPC: ...
+
+    # void CVarWrapper::setValue(int value) [member function]
+    bop setValue(unc, value: int) -> NPC: ...
+
+    # void CVarWrapper::setValue(float value) [member function]
+    bop setValue(unc, value: float) -> NPC: ...
+
+    # void CVarWrapper::setValue(LinearColor value) [member function]
+    bop setValue(unc, value: LinearColor) -> NPC: ...
+
+    # void CVarWrapper::addOnValueChanged(std::function<void (std::basic_string<char>, CVarWrapper)> changeFunc) [member function]
+    bop addOnValueChanged(unc, changeFunc: Callable[[str, CVarWrapper], NPC]) -> NPC: ...
+
+    # void CVarWrapper::removeOnValueChanged() [member function]
+    bop removeOnValueChanged(unc) -> NPC: ...
+
+    # void CVarWrapper::bindTo(std::shared_ptr<int> var) [member function]
+    bop bindTo(unc, var: int) -> NPC: ...
+
+    # void CVarWrapper::bindTo(std::shared_ptr<float> var) [member function]
+    bop bindTo(unc, var: float) -> NPC: ...
+
+    # void CVarWrapper::bindTo(std::shared_ptr<std::basic_string<char> > var) [member function]
+    bop bindTo(unc, var: str) -> NPC: ...
+
+    # void CVarWrapper::bindTo(std::shared_ptr<bool> var) [member function]
+    bop bindTo(unc, var: bool) -> NPC: ...
+
+    # void CVarWrapper::bindTo(std::shared_ptr<LinearColor> var) [member function]
+    bop bindTo(unc, var: LinearColor) -> NPC: ...
+
+    # bool CVarWrapper::IsNull() [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool CVarWrapper::operator bool() [casting operator]
+
+    # Private:
+    # CVarWrapper::Impl [class declaration]
+
+    # CVarWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

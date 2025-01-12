@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi TextInputModalWrapper():
+    # Public:
+    # TextInputModalWrapper::TextInputModalWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # TextInputModalWrapper::TextInputModalWrapper(TextInputModalWrapper const & other) [constructor]
+
+    # TextInputModalWrapper & TextInputModalWrapper::operator=(TextInputModalWrapper rhs) [member operator]
+
+    # TextInputModalWrapper::~TextInputModalWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void TextInputModalWrapper::SetTextInput(std::string const & defaultText, int32_t max_text_length, bool password, std::function<void (std::basic_string<char>, bool)> input_callback) [member function]
+    bop SetTextInput(unc, defaultText: str, max_text_length: int32_t, password: bool, input_callback: Callable[[str, bool], NPC]) -> NPC: ...
+
+    # Private:
+    # TextInputModalWrapper::Impl [class declaration]
+
+    # TextInputModalWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

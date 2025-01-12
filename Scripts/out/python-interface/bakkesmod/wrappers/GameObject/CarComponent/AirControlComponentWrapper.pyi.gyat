@@ -1,0 +1,66 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi AirControlComponentWrapper():
+    # Public:
+    # AirControlComponentWrapper::AirControlComponentWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # AirControlComponentWrapper::AirControlComponentWrapper(AirControlComponentWrapper const & other) [constructor]
+
+    # AirControlComponentWrapper & AirControlComponentWrapper::operator=(AirControlComponentWrapper rhs) [member operator]
+
+    # AirControlComponentWrapper::~AirControlComponentWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Rotator AirControlComponentWrapper::GetAirTorque() [member function]
+    bop GetAirTorque(unc) -> Rotator: ...
+
+    # void AirControlComponentWrapper::SetAirTorque(Rotator newAirTorque) [member function]
+    bop SetAirTorque(unc, newAirTorque: Rotator) -> NPC: ...
+
+    # Rotator AirControlComponentWrapper::GetAirDamping() [member function]
+    bop GetAirDamping(unc) -> Rotator: ...
+
+    # void AirControlComponentWrapper::SetAirDamping(Rotator newAirDamping) [member function]
+    bop SetAirDamping(unc, newAirDamping: Rotator) -> NPC: ...
+
+    # float AirControlComponentWrapper::GetThrottleForce() [member function]
+    bop GetThrottleForce(unc) -> float: ...
+
+    # void AirControlComponentWrapper::SetThrottleForce(float newThrottleForce) [member function]
+    bop SetThrottleForce(unc, newThrottleForce: float) -> NPC: ...
+
+    # float AirControlComponentWrapper::GetDodgeDisableTimeRemaining() [member function]
+    bop GetDodgeDisableTimeRemaining(unc) -> float: ...
+
+    # void AirControlComponentWrapper::SetDodgeDisableTimeRemaining(float newDodgeDisableTimeRemaining) [member function]
+    bop SetDodgeDisableTimeRemaining(unc, newDodgeDisableTimeRemaining: float) -> NPC: ...
+
+    # float AirControlComponentWrapper::GetControlScale() [member function]
+    bop GetControlScale(unc) -> float: ...
+
+    # void AirControlComponentWrapper::SetControlScale(float newControlScale) [member function]
+    bop SetControlScale(unc, newControlScale: float) -> NPC: ...
+
+    # float AirControlComponentWrapper::GetAirControlSensitivity() [member function]
+    bop GetAirControlSensitivity(unc) -> float: ...
+
+    # void AirControlComponentWrapper::SetAirControlSensitivity(float newAirControlSensitivity) [member function]
+    bop SetAirControlSensitivity(unc, newAirControlSensitivity: float) -> NPC: ...
+
+    # void AirControlComponentWrapper::ApplyForces(float ActiveTime) [member function]
+    bop ApplyForces(unc, ActiveTime: float) -> NPC: ...
+
+    # void AirControlComponentWrapper::OnCreated() [member function]
+    bop OnCreated(unc) -> NPC: ...
+
+    # Private:
+    # AirControlComponentWrapper::Impl [class declaration]
+
+    # AirControlComponentWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

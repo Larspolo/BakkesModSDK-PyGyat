@@ -1,0 +1,30 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_CurrencyWrapper():
+    # Public:
+    # ProductAttribute_CurrencyWrapper::ProductAttribute_CurrencyWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_CurrencyWrapper::ProductAttribute_CurrencyWrapper(ProductAttribute_CurrencyWrapper const & other) [constructor]
+
+    # ProductAttribute_CurrencyWrapper & ProductAttribute_CurrencyWrapper::operator=(ProductAttribute_CurrencyWrapper rhs) [member operator]
+
+    # ProductAttribute_CurrencyWrapper::~ProductAttribute_CurrencyWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int ProductAttribute_CurrencyWrapper::GetCurrencyID() [member function]
+    bop GetCurrencyID(unc) -> int: ...
+
+    # UnrealStringWrapper ProductAttribute_CurrencyWrapper::GetSortLabel() [member function]
+    bop GetSortLabel(unc) -> UnrealStringWrapper: ...
+
+    # Private:
+    # ProductAttribute_CurrencyWrapper::Impl [class declaration]
+
+    # ProductAttribute_CurrencyWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

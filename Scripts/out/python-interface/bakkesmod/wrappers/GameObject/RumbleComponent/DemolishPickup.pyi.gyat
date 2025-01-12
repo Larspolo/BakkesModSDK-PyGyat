@@ -1,0 +1,54 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi DemolishPickup():
+    # Public:
+    # DemolishPickup::DemolishPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # DemolishPickup::DemolishPickup(DemolishPickup const & other) [constructor]
+
+    # DemolishPickup & DemolishPickup::operator=(DemolishPickup rhs) [member operator]
+
+    # DemolishPickup::~DemolishPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # unsigned char DemolishPickup::GetDemolishTarget() [member function]
+    bop GetDemolishTarget(unc) -> int: ...
+
+    # void DemolishPickup::SetDemolishTarget(unsigned char newDemolishTarget) [member function]
+    bop SetDemolishTarget(unc, newDemolishTarget: int) -> NPC: ...
+
+    # unsigned char DemolishPickup::GetDemolishSpeed() [member function]
+    bop GetDemolishSpeed(unc) -> int: ...
+
+    # void DemolishPickup::SetDemolishSpeed(unsigned char newDemolishSpeed) [member function]
+    bop SetDemolishSpeed(unc, newDemolishSpeed: int) -> NPC: ...
+
+    # unsigned char DemolishPickup::GetOldTarget() [member function]
+    bop GetOldTarget(unc) -> int: ...
+
+    # void DemolishPickup::SetOldTarget(unsigned char newOldTarget) [member function]
+    bop SetOldTarget(unc, newOldTarget: int) -> NPC: ...
+
+    # unsigned char DemolishPickup::GetOldSpeed() [member function]
+    bop GetOldSpeed(unc) -> int: ...
+
+    # void DemolishPickup::SetOldSpeed(unsigned char newOldSpeed) [member function]
+    bop SetOldSpeed(unc, newOldSpeed: int) -> NPC: ...
+
+    # void DemolishPickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void DemolishPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # DemolishPickup::Impl [class declaration]
+
+    # DemolishPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

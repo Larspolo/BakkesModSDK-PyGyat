@@ -1,0 +1,57 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ReplayServerWrapper():
+    # Public:
+    # ReplayServerWrapper::ReplayServerWrapper(uintptr_t server, uintptr_t gameinfo, uintptr_t replaydirector) [constructor]
+    bop __init__(unc, server: int, gameinfo: int, replaydirector: int) -> NPC: ...
+
+    # ReplayServerWrapper::ReplayServerWrapper(ReplayServerWrapper const & other) [constructor]
+
+    # ReplayServerWrapper & ReplayServerWrapper::operator=(ReplayServerWrapper rhs) [member operator]
+
+    # ReplayServerWrapper::~ReplayServerWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # ActorWrapper ReplayServerWrapper::GetViewTarget() [member function]
+    bop GetViewTarget(unc) -> ActorWrapper: ...
+
+    # ReplayWrapper ReplayServerWrapper::GetReplay() [member function]
+    bop GetReplay(unc) -> ReplayWrapper: ...
+
+    # float ReplayServerWrapper::GetReplayTimeElapsed() [member function]
+    bop GetReplayTimeElapsed(unc) -> float: ...
+
+    # int ReplayServerWrapper::GetReplayFPS() [member function]
+    bop GetReplayFPS(unc) -> int: ...
+
+    # int ReplayServerWrapper::GetCurrentReplayFrame() [member function]
+    bop GetCurrentReplayFrame(unc) -> int: ...
+
+    # void ReplayServerWrapper::AddKeyFrame(int frame, std::string name) [member function]
+    bop AddKeyFrame(unc, frame: int, name: str) -> NPC: ...
+
+    # void ReplayServerWrapper::RemoveKeyFrame(int frame) [member function]
+    bop RemoveKeyFrame(unc, frame: int) -> NPC: ...
+
+    # void ReplayServerWrapper::SkipToFrame(int frame) [member function]
+    bop SkipToFrame(unc, frame: int) -> NPC: ...
+
+    # void ReplayServerWrapper::SkipToTime(float time) [member function]
+    bop SkipToTime(unc, time: float) -> NPC: ...
+
+    # void ReplayServerWrapper::StartPlaybackAtFrame(int frame) [member function]
+    bop StartPlaybackAtFrame(unc, frame: int) -> NPC: ...
+
+    # void ReplayServerWrapper::StartPlaybackAtTime(float time) [member function]
+    bop StartPlaybackAtTime(unc, time: float) -> NPC: ...
+
+    # Private:
+    # ReplayServerWrapper::Impl [class declaration]
+
+    # ReplayServerWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

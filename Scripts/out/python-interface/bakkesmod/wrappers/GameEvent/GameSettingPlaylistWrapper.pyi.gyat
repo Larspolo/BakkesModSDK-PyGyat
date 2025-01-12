@@ -1,0 +1,131 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi GameSettingPlaylistWrapper():
+    # Public:
+    # GameSettingPlaylistWrapper::GameSettingPlaylistWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # GameSettingPlaylistWrapper::GameSettingPlaylistWrapper(GameSettingPlaylistWrapper const & other) [constructor]
+
+    # GameSettingPlaylistWrapper & GameSettingPlaylistWrapper::operator=(GameSettingPlaylistWrapper rhs) [member operator]
+
+    # GameSettingPlaylistWrapper::~GameSettingPlaylistWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool GameSettingPlaylistWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool GameSettingPlaylistWrapper::operator bool() const [casting operator]
+
+    # UnrealStringWrapper GameSettingPlaylistWrapper::GetTitle() [member function]
+    bop GetTitle(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper GameSettingPlaylistWrapper::GetDescription() [member function]
+    bop GetDescription(unc) -> UnrealStringWrapper: ...
+
+    # int GameSettingPlaylistWrapper::GetPlayerCount() [member function]
+    bop GetPlayerCount(unc) -> int: ...
+
+    # void GameSettingPlaylistWrapper::SetPlayerCount(int newPlayerCount) [member function]
+    bop SetPlayerCount(unc, newPlayerCount: int) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbStandard() [member function]
+    bop GetbStandard(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbStandard(long unsigned int newbStandard) [member function]
+    bop SetbStandard(unc, newbStandard: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbRanked() [member function]
+    bop GetbRanked(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbRanked(long unsigned int newbRanked) [member function]
+    bop SetbRanked(unc, newbRanked: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbSolo() [member function]
+    bop GetbSolo(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbSolo(long unsigned int newbSolo) [member function]
+    bop SetbSolo(unc, newbSolo: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbNew() [member function]
+    bop GetbNew(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbNew(long unsigned int newbNew) [member function]
+    bop SetbNew(unc, newbNew: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbApplyQuitPenalty() [member function]
+    bop GetbApplyQuitPenalty(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbApplyQuitPenalty(long unsigned int newbApplyQuitPenalty) [member function]
+    bop SetbApplyQuitPenalty(unc, newbApplyQuitPenalty: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbAllowForfeit() [member function]
+    bop GetbAllowForfeit(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbAllowForfeit(long unsigned int newbAllowForfeit) [member function]
+    bop SetbAllowForfeit(unc, newbAllowForfeit: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbDisableRankedReconnect() [member function]
+    bop GetbDisableRankedReconnect(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbDisableRankedReconnect(long unsigned int newbDisableRankedReconnect) [member function]
+    bop SetbDisableRankedReconnect(unc, newbDisableRankedReconnect: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbIgnoreAssignTeams() [member function]
+    bop GetbIgnoreAssignTeams(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbIgnoreAssignTeams(long unsigned int newbIgnoreAssignTeams) [member function]
+    bop SetbIgnoreAssignTeams(unc, newbIgnoreAssignTeams: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbKickOnMigrate() [member function]
+    bop GetbKickOnMigrate(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbKickOnMigrate(long unsigned int newbKickOnMigrate) [member function]
+    bop SetbKickOnMigrate(unc, newbKickOnMigrate: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbAllowClubs() [member function]
+    bop GetbAllowClubs(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbAllowClubs(long unsigned int newbAllowClubs) [member function]
+    bop SetbAllowClubs(unc, newbAllowClubs: bool) -> NPC: ...
+
+    # long unsigned int GameSettingPlaylistWrapper::GetbPlayersVSBots() [member function]
+    bop GetbPlayersVSBots(unc) -> bool: ...
+
+    # void GameSettingPlaylistWrapper::SetbPlayersVSBots(long unsigned int newbPlayersVSBots) [member function]
+    bop SetbPlayersVSBots(unc, newbPlayersVSBots: bool) -> NPC: ...
+
+    # int GameSettingPlaylistWrapper::GetPlaylistId() [member function]
+    bop GetPlaylistId(unc) -> int: ...
+
+    # void GameSettingPlaylistWrapper::SetPlaylistId(int newPlaylistId) [member function]
+    bop SetPlaylistId(unc, newPlaylistId: int) -> NPC: ...
+
+    # UnrealStringWrapper GameSettingPlaylistWrapper::GetServerCommand() [member function]
+    bop GetServerCommand(unc) -> UnrealStringWrapper: ...
+
+    # bool GameSettingPlaylistWrapper::IsLanMatch() [member function]
+    bop IsLanMatch(unc) -> bool: ...
+
+    # bool GameSettingPlaylistWrapper::IsPrivateMatch() [member function]
+    bop IsPrivateMatch(unc) -> bool: ...
+
+    # bool GameSettingPlaylistWrapper::ShouldUpdateSkills() [member function]
+    bop ShouldUpdateSkills(unc) -> bool: ...
+
+    # bool GameSettingPlaylistWrapper::IsValidID(int InPlaylistID) [member function]
+    bop IsValidID(unc, InPlaylistID: int) -> bool: ...
+
+    # bool GameSettingPlaylistWrapper::IsValid2() [member function]
+    bop IsValid2(unc) -> bool: ...
+
+    # Private:
+    # GameSettingPlaylistWrapper::Impl [class declaration]
+
+    # GameSettingPlaylistWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

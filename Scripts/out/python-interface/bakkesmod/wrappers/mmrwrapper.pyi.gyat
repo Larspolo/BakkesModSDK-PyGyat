@@ -1,0 +1,80 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi MMRWrapper():
+    # Public:
+    # MMRWrapper::MMRWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # MMRWrapper::MMRWrapper(MMRWrapper const & other) [constructor]
+
+    # MMRWrapper & MMRWrapper::operator=(MMRWrapper rhs) [member operator]
+
+    # MMRWrapper::~MMRWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool MMRWrapper::IsSyncing(UniqueIDWrapper playerID) [member function]
+    bop IsSyncing(unc, playerID: UniqueIDWrapper) -> bool: ...
+
+    # bool MMRWrapper::IsSyncing(SteamID playerID) [member function]
+    bop IsSyncing(unc, playerID: SteamID) -> bool: ...
+
+    # bool MMRWrapper::IsSynced(UniqueIDWrapper playerID, int playlistID) [member function]
+    bop IsSynced(unc, playerID: UniqueIDWrapper, playlistID: int) -> bool: ...
+
+    # bool MMRWrapper::IsSynced(SteamID playerID, int playlistID) [member function]
+    bop IsSynced(unc, playerID: SteamID, playlistID: int) -> bool: ...
+
+    # bool MMRWrapper::IsRanked(int playlistID) [member function]
+    bop IsRanked(unc, playlistID: int) -> bool: ...
+
+    # SkillRating MMRWrapper::GetPlayerSkillRating(UniqueIDWrapper playerID, int playlistID) [member function]
+    bop GetPlayerSkillRating(unc, playerID: UniqueIDWrapper, playlistID: int) -> SkillRating: ...
+
+    # SkillRank MMRWrapper::GetPlayerRank(UniqueIDWrapper playerID, int playlistID) [member function]
+    bop GetPlayerRank(unc, playerID: UniqueIDWrapper, playlistID: int) -> SkillRank: ...
+
+    # float MMRWrapper::GetPlayerMMR(UniqueIDWrapper playerID, int playlistID) [member function]
+    bop GetPlayerMMR(unc, playerID: UniqueIDWrapper, playlistID: int) -> float: ...
+
+    # SkillRating MMRWrapper::GetPlayerSkillRating(SteamID playerID, int playlistID) [member function]
+    bop GetPlayerSkillRating(unc, playerID: SteamID, playlistID: int) -> SkillRating: ...
+
+    # SkillRank MMRWrapper::GetPlayerRank(SteamID playerID, int playlistID) [member function]
+    bop GetPlayerRank(unc, playerID: SteamID, playlistID: int) -> SkillRank: ...
+
+    # float MMRWrapper::GetPlayerMMR(SteamID playerID, int playlistID) [member function]
+    bop GetPlayerMMR(unc, playerID: SteamID, playlistID: int) -> float: ...
+
+    # float MMRWrapper::CalculateMMR(SkillRating sr, bool disregardPlacements) [member function]
+    bop CalculateMMR(unc, sr: SkillRating, disregardPlacements: bool) -> float: ...
+
+    # int MMRWrapper::GetCurrentPlaylist() [member function]
+    bop GetCurrentPlaylist(unc) -> int: ...
+
+    # std::unique_ptr<MMRNotifierToken, std::default_delete<MMRNotifierToken> > MMRWrapper::RegisterMMRNotifier(std::function<void (UniqueIDWrapper)> arg0) [member function]
+    bop RegisterMMRNotifier(unc, arg0: Callable[[UniqueIDWrapper], NPC]) -> MMRNotifierToken: ...
+
+    # Private:
+    # MMRWrapper::Impl [class declaration]
+
+    # MMRWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+skibidi MMRNotifierToken():
+    # Public:
+    # MMRNotifierToken::~MMRNotifierToken() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Private:
+    # MMRNotifierToken::MMRNotifierToken(long long unsigned int t) [constructor]
+    bop __init__(unc, t: int) -> NPC: ...
+
+    # MMRNotifierToken::token [variable]
+    @property
+    bop token(unc) -> int: ...
+
+
+

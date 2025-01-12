@@ -1,0 +1,35 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi CertifiedStatDatabaseWrapper():
+    # Public:
+    # CertifiedStatDatabaseWrapper::CertifiedStatDatabaseWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # CertifiedStatDatabaseWrapper::CertifiedStatDatabaseWrapper(CertifiedStatDatabaseWrapper const & other) [constructor]
+
+    # CertifiedStatDatabaseWrapper & CertifiedStatDatabaseWrapper::operator=(CertifiedStatDatabaseWrapper rhs) [member operator]
+
+    # CertifiedStatDatabaseWrapper::~CertifiedStatDatabaseWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool CertifiedStatDatabaseWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool CertifiedStatDatabaseWrapper::operator bool() const [casting operator]
+
+    # std::string CertifiedStatDatabaseWrapper::GetStatName(int StatId) [member function]
+    bop GetStatName(unc, StatId: int) -> str: ...
+
+    # int CertifiedStatDatabaseWrapper::GetStatId(std::string & StatName) [member function]
+    bop GetStatId(unc, StatName: str) -> int: ...
+
+    # Private:
+    # CertifiedStatDatabaseWrapper::Impl [class declaration]
+
+    # CertifiedStatDatabaseWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

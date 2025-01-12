@@ -1,0 +1,116 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi VehicleSimWrapper():
+    # Public:
+    # VehicleSimWrapper::VehicleSimWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # VehicleSimWrapper::VehicleSimWrapper(VehicleSimWrapper const & other) [constructor]
+
+    # VehicleSimWrapper & VehicleSimWrapper::operator=(VehicleSimWrapper rhs) [member operator]
+
+    # VehicleSimWrapper::~VehicleSimWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool VehicleSimWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool VehicleSimWrapper::operator bool() const [casting operator]
+
+    # ArrayWrapper<WheelWrapper> VehicleSimWrapper::GetWheels() [member function]
+    bop GetWheels(unc) -> ArrayWrapper_WheelWrapper: ...
+
+    # float VehicleSimWrapper::GetDriveTorque() [member function]
+    bop GetDriveTorque(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetDriveTorque(float newDriveTorque) [member function]
+    bop SetDriveTorque(unc, newDriveTorque: float) -> NPC: ...
+
+    # float VehicleSimWrapper::GetBrakeTorque() [member function]
+    bop GetBrakeTorque(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetBrakeTorque(float newBrakeTorque) [member function]
+    bop SetBrakeTorque(unc, newBrakeTorque: float) -> NPC: ...
+
+    # float VehicleSimWrapper::GetStopThreshold() [member function]
+    bop GetStopThreshold(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetStopThreshold(float newStopThreshold) [member function]
+    bop SetStopThreshold(unc, newStopThreshold: float) -> NPC: ...
+
+    # float VehicleSimWrapper::GetIdleBrakeFactor() [member function]
+    bop GetIdleBrakeFactor(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetIdleBrakeFactor(float newIdleBrakeFactor) [member function]
+    bop SetIdleBrakeFactor(unc, newIdleBrakeFactor: float) -> NPC: ...
+
+    # float VehicleSimWrapper::GetOppositeBrakeFactor() [member function]
+    bop GetOppositeBrakeFactor(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetOppositeBrakeFactor(float newOppositeBrakeFactor) [member function]
+    bop SetOppositeBrakeFactor(unc, newOppositeBrakeFactor: float) -> NPC: ...
+
+    # long unsigned int VehicleSimWrapper::GetbUseAckermannSteering() [member function]
+    bop GetbUseAckermannSteering(unc) -> bool: ...
+
+    # void VehicleSimWrapper::SetbUseAckermannSteering(long unsigned int newbUseAckermannSteering) [member function]
+    bop SetbUseAckermannSteering(unc, newbUseAckermannSteering: bool) -> NPC: ...
+
+    # long unsigned int VehicleSimWrapper::GetbWasAttached() [member function]
+    bop GetbWasAttached(unc) -> bool: ...
+
+    # void VehicleSimWrapper::SetbWasAttached(long unsigned int newbWasAttached) [member function]
+    bop SetbWasAttached(unc, newbWasAttached: bool) -> NPC: ...
+
+    # float VehicleSimWrapper::GetOutputThrottle() [member function]
+    bop GetOutputThrottle(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetOutputThrottle(float newOutputThrottle) [member function]
+    bop SetOutputThrottle(unc, newOutputThrottle: float) -> NPC: ...
+
+    # float VehicleSimWrapper::GetOutputSteer() [member function]
+    bop GetOutputSteer(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetOutputSteer(float newOutputSteer) [member function]
+    bop SetOutputSteer(unc, newOutputSteer: float) -> NPC: ...
+
+    # float VehicleSimWrapper::GetOutputBrake() [member function]
+    bop GetOutputBrake(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetOutputBrake(float newOutputBrake) [member function]
+    bop SetOutputBrake(unc, newOutputBrake: float) -> NPC: ...
+
+    # float VehicleSimWrapper::GetOutputHandbrake() [member function]
+    bop GetOutputHandbrake(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetOutputHandbrake(float newOutputHandbrake) [member function]
+    bop SetOutputHandbrake(unc, newOutputHandbrake: float) -> NPC: ...
+
+    # VehicleWrapper VehicleSimWrapper::GetVehicle() [member function]
+    bop GetVehicle(unc) -> VehicleWrapper: ...
+
+    # void VehicleSimWrapper::SetVehicle(VehicleWrapper newVehicle) [member function]
+    bop SetVehicle(unc, newVehicle: VehicleWrapper) -> NPC: ...
+
+    # CarWrapper VehicleSimWrapper::GetCar() [member function]
+    bop GetCar(unc) -> CarWrapper: ...
+
+    # void VehicleSimWrapper::SetCar(CarWrapper newCar) [member function]
+    bop SetCar(unc, newCar: CarWrapper) -> NPC: ...
+
+    # float VehicleSimWrapper::GetSteeringSensitivity() [member function]
+    bop GetSteeringSensitivity(unc) -> float: ...
+
+    # void VehicleSimWrapper::SetSteeringSensitivity(float newSteeringSensitivity) [member function]
+    bop SetSteeringSensitivity(unc, newSteeringSensitivity: float) -> NPC: ...
+
+    # Private:
+    # VehicleSimWrapper::Impl [class declaration]
+
+    # VehicleSimWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

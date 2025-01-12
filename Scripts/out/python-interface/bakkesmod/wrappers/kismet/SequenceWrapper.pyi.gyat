@@ -1,0 +1,36 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SequenceWrapper():
+    # Public:
+    # SequenceWrapper::SequenceWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # SequenceWrapper::SequenceWrapper(SequenceWrapper const & other) [constructor]
+
+    # SequenceWrapper & SequenceWrapper::operator=(SequenceWrapper rhs) [member operator]
+
+    # SequenceWrapper::~SequenceWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # ArrayWrapper<SequenceObjectWrapper> SequenceWrapper::GetSequenceObjects() [member function]
+    bop GetSequenceObjects(unc) -> ArrayWrapper_SequenceObjectWrapper: ...
+
+    # ArrayWrapper<SequenceWrapper> SequenceWrapper::GetNestedSequences() [member function]
+    bop GetNestedSequences(unc) -> ArrayWrapper_SequenceWrapper: ...
+
+    # int SequenceWrapper::ActivateRemoteEvents(std::string const & remote_event_name) const [member function]
+    bop ActivateRemoteEvents(unc, remote_event_name: str) -> int: ...
+
+    # std::map<std::basic_string<char>, SequenceVariableWrapper, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, SequenceVariableWrapper> > > SequenceWrapper::GetAllSequenceVariables(bool reqursive) [member function]
+    bop GetAllSequenceVariables(unc, reqursive: bool) -> Dict[str, SequenceVariableWrapper]: ...
+
+    # Private:
+    # SequenceWrapper::Impl [class declaration]
+
+    # SequenceWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

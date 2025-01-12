@@ -1,0 +1,77 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi StatEventWrapper():
+    # Public:
+    # StatEventWrapper::StatEventWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StatEventWrapper::StatEventWrapper(StatEventWrapper const & other) [constructor]
+
+    # StatEventWrapper & StatEventWrapper::operator=(StatEventWrapper rhs) [member operator]
+
+    # StatEventWrapper::~StatEventWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool StatEventWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool StatEventWrapper::operator bool() const [casting operator]
+
+    # int StatEventWrapper::GetPoints() [member function]
+    bop GetPoints(unc) -> int: ...
+
+    # float StatEventWrapper::GetCooldownSeconds() [member function]
+    bop GetCooldownSeconds(unc) -> float: ...
+
+    # long unsigned int StatEventWrapper::GetbAddToScore() [member function]
+    bop GetbAddToScore(unc) -> bool: ...
+
+    # long unsigned int StatEventWrapper::GetbIsLeaderboardStat() [member function]
+    bop GetbIsLeaderboardStat(unc) -> bool: ...
+
+    # long unsigned int StatEventWrapper::GetbNotifyTicker() [member function]
+    bop GetbNotifyTicker(unc) -> bool: ...
+
+    # long unsigned int StatEventWrapper::GetbShowOnHUD() [member function]
+    bop GetbShowOnHUD(unc) -> bool: ...
+
+    # long unsigned int StatEventWrapper::GetbPrimaryStat() [member function]
+    bop GetbPrimaryStat(unc) -> bool: ...
+
+    # long unsigned int StatEventWrapper::GetbSkipReplication() [member function]
+    bop GetbSkipReplication(unc) -> bool: ...
+
+    # long unsigned int StatEventWrapper::GetbCanMute() [member function]
+    bop GetbCanMute(unc) -> bool: ...
+
+    # long unsigned int StatEventWrapper::GetbCountMultiplied() [member function]
+    bop GetbCountMultiplied(unc) -> bool: ...
+
+    # UnrealStringWrapper StatEventWrapper::GetLabel() [member function]
+    bop GetLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper StatEventWrapper::GetPluralLabel() [member function]
+    bop GetPluralLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper StatEventWrapper::GetDescription() [member function]
+    bop GetDescription(unc) -> UnrealStringWrapper: ...
+
+    # float StatEventWrapper::GetNextCooldownTime() [member function]
+    bop GetNextCooldownTime(unc) -> float: ...
+
+    # std::string StatEventWrapper::GetGroupName() [member function]
+    bop GetGroupName(unc) -> str: ...
+
+    # std::string StatEventWrapper::GetEventName() [member function]
+    bop GetEventName(unc) -> str: ...
+
+    # Private:
+    # StatEventWrapper::Impl [class declaration]
+
+    # StatEventWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

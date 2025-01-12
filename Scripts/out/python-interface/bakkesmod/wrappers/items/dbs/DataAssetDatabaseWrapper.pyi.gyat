@@ -1,0 +1,35 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi DataAssetDatabaseWrapper():
+    # Public:
+    # DataAssetDatabaseWrapper::DataAssetDatabaseWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # DataAssetDatabaseWrapper::DataAssetDatabaseWrapper(DataAssetDatabaseWrapper const & other) [constructor]
+
+    # DataAssetDatabaseWrapper & DataAssetDatabaseWrapper::operator=(DataAssetDatabaseWrapper rhs) [member operator]
+
+    # DataAssetDatabaseWrapper::~DataAssetDatabaseWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool DataAssetDatabaseWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool DataAssetDatabaseWrapper::operator bool() const [casting operator]
+
+    # std::string DataAssetDatabaseWrapper::GetName(int DataAssetID) [member function]
+    bop GetName(unc, DataAssetID: int) -> str: ...
+
+    # int DataAssetDatabaseWrapper::GetID(std::string & DataAssetName) [member function]
+    bop GetID(unc, DataAssetName: str) -> int: ...
+
+    # Private:
+    # DataAssetDatabaseWrapper::Impl [class declaration]
+
+    # DataAssetDatabaseWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

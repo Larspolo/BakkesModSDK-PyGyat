@@ -1,0 +1,81 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi PerfStatGraphWrapper():
+    # Public:
+    # PerfStatGraphWrapper::PerfStatGraphWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # PerfStatGraphWrapper::PerfStatGraphWrapper(PerfStatGraphWrapper const & other) [constructor]
+
+    # PerfStatGraphWrapper & PerfStatGraphWrapper::operator=(PerfStatGraphWrapper rhs) [member operator]
+
+    # PerfStatGraphWrapper::~PerfStatGraphWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # SampleHistoryWrapper PerfStatGraphWrapper::GetFPS() [member function]
+    bop GetFPS(unc) -> SampleHistoryWrapper: ...
+
+    # void PerfStatGraphWrapper::SetFPS(SampleHistoryWrapper newFPS) [member function]
+    bop SetFPS(unc, newFPS: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper PerfStatGraphWrapper::GetFrameTime() [member function]
+    bop GetFrameTime(unc) -> SampleHistoryWrapper: ...
+
+    # void PerfStatGraphWrapper::SetFrameTime(SampleHistoryWrapper newFrameTime) [member function]
+    bop SetFrameTime(unc, newFrameTime: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper PerfStatGraphWrapper::GetGameThreadTime() [member function]
+    bop GetGameThreadTime(unc) -> SampleHistoryWrapper: ...
+
+    # void PerfStatGraphWrapper::SetGameThreadTime(SampleHistoryWrapper newGameThreadTime) [member function]
+    bop SetGameThreadTime(unc, newGameThreadTime: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper PerfStatGraphWrapper::GetRenderThreadTime() [member function]
+    bop GetRenderThreadTime(unc) -> SampleHistoryWrapper: ...
+
+    # void PerfStatGraphWrapper::SetRenderThreadTime(SampleHistoryWrapper newRenderThreadTime) [member function]
+    bop SetRenderThreadTime(unc, newRenderThreadTime: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper PerfStatGraphWrapper::GetGPUFrameTime() [member function]
+    bop GetGPUFrameTime(unc) -> SampleHistoryWrapper: ...
+
+    # void PerfStatGraphWrapper::SetGPUFrameTime(SampleHistoryWrapper newGPUFrameTime) [member function]
+    bop SetGPUFrameTime(unc, newGPUFrameTime: SampleHistoryWrapper) -> NPC: ...
+
+    # ArrayWrapper<SampleHistoryWrapper> PerfStatGraphWrapper::GetFrameTimeHistories() [member function]
+    bop GetFrameTimeHistories(unc) -> ArrayWrapper_SampleHistoryWrapper: ...
+
+    # float PerfStatGraphWrapper::GetMaxFPS() [member function]
+    bop GetMaxFPS(unc) -> float: ...
+
+    # void PerfStatGraphWrapper::SetMaxFPS(float newMaxFPS) [member function]
+    bop SetMaxFPS(unc, newMaxFPS: float) -> NPC: ...
+
+    # float PerfStatGraphWrapper::GetTargetFPS() [member function]
+    bop GetTargetFPS(unc) -> float: ...
+
+    # void PerfStatGraphWrapper::SetTargetFPS(float newTargetFPS) [member function]
+    bop SetTargetFPS(unc, newTargetFPS: float) -> NPC: ...
+
+    # void PerfStatGraphWrapper::eventUpdateGraphRanges() [member function]
+    bop eventUpdateGraphRanges(unc) -> NPC: ...
+
+    # SampleHistoryWrapper PerfStatGraphWrapper::CreateFrameTimeHistory(std::string Title) [member function]
+    bop CreateFrameTimeHistory(unc, Title: str) -> SampleHistoryWrapper: ...
+
+    # SampleHistoryWrapper PerfStatGraphWrapper::CreateFpsHistory(std::string Title) [member function]
+    bop CreateFpsHistory(unc, Title: str) -> SampleHistoryWrapper: ...
+
+    # void PerfStatGraphWrapper::eventConstruct() [member function]
+    bop eventConstruct(unc) -> NPC: ...
+
+    # Private:
+    # PerfStatGraphWrapper::Impl [class declaration]
+
+    # PerfStatGraphWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

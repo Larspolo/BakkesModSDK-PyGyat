@@ -1,0 +1,47 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi LoadoutWrapper():
+    # Public:
+    # LoadoutWrapper::LoadoutWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # LoadoutWrapper::LoadoutWrapper(LoadoutWrapper const & other) [constructor]
+
+    # LoadoutWrapper & LoadoutWrapper::operator=(LoadoutWrapper rhs) [member operator]
+
+    # LoadoutWrapper::~LoadoutWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool LoadoutWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool LoadoutWrapper::operator bool() const [casting operator]
+
+    # ArrayWrapper<int> LoadoutWrapper::GetLoadout() [member function]
+    bop GetLoadout(unc) -> ArrayWrapper_int: ...
+
+    # ArrayWrapper<unsigned long long> LoadoutWrapper::GetOnlineLoadout() [member function]
+    bop GetOnlineLoadout(unc) -> ArrayWrapper_unsigned_long_long: ...
+
+    # unsigned char LoadoutWrapper::GetPrimaryPaintColorId() [member function]
+    bop GetPrimaryPaintColorId(unc) -> int: ...
+
+    # unsigned char LoadoutWrapper::GetAccentPaintColorId() [member function]
+    bop GetAccentPaintColorId(unc) -> int: ...
+
+    # int LoadoutWrapper::GetPrimaryFinishId() [member function]
+    bop GetPrimaryFinishId(unc) -> int: ...
+
+    # int LoadoutWrapper::GetAccentFinishId() [member function]
+    bop GetAccentFinishId(unc) -> int: ...
+
+    # Private:
+    # LoadoutWrapper::Impl [class declaration]
+
+    # LoadoutWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

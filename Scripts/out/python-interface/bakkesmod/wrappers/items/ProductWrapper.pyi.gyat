@@ -1,0 +1,99 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductWrapper():
+    # Public:
+    # ProductWrapper::ProductWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductWrapper::ProductWrapper(ProductWrapper const & other) [constructor]
+
+    # ProductWrapper & ProductWrapper::operator=(ProductWrapper rhs) [member operator]
+
+    # ProductWrapper::~ProductWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool ProductWrapper::IsNull() [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # std::string ProductWrapper::GetAssetPackageName() [member function]
+    bop GetAssetPackageName(unc) -> str: ...
+
+    # UnrealStringWrapper ProductWrapper::GetAssetPath() [member function]
+    bop GetAssetPath(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductWrapper::GetLabel() [member function]
+    bop GetLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductWrapper::GetAsciiLabel() [member function]
+    bop GetAsciiLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductWrapper::GetLongLabel() [member function]
+    bop GetLongLabel(unc) -> UnrealStringWrapper: ...
+
+    # bool ProductWrapper::IsPaintable() [member function]
+    bop IsPaintable(unc) -> bool: ...
+
+    # UnrealStringWrapper ProductWrapper::GetDisplayLabelSlot() [member function]
+    bop GetDisplayLabelSlot(unc) -> UnrealStringWrapper: ...
+
+    # unsigned char ProductWrapper::GetQuality() [member function]
+    bop GetQuality(unc) -> int: ...
+
+    # bool ProductWrapper::IsContainerKey() [member function]
+    bop IsContainerKey(unc) -> bool: ...
+
+    # bool ProductWrapper::IsCurrency() [member function]
+    bop IsCurrency(unc) -> bool: ...
+
+    # bool ProductWrapper::IsBlueprint() [member function]
+    bop IsBlueprint(unc) -> bool: ...
+
+    # bool ProductWrapper::IsContainerUnlocked() [member function]
+    bop IsContainerUnlocked(unc) -> bool: ...
+
+    # bool ProductWrapper::IsContainer() [member function]
+    bop IsContainer(unc) -> bool: ...
+
+    # bool ProductWrapper::IsSchematic() [member function]
+    bop IsSchematic(unc) -> bool: ...
+
+    # bool ProductWrapper::IsPlatformExclusive() [member function]
+    bop IsPlatformExclusive(unc) -> bool: ...
+
+    # bool ProductWrapper::IsLicensed() [member function]
+    bop IsLicensed(unc) -> bool: ...
+
+    # ArrayWrapper<ProductAttributeWrapper> ProductWrapper::GetAttributes() [member function]
+    bop GetAttributes(unc) -> ArrayWrapper_ProductAttributeWrapper: ...
+
+    # UnrealStringWrapper ProductWrapper::GetSortLabel() [member function]
+    bop GetSortLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductWrapper::GetThumbnailAssetPath() [member function]
+    bop GetThumbnailAssetPath(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductWrapper::GetThumbnailPackageNameForLoad() [member function]
+    bop GetThumbnailPackageNameForLoad(unc) -> UnrealStringWrapper: ...
+
+    # std::string ProductWrapper::GetThumbnailPackageName() [member function]
+    bop GetThumbnailPackageName(unc) -> str: ...
+
+    # std::string ProductWrapper::GetThumbnailAssetName() [member function]
+    bop GetThumbnailAssetName(unc) -> str: ...
+
+    # UnrealStringWrapper ProductWrapper::GetTrademarkLabel() [member function]
+    bop GetTrademarkLabel(unc) -> UnrealStringWrapper: ...
+
+    # int ProductWrapper::GetID() [member function]
+    bop GetID(unc) -> int: ...
+
+    # Private:
+    # ProductWrapper::Impl [class declaration]
+
+    # ProductWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

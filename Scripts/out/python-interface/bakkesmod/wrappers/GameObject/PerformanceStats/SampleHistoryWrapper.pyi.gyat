@@ -1,0 +1,116 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SampleHistoryWrapper():
+    # Public:
+    # SampleHistoryWrapper::SampleHistoryWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # SampleHistoryWrapper::SampleHistoryWrapper(SampleHistoryWrapper const & other) [constructor]
+
+    # SampleHistoryWrapper & SampleHistoryWrapper::operator=(SampleHistoryWrapper rhs) [member operator]
+
+    # SampleHistoryWrapper::~SampleHistoryWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool SampleHistoryWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool SampleHistoryWrapper::operator bool() const [casting operator]
+
+    # SampleRecordSettingsWrapper SampleHistoryWrapper::GetRecordSettings() [member function]
+    bop GetRecordSettings(unc) -> SampleRecordSettingsWrapper: ...
+
+    # void SampleHistoryWrapper::SetRecordSettings(SampleRecordSettingsWrapper newRecordSettings) [member function]
+    bop SetRecordSettings(unc, newRecordSettings: SampleRecordSettingsWrapper) -> NPC: ...
+
+    # UnrealStringWrapper SampleHistoryWrapper::GetTitle() [member function]
+    bop GetTitle(unc) -> UnrealStringWrapper: ...
+
+    # float SampleHistoryWrapper::GetYMin() [member function]
+    bop GetYMin(unc) -> float: ...
+
+    # void SampleHistoryWrapper::SetYMin(float newYMin) [member function]
+    bop SetYMin(unc, newYMin: float) -> NPC: ...
+
+    # float SampleHistoryWrapper::GetYMax() [member function]
+    bop GetYMax(unc) -> float: ...
+
+    # void SampleHistoryWrapper::SetYMax(float newYMax) [member function]
+    bop SetYMax(unc, newYMax: float) -> NPC: ...
+
+    # float SampleHistoryWrapper::GetGoodValue() [member function]
+    bop GetGoodValue(unc) -> float: ...
+
+    # void SampleHistoryWrapper::SetGoodValue(float newGoodValue) [member function]
+    bop SetGoodValue(unc, newGoodValue: float) -> NPC: ...
+
+    # float SampleHistoryWrapper::GetBadValue() [member function]
+    bop GetBadValue(unc) -> float: ...
+
+    # void SampleHistoryWrapper::SetBadValue(float newBadValue) [member function]
+    bop SetBadValue(unc, newBadValue: float) -> NPC: ...
+
+    # float SampleHistoryWrapper::GetBaseValue() [member function]
+    bop GetBaseValue(unc) -> float: ...
+
+    # void SampleHistoryWrapper::SetBaseValue(float newBaseValue) [member function]
+    bop SetBaseValue(unc, newBaseValue: float) -> NPC: ...
+
+    # StructArrayWrapper<RecordedSample> SampleHistoryWrapper::GetSamples() [member function]
+    bop GetSamples(unc) -> StructArrayWrapper_RecordedSample: ...
+
+    # int SampleHistoryWrapper::GetSampleIndex() [member function]
+    bop GetSampleIndex(unc) -> int: ...
+
+    # void SampleHistoryWrapper::SetSampleIndex(int newSampleIndex) [member function]
+    bop SetSampleIndex(unc, newSampleIndex: int) -> NPC: ...
+
+    # float SampleHistoryWrapper::GetAccumTime() [member function]
+    bop GetAccumTime(unc) -> float: ...
+
+    # void SampleHistoryWrapper::SetAccumTime(float newAccumTime) [member function]
+    bop SetAccumTime(unc, newAccumTime: float) -> NPC: ...
+
+    # RecordedSample SampleHistoryWrapper::GetPendingSample() [member function]
+    bop GetPendingSample(unc) -> RecordedSample: ...
+
+    # void SampleHistoryWrapper::SetPendingSample(RecordedSample newPendingSample) [member function]
+    bop SetPendingSample(unc, newPendingSample: RecordedSample) -> NPC: ...
+
+    # long unsigned int SampleHistoryWrapper::GetbHasPendingSample() [member function]
+    bop GetbHasPendingSample(unc) -> bool: ...
+
+    # void SampleHistoryWrapper::SetbHasPendingSample(long unsigned int newbHasPendingSample) [member function]
+    bop SetbHasPendingSample(unc, newbHasPendingSample: bool) -> NPC: ...
+
+    # void SampleHistoryWrapper::Tick(float DeltaTime) [member function]
+    bop Tick(unc, DeltaTime: float) -> NPC: ...
+
+    # void SampleHistoryWrapper::AddSample(float NewValue) [member function]
+    bop AddSample(unc, NewValue: float) -> NPC: ...
+
+    # float SampleHistoryWrapper::GetSummaryValue(unsigned char Type, float MaxSampleAge, long unsigned int bAbsoluteValue) [member function]
+    bop GetSummaryValue(unc, Type: int, MaxSampleAge: float, bAbsoluteValue: bool) -> float: ...
+
+    # SampleHistoryWrapper SampleHistoryWrapper::SetBaseValue2(float InBaseValue) [member function]
+    bop SetBaseValue2(unc, InBaseValue: float) -> SampleHistoryWrapper: ...
+
+    # SampleHistoryWrapper SampleHistoryWrapper::SetGoodBadValues(float InGoodValue, float InBadValue) [member function]
+    bop SetGoodBadValues(unc, InGoodValue: float, InBadValue: float) -> SampleHistoryWrapper: ...
+
+    # SampleHistoryWrapper SampleHistoryWrapper::SetGraphMaxMin(float MaxValue, float MinValue) [member function]
+    bop SetGraphMaxMin(unc, MaxValue: float, MinValue: float) -> SampleHistoryWrapper: ...
+
+    # SampleHistoryWrapper SampleHistoryWrapper::SetTitle(std::string InTitle) [member function]
+    bop SetTitle(unc, InTitle: str) -> SampleHistoryWrapper: ...
+
+    # Private:
+    # SampleHistoryWrapper::Impl [class declaration]
+
+    # SampleHistoryWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

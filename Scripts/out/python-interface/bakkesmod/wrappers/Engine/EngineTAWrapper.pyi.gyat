@@ -1,0 +1,179 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi EngineTAWrapper():
+    # Public:
+    # EngineTAWrapper::EngineTAWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # EngineTAWrapper::EngineTAWrapper(EngineTAWrapper const & other) [constructor]
+
+    # EngineTAWrapper & EngineTAWrapper::operator=(EngineTAWrapper rhs) [member operator]
+
+    # EngineTAWrapper::~EngineTAWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool EngineTAWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool EngineTAWrapper::operator bool() const [casting operator]
+
+    # long unsigned int EngineTAWrapper::GetbEnableClientPrediction() [member function]
+    bop GetbEnableClientPrediction(unc) -> bool: ...
+
+    # void EngineTAWrapper::SetbEnableClientPrediction(long unsigned int newbEnableClientPrediction) [member function]
+    bop SetbEnableClientPrediction(unc, newbEnableClientPrediction: bool) -> NPC: ...
+
+    # long unsigned int EngineTAWrapper::GetbClientPhysicsUpdate() [member function]
+    bop GetbClientPhysicsUpdate(unc) -> bool: ...
+
+    # void EngineTAWrapper::SetbClientPhysicsUpdate(long unsigned int newbClientPhysicsUpdate) [member function]
+    bop SetbClientPhysicsUpdate(unc, newbClientPhysicsUpdate: bool) -> NPC: ...
+
+    # long unsigned int EngineTAWrapper::GetbDisableClientCorrections() [member function]
+    bop GetbDisableClientCorrections(unc) -> bool: ...
+
+    # void EngineTAWrapper::SetbDisableClientCorrections(long unsigned int newbDisableClientCorrections) [member function]
+    bop SetbDisableClientCorrections(unc, newbDisableClientCorrections: bool) -> NPC: ...
+
+    # long unsigned int EngineTAWrapper::GetbDebugClientCorrections() [member function]
+    bop GetbDebugClientCorrections(unc) -> bool: ...
+
+    # void EngineTAWrapper::SetbDebugClientCorrections(long unsigned int newbDebugClientCorrections) [member function]
+    bop SetbDebugClientCorrections(unc, newbDebugClientCorrections: bool) -> NPC: ...
+
+    # long unsigned int EngineTAWrapper::GetbForceClientCorrection() [member function]
+    bop GetbForceClientCorrection(unc) -> bool: ...
+
+    # void EngineTAWrapper::SetbForceClientCorrection(long unsigned int newbForceClientCorrection) [member function]
+    bop SetbForceClientCorrection(unc, newbForceClientCorrection: bool) -> NPC: ...
+
+    # float EngineTAWrapper::GetPhysicsFramerate() [member function]
+    bop GetPhysicsFramerate(unc) -> float: ...
+
+    # void EngineTAWrapper::SetPhysicsFramerate(float newPhysicsFramerate) [member function]
+    bop SetPhysicsFramerate(unc, newPhysicsFramerate: float) -> NPC: ...
+
+    # int EngineTAWrapper::GetMaxPhysicsSubsteps() [member function]
+    bop GetMaxPhysicsSubsteps(unc) -> int: ...
+
+    # void EngineTAWrapper::SetMaxPhysicsSubsteps(int newMaxPhysicsSubsteps) [member function]
+    bop SetMaxPhysicsSubsteps(unc, newMaxPhysicsSubsteps: int) -> NPC: ...
+
+    # int EngineTAWrapper::GetMaxUploadedClientFrames() [member function]
+    bop GetMaxUploadedClientFrames(unc) -> int: ...
+
+    # void EngineTAWrapper::SetMaxUploadedClientFrames(int newMaxUploadedClientFrames) [member function]
+    bop SetMaxUploadedClientFrames(unc, newMaxUploadedClientFrames: int) -> NPC: ...
+
+    # int EngineTAWrapper::GetMaxClientReplayFrames() [member function]
+    bop GetMaxClientReplayFrames(unc) -> int: ...
+
+    # void EngineTAWrapper::SetMaxClientReplayFrames(int newMaxClientReplayFrames) [member function]
+    bop SetMaxClientReplayFrames(unc, newMaxClientReplayFrames: int) -> NPC: ...
+
+    # int EngineTAWrapper::GetPhysicsFrame() [member function]
+    bop GetPhysicsFrame(unc) -> int: ...
+
+    # void EngineTAWrapper::SetPhysicsFrame(int newPhysicsFrame) [member function]
+    bop SetPhysicsFrame(unc, newPhysicsFrame: int) -> NPC: ...
+
+    # float EngineTAWrapper::GetRenderAlpha() [member function]
+    bop GetRenderAlpha(unc) -> float: ...
+
+    # void EngineTAWrapper::SetRenderAlpha(float newRenderAlpha) [member function]
+    bop SetRenderAlpha(unc, newRenderAlpha: float) -> NPC: ...
+
+    # int EngineTAWrapper::GetReplicatedPhysicsFrame() [member function]
+    bop GetReplicatedPhysicsFrame(unc) -> int: ...
+
+    # void EngineTAWrapper::SetReplicatedPhysicsFrame(int newReplicatedPhysicsFrame) [member function]
+    bop SetReplicatedPhysicsFrame(unc, newReplicatedPhysicsFrame: int) -> NPC: ...
+
+    # int EngineTAWrapper::GetDirtyPhysicsFrame() [member function]
+    bop GetDirtyPhysicsFrame(unc) -> int: ...
+
+    # void EngineTAWrapper::SetDirtyPhysicsFrame(int newDirtyPhysicsFrame) [member function]
+    bop SetDirtyPhysicsFrame(unc, newDirtyPhysicsFrame: int) -> NPC: ...
+
+    # int EngineTAWrapper::GetForceCorrectionFrames() [member function]
+    bop GetForceCorrectionFrames(unc) -> int: ...
+
+    # void EngineTAWrapper::SetForceCorrectionFrames(int newForceCorrectionFrames) [member function]
+    bop SetForceCorrectionFrames(unc, newForceCorrectionFrames: int) -> NPC: ...
+
+    # int EngineTAWrapper::GetTickNotifyIndex() [member function]
+    bop GetTickNotifyIndex(unc) -> int: ...
+
+    # void EngineTAWrapper::SetTickNotifyIndex(int newTickNotifyIndex) [member function]
+    bop SetTickNotifyIndex(unc, newTickNotifyIndex: int) -> NPC: ...
+
+    # UnrealStringWrapper EngineTAWrapper::GetShellArchetypePath() [member function]
+    bop GetShellArchetypePath(unc) -> UnrealStringWrapper: ...
+
+    # float EngineTAWrapper::GetLastBugReportTime() [member function]
+    bop GetLastBugReportTime(unc) -> float: ...
+
+    # void EngineTAWrapper::SetLastBugReportTime(float newLastBugReportTime) [member function]
+    bop SetLastBugReportTime(unc, newLastBugReportTime: float) -> NPC: ...
+
+    # float EngineTAWrapper::GetDebugClientCorrectionStartTime() [member function]
+    bop GetDebugClientCorrectionStartTime(unc) -> float: ...
+
+    # void EngineTAWrapper::SetDebugClientCorrectionStartTime(float newDebugClientCorrectionStartTime) [member function]
+    bop SetDebugClientCorrectionStartTime(unc, newDebugClientCorrectionStartTime: float) -> NPC: ...
+
+    # int EngineTAWrapper::GetDebugClientCorrectionCount() [member function]
+    bop GetDebugClientCorrectionCount(unc) -> int: ...
+
+    # void EngineTAWrapper::SetDebugClientCorrectionCount(int newDebugClientCorrectionCount) [member function]
+    bop SetDebugClientCorrectionCount(unc, newDebugClientCorrectionCount: int) -> NPC: ...
+
+    # StatGraphSystemWrapper EngineTAWrapper::GetStatGraphs() [member function]
+    bop GetStatGraphs(unc) -> StatGraphSystemWrapper: ...
+
+    # void EngineTAWrapper::SetStatGraphs(StatGraphSystemWrapper newStatGraphs) [member function]
+    bop SetStatGraphs(unc, newStatGraphs: StatGraphSystemWrapper) -> NPC: ...
+
+    # float EngineTAWrapper::GetLastPhysicsDeltaTimeScale() [member function]
+    bop GetLastPhysicsDeltaTimeScale(unc) -> float: ...
+
+    # void EngineTAWrapper::SetLastPhysicsDeltaTimeScale(float newLastPhysicsDeltaTimeScale) [member function]
+    bop SetLastPhysicsDeltaTimeScale(unc, newLastPhysicsDeltaTimeScale: float) -> NPC: ...
+
+    # void EngineTAWrapper::DebugClientCorrections2() [member function]
+    bop DebugClientCorrections2(unc) -> NPC: ...
+
+    # float EngineTAWrapper::GetBulletFixedDeltaTime() [member function]
+    bop GetBulletFixedDeltaTime(unc) -> float: ...
+
+    # void EngineTAWrapper::RunPhysicsStep(int BulletSceneIndex, float DeltaTime) [member function]
+    bop RunPhysicsStep(unc, BulletSceneIndex: int, DeltaTime: float) -> NPC: ...
+
+    # void EngineTAWrapper::UpdateReplicatedPhysicsFrame(int ServerFrame) [member function]
+    bop UpdateReplicatedPhysicsFrame(unc, ServerFrame: int) -> NPC: ...
+
+    # void EngineTAWrapper::DebugDedicatedServer(float ForHowLong) [member function]
+    bop DebugDedicatedServer(unc, ForHowLong: float) -> NPC: ...
+
+    # float EngineTAWrapper::GetPhysicsTime() [member function]
+    bop GetPhysicsTime(unc) -> float: ...
+
+    # void EngineTAWrapper::eventRecordAppStart() [member function]
+    bop eventRecordAppStart(unc) -> NPC: ...
+
+    # void EngineTAWrapper::eventInit() [member function]
+    bop eventInit(unc) -> NPC: ...
+
+    # void EngineTAWrapper::EventPreAsyncTick(float DeltaTime) [member function]
+    bop EventPreAsyncTick(unc, DeltaTime: float) -> NPC: ...
+
+    # Private:
+    # EngineTAWrapper::Impl [class declaration]
+
+    # EngineTAWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

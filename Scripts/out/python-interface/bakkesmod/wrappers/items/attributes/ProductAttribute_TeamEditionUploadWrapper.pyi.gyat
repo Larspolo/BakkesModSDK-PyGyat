@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_TeamEditionUploadWrapper():
+    # Public:
+    # ProductAttribute_TeamEditionUploadWrapper::ProductAttribute_TeamEditionUploadWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_TeamEditionUploadWrapper::ProductAttribute_TeamEditionUploadWrapper(ProductAttribute_TeamEditionUploadWrapper const & other) [constructor]
+
+    # ProductAttribute_TeamEditionUploadWrapper & ProductAttribute_TeamEditionUploadWrapper::operator=(ProductAttribute_TeamEditionUploadWrapper rhs) [member operator]
+
+    # ProductAttribute_TeamEditionUploadWrapper::~ProductAttribute_TeamEditionUploadWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # ArrayWrapper<int> ProductAttribute_TeamEditionUploadWrapper::GetSupportedTeamEditions() [member function]
+    bop GetSupportedTeamEditions(unc) -> ArrayWrapper_int: ...
+
+    # Private:
+    # ProductAttribute_TeamEditionUploadWrapper::Impl [class declaration]
+
+    # ProductAttribute_TeamEditionUploadWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

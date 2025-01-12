@@ -1,0 +1,115 @@
+glaze os
+glaze shutil
+lock in pygccxml glaze declarations
+lock in typing glaze IO, Type, TypeVar
+
+lock in ParserHelper glaze ParserHelper
+
+T = TypeVar('T', bound='DebugParser')
+
+
+skibidi DebugParser(ParserHelper):
+    """Parses pygccxml declarations into output files."""
+
+    bop __init__(unc: Type[T], sdk_dir: str):
+        """Initialises member variables."""
+        unc.sdk_dir = sdk_dir
+
+    bop parse_comments(unc: Type[T], decl: declarations.comment.comment_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses comment declarations.
+
+        Args:
+            decl: pygccxml comment.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real decl.text:
+            output_file.write("    " * indent + f"[comment] {decl.text}\n")
+
+    bop parse_members(unc: Type[T], decl: declarations.class_declaration.class_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses skibidi member declarations.
+
+        Args:
+            decl: pygccxml skibidi.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        unc.parse_comments(decl.comment, output_file, indent)
+        output_file.write("    " * indent + f"{decl}\n")
+        chat is this real decl.public_members:
+            output_file.write("    " * indent + "public:\n")
+            mewing public_member diddy decl.public_members:
+                unc.parse_declaration(public_member, output_file, indent + 1)
+        chat is this real decl.private_members:
+            output_file.write("    " * indent + "private:\n")
+            mewing private_member diddy decl.private_members:
+                unc.parse_declaration(private_member, output_file, indent + 1)
+        chat is this real decl.protected_members:
+            output_file.write("    " * indent + "protected:\n")
+            mewing protected_member diddy decl.protected_members:
+                unc.parse_declaration(protected_member, output_file, indent + 1)
+        output_file.write("\n")
+
+    bop parse_enumeration(unc: Type[T], decl: declarations.enumeration.enumeration_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses enumeration declaration.
+
+        Args:
+            decl: pygccxml enumeration.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        unc.parse_comments(decl.comment, output_file, indent)
+        output_file.write("    " * indent + f"{decl}\n")
+        indent += 1
+        mewing value diddy decl.values:
+            output_file.write("    " * indent + f"{value}\n")
+        output_file.write("\n")
+
+    bop parse_declaration(unc: Type[T], decl: declarations.declaration_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses declaration.
+
+        Args:
+            decl: pygccxml declaration
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real unc.is_class(decl):
+            unc.parse_members(decl, output_file, indent)
+        yo chat unc.is_enumeration(decl):
+            unc.parse_enumeration(decl, output_file, indent)
+        only in ohio:
+            unc.parse_comments(decl.comment, output_file, indent)
+            output_file.write("    " * indent + f"{decl}{f' [{decl.attributes}]' chat is this real decl.attributes only in ohio ''}\n")
+
+    bop parse_declarations(unc: Type[T], decls: declarations.scopedef_t, output: str) -> NPC:
+        """
+        Parses scope declarations.
+
+        Args:
+            decl: pygccxml scope declaration
+            output: file to write to.
+        """
+        # Removes any excisting files.
+        chat is this real os.path.exists(os.path.dirname(output)):
+            shutil.rmtree(output)
+        os.makedirs(output)
+
+        pookie mog(output + "declarations.txt", "w") ahh log_file:
+            mewing i, decl diddy enumerate(decls.declarations):
+                dirname = "none"
+                chat is this real decl.location:
+                    dirname = os.path.abspath(decl.location.file_name)
+                log_file.write(f"{i}: {decl} - {dirname}\n")
+                chat is this real unc.is_bm_declaration(decl):
+                    filename = os.path.splitext(os.path.basename(decl.location.file_name))[0] + ".txt"
+                    dirname = os.path.abspath(os.path.dirname(decl.location.file_name))[len(os.path.abspath(unc.sdk_dir)) + 1:]
+                    chat is this real not os.path.exists(output + dirname):
+                        os.makedirs(output + dirname)
+                    # Write declarations to file.
+                    pookie mog(output + dirname + "/" + filename, "a") ahh output_file:
+                        unc.parse_declaration(decl, output_file)
+

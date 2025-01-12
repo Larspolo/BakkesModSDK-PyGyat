@@ -1,0 +1,99 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi NetStatGraphWrapper():
+    # Public:
+    # NetStatGraphWrapper::NetStatGraphWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # NetStatGraphWrapper::NetStatGraphWrapper(NetStatGraphWrapper const & other) [constructor]
+
+    # NetStatGraphWrapper & NetStatGraphWrapper::operator=(NetStatGraphWrapper rhs) [member operator]
+
+    # NetStatGraphWrapper::~NetStatGraphWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::GetPacketsOut() [member function]
+    bop GetPacketsOut(unc) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::SetPacketsOut(SampleHistoryWrapper newPacketsOut) [member function]
+    bop SetPacketsOut(unc, newPacketsOut: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::GetPacketsIn() [member function]
+    bop GetPacketsIn(unc) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::SetPacketsIn(SampleHistoryWrapper newPacketsIn) [member function]
+    bop SetPacketsIn(unc, newPacketsIn: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::GetLostPacketsOut() [member function]
+    bop GetLostPacketsOut(unc) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::SetLostPacketsOut(SampleHistoryWrapper newLostPacketsOut) [member function]
+    bop SetLostPacketsOut(unc, newLostPacketsOut: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::GetLostPacketsIn() [member function]
+    bop GetLostPacketsIn(unc) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::SetLostPacketsIn(SampleHistoryWrapper newLostPacketsIn) [member function]
+    bop SetLostPacketsIn(unc, newLostPacketsIn: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::GetBytesOut() [member function]
+    bop GetBytesOut(unc) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::SetBytesOut(SampleHistoryWrapper newBytesOut) [member function]
+    bop SetBytesOut(unc, newBytesOut: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::GetBytesIn() [member function]
+    bop GetBytesIn(unc) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::SetBytesIn(SampleHistoryWrapper newBytesIn) [member function]
+    bop SetBytesIn(unc, newBytesIn: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::GetLatency() [member function]
+    bop GetLatency(unc) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::SetLatency(SampleHistoryWrapper newLatency) [member function]
+    bop SetLatency(unc, newLatency: SampleHistoryWrapper) -> NPC: ...
+
+    # float NetStatGraphWrapper::GetExpectedOutPacketRate() [member function]
+    bop GetExpectedOutPacketRate(unc) -> float: ...
+
+    # void NetStatGraphWrapper::SetExpectedOutPacketRate(float newExpectedOutPacketRate) [member function]
+    bop SetExpectedOutPacketRate(unc, newExpectedOutPacketRate: float) -> NPC: ...
+
+    # float NetStatGraphWrapper::GetExpectedInPacketRate() [member function]
+    bop GetExpectedInPacketRate(unc) -> float: ...
+
+    # void NetStatGraphWrapper::SetExpectedInPacketRate(float newExpectedInPacketRate) [member function]
+    bop SetExpectedInPacketRate(unc, newExpectedInPacketRate: float) -> NPC: ...
+
+    # float NetStatGraphWrapper::GetMaxBytesRate() [member function]
+    bop GetMaxBytesRate(unc) -> float: ...
+
+    # void NetStatGraphWrapper::SetMaxBytesRate(float newMaxBytesRate) [member function]
+    bop SetMaxBytesRate(unc, newMaxBytesRate: float) -> NPC: ...
+
+    # void NetStatGraphWrapper::eventUpdateGraphRanges() [member function]
+    bop eventUpdateGraphRanges(unc) -> NPC: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::CreateBytesSummary(std::string Title) [member function]
+    bop CreateBytesSummary(unc, Title: str) -> SampleHistoryWrapper: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::CreateLossSummary(std::string Title) [member function]
+    bop CreateLossSummary(unc, Title: str) -> SampleHistoryWrapper: ...
+
+    # SampleHistoryWrapper NetStatGraphWrapper::CreatePktSummary(std::string Title) [member function]
+    bop CreatePktSummary(unc, Title: str) -> SampleHistoryWrapper: ...
+
+    # void NetStatGraphWrapper::eventConstruct() [member function]
+    bop eventConstruct(unc) -> NPC: ...
+
+    # Private:
+    # NetStatGraphWrapper::Impl [class declaration]
+
+    # NetStatGraphWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

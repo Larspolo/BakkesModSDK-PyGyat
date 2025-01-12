@@ -1,0 +1,93 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi JumpComponentWrapper():
+    # Public:
+    # JumpComponentWrapper::JumpComponentWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # JumpComponentWrapper::JumpComponentWrapper(JumpComponentWrapper const & other) [constructor]
+
+    # JumpComponentWrapper & JumpComponentWrapper::operator=(JumpComponentWrapper rhs) [member operator]
+
+    # JumpComponentWrapper::~JumpComponentWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float JumpComponentWrapper::GetMinJumpTime() [member function]
+    bop GetMinJumpTime(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetMinJumpTime(float newMinJumpTime) [member function]
+    bop SetMinJumpTime(unc, newMinJumpTime: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetJumpImpulse() [member function]
+    bop GetJumpImpulse(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetJumpImpulse(float newJumpImpulse) [member function]
+    bop SetJumpImpulse(unc, newJumpImpulse: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetJumpForce() [member function]
+    bop GetJumpForce(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetJumpForce(float newJumpForce) [member function]
+    bop SetJumpForce(unc, newJumpForce: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetJumpForceTime() [member function]
+    bop GetJumpForceTime(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetJumpForceTime(float newJumpForceTime) [member function]
+    bop SetJumpForceTime(unc, newJumpForceTime: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetPodiumJumpForceTime() [member function]
+    bop GetPodiumJumpForceTime(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetPodiumJumpForceTime(float newPodiumJumpForceTime) [member function]
+    bop SetPodiumJumpForceTime(unc, newPodiumJumpForceTime: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetJumpImpulseSpeed() [member function]
+    bop GetJumpImpulseSpeed(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetJumpImpulseSpeed(float newJumpImpulseSpeed) [member function]
+    bop SetJumpImpulseSpeed(unc, newJumpImpulseSpeed: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetJumpAccel() [member function]
+    bop GetJumpAccel(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetJumpAccel(float newJumpAccel) [member function]
+    bop SetJumpAccel(unc, newJumpAccel: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetMaxJumpHeight() [member function]
+    bop GetMaxJumpHeight(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetMaxJumpHeight(float newMaxJumpHeight) [member function]
+    bop SetMaxJumpHeight(unc, newMaxJumpHeight: float) -> NPC: ...
+
+    # float JumpComponentWrapper::GetMaxJumpHeightTime() [member function]
+    bop GetMaxJumpHeightTime(unc) -> float: ...
+
+    # void JumpComponentWrapper::SetMaxJumpHeightTime(float newMaxJumpHeightTime) [member function]
+    bop SetMaxJumpHeightTime(unc, newMaxJumpHeightTime: float) -> NPC: ...
+
+    # long unsigned int JumpComponentWrapper::GetbDeactivate() [member function]
+    bop GetbDeactivate(unc) -> bool: ...
+
+    # void JumpComponentWrapper::SetbDeactivate(long unsigned int newbDeactivate) [member function]
+    bop SetbDeactivate(unc, newbDeactivate: bool) -> NPC: ...
+
+    # void JumpComponentWrapper::ApplyForces(float ActiveTime) [member function]
+    bop ApplyForces(unc, ActiveTime: float) -> NPC: ...
+
+    # void JumpComponentWrapper::CacheJumpData() [member function]
+    bop CacheJumpData(unc) -> NPC: ...
+
+    # void JumpComponentWrapper::OnCreated() [member function]
+    bop OnCreated(unc) -> NPC: ...
+
+    # Private:
+    # JumpComponentWrapper::Impl [class declaration]
+
+    # JumpComponentWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

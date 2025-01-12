@@ -1,0 +1,84 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SequenceVariableWrapper():
+    # Public:
+    # SequenceVariableWrapper::SequenceVariableWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # SequenceVariableWrapper::SequenceVariableWrapper(SequenceVariableWrapper const & other) [constructor]
+
+    # SequenceVariableWrapper & SequenceVariableWrapper::operator=(SequenceVariableWrapper rhs) [member operator]
+
+    # SequenceVariableWrapper::~SequenceVariableWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # std::string SequenceVariableWrapper::GetVarName() [member function]
+    bop GetVarName(unc) -> str: ...
+
+    # bool SequenceVariableWrapper::IsInt() [member function]
+    bop IsInt(unc) -> bool: ...
+
+    # bool SequenceVariableWrapper::IsFloat() [member function]
+    bop IsFloat(unc) -> bool: ...
+
+    # bool SequenceVariableWrapper::IsString() [member function]
+    bop IsString(unc) -> bool: ...
+
+    # bool SequenceVariableWrapper::IsVector() [member function]
+    bop IsVector(unc) -> bool: ...
+
+    # bool SequenceVariableWrapper::IsBool() [member function]
+    bop IsBool(unc) -> bool: ...
+
+    # bool SequenceVariableWrapper::IsObjectList() [member function]
+    bop IsObjectList(unc) -> bool: ...
+
+    # bool SequenceVariableWrapper::IsActor() [member function]
+    bop IsActor(unc) -> bool: ...
+
+    # float SequenceVariableWrapper::GetFloat() [member function]
+    bop GetFloat(unc) -> float: ...
+
+    # int SequenceVariableWrapper::GetInt() [member function]
+    bop GetInt(unc) -> int: ...
+
+    # std::string SequenceVariableWrapper::GetString() [member function]
+    bop GetString(unc) -> str: ...
+
+    # Vector SequenceVariableWrapper::GetVector() [member function]
+    bop GetVector(unc) -> Vector: ...
+
+    # bool SequenceVariableWrapper::GetBool() [member function]
+    bop GetBool(unc) -> bool: ...
+
+    # ArrayWrapper<SequenceVariableWrapper> SequenceVariableWrapper::GetObjectList() [member function]
+    bop GetObjectList(unc) -> ArrayWrapper_SequenceVariableWrapper: ...
+
+    # void SequenceVariableWrapper::SetFloat(float value) [member function]
+    bop SetFloat(unc, value: float) -> NPC: ...
+
+    # void SequenceVariableWrapper::SetInt(int value) [member function]
+    bop SetInt(unc, value: int) -> NPC: ...
+
+    # void SequenceVariableWrapper::SetString(std::string const & value) [member function]
+    bop SetString(unc, value: str) -> NPC: ...
+
+    # void SequenceVariableWrapper::SetVector(Vector value) [member function]
+    bop SetVector(unc, value: Vector) -> NPC: ...
+
+    # void SequenceVariableWrapper::SetBool(bool value) [member function]
+    bop SetBool(unc, value: bool) -> NPC: ...
+
+    # ActorWrapper SequenceVariableWrapper::GetActor() [member function]
+    bop GetActor(unc) -> ActorWrapper: ...
+
+    # Private:
+    # SequenceVariableWrapper::Impl [class declaration]
+
+    # SequenceVariableWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

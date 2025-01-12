@@ -1,0 +1,56 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi StatGraphWrapper():
+    # Public:
+    # StatGraphWrapper::StatGraphWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StatGraphWrapper::StatGraphWrapper(StatGraphWrapper const & other) [constructor]
+
+    # StatGraphWrapper & StatGraphWrapper::operator=(StatGraphWrapper rhs) [member operator]
+
+    # StatGraphWrapper::~StatGraphWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool StatGraphWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool StatGraphWrapper::operator bool() const [casting operator]
+
+    # SampleRecordSettingsWrapper StatGraphWrapper::GetRecordSettings() [member function]
+    bop GetRecordSettings(unc) -> SampleRecordSettingsWrapper: ...
+
+    # void StatGraphWrapper::SetRecordSettings(SampleRecordSettingsWrapper newRecordSettings) [member function]
+    bop SetRecordSettings(unc, newRecordSettings: SampleRecordSettingsWrapper) -> NPC: ...
+
+    # double StatGraphWrapper::GetLastTickTime() [member function]
+    bop GetLastTickTime(unc) -> float: ...
+
+    # void StatGraphWrapper::SetLastTickTime(double newLastTickTime) [member function]
+    bop SetLastTickTime(unc, newLastTickTime: float) -> NPC: ...
+
+    # ArrayWrapper<SampleHistoryWrapper> StatGraphWrapper::GetSampleHistories() [member function]
+    bop GetSampleHistories(unc) -> ArrayWrapper_SampleHistoryWrapper: ...
+
+    # void StatGraphWrapper::StopDrawing() [member function]
+    bop StopDrawing(unc) -> NPC: ...
+
+    # SampleHistoryWrapper StatGraphWrapper::CreateSampleHistory(std::string Title) [member function]
+    bop CreateSampleHistory(unc, Title: str) -> SampleHistoryWrapper: ...
+
+    # SampleHistoryWrapper StatGraphWrapper::AddSampleHistory(SampleHistoryWrapper History) [member function]
+    bop AddSampleHistory(unc, History: SampleHistoryWrapper) -> SampleHistoryWrapper: ...
+
+    # void StatGraphWrapper::eventConstruct() [member function]
+    bop eventConstruct(unc) -> NPC: ...
+
+    # Private:
+    # StatGraphWrapper::Impl [class declaration]
+
+    # StatGraphWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

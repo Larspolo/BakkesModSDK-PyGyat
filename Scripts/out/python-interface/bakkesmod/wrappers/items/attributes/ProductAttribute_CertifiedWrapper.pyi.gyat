@@ -1,0 +1,45 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_CertifiedWrapper():
+    # Public:
+    # ProductAttribute_CertifiedWrapper::ProductAttribute_CertifiedWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_CertifiedWrapper::ProductAttribute_CertifiedWrapper(ProductAttribute_CertifiedWrapper const & other) [constructor]
+
+    # ProductAttribute_CertifiedWrapper & ProductAttribute_CertifiedWrapper::operator=(ProductAttribute_CertifiedWrapper rhs) [member operator]
+
+    # ProductAttribute_CertifiedWrapper::~ProductAttribute_CertifiedWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # std::string ProductAttribute_CertifiedWrapper::GetValueKeyName() [member function]
+    bop GetValueKeyName(unc) -> str: ...
+
+    # int ProductAttribute_CertifiedWrapper::GetStatId() [member function]
+    bop GetStatId(unc) -> int: ...
+
+    # int ProductAttribute_CertifiedWrapper::GetStatValue() [member function]
+    bop GetStatValue(unc) -> int: ...
+
+    # UnrealStringWrapper ProductAttribute_CertifiedWrapper::GetSortLabel() [member function]
+    bop GetSortLabel(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductAttribute_CertifiedWrapper::GetDescription() [member function]
+    bop GetDescription(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ProductAttribute_CertifiedWrapper::GetRankLabel() [member function]
+    bop GetRankLabel(unc) -> UnrealStringWrapper: ...
+
+    # int ProductAttribute_CertifiedWrapper::GetRank() [member function]
+    bop GetRank(unc) -> int: ...
+
+    # Private:
+    # ProductAttribute_CertifiedWrapper::Impl [class declaration]
+
+    # ProductAttribute_CertifiedWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

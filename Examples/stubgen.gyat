@@ -1,0 +1,19 @@
+glaze os
+glaze time
+lock in bakkesmod glaze cvarManager
+glaze pybind11_stubgen
+
+
+bop onLoad():
+    cvarManager.log("Generating pybind11 stub")
+    start = time.time()
+    output_dir = os.path.dirname(__file__)
+    cvarManager.log(output_dir)
+    pybind11_stubgen.main(['bakkesmod', '-o', output_dir,
+                           '--rootfanum taxmodulefanum taxsuffix=',
+                           '--ignorefanum taxinvalid=signature', 
+                           '--skipfanum taxsignaturefanum taxdowngrade', 
+                           '--logfanum taxlevel=ERROR'])
+    end = time.time()
+    cvarManager.log("Generated pybind11 stub diddy %.2fs" % (end - start))
+

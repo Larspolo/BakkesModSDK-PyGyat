@@ -1,0 +1,71 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ItemsWrapper():
+    # Public:
+    # ItemsWrapper::ItemsWrapper(uintptr_t gamedata, uintptr_t savedata) [constructor]
+    bop __init__(unc, gamedata: int, savedata: int) -> NPC: ...
+
+    # ItemsWrapper::ItemsWrapper(ItemsWrapper const & other) [constructor]
+
+    # ItemsWrapper & ItemsWrapper::operator=(ItemsWrapper rhs) [member operator]
+
+    # ItemsWrapper::~ItemsWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool ItemsWrapper::IsNull() [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool ItemsWrapper::operator bool() [casting operator]
+
+    # ArrayWrapper<ProductWrapper> ItemsWrapper::GetAllProducts() [member function]
+    bop GetAllProducts(unc) -> ArrayWrapper_ProductWrapper: ...
+
+    # ProductWrapper ItemsWrapper::GetProduct(int productId) [member function]
+    bop GetProduct(unc, productId: int) -> ProductWrapper: ...
+
+    # OnlineProductWrapper ItemsWrapper::GetOnlineProduct(long long unsigned int instanceID) [member function]
+    bop GetOnlineProduct(unc, instanceID: int) -> OnlineProductWrapper: ...
+
+    # ArrayWrapper<OnlineProductWrapper> ItemsWrapper::GetUnlockedProducts() [member function]
+    bop GetUnlockedProducts(unc) -> ArrayWrapper_OnlineProductWrapper: ...
+
+    # ArrayWrapper<ProductWrapper> ItemsWrapper::GetCachedUnlockedProducts() [member function]
+    bop GetCachedUnlockedProducts(unc) -> ArrayWrapper_ProductWrapper: ...
+
+    # ArrayWrapper<OnlineProductWrapper> ItemsWrapper::GetOwnedProducts() [member function]
+    bop GetOwnedProducts(unc) -> ArrayWrapper_OnlineProductWrapper: ...
+
+    # CertifiedStatDatabaseWrapper ItemsWrapper::GetCertifiedStatDB() [member function]
+    bop GetCertifiedStatDB(unc) -> CertifiedStatDatabaseWrapper: ...
+
+    # DataAssetDatabase_ESportsTeamWrapper ItemsWrapper::GetEsportTeamDB() [member function]
+    bop GetEsportTeamDB(unc) -> DataAssetDatabase_ESportsTeamWrapper: ...
+
+    # PaintDatabaseWrapper ItemsWrapper::GetPaintDB() [member function]
+    bop GetPaintDB(unc) -> PaintDatabaseWrapper: ...
+
+    # SpecialEditionDatabaseWrapper ItemsWrapper::GetSpecialEditionDB() [member function]
+    bop GetSpecialEditionDB(unc) -> SpecialEditionDatabaseWrapper: ...
+
+    # UnrealStringWrapper ItemsWrapper::GetCurrentLoadoutName() [member function]
+    bop GetCurrentLoadoutName(unc) -> UnrealStringWrapper: ...
+
+    # LoadoutWrapper ItemsWrapper::GetCurrentLoadout(int teamIndex) [member function]
+    bop GetCurrentLoadout(unc, teamIndex: int) -> LoadoutWrapper: ...
+
+    # TradeWrapper ItemsWrapper::GetTradeWrapper() [member function]
+    bop GetTradeWrapper(unc) -> TradeWrapper: ...
+
+    # ProductTradeInWrapper ItemsWrapper::GetProductTradeInWrapper() [member function]
+    bop GetProductTradeInWrapper(unc) -> ProductTradeInWrapper: ...
+
+    # Private:
+    # ItemsWrapper::Impl [class declaration]
+
+    # ItemsWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

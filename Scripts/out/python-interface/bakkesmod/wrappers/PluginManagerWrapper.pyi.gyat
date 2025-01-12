@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi PluginManagerWrapper():
+    # Public:
+    # PluginManagerWrapper::PluginManagerWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # PluginManagerWrapper::PluginManagerWrapper(PluginManagerWrapper const & other) [constructor]
+
+    # PluginManagerWrapper & PluginManagerWrapper::operator=(PluginManagerWrapper rhs) [member operator]
+
+    # PluginManagerWrapper::~PluginManagerWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # std::vector<std::shared_ptr<BakkesMod::Plugin::LoadedPlugin>, std::allocator<std::shared_ptr<BakkesMod::Plugin::LoadedPlugin> > > * PluginManagerWrapper::GetLoadedPlugins() [member function]
+    bop GetLoadedPlugins(unc) -> List[LoadedPlugin]: ...
+
+    # Private:
+    # PluginManagerWrapper::Impl [class declaration]
+
+    # PluginManagerWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

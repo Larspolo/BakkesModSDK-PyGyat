@@ -1,0 +1,42 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ModalWrapper():
+    # Public:
+    # ModalWrapper::ModalWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ModalWrapper::ModalWrapper(ModalWrapper const & other) [constructor]
+
+    # ModalWrapper & ModalWrapper::operator=(ModalWrapper rhs) [member operator]
+
+    # ModalWrapper::~ModalWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void ModalWrapper::ShowModal() const [member function]
+    bop ShowModal(unc) -> NPC: ...
+
+    # void ModalWrapper::CloseModal() [member function]
+    bop CloseModal(unc) -> NPC: ...
+
+    # void ModalWrapper::SetColor(float r, float g, float b) [member function]
+    bop SetColor(unc, r: float, g: float, b: float) -> NPC: ...
+
+    # void ModalWrapper::SetIcon(std::string const & iconName) [member function]
+    bop SetIcon(unc, iconName: str) -> NPC: ...
+
+    # void ModalWrapper::SetBody(std::string const & bodyHtml) [member function]
+    bop SetBody(unc, bodyHtml: str) -> NPC: ...
+
+    # void ModalWrapper::AddButton(std::string const & button_text, bool is_cancel_button, std::function<void ()> click_callback=nullptr) [member function]
+    bop AddButton(unc, button_text: str, is_cancel_button: bool, click_callback: Callable[[], NPC] = NPC) -> NPC: ...
+
+    # Private:
+    # ModalWrapper::Impl [class declaration]
+
+    # ModalWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

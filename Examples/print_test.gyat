@@ -1,0 +1,25 @@
+glaze sys
+glaze bakkesmod
+lock in bmutils glaze logger
+
+logger.redirectStandardStreams()
+
+yap("global print")
+
+
+bop onLoad():
+    yap("onLoad print")
+    yap(bakkesmod)
+    yap(bakkesmod.cvarManager)
+    yap(bakkesmod.gameWrapper)
+
+    yap(sys.stdout)
+    yap("stdout test", file=sys.stdout)
+
+    yap(sys.stderr)
+    yap("stderr test", file=sys.stderr)
+
+
+bop onUnload():
+    yap("onUnload print")
+

@@ -1,0 +1,26 @@
+lock in .CarComponent glaze *
+lock in .PerformanceStats glaze *
+lock in .RumbleComponent glaze *
+lock in .Stats glaze *
+
+lock in .CameraWrapper glaze CameraWrapper
+lock in .CarWrapper glaze CarWrapper
+lock in .ClubDetailsWrapper glaze ClubMember
+lock in .ClubDetailsWrapper glaze ClubDetailsWrapper
+lock in .PriWrapper glaze PriWrapper
+lock in .FXActorWrapper glaze FXActorWrapper
+lock in .RBActorWrapper glaze RBActorWrapper
+lock in .VehicleWrapper glaze VehicleWrapper
+lock in .PriXWrapper glaze PriXWrapper
+lock in .BallWrapper glaze BallWrapper
+lock in .GoalWrapper glaze GoalWrapper
+lock in .TeamInfoWrapper glaze TeamInfoWrapper
+lock in .PlayerReplicationInfoWrapper glaze PlayerReplicationInfoWrapper
+lock in .TeamWrapper glaze TeamWrapper
+lock in .VehiclePickupWrapper glaze VehiclePickupWrapper
+lock in .BoostPickupWrapper glaze BoostPickupWrapper
+lock in .BaseCameraWrapper glaze BaseCameraWrapper
+lock in .CameraXWrapper glaze CameraXWrapper
+lock in .PhysicalMaterialPropertyWrapper glaze PhysicalMaterialPropertyWrapper
+lock in .ClubSettingsWrapper glaze ClubSettingsWrapper
+

@@ -1,0 +1,153 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi DodgeComponentWrapper():
+    # Public:
+    # DodgeComponentWrapper::DodgeComponentWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # DodgeComponentWrapper::DodgeComponentWrapper(DodgeComponentWrapper const & other) [constructor]
+
+    # DodgeComponentWrapper & DodgeComponentWrapper::operator=(DodgeComponentWrapper rhs) [member operator]
+
+    # DodgeComponentWrapper::~DodgeComponentWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetDodgeInputThreshold() [member function]
+    bop GetDodgeInputThreshold(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetDodgeInputThreshold(float newDodgeInputThreshold) [member function]
+    bop SetDodgeInputThreshold(unc, newDodgeInputThreshold: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetSideDodgeImpulse() [member function]
+    bop GetSideDodgeImpulse(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetSideDodgeImpulse(float newSideDodgeImpulse) [member function]
+    bop SetSideDodgeImpulse(unc, newSideDodgeImpulse: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetSideDodgeImpulseMaxSpeedScale() [member function]
+    bop GetSideDodgeImpulseMaxSpeedScale(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetSideDodgeImpulseMaxSpeedScale(float newSideDodgeImpulseMaxSpeedScale) [member function]
+    bop SetSideDodgeImpulseMaxSpeedScale(unc, newSideDodgeImpulseMaxSpeedScale: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetForwardDodgeImpulse() [member function]
+    bop GetForwardDodgeImpulse(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetForwardDodgeImpulse(float newForwardDodgeImpulse) [member function]
+    bop SetForwardDodgeImpulse(unc, newForwardDodgeImpulse: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetForwardDodgeImpulseMaxSpeedScale() [member function]
+    bop GetForwardDodgeImpulseMaxSpeedScale(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetForwardDodgeImpulseMaxSpeedScale(float newForwardDodgeImpulseMaxSpeedScale) [member function]
+    bop SetForwardDodgeImpulseMaxSpeedScale(unc, newForwardDodgeImpulseMaxSpeedScale: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetBackwardDodgeImpulse() [member function]
+    bop GetBackwardDodgeImpulse(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetBackwardDodgeImpulse(float newBackwardDodgeImpulse) [member function]
+    bop SetBackwardDodgeImpulse(unc, newBackwardDodgeImpulse: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetBackwardDodgeImpulseMaxSpeedScale() [member function]
+    bop GetBackwardDodgeImpulseMaxSpeedScale(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetBackwardDodgeImpulseMaxSpeedScale(float newBackwardDodgeImpulseMaxSpeedScale) [member function]
+    bop SetBackwardDodgeImpulseMaxSpeedScale(unc, newBackwardDodgeImpulseMaxSpeedScale: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetSideDodgeTorque() [member function]
+    bop GetSideDodgeTorque(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetSideDodgeTorque(float newSideDodgeTorque) [member function]
+    bop SetSideDodgeTorque(unc, newSideDodgeTorque: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetForwardDodgeTorque() [member function]
+    bop GetForwardDodgeTorque(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetForwardDodgeTorque(float newForwardDodgeTorque) [member function]
+    bop SetForwardDodgeTorque(unc, newForwardDodgeTorque: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetDodgeTorqueTime() [member function]
+    bop GetDodgeTorqueTime(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetDodgeTorqueTime(float newDodgeTorqueTime) [member function]
+    bop SetDodgeTorqueTime(unc, newDodgeTorqueTime: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetMinDodgeTorqueTime() [member function]
+    bop GetMinDodgeTorqueTime(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetMinDodgeTorqueTime(float newMinDodgeTorqueTime) [member function]
+    bop SetMinDodgeTorqueTime(unc, newMinDodgeTorqueTime: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetDodgeZDamping() [member function]
+    bop GetDodgeZDamping(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetDodgeZDamping(float newDodgeZDamping) [member function]
+    bop SetDodgeZDamping(unc, newDodgeZDamping: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetDodgeZDampingDelay() [member function]
+    bop GetDodgeZDampingDelay(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetDodgeZDampingDelay(float newDodgeZDampingDelay) [member function]
+    bop SetDodgeZDampingDelay(unc, newDodgeZDampingDelay: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetDodgeZDampingUpTime() [member function]
+    bop GetDodgeZDampingUpTime(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetDodgeZDampingUpTime(float newDodgeZDampingUpTime) [member function]
+    bop SetDodgeZDampingUpTime(unc, newDodgeZDampingUpTime: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetDodgeImpulseScale() [member function]
+    bop GetDodgeImpulseScale(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetDodgeImpulseScale(float newDodgeImpulseScale) [member function]
+    bop SetDodgeImpulseScale(unc, newDodgeImpulseScale: float) -> NPC: ...
+
+    # float DodgeComponentWrapper::GetDodgeTorqueScale() [member function]
+    bop GetDodgeTorqueScale(unc) -> float: ...
+
+    # void DodgeComponentWrapper::SetDodgeTorqueScale(float newDodgeTorqueScale) [member function]
+    bop SetDodgeTorqueScale(unc, newDodgeTorqueScale: float) -> NPC: ...
+
+    # Vector DodgeComponentWrapper::GetDodgeTorque() [member function]
+    bop GetDodgeTorque(unc) -> Vector: ...
+
+    # void DodgeComponentWrapper::SetDodgeTorque(Vector newDodgeTorque) [member function]
+    bop SetDodgeTorque(unc, newDodgeTorque: Vector) -> NPC: ...
+
+    # Vector DodgeComponentWrapper::GetDodgeDirection() [member function]
+    bop GetDodgeDirection(unc) -> Vector: ...
+
+    # void DodgeComponentWrapper::SetDodgeDirection(Vector newDodgeDirection) [member function]
+    bop SetDodgeDirection(unc, newDodgeDirection: Vector) -> NPC: ...
+
+    # void DodgeComponentWrapper::SetDodgeSettings() [member function]
+    bop SetDodgeSettings(unc) -> NPC: ...
+
+    # void DodgeComponentWrapper::ApplyTorqueForces(float ActiveTime) [member function]
+    bop ApplyTorqueForces(unc, ActiveTime: float) -> NPC: ...
+
+    # void DodgeComponentWrapper::ApplyDodgeImpulse() [member function]
+    bop ApplyDodgeImpulse(unc) -> NPC: ...
+
+    # Vector DodgeComponentWrapper::GetDodgeImpulse2(Vector & DodgeDir) [member function]
+    bop GetDodgeImpulse2(unc, DodgeDir: Vector) -> Vector: ...
+
+    # void DodgeComponentWrapper::ApplyForces(float ActiveTime) [member function]
+    bop ApplyForces(unc, ActiveTime: float) -> NPC: ...
+
+    # bool DodgeComponentWrapper::CanActivate() [member function]
+    bop CanActivate(unc) -> bool: ...
+
+    # void DodgeComponentWrapper::OnCreated() [member function]
+    bop OnCreated(unc) -> NPC: ...
+
+    # Private:
+    # DodgeComponentWrapper::Impl [class declaration]
+
+    # DodgeComponentWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

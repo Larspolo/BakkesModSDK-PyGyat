@@ -1,0 +1,72 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ReplaySoccarWrapper():
+    # Public:
+    # ReplaySoccarWrapper::ReplaySoccarWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ReplaySoccarWrapper::ReplaySoccarWrapper(ReplaySoccarWrapper const & other) [constructor]
+
+    # ReplaySoccarWrapper & ReplaySoccarWrapper::operator=(ReplaySoccarWrapper rhs) [member operator]
+
+    # ReplaySoccarWrapper::~ReplaySoccarWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int ReplaySoccarWrapper::GetTeamSize() [member function]
+    bop GetTeamSize(unc) -> int: ...
+
+    # void ReplaySoccarWrapper::SetTeamSize(int newTeamSize) [member function]
+    bop SetTeamSize(unc, newTeamSize: int) -> NPC: ...
+
+    # int ReplaySoccarWrapper::GetUnfairTeamSize() [member function]
+    bop GetUnfairTeamSize(unc) -> int: ...
+
+    # void ReplaySoccarWrapper::SetUnfairTeamSize(int newUnfairTeamSize) [member function]
+    bop SetUnfairTeamSize(unc, newUnfairTeamSize: int) -> NPC: ...
+
+    # long unsigned int ReplaySoccarWrapper::GetbUnfairBots() [member function]
+    bop GetbUnfairBots(unc) -> bool: ...
+
+    # void ReplaySoccarWrapper::SetbUnfairBots(long unsigned int newbUnfairBots) [member function]
+    bop SetbUnfairBots(unc, newbUnfairBots: bool) -> NPC: ...
+
+    # int ReplaySoccarWrapper::GetPrimaryPlayerTeam() [member function]
+    bop GetPrimaryPlayerTeam(unc) -> int: ...
+
+    # void ReplaySoccarWrapper::SetPrimaryPlayerTeam(int newPrimaryPlayerTeam) [member function]
+    bop SetPrimaryPlayerTeam(unc, newPrimaryPlayerTeam: int) -> NPC: ...
+
+    # int ReplaySoccarWrapper::GetTeam0Score() [member function]
+    bop GetTeam0Score(unc) -> int: ...
+
+    # void ReplaySoccarWrapper::SetTeam0Score(int newTeam0Score) [member function]
+    bop SetTeam0Score(unc, newTeam0Score: int) -> NPC: ...
+
+    # int ReplaySoccarWrapper::GetTeam1Score() [member function]
+    bop GetTeam1Score(unc) -> int: ...
+
+    # void ReplaySoccarWrapper::SetTeam1Score(int newTeam1Score) [member function]
+    bop SetTeam1Score(unc, newTeam1Score: int) -> NPC: ...
+
+    # void ReplaySoccarWrapper::eventPreExport() [member function]
+    bop eventPreExport(unc) -> NPC: ...
+
+    # void ReplaySoccarWrapper::RemoveTimelineKeyframe(int KeyframeIndex) [member function]
+    bop RemoveTimelineKeyframe(unc, KeyframeIndex: int) -> NPC: ...
+
+    # void ReplaySoccarWrapper::RecordUserEvent() [member function]
+    bop RecordUserEvent(unc) -> NPC: ...
+
+    # void ReplaySoccarWrapper::AddPlayer(PriWrapper PRI) [member function]
+    bop AddPlayer(unc, PRI: PriWrapper) -> NPC: ...
+
+    # Private:
+    # ReplaySoccarWrapper::Impl [class declaration]
+
+    # ReplaySoccarWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

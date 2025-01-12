@@ -1,0 +1,39 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi DoubleJumpComponentWrapper():
+    # Public:
+    # DoubleJumpComponentWrapper::DoubleJumpComponentWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # DoubleJumpComponentWrapper::DoubleJumpComponentWrapper(DoubleJumpComponentWrapper const & other) [constructor]
+
+    # DoubleJumpComponentWrapper & DoubleJumpComponentWrapper::operator=(DoubleJumpComponentWrapper rhs) [member operator]
+
+    # DoubleJumpComponentWrapper::~DoubleJumpComponentWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void DoubleJumpComponentWrapper::SetJumpImpulse(float newJumpImpulse) [member function]
+    bop SetJumpImpulse(unc, newJumpImpulse: float) -> NPC: ...
+
+    # float DoubleJumpComponentWrapper::GetImpulseScale() [member function]
+    bop GetImpulseScale(unc) -> float: ...
+
+    # void DoubleJumpComponentWrapper::SetImpulseScale(float newImpulseScale) [member function]
+    bop SetImpulseScale(unc, newImpulseScale: float) -> NPC: ...
+
+    # void DoubleJumpComponentWrapper::ApplyForces(float ActiveTime) [member function]
+    bop ApplyForces(unc, ActiveTime: float) -> NPC: ...
+
+    # void DoubleJumpComponentWrapper::OnCreated() [member function]
+    bop OnCreated(unc) -> NPC: ...
+
+    # Private:
+    # DoubleJumpComponentWrapper::Impl [class declaration]
+
+    # DoubleJumpComponentWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

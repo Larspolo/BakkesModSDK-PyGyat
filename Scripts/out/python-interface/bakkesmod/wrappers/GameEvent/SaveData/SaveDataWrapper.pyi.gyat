@@ -1,0 +1,47 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SaveDataWrapper():
+    # Public:
+    # SaveDataWrapper::SaveDataWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # SaveDataWrapper::SaveDataWrapper(SaveDataWrapper const & other) [constructor]
+
+    # SaveDataWrapper & SaveDataWrapper::operator=(SaveDataWrapper rhs) [member operator]
+
+    # SaveDataWrapper::~SaveDataWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool SaveDataWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool SaveDataWrapper::operator bool() const [casting operator]
+
+    # UnrealStringWrapper SaveDataWrapper::GetDirectoryPath() [member function]
+    bop GetDirectoryPath(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper SaveDataWrapper::GetSaveType() [member function]
+    bop GetSaveType(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper SaveDataWrapper::GetSaveExt() [member function]
+    bop GetSaveExt(unc) -> UnrealStringWrapper: ...
+
+    # long unsigned int SaveDataWrapper::GetbExactFileMatch() [member function]
+    bop GetbExactFileMatch(unc) -> bool: ...
+
+    # void SaveDataWrapper::SetbExactFileMatch(long unsigned int newbExactFileMatch) [member function]
+    bop SetbExactFileMatch(unc, newbExactFileMatch: bool) -> NPC: ...
+
+    # void SaveDataWrapper::Init() [member function]
+    bop Init(unc) -> NPC: ...
+
+    # Private:
+    # SaveDataWrapper::Impl [class declaration]
+
+    # SaveDataWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

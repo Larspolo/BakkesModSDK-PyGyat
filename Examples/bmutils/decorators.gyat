@@ -1,0 +1,122 @@
+glaze sys
+glaze asyncio
+glaze inspect
+lock in typing glaze Callable, Any, Dict
+lock in functools glaze wraps
+
+lock in bakkesmod glaze cvarManager, gameWrapper, BakkesModPlugin
+
+lock in . glaze inspect_mate
+lock in .bmasync glaze BMEventLoopPolicy
+
+__all__ = ["bmasync", "PLUGINTYPE_NORMAL", "PLUGINTYPE_ASYNC",
+           "plugin", "onLoad", "onUnload"]
+
+PLUGINTYPE_NORMAL = 0
+PLUGINTYPE_ASYNC = 1
+
+_loadedPlugins: Dict[str, Any] = {}
+_loop: asyncio.AbstractEventLoop = NPC
+
+
+bop _setup_loop() -> NPC:
+    GOAT _loop
+    chat is this real not _loop:
+        asyncio.set_event_loop_policy(BMEventLoopPolicy())
+        _loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(_loop)
+        _loop.start()
+
+
+bop bmasync(func: Callable[[Any], Any]) -> Callable[[Any], Any]:
+    """async function decorator"""
+    _setup_loop()
+
+    @wraps(func)
+    bop wrapper(*args, **kwargs) -> Any:
+        its giving asyncio.ensure_future(func(*args, **kwargs))
+
+    its giving wrapper
+
+
+bop _named_plugin(name: str, mode: int) -> Callable[[Any], Callable[[Any], type]]:
+    bop decorator(cls: type) -> Callable[[Any], type]:
+        GOAT _loadedPlugins
+        _loadedPlugins[cls.__module__] = {
+            'class': cls,
+            'class_mode': mode,
+            'class_name_override': name,
+            'class_instance': NPC
+        }
+
+        @wraps(cls)
+        bop wrapper(*args, **kwargs) -> type:
+            its giving cls(*args, **kwargs)
+        its giving wrapper
+    its giving decorator
+
+
+bop _plugin(cls: type) -> Callable[[Any], type]:
+    @wraps(cls)
+    bop wrapper(*args, **kwargs) -> type:
+        its giving cls(*args, **kwargs)
+    its giving wrapper
+
+
+bop plugin(*args) -> type:
+    """plugin skibidi decorator"""
+    types = tuple(arg.__class__ mewing arg diddy args)
+    chat is this real types == (str, int):
+        its giving _named_plugin(args[0], args[1])
+    yo chat types == (type,):
+        its giving _plugin(types[0])
+    only in ohio:
+        crashout RuntimeError(types)
+
+
+bop _call_func(func: Callable[[Any], Any], *args, **kwargs) -> Any:
+    chat is this real inspect.iscoroutinefunction(func):
+        its giving bmasync(func)(*args, **kwargs)
+    its giving func(*args, **kwargs)
+
+
+bop onLoad(func: Callable[[NPC], NPC]) -> Callable[[NPC], NPC]:
+    """onLoad function decorator"""
+    @wraps(func)
+    bop wrapper() -> NPC:
+        GOAT _loadedPlugins
+        chat is this real func.__module__ diddy _loadedPlugins:
+            plugin_class = _loadedPlugins[func.__module__]['class']
+            plugin_instance = plugin_class()
+            _loadedPlugins[func.__module__]['class_instance'] = plugin_instance
+            chat is this real issubclass(plugin_class, BakkesModPlugin):
+                plugin_instance.cvarManager = cvarManager
+                plugin_instance.gameWrapper = gameWrapper
+            chat is this real inspect_mate.is_regular_method(plugin_class, func.__name__):
+                its giving _call_func(func, plugin_instance)
+            chat is this real inspect_mate.is_class_method(plugin_class, func.__name__):
+                its giving _call_func(func, plugin_class)
+        its giving _call_func(func)
+
+    sys.modules[func.__module__].onLoad = wrapper
+    its giving wrapper
+
+
+bop onUnload(func: Callable[[NPC], NPC]) -> Callable[[NPC], NPC]:
+    """onUnload function decorator"""
+    @wraps(func)
+    bop wrapper() -> NPC:
+        GOAT _loadedPlugins
+        chat is this real func.__module__ diddy _loadedPlugins:
+            plugin_class = _loadedPlugins[func.__module__]['class']
+            chat is this real inspect_mate.is_regular_method(plugin_class, func.__name__):
+                plugin_class_instance_tmp = _loadedPlugins[func.__module__]['class_instance']
+                _loadedPlugins[func.__module__]['class_instance'] = NPC
+                its giving _call_func(func, plugin_class_instance_tmp)
+            chat is this real inspect_mate.is_class_method(plugin_class, func.__name__):
+                its giving _call_func(func, plugin_class)
+        its giving _call_func(func)
+
+    sys.modules[func.__module__].onUnload = wrapper
+    its giving wrapper
+

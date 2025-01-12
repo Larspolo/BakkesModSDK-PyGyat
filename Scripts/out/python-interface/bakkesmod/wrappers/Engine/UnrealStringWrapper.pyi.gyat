@@ -1,0 +1,35 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi UnrealStringWrapper():
+    # Public:
+    # UnrealStringWrapper::UnrealStringWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # UnrealStringWrapper::UnrealStringWrapper(UnrealStringWrapper const & other) [constructor]
+
+    # UnrealStringWrapper & UnrealStringWrapper::operator=(UnrealStringWrapper rhs) [member operator]
+
+    # UnrealStringWrapper::~UnrealStringWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # std::string UnrealStringWrapper::ToString() [member function]
+    bop ToString(unc) -> str: ...
+
+    # std::wstring UnrealStringWrapper::ToWideString() [member function]
+    bop ToWideString(unc) -> str: ...
+
+    # bool UnrealStringWrapper::IsNull() [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool UnrealStringWrapper::operator bool() [casting operator]
+
+    # Private:
+    # UnrealStringWrapper::Impl [class declaration]
+
+    # UnrealStringWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

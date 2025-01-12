@@ -1,0 +1,30 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi AttachmentPickup():
+    # Public:
+    # AttachmentPickup::AttachmentPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # AttachmentPickup::AttachmentPickup(AttachmentPickup const & other) [constructor]
+
+    # AttachmentPickup & AttachmentPickup::operator=(AttachmentPickup rhs) [member operator]
+
+    # AttachmentPickup::~AttachmentPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void AttachmentPickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void AttachmentPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # AttachmentPickup::Impl [class declaration]
+
+    # AttachmentPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

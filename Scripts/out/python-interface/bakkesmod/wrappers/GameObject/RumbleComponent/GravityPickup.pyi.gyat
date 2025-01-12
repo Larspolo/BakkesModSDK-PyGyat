@@ -1,0 +1,81 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi GravityPickup():
+    # Public:
+    # GravityPickup::GravityPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # GravityPickup::GravityPickup(GravityPickup const & other) [constructor]
+
+    # GravityPickup & GravityPickup::operator=(GravityPickup rhs) [member operator]
+
+    # GravityPickup::~GravityPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float GravityPickup::GetBallGravity() [member function]
+    bop GetBallGravity(unc) -> float: ...
+
+    # void GravityPickup::SetBallGravity(float newBallGravity) [member function]
+    bop SetBallGravity(unc, newBallGravity: float) -> NPC: ...
+
+    # float GravityPickup::GetRange() [member function]
+    bop GetRange(unc) -> float: ...
+
+    # void GravityPickup::SetRange(float newRange) [member function]
+    bop SetRange(unc, newRange: float) -> NPC: ...
+
+    # Vector GravityPickup::GetOffset() [member function]
+    bop GetOffset(unc) -> Vector: ...
+
+    # void GravityPickup::SetOffset(Vector newOffset) [member function]
+    bop SetOffset(unc, newOffset: Vector) -> NPC: ...
+
+    # long unsigned int GravityPickup::GetbDeactivateOnTouch() [member function]
+    bop GetbDeactivateOnTouch(unc) -> bool: ...
+
+    # void GravityPickup::SetbDeactivateOnTouch(long unsigned int newbDeactivateOnTouch) [member function]
+    bop SetbDeactivateOnTouch(unc, newbDeactivateOnTouch: bool) -> NPC: ...
+
+    # float GravityPickup::GetRecordBallHitRate() [member function]
+    bop GetRecordBallHitRate(unc) -> float: ...
+
+    # void GravityPickup::SetRecordBallHitRate(float newRecordBallHitRate) [member function]
+    bop SetRecordBallHitRate(unc, newRecordBallHitRate: float) -> NPC: ...
+
+    # float GravityPickup::GetLastRecordedBallHitTime() [member function]
+    bop GetLastRecordedBallHitTime(unc) -> float: ...
+
+    # void GravityPickup::SetLastRecordedBallHitTime(float newLastRecordedBallHitTime) [member function]
+    bop SetLastRecordedBallHitTime(unc, newLastRecordedBallHitTime: float) -> NPC: ...
+
+    # BallWrapper GravityPickup::GetPrevBall() [member function]
+    bop GetPrevBall(unc) -> BallWrapper: ...
+
+    # void GravityPickup::SetPrevBall(BallWrapper newPrevBall) [member function]
+    bop SetPrevBall(unc, newPrevBall: BallWrapper) -> NPC: ...
+
+    # void GravityPickup::HandleHitBall(CarWrapper InCar, BallWrapper Ball) [member function]
+    bop HandleHitBall(unc, InCar: CarWrapper, Ball: BallWrapper) -> NPC: ...
+
+    # void GravityPickup::UpdateVisual() [member function]
+    bop UpdateVisual(unc) -> NPC: ...
+
+    # void GravityPickup::ApplyForces(float ActiveTime) [member function]
+    bop ApplyForces(unc, ActiveTime: float) -> NPC: ...
+
+    # void GravityPickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void GravityPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # GravityPickup::Impl [class declaration]
+
+    # GravityPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

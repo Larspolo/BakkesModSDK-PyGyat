@@ -1,0 +1,60 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi FlipCarComponentWrapper():
+    # Public:
+    # FlipCarComponentWrapper::FlipCarComponentWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # FlipCarComponentWrapper::FlipCarComponentWrapper(FlipCarComponentWrapper const & other) [constructor]
+
+    # FlipCarComponentWrapper & FlipCarComponentWrapper::operator=(FlipCarComponentWrapper rhs) [member operator]
+
+    # FlipCarComponentWrapper::~FlipCarComponentWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float FlipCarComponentWrapper::GetFlipCarImpulse() [member function]
+    bop GetFlipCarImpulse(unc) -> float: ...
+
+    # void FlipCarComponentWrapper::SetFlipCarImpulse(float newFlipCarImpulse) [member function]
+    bop SetFlipCarImpulse(unc, newFlipCarImpulse: float) -> NPC: ...
+
+    # float FlipCarComponentWrapper::GetFlipCarTorque() [member function]
+    bop GetFlipCarTorque(unc) -> float: ...
+
+    # void FlipCarComponentWrapper::SetFlipCarTorque(float newFlipCarTorque) [member function]
+    bop SetFlipCarTorque(unc, newFlipCarTorque: float) -> NPC: ...
+
+    # float FlipCarComponentWrapper::GetFlipCarTime() [member function]
+    bop GetFlipCarTime(unc) -> float: ...
+
+    # void FlipCarComponentWrapper::SetFlipCarTime(float newFlipCarTime) [member function]
+    bop SetFlipCarTime(unc, newFlipCarTime: float) -> NPC: ...
+
+    # long unsigned int FlipCarComponentWrapper::GetbFlipRight() [member function]
+    bop GetbFlipRight(unc) -> bool: ...
+
+    # void FlipCarComponentWrapper::SetbFlipRight(long unsigned int newbFlipRight) [member function]
+    bop SetbFlipRight(unc, newbFlipRight: bool) -> NPC: ...
+
+    # void FlipCarComponentWrapper::InitFlip() [member function]
+    bop InitFlip(unc) -> NPC: ...
+
+    # void FlipCarComponentWrapper::ApplyForces(float ActiveTime) [member function]
+    bop ApplyForces(unc, ActiveTime: float) -> NPC: ...
+
+    # bool FlipCarComponentWrapper::CanActivate() [member function]
+    bop CanActivate(unc) -> bool: ...
+
+    # void FlipCarComponentWrapper::OnCreated() [member function]
+    bop OnCreated(unc) -> NPC: ...
+
+    # Private:
+    # FlipCarComponentWrapper::Impl [class declaration]
+
+    # FlipCarComponentWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

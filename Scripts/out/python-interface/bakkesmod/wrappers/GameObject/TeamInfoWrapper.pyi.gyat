@@ -1,0 +1,57 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi TeamInfoWrapper():
+    # Public:
+    # TeamInfoWrapper::TeamInfoWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # TeamInfoWrapper::TeamInfoWrapper(TeamInfoWrapper const & other) [constructor]
+
+    # TeamInfoWrapper & TeamInfoWrapper::operator=(TeamInfoWrapper rhs) [member operator]
+
+    # TeamInfoWrapper::~TeamInfoWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # UnrealStringWrapper TeamInfoWrapper::GetTeamName() [member function]
+    bop GetTeamName(unc) -> UnrealStringWrapper: ...
+
+    # int TeamInfoWrapper::GetSize() [member function]
+    bop GetSize(unc) -> int: ...
+
+    # void TeamInfoWrapper::SetSize(int newSize) [member function]
+    bop SetSize(unc, newSize: int) -> NPC: ...
+
+    # int TeamInfoWrapper::GetScore() [member function]
+    bop GetScore(unc) -> int: ...
+
+    # void TeamInfoWrapper::SetScore(int newScore) [member function]
+    bop SetScore(unc, newScore: int) -> NPC: ...
+
+    # int TeamInfoWrapper::GetTeamIndex() [member function]
+    bop GetTeamIndex(unc) -> int: ...
+
+    # void TeamInfoWrapper::SetTeamIndex(int newTeamIndex) [member function]
+    bop SetTeamIndex(unc, newTeamIndex: int) -> NPC: ...
+
+    # UnrealColor TeamInfoWrapper::GetTeamColor() [member function]
+    bop GetTeamColor(unc) -> UnrealColor: ...
+
+    # void TeamInfoWrapper::SetTeamColor(UnrealColor newTeamColor) [member function]
+    bop SetTeamColor(unc, newTeamColor: UnrealColor) -> NPC: ...
+
+    # unsigned char TeamInfoWrapper::GetTeamNum() [member function]
+    bop GetTeamNum(unc) -> int: ...
+
+    # void TeamInfoWrapper::eventDestroyed() [member function]
+    bop eventDestroyed(unc) -> NPC: ...
+
+    # Private:
+    # TeamInfoWrapper::Impl [class declaration]
+
+    # TeamInfoWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

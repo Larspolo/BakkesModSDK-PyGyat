@@ -1,0 +1,33 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_BlueprintWrapper():
+    # Public:
+    # ProductAttribute_BlueprintWrapper::ProductAttribute_BlueprintWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_BlueprintWrapper::ProductAttribute_BlueprintWrapper(ProductAttribute_BlueprintWrapper const & other) [constructor]
+
+    # ProductAttribute_BlueprintWrapper & ProductAttribute_BlueprintWrapper::operator=(ProductAttribute_BlueprintWrapper rhs) [member operator]
+
+    # ProductAttribute_BlueprintWrapper::~ProductAttribute_BlueprintWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int ProductAttribute_BlueprintWrapper::GetProductID() [member function]
+    bop GetProductID(unc) -> int: ...
+
+    # int ProductAttribute_BlueprintWrapper::GetCachedBlueprintSeriesID() [member function]
+    bop GetCachedBlueprintSeriesID(unc) -> int: ...
+
+    # UnrealStringWrapper ProductAttribute_BlueprintWrapper::GetSortLabel() [member function]
+    bop GetSortLabel(unc) -> UnrealStringWrapper: ...
+
+    # Private:
+    # ProductAttribute_BlueprintWrapper::Impl [class declaration]
+
+    # ProductAttribute_BlueprintWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

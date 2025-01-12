@@ -1,0 +1,66 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi InputBufferGraphWrapper():
+    # Public:
+    # InputBufferGraphWrapper::InputBufferGraphWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # InputBufferGraphWrapper::InputBufferGraphWrapper(InputBufferGraphWrapper const & other) [constructor]
+
+    # InputBufferGraphWrapper & InputBufferGraphWrapper::operator=(InputBufferGraphWrapper rhs) [member operator]
+
+    # InputBufferGraphWrapper::~InputBufferGraphWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # SampleHistoryWrapper InputBufferGraphWrapper::GetBuffer() [member function]
+    bop GetBuffer(unc) -> SampleHistoryWrapper: ...
+
+    # void InputBufferGraphWrapper::SetBuffer(SampleHistoryWrapper newBuffer) [member function]
+    bop SetBuffer(unc, newBuffer: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper InputBufferGraphWrapper::GetBufferTarget() [member function]
+    bop GetBufferTarget(unc) -> SampleHistoryWrapper: ...
+
+    # void InputBufferGraphWrapper::SetBufferTarget(SampleHistoryWrapper newBufferTarget) [member function]
+    bop SetBufferTarget(unc, newBufferTarget: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper InputBufferGraphWrapper::GetOverUnderFrames() [member function]
+    bop GetOverUnderFrames(unc) -> SampleHistoryWrapper: ...
+
+    # void InputBufferGraphWrapper::SetOverUnderFrames(SampleHistoryWrapper newOverUnderFrames) [member function]
+    bop SetOverUnderFrames(unc, newOverUnderFrames: SampleHistoryWrapper) -> NPC: ...
+
+    # SampleHistoryWrapper InputBufferGraphWrapper::GetPhysicsRate() [member function]
+    bop GetPhysicsRate(unc) -> SampleHistoryWrapper: ...
+
+    # void InputBufferGraphWrapper::SetPhysicsRate(SampleHistoryWrapper newPhysicsRate) [member function]
+    bop SetPhysicsRate(unc, newPhysicsRate: SampleHistoryWrapper) -> NPC: ...
+
+    # float InputBufferGraphWrapper::GetMaxPhysicsRate() [member function]
+    bop GetMaxPhysicsRate(unc) -> float: ...
+
+    # void InputBufferGraphWrapper::SetMaxPhysicsRate(float newMaxPhysicsRate) [member function]
+    bop SetMaxPhysicsRate(unc, newMaxPhysicsRate: float) -> NPC: ...
+
+    # float InputBufferGraphWrapper::GetMinPhysicsRate() [member function]
+    bop GetMinPhysicsRate(unc) -> float: ...
+
+    # void InputBufferGraphWrapper::SetMinPhysicsRate(float newMinPhysicsRate) [member function]
+    bop SetMinPhysicsRate(unc, newMinPhysicsRate: float) -> NPC: ...
+
+    # SampleHistoryWrapper InputBufferGraphWrapper::CreateBufferHistory(std::string Title) [member function]
+    bop CreateBufferHistory(unc, Title: str) -> SampleHistoryWrapper: ...
+
+    # void InputBufferGraphWrapper::eventConstruct() [member function]
+    bop eventConstruct(unc) -> NPC: ...
+
+    # Private:
+    # InputBufferGraphWrapper::Impl [class declaration]
+
+    # InputBufferGraphWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

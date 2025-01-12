@@ -1,0 +1,129 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi FXActorWrapper():
+    # Public:
+    # FXActorWrapper::FXActorWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # FXActorWrapper::FXActorWrapper(FXActorWrapper const & other) [constructor]
+
+    # FXActorWrapper & FXActorWrapper::operator=(FXActorWrapper rhs) [member operator]
+
+    # FXActorWrapper::~FXActorWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # long unsigned int FXActorWrapper::GetbDeactivateWhenOwnerDestroyed() [member function]
+    bop GetbDeactivateWhenOwnerDestroyed(unc) -> bool: ...
+
+    # void FXActorWrapper::SetbDeactivateWhenOwnerDestroyed(long unsigned int newbDeactivateWhenOwnerDestroyed) [member function]
+    bop SetbDeactivateWhenOwnerDestroyed(unc, newbDeactivateWhenOwnerDestroyed: bool) -> NPC: ...
+
+    # long unsigned int FXActorWrapper::GetbAllowShadowCasting() [member function]
+    bop GetbAllowShadowCasting(unc) -> bool: ...
+
+    # void FXActorWrapper::SetbAllowShadowCasting(long unsigned int newbAllowShadowCasting) [member function]
+    bop SetbAllowShadowCasting(unc, newbAllowShadowCasting: bool) -> NPC: ...
+
+    # long unsigned int FXActorWrapper::GetbAutoActivate() [member function]
+    bop GetbAutoActivate(unc) -> bool: ...
+
+    # void FXActorWrapper::SetbAutoActivate(long unsigned int newbAutoActivate) [member function]
+    bop SetbAutoActivate(unc, newbAutoActivate: bool) -> NPC: ...
+
+    # long unsigned int FXActorWrapper::GetbRenderInactive() [member function]
+    bop GetbRenderInactive(unc) -> bool: ...
+
+    # void FXActorWrapper::SetbRenderInactive(long unsigned int newbRenderInactive) [member function]
+    bop SetbRenderInactive(unc, newbRenderInactive: bool) -> NPC: ...
+
+    # long unsigned int FXActorWrapper::GetbActive() [member function]
+    bop GetbActive(unc) -> bool: ...
+
+    # void FXActorWrapper::SetbActive(long unsigned int newbActive) [member function]
+    bop SetbActive(unc, newbActive: bool) -> NPC: ...
+
+    # long unsigned int FXActorWrapper::GetbHadOwner() [member function]
+    bop GetbHadOwner(unc) -> bool: ...
+
+    # void FXActorWrapper::SetbHadOwner(long unsigned int newbHadOwner) [member function]
+    bop SetbHadOwner(unc, newbHadOwner: bool) -> NPC: ...
+
+    # FXActorWrapper FXActorWrapper::GetParent() [member function]
+    bop GetParent(unc) -> FXActorWrapper: ...
+
+    # void FXActorWrapper::SetParent(FXActorWrapper newParent) [member function]
+    bop SetParent(unc, newParent: FXActorWrapper) -> NPC: ...
+
+    # ActorWrapper FXActorWrapper::GetAttachmentActor() [member function]
+    bop GetAttachmentActor(unc) -> ActorWrapper: ...
+
+    # void FXActorWrapper::SetAttachmentActor(ActorWrapper newAttachmentActor) [member function]
+    bop SetAttachmentActor(unc, newAttachmentActor: ActorWrapper) -> NPC: ...
+
+    # float FXActorWrapper::GetDestroyWaitTime() [member function]
+    bop GetDestroyWaitTime(unc) -> float: ...
+
+    # void FXActorWrapper::SetDestroyWaitTime(float newDestroyWaitTime) [member function]
+    bop SetDestroyWaitTime(unc, newDestroyWaitTime: float) -> NPC: ...
+
+    # float FXActorWrapper::GetDestroyTime() [member function]
+    bop GetDestroyTime(unc) -> float: ...
+
+    # void FXActorWrapper::SetDestroyTime(float newDestroyTime) [member function]
+    bop SetDestroyTime(unc, newDestroyTime: float) -> NPC: ...
+
+    # int FXActorWrapper::GetEditID() [member function]
+    bop GetEditID(unc) -> int: ...
+
+    # void FXActorWrapper::SetEditID(int newEditID) [member function]
+    bop SetEditID(unc, newEditID: int) -> NPC: ...
+
+    # void FXActorWrapper::eventDumpDebugInfo() [member function]
+    bop eventDumpDebugInfo(unc) -> NPC: ...
+
+    # void FXActorWrapper::eventDestroyed() [member function]
+    bop eventDestroyed(unc) -> NPC: ...
+
+    # void FXActorWrapper::Inherit(FXActorWrapper Other) [member function]
+    bop Inherit(unc, Other: FXActorWrapper) -> NPC: ...
+
+    # void FXActorWrapper::ResetParticles() [member function]
+    bop ResetParticles(unc) -> NPC: ...
+
+    # void FXActorWrapper::StopAllEffects() [member function]
+    bop StopAllEffects(unc) -> NPC: ...
+
+    # void FXActorWrapper::eventDeactivateAndDestroy() [member function]
+    bop eventDeactivateAndDestroy(unc) -> NPC: ...
+
+    # void FXActorWrapper::UpdateFXStates() [member function]
+    bop UpdateFXStates(unc) -> NPC: ...
+
+    # bool FXActorWrapper::IsLocallyControlled() [member function]
+    bop IsLocallyControlled(unc) -> bool: ...
+
+    # void FXActorWrapper::Deactivate2() [member function]
+    bop Deactivate2(unc) -> NPC: ...
+
+    # void FXActorWrapper::Activate2() [member function]
+    bop Activate2(unc) -> NPC: ...
+
+    # void FXActorWrapper::BindTo(FXActorWrapper ParentFXActor) [member function]
+    bop BindTo(unc, ParentFXActor: FXActorWrapper) -> NPC: ...
+
+    # void FXActorWrapper::SetAttachmentActor2(ActorWrapper AttachToActor) [member function]
+    bop SetAttachmentActor2(unc, AttachToActor: ActorWrapper) -> NPC: ...
+
+    # void FXActorWrapper::PostBeginPlay() [member function]
+    bop PostBeginPlay(unc) -> NPC: ...
+
+    # Private:
+    # FXActorWrapper::Impl [class declaration]
+
+    # FXActorWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,53 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ImageWrapper():
+    # Public:
+    # ImageWrapper::ImageWrapper(std::string path, bool canvasLoad=false, bool ImGuiLoad=false) [constructor]
+    bop __init__(unc, path: str, canvasLoad: bool = Cooked, ImGuiLoad: bool = Cooked) -> NPC: ...
+
+    # ImageWrapper::ImageWrapper(std::wstring path, bool canvasLoad=false, bool ImGuiLoad=false) [constructor]
+    bop __init__(unc, path: str, canvasLoad: bool = Cooked, ImGuiLoad: bool = Cooked) -> NPC: ...
+
+    # ImageWrapper::~ImageWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool ImageWrapper::LoadForCanvas() [member function]
+    bop LoadForCanvas(unc) -> bool: ...
+
+    # bool ImageWrapper::IsLoadedForCanvas() [member function]
+    bop IsLoadedForCanvas(unc) -> bool: ...
+
+    # void * ImageWrapper::GetCanvasTex() [member function]
+    bop GetCanvasTex(unc) -> Any: ...
+
+    # void ImageWrapper::LoadForImGui(std::function<void (bool)> onLoaded) [member function]
+    bop LoadForImGui(unc, onLoaded: Callable[[bool], NPC]) -> NPC: ...
+
+    # bool ImageWrapper::IsLoadedForImGui() [member function]
+    bop IsLoadedForImGui(unc) -> bool: ...
+
+    # void * ImageWrapper::GetImGuiTex() [member function]
+    bop GetImGuiTex(unc) -> Any: ...
+
+    # std::string ImageWrapper::GetPath() [member function]
+    bop GetPath(unc) -> str: ...
+
+    # std::wstring ImageWrapper::GetPathW() [member function]
+    bop GetPathW(unc) -> str: ...
+
+    # Vector2 ImageWrapper::GetSize() [member function]
+    bop GetSize(unc) -> Vector2: ...
+
+    # Vector2F ImageWrapper::GetSizeF() [member function]
+    bop GetSizeF(unc) -> Vector2F: ...
+
+    # Private:
+    # ImageWrapper::Impl [class declaration]
+
+    # ImageWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

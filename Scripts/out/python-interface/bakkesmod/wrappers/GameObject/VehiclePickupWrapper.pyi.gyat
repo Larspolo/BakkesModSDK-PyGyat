@@ -1,0 +1,117 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi VehiclePickupWrapper():
+    # Public:
+    # VehiclePickupWrapper::VehiclePickupWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # VehiclePickupWrapper::VehiclePickupWrapper(VehiclePickupWrapper const & other) [constructor]
+
+    # VehiclePickupWrapper & VehiclePickupWrapper::operator=(VehiclePickupWrapper rhs) [member operator]
+
+    # VehiclePickupWrapper::~VehiclePickupWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float VehiclePickupWrapper::GetRespawnDelay() [member function]
+    bop GetRespawnDelay(unc) -> float: ...
+
+    # void VehiclePickupWrapper::SetRespawnDelay(float newRespawnDelay) [member function]
+    bop SetRespawnDelay(unc, newRespawnDelay: float) -> NPC: ...
+
+    # FXActorWrapper VehiclePickupWrapper::GetFXActorArchetype() [member function]
+    bop GetFXActorArchetype(unc) -> FXActorWrapper: ...
+
+    # void VehiclePickupWrapper::SetFXActorArchetype(FXActorWrapper newFXActorArchetype) [member function]
+    bop SetFXActorArchetype(unc, newFXActorArchetype: FXActorWrapper) -> NPC: ...
+
+    # FXActorWrapper VehiclePickupWrapper::GetFXActor() [member function]
+    bop GetFXActor(unc) -> FXActorWrapper: ...
+
+    # void VehiclePickupWrapper::SetFXActor(FXActorWrapper newFXActor) [member function]
+    bop SetFXActor(unc, newFXActor: FXActorWrapper) -> NPC: ...
+
+    # long unsigned int VehiclePickupWrapper::GetbPickedUp() [member function]
+    bop GetbPickedUp(unc) -> bool: ...
+
+    # void VehiclePickupWrapper::SetbPickedUp(long unsigned int newbPickedUp) [member function]
+    bop SetbPickedUp(unc, newbPickedUp: bool) -> NPC: ...
+
+    # long unsigned int VehiclePickupWrapper::GetbNetRelevant() [member function]
+    bop GetbNetRelevant(unc) -> bool: ...
+
+    # void VehiclePickupWrapper::SetbNetRelevant(long unsigned int newbNetRelevant) [member function]
+    bop SetbNetRelevant(unc, newbNetRelevant: bool) -> NPC: ...
+
+    # long unsigned int VehiclePickupWrapper::GetbNoPickup() [member function]
+    bop GetbNoPickup(unc) -> bool: ...
+
+    # void VehiclePickupWrapper::SetbNoPickup(long unsigned int newbNoPickup) [member function]
+    bop SetbNoPickup(unc, newbNoPickup: bool) -> NPC: ...
+
+    # void VehiclePickupWrapper::PlayPickedUpFX() [member function]
+    bop PlayPickedUpFX(unc) -> NPC: ...
+
+    # bool VehiclePickupWrapper::IsTouchingAVehicle() [member function]
+    bop IsTouchingAVehicle(unc) -> bool: ...
+
+    # void VehiclePickupWrapper::UpdateTickDisabled() [member function]
+    bop UpdateTickDisabled(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::SetNetRelevant(long unsigned int bRelevant) [member function]
+    bop SetNetRelevant(unc, bRelevant: bool) -> NPC: ...
+
+    # void VehiclePickupWrapper::Respawn2() [member function]
+    bop Respawn2(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::SetPickedUp(long unsigned int bNewPickedUp, CarWrapper InInstigator) [member function]
+    bop SetPickedUp(unc, bNewPickedUp: bool, InInstigator: CarWrapper) -> NPC: ...
+
+    # void VehiclePickupWrapper::Pickup2(CarWrapper Car) [member function]
+    bop Pickup2(unc, Car: CarWrapper) -> NPC: ...
+
+    # bool VehiclePickupWrapper::CanPickup(CarWrapper Car) [member function]
+    bop CanPickup(unc, Car: CarWrapper) -> bool: ...
+
+    # void VehiclePickupWrapper::OnTouch(CarWrapper Car) [member function]
+    bop OnTouch(unc, Car: CarWrapper) -> NPC: ...
+
+    # void VehiclePickupWrapper::eventTouch(ActorWrapper Other, PrimitiveComponentWrapper OtherComp, Vector & HitLocation, Vector & HitNormal) [member function]
+    bop eventTouch(unc, Other: ActorWrapper, OtherComp: PrimitiveComponentWrapper, HitLocation: Vector, HitNormal: Vector) -> NPC: ...
+
+    # void VehiclePickupWrapper::OnPickUp() [member function]
+    bop OnPickUp(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::OnSpawn() [member function]
+    bop OnSpawn(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::SetNoPickup() [member function]
+    bop SetNoPickup(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::SetupReplicateNoPickup() [member function]
+    bop SetupReplicateNoPickup(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::InitFX() [member function]
+    bop InitFX(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::eventPostBeginPlay() [member function]
+    bop eventPostBeginPlay(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::eventPreBeginPlay() [member function]
+    bop eventPreBeginPlay(unc) -> NPC: ...
+
+    # void VehiclePickupWrapper::EventPickedUp(VehiclePickupWrapper Pickup) [member function]
+    bop EventPickedUp(unc, Pickup: VehiclePickupWrapper) -> NPC: ...
+
+    # void VehiclePickupWrapper::EventSpawned(VehiclePickupWrapper Pickup) [member function]
+    bop EventSpawned(unc, Pickup: VehiclePickupWrapper) -> NPC: ...
+
+    # Private:
+    # VehiclePickupWrapper::Impl [class declaration]
+
+    # VehiclePickupWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,134 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi StructArrayWrapper_LinearColor():
+    # Public:
+    # StructArrayWrapper<LinearColor>::StructArrayWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StructArrayWrapper<LinearColor>::StructArrayWrapper(StructArrayWrapper<LinearColor> const & other) [constructor]
+
+    # StructArrayWrapper<LinearColor> & StructArrayWrapper<LinearColor>::operator=(StructArrayWrapper<LinearColor> rhs) [member operator]
+
+    # StructArrayWrapper<LinearColor>::~StructArrayWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int StructArrayWrapper<LinearColor>::Count() [member function]
+    bop Count(unc) -> int: ...
+
+    # LinearColor StructArrayWrapper<LinearColor>::Get(int index) [member function]
+    bop Get(unc, index: int) -> LinearColor: ...
+
+    # Protected:
+    # StructArrayWrapper<LinearColor>::Impl [class declaration]
+
+    # StructArrayWrapper<LinearColor>::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+skibidi StructArrayWrapper_SteamID():
+    # Public:
+    # StructArrayWrapper<SteamID>::StructArrayWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StructArrayWrapper<SteamID>::StructArrayWrapper(StructArrayWrapper<SteamID> const & other) [constructor]
+
+    # StructArrayWrapper<SteamID> & StructArrayWrapper<SteamID>::operator=(StructArrayWrapper<SteamID> rhs) [member operator]
+
+    # StructArrayWrapper<SteamID>::~StructArrayWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int StructArrayWrapper<SteamID>::Count() [member function]
+    bop Count(unc) -> int: ...
+
+    # SteamID StructArrayWrapper<SteamID>::Get(int index) [member function]
+    bop Get(unc, index: int) -> SteamID: ...
+
+    # Protected:
+    # StructArrayWrapper<SteamID>::Impl [class declaration]
+
+    # StructArrayWrapper<SteamID>::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+skibidi StructArrayWrapper_ProfileCameraSettings():
+    # Public:
+    # StructArrayWrapper<ProfileCameraSettings>::StructArrayWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StructArrayWrapper<ProfileCameraSettings>::StructArrayWrapper(StructArrayWrapper<ProfileCameraSettings> const & other) [constructor]
+
+    # StructArrayWrapper<ProfileCameraSettings> & StructArrayWrapper<ProfileCameraSettings>::operator=(StructArrayWrapper<ProfileCameraSettings> rhs) [member operator]
+
+    # StructArrayWrapper<ProfileCameraSettings>::~StructArrayWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int StructArrayWrapper<ProfileCameraSettings>::Count() [member function]
+    bop Count(unc) -> int: ...
+
+    # ProfileCameraSettings StructArrayWrapper<ProfileCameraSettings>::Get(int index) [member function]
+    bop Get(unc, index: int) -> ProfileCameraSettings: ...
+
+    # Protected:
+    # StructArrayWrapper<ProfileCameraSettings>::Impl [class declaration]
+
+    # StructArrayWrapper<ProfileCameraSettings>::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+skibidi StructArrayWrapper_RecordedSample():
+    # Public:
+    # StructArrayWrapper<RecordedSample>::StructArrayWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StructArrayWrapper<RecordedSample>::StructArrayWrapper(StructArrayWrapper<RecordedSample> const & other) [constructor]
+
+    # StructArrayWrapper<RecordedSample> & StructArrayWrapper<RecordedSample>::operator=(StructArrayWrapper<RecordedSample> rhs) [member operator]
+
+    # StructArrayWrapper<RecordedSample>::~StructArrayWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int StructArrayWrapper<RecordedSample>::Count() [member function]
+    bop Count(unc) -> int: ...
+
+    # RecordedSample StructArrayWrapper<RecordedSample>::Get(int index) [member function]
+    bop Get(unc, index: int) -> RecordedSample: ...
+
+    # Protected:
+    # StructArrayWrapper<RecordedSample>::Impl [class declaration]
+
+    # StructArrayWrapper<RecordedSample>::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+skibidi StructArrayWrapper_ClubMember():
+    # Public:
+    # StructArrayWrapper<ClubMember>::StructArrayWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # StructArrayWrapper<ClubMember>::StructArrayWrapper(StructArrayWrapper<ClubMember> const & other) [constructor]
+
+    # StructArrayWrapper<ClubMember> & StructArrayWrapper<ClubMember>::operator=(StructArrayWrapper<ClubMember> rhs) [member operator]
+
+    # StructArrayWrapper<ClubMember>::~StructArrayWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int StructArrayWrapper<ClubMember>::Count() [member function]
+    bop Count(unc) -> int: ...
+
+    # ClubMember StructArrayWrapper<ClubMember>::Get(int index) [member function]
+    bop Get(unc, index: int) -> ClubMember: ...
+
+    # Protected:
+    # StructArrayWrapper<ClubMember>::Impl [class declaration]
+
+    # StructArrayWrapper<ClubMember>::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

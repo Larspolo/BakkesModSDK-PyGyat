@@ -1,0 +1,35 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi PaintDatabaseWrapper():
+    # Public:
+    # PaintDatabaseWrapper::PaintDatabaseWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # PaintDatabaseWrapper::PaintDatabaseWrapper(PaintDatabaseWrapper const & other) [constructor]
+
+    # PaintDatabaseWrapper & PaintDatabaseWrapper::operator=(PaintDatabaseWrapper rhs) [member operator]
+
+    # PaintDatabaseWrapper::~PaintDatabaseWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool PaintDatabaseWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool PaintDatabaseWrapper::operator bool() const [casting operator]
+
+    # std::string PaintDatabaseWrapper::GetPaintName(int PaintID) [member function]
+    bop GetPaintName(unc, PaintID: int) -> str: ...
+
+    # int PaintDatabaseWrapper::GetPaintID(std::string & PaintName) [member function]
+    bop GetPaintID(unc, PaintName: str) -> int: ...
+
+    # Private:
+    # PaintDatabaseWrapper::Impl [class declaration]
+
+    # PaintDatabaseWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,41 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SettingsWrapper():
+    # Public:
+    # SettingsWrapper::SettingsWrapper() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # SettingsWrapper::~SettingsWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # ProfileCameraSettings SettingsWrapper::GetCameraSettings() [member function]
+    bop GetCameraSettings(unc) -> ProfileCameraSettings: ...
+
+    # CameraSave SettingsWrapper::GetCameraSaveSettings() [member function]
+    bop GetCameraSaveSettings(unc) -> CameraSave: ...
+
+    # std::map<std::basic_string<char>, std::basic_string<char>, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::basic_string<char> > > > SettingsWrapper::GetPCBindings() [member function]
+    bop GetPCBindings(unc) -> Dict[str, str]: ...
+
+    # std::map<std::basic_string<char>, std::basic_string<char>, std::less<std::basic_string<char> >, std::allocator<std::pair<const std::basic_string<char>, std::basic_string<char> > > > SettingsWrapper::GetGamepadBindings() [member function]
+    bop GetGamepadBindings(unc) -> Dict[str, str]: ...
+
+    # std::vector<std::pair<std::basic_string<char>, std::basic_string<char> >, std::allocator<std::pair<std::basic_string<char>, std::basic_string<char> > > > SettingsWrapper::GetAllPCBindings() [member function]
+    bop GetAllPCBindings(unc) -> List[Tuple[str, str]]: ...
+
+    # std::vector<std::pair<std::basic_string<char>, std::basic_string<char> >, std::allocator<std::pair<std::basic_string<char>, std::basic_string<char> > > > SettingsWrapper::GetAllGamepadBindings() [member function]
+    bop GetAllGamepadBindings(unc) -> List[Tuple[str, str]]: ...
+
+    # GamepadSettings SettingsWrapper::GetGamepadSettings() [member function]
+    bop GetGamepadSettings(unc) -> GamepadSettings: ...
+
+    # VideoSettings SettingsWrapper::GetVideoSettings() [member function]
+    bop GetVideoSettings(unc) -> VideoSettings: ...
+
+    # SettingsWrapper::SettingsWrapper(SettingsWrapper const & arg0) [constructor]
+
+    # SettingsWrapper & SettingsWrapper::operator=(SettingsWrapper const & arg0) [member operator]
+
+
+

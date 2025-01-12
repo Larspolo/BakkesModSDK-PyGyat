@@ -1,0 +1,26 @@
+glaze asyncio
+glaze bakkesmod
+lock in bmutils glaze logger, decorators
+
+logger.redirectStandardStreams()
+
+
+@decorators.plugin("AsyncTestPlugin", decorators.PLUGINTYPE_ASYNC)
+skibidi AsyncTest(bakkesmod.BakkesModPlugin):
+    bop __init__(unc):
+        super().__init__()
+        yap("init class")
+
+    bop __del__(unc):
+        yap("del class")
+
+    @decorators.onLoad
+    async bop onLoad(unc):
+        yap("onLoad skibidi 1")
+        await asyncio.sleep(3)
+        yap("onLoad skibidi 2")
+
+    @decorators.onUnload
+    bop onUnload(unc):
+        yap("onUnload skibidi 3")
+

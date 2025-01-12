@@ -1,0 +1,129 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi CameraXWrapper():
+    # Public:
+    # CameraXWrapper::CameraXWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # CameraXWrapper::CameraXWrapper(CameraXWrapper const & other) [constructor]
+
+    # CameraXWrapper & CameraXWrapper::operator=(CameraXWrapper rhs) [member operator]
+
+    # CameraXWrapper::~CameraXWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Rotator CameraXWrapper::GetPCDeltaRotation() [member function]
+    bop GetPCDeltaRotation(unc) -> Rotator: ...
+
+    # void CameraXWrapper::SetPCDeltaRotation(Rotator newPCDeltaRotation) [member function]
+    bop SetPCDeltaRotation(unc, newPCDeltaRotation: Rotator) -> NPC: ...
+
+    # Rotator CameraXWrapper::GetOldControllerRotation() [member function]
+    bop GetOldControllerRotation(unc) -> Rotator: ...
+
+    # void CameraXWrapper::SetOldControllerRotation(Rotator newOldControllerRotation) [member function]
+    bop SetOldControllerRotation(unc, newOldControllerRotation: Rotator) -> NPC: ...
+
+    # Vector CameraXWrapper::GetPCDeltaLocation() [member function]
+    bop GetPCDeltaLocation(unc) -> Vector: ...
+
+    # void CameraXWrapper::SetPCDeltaLocation(Vector newPCDeltaLocation) [member function]
+    bop SetPCDeltaLocation(unc, newPCDeltaLocation: Vector) -> NPC: ...
+
+    # Vector CameraXWrapper::GetOldControllerLocation() [member function]
+    bop GetOldControllerLocation(unc) -> Vector: ...
+
+    # void CameraXWrapper::SetOldControllerLocation(Vector newOldControllerLocation) [member function]
+    bop SetOldControllerLocation(unc, newOldControllerLocation: Vector) -> NPC: ...
+
+    # Vector CameraXWrapper::GetShakeLocationOffset() [member function]
+    bop GetShakeLocationOffset(unc) -> Vector: ...
+
+    # void CameraXWrapper::SetShakeLocationOffset(Vector newShakeLocationOffset) [member function]
+    bop SetShakeLocationOffset(unc, newShakeLocationOffset: Vector) -> NPC: ...
+
+    # Rotator CameraXWrapper::GetShakeRotationOffset() [member function]
+    bop GetShakeRotationOffset(unc) -> Rotator: ...
+
+    # void CameraXWrapper::SetShakeRotationOffset(Rotator newShakeRotationOffset) [member function]
+    bop SetShakeRotationOffset(unc, newShakeRotationOffset: Rotator) -> NPC: ...
+
+    # float CameraXWrapper::GetShakeFOVOffset() [member function]
+    bop GetShakeFOVOffset(unc) -> float: ...
+
+    # void CameraXWrapper::SetShakeFOVOffset(float newShakeFOVOffset) [member function]
+    bop SetShakeFOVOffset(unc, newShakeFOVOffset: float) -> NPC: ...
+
+    # UnrealColor CameraXWrapper::GetStartFadeColor() [member function]
+    bop GetStartFadeColor(unc) -> UnrealColor: ...
+
+    # void CameraXWrapper::SetStartFadeColor(UnrealColor newStartFadeColor) [member function]
+    bop SetStartFadeColor(unc, newStartFadeColor: UnrealColor) -> NPC: ...
+
+    # UnrealColor CameraXWrapper::GetEndFadeColor() [member function]
+    bop GetEndFadeColor(unc) -> UnrealColor: ...
+
+    # void CameraXWrapper::SetEndFadeColor(UnrealColor newEndFadeColor) [member function]
+    bop SetEndFadeColor(unc, newEndFadeColor: UnrealColor) -> NPC: ...
+
+    # Vector CameraXWrapper::GetClipOffset() [member function]
+    bop GetClipOffset(unc) -> Vector: ...
+
+    # void CameraXWrapper::SetClipOffset(Vector newClipOffset) [member function]
+    bop SetClipOffset(unc, newClipOffset: Vector) -> NPC: ...
+
+    # long unsigned int CameraXWrapper::GetbDisableCameraShake() [member function]
+    bop GetbDisableCameraShake(unc) -> bool: ...
+
+    # void CameraXWrapper::SetbDisableCameraShake(long unsigned int newbDisableCameraShake) [member function]
+    bop SetbDisableCameraShake(unc, newbDisableCameraShake: bool) -> NPC: ...
+
+    # long unsigned int CameraXWrapper::GetbSnapNextTransition() [member function]
+    bop GetbSnapNextTransition(unc) -> bool: ...
+
+    # void CameraXWrapper::SetbSnapNextTransition(long unsigned int newbSnapNextTransition) [member function]
+    bop SetbSnapNextTransition(unc, newbSnapNextTransition: bool) -> NPC: ...
+
+    # void CameraXWrapper::eventOnViewTargetChanged() [member function]
+    bop eventOnViewTargetChanged(unc) -> NPC: ...
+
+    # bool CameraXWrapper::IsTransitioning() [member function]
+    bop IsTransitioning(unc) -> bool: ...
+
+    # void CameraXWrapper::SnapTransition() [member function]
+    bop SnapTransition(unc) -> NPC: ...
+
+    # void CameraXWrapper::CopyFade(CameraXWrapper Other) [member function]
+    bop CopyFade(unc, Other: CameraXWrapper) -> NPC: ...
+
+    # void CameraXWrapper::UpdateFade(float DeltaTime) [member function]
+    bop UpdateFade(unc, DeltaTime: float) -> NPC: ...
+
+    # void CameraXWrapper::eventUpdateCamera(float DeltaTime) [member function]
+    bop eventUpdateCamera(unc, DeltaTime: float) -> NPC: ...
+
+    # Rotator CameraXWrapper::RemoveRoll(Rotator & InRot) [member function]
+    bop RemoveRoll(unc, InRot: Rotator) -> Rotator: ...
+
+    # void CameraXWrapper::UpdateCameraState() [member function]
+    bop UpdateCameraState(unc) -> NPC: ...
+
+    # void CameraXWrapper::InstanceCameraStates() [member function]
+    bop InstanceCameraStates(unc) -> NPC: ...
+
+    # void CameraXWrapper::OnLoadingMovieClosesd() [member function]
+    bop OnLoadingMovieClosesd(unc) -> NPC: ...
+
+    # void CameraXWrapper::eventPostBeginPlay() [member function]
+    bop eventPostBeginPlay(unc) -> NPC: ...
+
+    # Private:
+    # CameraXWrapper::Impl [class declaration]
+
+    # CameraXWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

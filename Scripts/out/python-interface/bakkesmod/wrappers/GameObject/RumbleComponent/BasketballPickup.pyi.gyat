@@ -1,0 +1,69 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BasketballPickup():
+    # Public:
+    # BasketballPickup::BasketballPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BasketballPickup::BasketballPickup(BasketballPickup const & other) [constructor]
+
+    # BasketballPickup & BasketballPickup::operator=(BasketballPickup rhs) [member operator]
+
+    # BasketballPickup::~BasketballPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Vector BasketballPickup::GetBallOffset() [member function]
+    bop GetBallOffset(unc) -> Vector: ...
+
+    # void BasketballPickup::SetBallOffset(Vector newBallOffset) [member function]
+    bop SetBallOffset(unc, newBallOffset: Vector) -> NPC: ...
+
+    # float BasketballPickup::GetAttachedBallMass() [member function]
+    bop GetAttachedBallMass(unc) -> float: ...
+
+    # void BasketballPickup::SetAttachedBallMass(float newAttachedBallMass) [member function]
+    bop SetAttachedBallMass(unc, newAttachedBallMass: float) -> NPC: ...
+
+    # Vector BasketballPickup::GetLaunchForce() [member function]
+    bop GetLaunchForce(unc) -> Vector: ...
+
+    # void BasketballPickup::SetLaunchForce(Vector newLaunchForce) [member function]
+    bop SetLaunchForce(unc, newLaunchForce: Vector) -> NPC: ...
+
+    # BallWrapper BasketballPickup::GetWeldedBall() [member function]
+    bop GetWeldedBall(unc) -> BallWrapper: ...
+
+    # void BasketballPickup::SetWeldedBall(BallWrapper newWeldedBall) [member function]
+    bop SetWeldedBall(unc, newWeldedBall: BallWrapper) -> NPC: ...
+
+    # float BasketballPickup::GetOldBallMass() [member function]
+    bop GetOldBallMass(unc) -> float: ...
+
+    # void BasketballPickup::SetOldBallMass(float newOldBallMass) [member function]
+    bop SetOldBallMass(unc, newOldBallMass: float) -> NPC: ...
+
+    # void BasketballPickup::HandleCarTouch(BallWrapper InBall, CarWrapper InCar, unsigned char HitType) [member function]
+    bop HandleCarTouch(unc, InBall: BallWrapper, InCar: CarWrapper, HitType: int) -> NPC: ...
+
+    # void BasketballPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # void BasketballPickup::HandleHitBall(CarWrapper InCar, BallWrapper InBall) [member function]
+    bop HandleHitBall(unc, InCar: CarWrapper, InBall: BallWrapper) -> NPC: ...
+
+    # bool BasketballPickup::TryActivate(RBActorWrapper TargetOverride) [member function]
+    bop TryActivate(unc, TargetOverride: RBActorWrapper) -> bool: ...
+
+    # void BasketballPickup::OnCreated() [member function]
+    bop OnCreated(unc) -> NPC: ...
+
+    # Private:
+    # BasketballPickup::Impl [class declaration]
+
+    # BasketballPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

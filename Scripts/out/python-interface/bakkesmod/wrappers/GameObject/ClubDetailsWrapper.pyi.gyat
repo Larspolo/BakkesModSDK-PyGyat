@@ -1,0 +1,71 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ClubDetailsWrapper():
+    # Public:
+    # ClubDetailsWrapper::ClubDetailsWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ClubDetailsWrapper::ClubDetailsWrapper(ClubDetailsWrapper const & other) [constructor]
+
+    # ClubDetailsWrapper & ClubDetailsWrapper::operator=(ClubDetailsWrapper rhs) [member operator]
+
+    # ClubDetailsWrapper::~ClubDetailsWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # long long unsigned int ClubDetailsWrapper::GetClubID() [member function]
+    bop GetClubID(unc) -> int: ...
+
+    # SteamID ClubDetailsWrapper::GetOwnerPlayerID() [member function]
+    bop GetOwnerPlayerID(unc) -> SteamID: ...
+
+    # UniqueIDWrapper ClubDetailsWrapper::GetOwnerPlayerUniqueID() [member function]
+    bop GetOwnerPlayerUniqueID(unc) -> UniqueIDWrapper: ...
+
+    # UnrealStringWrapper ClubDetailsWrapper::GetMotD() [member function]
+    bop GetMotD(unc) -> UnrealStringWrapper: ...
+
+    # long unsigned int ClubDetailsWrapper::GetbVerified() [member function]
+    bop GetbVerified(unc) -> bool: ...
+
+    # long long unsigned int ClubDetailsWrapper::GetLastUpdatedTime() [member function]
+    bop GetLastUpdatedTime(unc) -> int: ...
+
+    # StructArrayWrapper<ClubMember> ClubDetailsWrapper::GetMembers() [member function]
+    bop GetMembers(unc) -> StructArrayWrapper_ClubMember: ...
+
+    # Private:
+    # ClubDetailsWrapper::Impl [class declaration]
+
+    # ClubDetailsWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+skibidi ClubMember():
+    # Public:
+    # ClubMember::paddingForReasons [variable]
+    @property
+    bop paddingForReasons(unc) -> unsigned char [72]: ...
+
+    # SteamID ClubMember::GetSteamId() [member function]
+    bop GetSteamId(unc) -> SteamID: ...
+
+    # UniqueIDWrapper ClubMember::GetUniqueID() [member function]
+    bop GetUniqueID(unc) -> UniqueIDWrapper: ...
+
+    # UnrealStringWrapper ClubMember::GetName() [member function]
+    bop GetName(unc) -> UnrealStringWrapper: ...
+
+    # ClubMember::ClubMember() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # ClubMember::ClubMember(ClubMember const & arg0) [constructor]
+
+    # ClubMember & ClubMember::operator=(ClubMember const & arg0) [member operator]
+
+    # ClubMember::~ClubMember() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+

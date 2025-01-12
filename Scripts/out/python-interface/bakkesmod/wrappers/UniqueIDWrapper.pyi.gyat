@@ -1,0 +1,57 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi UniqueIDWrapper():
+    # Public:
+    # UniqueIDWrapper::UniqueIDWrapper() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # UniqueIDWrapper::UniqueIDWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # UniqueIDWrapper::UniqueIDWrapper(UniqueIDWrapper const & other) [constructor]
+
+    # UniqueIDWrapper & UniqueIDWrapper::operator=(UniqueIDWrapper rhs) [member operator]
+
+    # UniqueIDWrapper::~UniqueIDWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # OnlinePlatform UniqueIDWrapper::GetPlatform() const [member function]
+    bop GetPlatform(unc) -> OnlinePlatform: ...
+
+    # std::string UniqueIDWrapper::GetEpicAccountID() const [member function]
+    bop GetEpicAccountID(unc) -> str: ...
+
+    # long long unsigned int UniqueIDWrapper::GetUID() const [member function]
+    bop GetUID(unc) -> int: ...
+
+    # unsigned char UniqueIDWrapper::GetSplitscreenID() const [member function]
+    bop GetSplitscreenID(unc) -> int: ...
+
+    # std::string UniqueIDWrapper::str() const [member function]
+    bop str(unc) -> str: ...
+
+    # std::string UniqueIDWrapper::GetIdString() const [member function]
+    bop GetIdString(unc) -> str: ...
+
+    # static UniqueIDWrapper UniqueIDWrapper::FromEpicAccountID(std::string epicAccountID, long long unsigned int uid, OnlinePlatform platform, unsigned char splitscreenID=0) [member function]
+    bop FromEpicAccountID(unc, epicAccountID: str, uid: int, platform: OnlinePlatform, splitscreenID: int = 0) -> UniqueIDWrapper: ...
+
+    # bool UniqueIDWrapper::operator<(UniqueIDWrapper const & rhs) const [member operator]
+    bop __lt__(unc, other: UniqueIDWrapper) -> bool: ...
+
+    # bool UniqueIDWrapper::operator==(UniqueIDWrapper const & rhs) const [member operator]
+    bop __eq__(unc, other: UniqueIDWrapper) -> bool: ...
+
+    # bool UniqueIDWrapper::operator!=(UniqueIDWrapper const & rhs) const [member operator]
+    bop __ne__(unc, other: UniqueIDWrapper) -> bool: ...
+
+    # Protected:
+    # UniqueIDWrapper::Impl [class declaration]
+
+    # UniqueIDWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

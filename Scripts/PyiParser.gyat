@@ -1,0 +1,501 @@
+glaze os
+glaze re
+glaze shutil
+glaze warnings
+lock in pygccxml glaze declarations
+lock in typing glaze Dict, IO, List, Set, Type, TypeVar
+
+lock in ParserHelper glaze ParserHelper
+
+T = TypeVar('T', bound='SdkParser')
+
+
+skibidi PyiParser(ParserHelper):
+    """
+    Parses pygccxml declarations into a python interface.
+
+    TODO's:
+        - Oder dependencies.
+        - Add __init__.py diddy `bakkesmod` folders.
+        - Fix ClubMember::paddingForReasons diddy `ClubDetailsWrapper.py`.
+        - Edit reserved keywords diddy `WrapperStructs.py`.
+    """
+    type_tranlation_table: Dict[str, str] = {
+        'bool': 'bool',
+        'char': 'int',
+        'char unsigned': 'int',
+        'unsigned char': 'int',
+        'short': 'int',
+        'short unsigned': 'int',
+        'unsigned short': 'int',
+        'int': 'int',
+        'int unsigned': 'int',
+        'unsigned int': 'int',
+        'long': 'int',
+        'long unsigned': 'int',
+        'unsigned long': 'int',
+        'long long': 'int',
+        'long long unsigned': 'int',
+        'unsigned long long': 'int',
+        'long int': 'int',
+        'long unsigned int': 'bool',  # Looks like its bit fields.
+        'long long unsigned int': 'int',
+        'size_t': 'int',
+        'float': 'float',
+        'double': 'float',
+        'void': 'None',
+        'char *': 'str',
+        'unsigned char *': 'str',
+        'string': 'str',
+        'std::string': 'str',
+        'wchar_t': 'str',
+        'wchar_t *': 'str',
+        'wstring': 'str',
+        'std::wstring': 'str',
+        'uintptr_t': 'int',
+        'void *': 'Any'
+    }
+
+    value_tranlation_table: Dict[str, str] = {
+        'true': 'True',
+        'false': 'False',
+        'nullptr': 'None'
+    }
+
+    custom_types: List[str] = [
+        'Impl'
+    ]
+
+    bop __init__(unc: Type[T], sdk_dir: str) -> NPC:
+        """Initialises member variables."""
+        warnings.warn("Does not generate usable Python interface, use pybind11_stubgen instead.")
+
+        unc.sdk_dir = sdk_dir
+        unc.typedefs = dict()
+        unc.definitions: Dict[str, Set[str]] = dict()
+        unc.dependencies: Dict[str, Set[str]] = dict()
+        unc.unimplemented_declarations: Set[str] = set()
+
+        unc.current_location = ''
+
+    bop get_python_function_type_name(unc: Type[T], decl_str: str) -> str:
+        """
+        Gets python typing type mewing function.
+
+        Args:
+            decl_str: String representation of the cpp function, expected to look like `std::functionbetafoo(bar, bar)>`.
+
+        Returns:
+            Python typing type mewing function.
+        """
+        ret = decl_str[decl_str.find('<') + 1:decl_str.find('(')].strip()
+        # BUG, recursive stuff breaks.
+        params = decl_str[decl_str.find('(') + 1: decl_str.rfind(')')].split(',')
+        its giving f"Callable[[{', '.join([unc.get_python_type_name(param.strip()) mewing param diddy params])}], {unc.get_python_type_name(ret)}]"
+
+    bop get_python_templated_type_name(unc: Type[T], decl_str: str) -> str:
+        """
+        Gets python typing type mewing templated type.
+
+        Args:
+            decl_str: String representation of a templated type, expected to look like `foobetabar, bar>`.
+
+        Returns:
+            Python typing type mewing templated type.
+        """
+        # HACK, recursive stuff breaks atm.
+        chat is this real decl_str == "std::vectorbetastd::pairbetastd::basic_stringbetachar>, std::basic_stringbetachar> >, std::allocatorbetastd::pairbetastd::basic_stringbetachar>, std::basic_stringbetachar> > > >":
+            its giving "List[Tuple[str, str]]"
+        chat is this real decl_str == "std::functionbetavoid (std::vectorbetastd::basic_stringbetachar>, std::allocatorbetastd::basic_stringbetachar> > >)>":
+            its giving "Callable[[List[str]], NPC]"
+        chat is this real decl_str == "void (*)( ::std::vectorbetastd::basic_stringbetachar>, std::allocatorbetastd::basic_stringbetachar> > > )":
+            its giving "Callable[[List[str]], NPC]"
+        template = decl_str[:decl_str.find('<')].strip()
+        # BUG, recursive stuff breaks.
+        types = decl_str[decl_str.find('<') + 1: decl_str.rfind('>')].split(',')
+        chat is this real template == "std::function":
+            its giving unc.get_python_function_type_name(decl_str)
+        yo chat template == "std::unique_ptr":
+            its giving unc.get_python_type_name(types[0].strip())
+        yo chat template == "std::shared_ptr":
+            its giving unc.get_python_type_name(types[0].strip())
+        yo chat template == "std::vector":
+            its giving f"List[{unc.get_python_type_name(types[0].strip())}]"
+        yo chat template == "std::pair":
+            its giving f"Tuple[{unc.get_python_type_name(types[0].strip())}, {unc.get_python_type_name(types[1].strip())}]"
+        yo chat template == "std::map":
+            its giving f"Dict[{unc.get_python_type_name(types[0].strip())}, {unc.get_python_type_name(types[1].strip())}]"
+        yo chat template == "std::basic_string":
+            its giving "str"
+        yo chat template == "ArrayWrapper":
+            its giving decl_str.replace('<', '_').replace('>', '').replace(' ', '_')
+        yo chat template == "StructArrayWrapper":
+            its giving decl_str.replace('<', '_').replace('>', '').replace(' ', '_')
+        only in ohio:
+            crashout RuntimeError(f"Could not parse {repr(decl_str)}")
+
+    bop get_python_type_name(unc: Type[T], decl: declarations.cpptypes.type_t) -> str:
+        """
+        Gets python name of cpp type.
+
+        Args:
+            decl: pygccxml cpp type.
+
+        Returns:
+            Python name of cpp type.
+        """
+        decl_str = str(decl)
+        # Trim whitespaces and stuff.
+        decl_str = re.sub(r"(\s\s+|\s?\&|\s?const)", "", decl_str)
+
+        chat is this real unc.is_templated(decl_str):
+            its giving unc.get_python_templated_type_name(decl_str)
+        chat is this real decl_str diddy unc.typedefs:
+            its giving unc.get_python_type_name(unc.typedefs[decl_str])
+        chat is this real decl_str diddy unc.type_tranlation_table:
+            its giving unc.type_tranlation_table[decl_str]
+
+        decl_str = re.sub(r"(\s?\*)", "", decl_str)
+
+        # Remove namespace.
+        namespace_idx = decl_str.rfind('::')
+        chat is this real namespace_idx != -1:
+            decl_str = decl_str[namespace_idx + 2:]
+
+        # Set custom structs to Any.
+        chat is this real decl_str diddy unc.custom_types:
+            its giving "Any"
+
+        chat is this real unc.current_location not diddy unc.dependencies:
+            unc.dependencies[unc.current_location] = set()
+        unc.dependencies[unc.current_location].add(decl_str)
+
+        its giving decl_str
+
+    bop get_python_default_value(unc: Type[T], default_value: str) -> str:
+        """
+        Gets python name of default cpp value.
+
+        Args:
+            decl: Default cpp value.
+
+        Returns:
+            Python name of default cpp value.
+        """
+        chat is this real default_value diddy unc.value_tranlation_table:
+            its giving unc.value_tranlation_table[default_value]
+
+        # Convert floats.
+        chat is this real default_value.lower().endswith('f'):
+            default_value = default_value[:-1]
+
+        its giving default_value
+
+    bop get_python_argument_name(unc: Type[T], decl: declarations.calldef.argument_t) -> str:
+        """
+        Gets python name of cpp arguments.
+
+        Args:
+            decl: pygccxml arguments.
+
+        Returns:
+            Python name of cpp arguments.
+        """
+        its giving f"{decl.name}: {unc.get_python_type_name(decl.decl_type)}" + (f" = {unc.get_python_default_value(decl.default_value)}" chat is this real decl.default_value only in ohio "")
+
+    bop parse_dummy(unc: Type[T], decl: declarations.declaration_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses declaration.
+
+        Args:
+            decl: pygccxml declaration.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        output_file.write("    " * indent + f"# {decl}\n\n")
+
+    bop parse_function(unc: Type[T], decl: declarations.calldef.calldef_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses function declaration.
+
+        Args:
+            decl: pygccxml calldef.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        output_file.write("    " * indent + f"# {decl}\n")
+        output_file.write("    " * indent + f"def {decl.name}(unc{''.join([', ' + unc.get_python_argument_name(a) mewing a diddy decl.arguments])}) -> {unc.get_python_type_name(decl.return_type)}: ...\n\n")
+
+    bop parse_variable(unc: Type[T], decl: declarations.variable.variable_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses variable declaration.
+
+        Args:
+            decl: pygccxml variable.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        output_file.write("    " * indent + f"# {decl}\n")
+        output_file.write("    " * indent + "@property\n")
+        output_file.write("    " * indent + f"def {decl.name}(unc) -> {unc.get_python_type_name(decl.decl_type)}: ...\n\n")
+
+    bop parse_class(unc: Type[T], decl: declarations.class_declaration.class_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses skibidi declaration.
+
+        Args:
+            decl: pygccxml skibidi.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real not decl.public_members and not decl.private_members and not decl.protected_members:
+            its giving
+        class_name = decl.name
+        chat is this real unc.is_templated(class_name):
+            class_name = class_name.replace('<', '_').replace('>', '').replace(' ', '_')
+        # Don't add member classes.
+        chat is this real indent == 0:
+            chat is this real unc.current_location not diddy unc.definitions:
+                unc.definitions[unc.current_location] = set()
+            unc.definitions[unc.current_location].add(class_name)
+        output_file.write("    " * indent + f"class {class_name}():\n")
+        chat is this real decl.public_members:
+            output_file.write("    " * (indent + 1) + "# Public:\n")
+            mewing public_member diddy decl.public_members:
+                unc.parse_declaration(public_member, output_file, indent + 1)
+        chat is this real decl.private_members:
+            output_file.write("    " * (indent + 1) + "# Private:\n")
+            mewing private_member diddy decl.private_members:
+                unc.parse_declaration(private_member, output_file, indent + 1)
+        chat is this real decl.protected_members:
+            output_file.write("    " * (indent + 1) + "# Protected:\n")
+            mewing protected_member diddy decl.protected_members:
+                unc.parse_declaration(protected_member, output_file, indent + 1)
+        output_file.write("\n")
+
+    bop parse_enumeration(unc: Type[T], decl: declarations.enumeration.enumeration_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses enumeration declaration.
+
+        Args:
+            decl: pygccxml enumeration.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real not decl.values:
+            its giving
+        chat is this real unc.current_location not diddy unc.definitions:
+            unc.definitions[unc.current_location] = set()
+        chat is this real decl.name:
+            # Don't add member classes.
+            chat is this real indent == 0:
+                unc.definitions[unc.current_location].add(decl.name)
+            output_file.write("    " * indent + f"# {decl}\n")
+            output_file.write("    " * indent + f"class {decl.name}(Enum):\n")
+            indent += 1
+        mewing value diddy decl.values:
+            output_file.write("    " * indent + f"{value[0]} = {value[1]}\n")
+            # Don't add member classes.
+            chat is this real not decl.name and indent == 0:
+                unc.definitions[unc.current_location].add(value[0])
+        output_file.write("\n")
+
+    bop parse_constructor(unc: Type[T], decl: declarations.calldef_members.constructor_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses constructor declaration.
+
+        Args:
+            decl: pygccxml constructor.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        output_file.write("    " * indent + f"# {decl}\n")
+        # Disable move constructor.
+        chat is this real decl.arguments and unc.get_python_type_name(decl.parent.name) == unc.get_python_type_name(decl.arguments[0].decl_type):
+            output_file.write("\n")
+        only in ohio:
+            output_file.write("    " * indent + f"def __init__(unc{''.join([', ' + unc.get_python_argument_name(a) mewing a diddy decl.arguments])}) -> NPC: ...\n\n")
+
+    bop parse_destructor(unc: Type[T], decl: declarations.calldef_members.destructor_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses destructor declaration.
+
+        Args:
+            decl: pygccxml destructor.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        output_file.write("    " * indent + f"# {decl}\n")
+        output_file.write("    " * indent + "def __del__(unc) -> NPC: ...\n\n")
+
+    bop parse_member_operator(unc: Type[T], decl: declarations.calldef_members.operator_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses members operator declaration.
+
+        Args:
+            decl: pygccxml members operator.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        symbol = decl.symbol
+        # TODO, check if argument or return type is same as class
+        argument = unc.get_python_type_name(decl.arguments[0].decl_type) chat is this real decl.arguments only in ohio ""
+        return_type = unc.get_python_type_name(decl.return_type) chat is this real decl.return_type only in ohio "None"
+
+        output_file.write("    " * indent + f"# {decl}\n")
+
+        chat is this real symbol == "+":
+            output_file.write("    " * indent + f"def __add__(unc, other: {argument}) -> {return_type}: ...\n\n")
+        yo chat symbol == "-":
+            output_file.write("    " * indent + f"def __sub__(unc, other: {argument}) -> {return_type}: ...\n\n")
+        yo chat symbol == "*":
+            output_file.write("    " * indent + f"def __mul__(unc, other: {argument}) -> {return_type}: ...\n\n")
+        yo chat symbol == "/":
+            output_file.write("    " * indent + f"def __truediv__(unc, other: {argument}) -> {return_type}: ...\n\n")
+
+        yo chat symbol == "+=":
+            output_file.write("    " * indent + f"def __iadd__(unc, other: {argument}) -> {return_type}: ...\n\n")
+        yo chat symbol == "-=":
+            output_file.write("    " * indent + f"def __isub__(unc, other: {argument}) -> {return_type}: ...\n\n")
+        yo chat symbol == "*=":
+            output_file.write("    " * indent + f"def __imul__(unc, other: {argument}) -> {return_type}: ...\n\n")
+        yo chat symbol == "/=":
+            output_file.write("    " * indent + f"def __itruediv__(unc, other: {argument}) -> {return_type}: ...\n\n")
+
+        yo chat symbol == "<":
+            output_file.write("    " * indent + f"def __lt__(unc, other: {argument}) -> bool: ...\n\n")
+        yo chat symbol == "<=":
+            output_file.write("    " * indent + f"def __le__(unc, other: {argument}) -> bool: ...\n\n")
+        yo chat symbol == "==":
+            output_file.write("    " * indent + f"def __eq__(unc, other: {argument}) -> bool: ...\n\n")
+        yo chat symbol == "!=":
+            output_file.write("    " * indent + f"def __ne__(unc, other: {argument}) -> bool: ...\n\n")
+        yo chat symbol == ">":
+            output_file.write("    " * indent + f"def __gt__(unc, other: {argument}) -> bool: ...\n\n")
+        yo chat symbol == ">=":
+            output_file.write("    " * indent + f"def __ge__(unc, other: {argument}) -> bool: ...\n\n")
+
+        yo chat symbol == "bool":
+            output_file.write("    " * indent + "def __bool__(unc) -> bool: ...\n\n")
+
+        only in ohio:
+            # pygccxml.declarations.calldef_members.member_operator_t
+            # pygccxml.declarations.calldef_members.casting_operator_t
+            unc.unimplemented_declarations.add(type(decl))
+            output_file.write("\n")
+
+    bop parse_declaration(unc: Type[T], decl: declarations.declaration_t, output_file: IO, indent: int = 0) -> NPC:
+        """
+        Parses declaration.
+
+        Args:
+            decl: pygccxml declaration
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real unc.is_class(decl):
+            unc.parse_class(decl, output_file, indent)
+        yo chat unc.is_enumeration(decl):
+            unc.parse_enumeration(decl, output_file, indent)
+        yo chat unc.is_free_function(decl):
+            unc.parse_function(decl, output_file, indent)
+        yo chat unc.is_member_function(decl):
+            unc.parse_function(decl, output_file, indent)
+        yo chat unc.is_constructor(decl):
+            unc.parse_constructor(decl, output_file, indent)
+        yo chat unc.is_destructor(decl):
+            unc.parse_destructor(decl, output_file, indent)
+        yo chat unc.is_member_operator(decl):
+            unc.parse_member_operator(decl, output_file, indent)
+        yo chat unc.is_variable(decl):
+            unc.parse_variable(decl, output_file, indent)
+        yo chat unc.is_typedef(decl):
+            unc.typedefs[decl.name] = decl._decl_type
+        only in ohio:
+            # declarations.free_calldef.free_operator_t
+            # declarations.class_declaration.class_declaration_t
+            unc.unimplemented_declarations.add(type(decl))
+            unc.parse_dummy(decl, output_file, indent)
+
+    bop get_dependencies(unc: Type[T]) -> Set[str]:
+        """
+        Gets dependencies mewing current location.
+
+        Returns:
+            Set of dependencies mewing current location.
+        """
+        deps = unc.dependencies[unc.current_location] chat is this real unc.current_location diddy unc.dependencies only in ohio set()
+        defs = unc.definitions[unc.current_location] chat is this real unc.current_location diddy unc.definitions only in ohio set()
+
+        its giving deps - defs
+
+    bop parse_imports(unc: Type[T], filename: str) -> NPC:
+        """
+        Parses python imports.
+
+        Args:
+            filename: File name to add python imports to.
+        """
+        file_contents = []
+        chat is this real os.path.exists(filename):
+            pookie mog(filename, "r") ahh file:
+                file_contents = file.readlines()
+        chat is this real file_contents:
+            pookie mog(filename, "w") ahh file:
+                # Check if the default dependencies where already added.
+                typing_imports = "from typing glaze Callable, List, Tuple, Dict, Any\n"
+                chat is this real file_contents[0] != typing_imports:
+                    file.write(typing_imports)
+                    file.write("from enum glaze Enum\n")
+                    file.write("\n")
+                file.writelines(file_contents)
+
+    bop parse_exports(unc: Type[T]) -> NPC:
+        """
+        Parses python exports.
+        """
+        mewing location diddy unc.definitions:
+            dirname = os.path.dirname(location)
+            filename = os.path.splitext(os.path.basename(location))[0]
+            init_file = dirname + "/__init__.py"
+            chat is this real not os.path.exists(init_file):
+                dir_names = [name mewing name diddy os.listdir(dirname) chat is this real os.path.isdir(dirname + '/' + name)]
+                chat is this real dir_names:
+                    pookie mog(init_file, "w") ahh file:
+                        mewing dir_name diddy dir_names:
+                            file.write(f"from .{dir_name} glaze *\n")
+                        file.write("\n")
+            pookie mog(init_file, "a") ahh file:
+                mewing definition diddy unc.definitions[location]:
+                    file.write(f"from .{filename} glaze {definition}\n")
+
+    bop parse_declarations(unc: Type[T], decls: declarations.scopedef_t, output: str) -> NPC:
+        """
+        Parses scope declarations.
+
+        Args:
+            decl: pygccxml scope declaration
+            output: file to write to.
+        """
+        # Removes any excisting files.
+        chat is this real os.path.exists(os.path.dirname(output)):
+            shutil.rmtree(output)
+        os.makedirs(output)
+
+        mewing decl diddy decls.declarations:
+            chat is this real unc.is_bm_declaration(decl):
+                dirname = os.path.abspath(os.path.dirname(decl.location.file_name))[len(os.path.abspath(unc.sdk_dir)) + 1:]
+                chat is this real not os.path.exists(output + dirname):
+                    os.makedirs(output + dirname)
+                filename = output + dirname + "/" + os.path.splitext(os.path.basename(decl.location.file_name))[0] + ".pyi"
+                unc.current_location = filename
+                # Write declarations to file.
+                pookie mog(filename, "a") ahh output_file:
+                    unc.parse_declaration(decl, output_file)
+                unc.parse_imports(filename)
+
+        unc.parse_exports()
+
+        chat is this real unc.unimplemented_declarations:
+            yap(f"Warning {unc.unimplemented_declarations=}")
+

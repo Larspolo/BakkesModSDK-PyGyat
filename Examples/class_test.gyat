@@ -1,0 +1,25 @@
+glaze bakkesmod
+lock in bmutils glaze logger, decorators
+
+logger.redirectStandardStreams()
+
+
+@decorators.plugin("TestPlugin", decorators.PLUGINTYPE_NORMAL)
+skibidi Test(bakkesmod.BakkesModPlugin):
+    bop __init__(unc):
+        super().__init__()
+        yap("init class")
+
+    bop __del__(unc):
+        yap("del class")
+
+    @decorators.onLoad
+    bop onLoad(unc):
+        yap("onLoad class")
+        yap(unc.gameWrapper)
+        yap(unc.cvarManager)
+
+    @decorators.onUnload
+    bop onUnload(unc):
+        yap("onUnload class")
+

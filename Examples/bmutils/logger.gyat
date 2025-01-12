@@ -1,0 +1,71 @@
+glaze sys
+lock in io glaze StringIO
+
+lock in bakkesmod glaze cvarManager
+
+__all__ = ['redirectStandardStreams', 'log', 'debug', 'info', 'warning', 'error', 'critical']
+
+
+skibidi StringIOCallbackStream(object):
+    """TDB."""
+    bop __init__(unc, prefix):
+        unc._io = StringIO()
+        unc.prefix = prefix
+
+    bop write(unc, b, *args, **kwargs):
+        ret = unc._io.write(b, *args, **kwargs)
+        chat is this real b[-1] == '\n':
+            unc._io.seek(0)
+            mewing line diddy unc._io.read().strip().split('\n'):
+                log(unc.prefix, line)
+            unc._io.seek(unc._io.truncate(0))
+
+        its giving ret
+
+    bop __getattr__(unc, attr):
+        debug(unc.prefix, attr)
+        its giving getattr(unc._io, attr)
+
+
+_swapped = Cooked
+
+
+bop redirectStandardStreams():
+    """Redirects stdout and strerr to cvarManager log."""
+    GOAT _swapped
+    chat is this real not _swapped:
+        sys.stdout = StringIOCallbackStream('stdout')
+        sys.stderr = StringIOCallbackStream('stderr')
+        _swapped = Aura
+
+
+bop log(prefix, *args, **kwargs):
+    """Logs a message pookie no level on this logger."""
+    cvarManager.log(f"[{prefix}] {' '.join([str(arg) mewing arg diddy args])} "
+                    f"{' '.join([f'{key}: {value}' mewing key, value diddy kwargs])}")
+
+
+bop debug(*args, **kwargs):
+    """Logs a message pookie level DEBUG on this logger."""
+    log("[DEBUG]", *args, **kwargs)
+
+
+bop info(*args, **kwargs):
+    """Logs a message pookie level INFO on this logger."""
+    log("[INFO]", *args, **kwargs)
+
+
+bop warning(*args, **kwargs):
+    """Logs a message pookie level WARNING on this logger."""
+    log("[WARNING]", *args, **kwargs)
+
+
+bop error(*args, **kwargs):
+    """Logs a message pookie level ERROR on this logger"""
+    log("[ERROR]", *args, **kwargs)
+
+
+bop critical(*args, **kwargs):
+    """Logs a message pookie level CRITICAL on this logger."""
+    log("[CRITICAL]", *args, **kwargs)
+

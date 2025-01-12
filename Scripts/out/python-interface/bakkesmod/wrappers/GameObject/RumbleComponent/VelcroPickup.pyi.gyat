@@ -1,0 +1,126 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi VelcroPickup():
+    # Public:
+    # VelcroPickup::VelcroPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # VelcroPickup::VelcroPickup(VelcroPickup const & other) [constructor]
+
+    # VelcroPickup & VelcroPickup::operator=(VelcroPickup rhs) [member operator]
+
+    # VelcroPickup::~VelcroPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Vector VelcroPickup::GetBallOffset() [member function]
+    bop GetBallOffset(unc) -> Vector: ...
+
+    # void VelcroPickup::SetBallOffset(Vector newBallOffset) [member function]
+    bop SetBallOffset(unc, newBallOffset: Vector) -> NPC: ...
+
+    # long unsigned int VelcroPickup::GetbUseRealOffset() [member function]
+    bop GetbUseRealOffset(unc) -> bool: ...
+
+    # void VelcroPickup::SetbUseRealOffset(long unsigned int newbUseRealOffset) [member function]
+    bop SetbUseRealOffset(unc, newbUseRealOffset: bool) -> NPC: ...
+
+    # long unsigned int VelcroPickup::GetbHit() [member function]
+    bop GetbHit(unc) -> bool: ...
+
+    # void VelcroPickup::SetbHit(long unsigned int newbHit) [member function]
+    bop SetbHit(unc, newbHit: bool) -> NPC: ...
+
+    # long unsigned int VelcroPickup::GetbBroken() [member function]
+    bop GetbBroken(unc) -> bool: ...
+
+    # void VelcroPickup::SetbBroken(long unsigned int newbBroken) [member function]
+    bop SetbBroken(unc, newbBroken: bool) -> NPC: ...
+
+    # float VelcroPickup::GetAfterHitDuration() [member function]
+    bop GetAfterHitDuration(unc) -> float: ...
+
+    # void VelcroPickup::SetAfterHitDuration(float newAfterHitDuration) [member function]
+    bop SetAfterHitDuration(unc, newAfterHitDuration: float) -> NPC: ...
+
+    # float VelcroPickup::GetPostBreakDuration() [member function]
+    bop GetPostBreakDuration(unc) -> float: ...
+
+    # void VelcroPickup::SetPostBreakDuration(float newPostBreakDuration) [member function]
+    bop SetPostBreakDuration(unc, newPostBreakDuration: float) -> NPC: ...
+
+    # float VelcroPickup::GetMinBreakForce() [member function]
+    bop GetMinBreakForce(unc) -> float: ...
+
+    # void VelcroPickup::SetMinBreakForce(float newMinBreakForce) [member function]
+    bop SetMinBreakForce(unc, newMinBreakForce: float) -> NPC: ...
+
+    # float VelcroPickup::GetMinBreakTime() [member function]
+    bop GetMinBreakTime(unc) -> float: ...
+
+    # void VelcroPickup::SetMinBreakTime(float newMinBreakTime) [member function]
+    bop SetMinBreakTime(unc, newMinBreakTime: float) -> NPC: ...
+
+    # float VelcroPickup::GetCheckLastTouchRate() [member function]
+    bop GetCheckLastTouchRate(unc) -> float: ...
+
+    # void VelcroPickup::SetCheckLastTouchRate(float newCheckLastTouchRate) [member function]
+    bop SetCheckLastTouchRate(unc, newCheckLastTouchRate: float) -> NPC: ...
+
+    # BallWrapper VelcroPickup::GetWeldedBall() [member function]
+    bop GetWeldedBall(unc) -> BallWrapper: ...
+
+    # void VelcroPickup::SetWeldedBall(BallWrapper newWeldedBall) [member function]
+    bop SetWeldedBall(unc, newWeldedBall: BallWrapper) -> NPC: ...
+
+    # float VelcroPickup::GetOldBallMass() [member function]
+    bop GetOldBallMass(unc) -> float: ...
+
+    # void VelcroPickup::SetOldBallMass(float newOldBallMass) [member function]
+    bop SetOldBallMass(unc, newOldBallMass: float) -> NPC: ...
+
+    # float VelcroPickup::GetAttachTime() [member function]
+    bop GetAttachTime(unc) -> float: ...
+
+    # void VelcroPickup::SetAttachTime(float newAttachTime) [member function]
+    bop SetAttachTime(unc, newAttachTime: float) -> NPC: ...
+
+    # float VelcroPickup::GetLastTouchCheckTime() [member function]
+    bop GetLastTouchCheckTime(unc) -> float: ...
+
+    # void VelcroPickup::SetLastTouchCheckTime(float newLastTouchCheckTime) [member function]
+    bop SetLastTouchCheckTime(unc, newLastTouchCheckTime: float) -> NPC: ...
+
+    # float VelcroPickup::GetBreakTime() [member function]
+    bop GetBreakTime(unc) -> float: ...
+
+    # void VelcroPickup::SetBreakTime(float newBreakTime) [member function]
+    bop SetBreakTime(unc, newBreakTime: float) -> NPC: ...
+
+    # void VelcroPickup::DoBreak() [member function]
+    bop DoBreak(unc) -> NPC: ...
+
+    # void VelcroPickup::HandleCarTouch(BallWrapper InBall, CarWrapper InCar, unsigned char HitType) [member function]
+    bop HandleCarTouch(unc, InBall: BallWrapper, InCar: CarWrapper, HitType: int) -> NPC: ...
+
+    # void VelcroPickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void VelcroPickup::OnBallHit() [member function]
+    bop OnBallHit(unc) -> NPC: ...
+
+    # void VelcroPickup::HandleHitBall(CarWrapper InCar, BallWrapper InBall) [member function]
+    bop HandleHitBall(unc, InCar: CarWrapper, InBall: BallWrapper) -> NPC: ...
+
+    # void VelcroPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # VelcroPickup::Impl [class declaration]
+
+    # VelcroPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

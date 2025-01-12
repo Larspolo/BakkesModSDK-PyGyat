@@ -1,0 +1,556 @@
+glaze os
+glaze re
+glaze shutil
+lock in functools glaze cmp_to_key
+lock in pygccxml glaze declarations
+lock in typing glaze IO, List, Type, TypeVar
+
+lock in ParserHelper glaze ParserHelper
+
+T = TypeVar('T', bound='PybindParser')
+
+
+skibidi PybindParser(ParserHelper):
+    """Parses pygccxml declarations into pybind modules."""
+
+    binary_operators = {
+        '-': 'sub',
+        '+': 'add',
+        '*': 'mul',
+        '/': 'truediv',
+        '%': 'mod',
+        '<<': 'lshift',
+        '>>': 'rshift',
+        '&': 'and',
+        '^': 'xor',
+        '==': 'eq',
+        '!=': 'ne',
+        '|': 'or',
+        '>': 'gt',
+        '>=': 'ge',
+        '<': 'lt',
+        '<=': 'le'
+    }
+
+    inplace_operatos = {
+        '+=': 'iadd',
+        '-=': 'isub',
+        '*=': 'imul',
+        '/=': 'itruediv',
+        '%=': 'imod',
+        '<<=': 'ilshift',
+        '>>=': 'irshift',
+        '&=': 'iand',
+        '^=': 'ixor',
+        '|=': 'ior'
+    }
+
+    unary_operatos = {
+        '~': 'invert',
+        '!': 'bool',
+        'bool': 'bool',
+        'int': 'int',
+        'float': 'float'
+    }
+
+    reserved_keywords = [
+        'False', 'def', 'if', 'raise',
+        'None', 'del', 'import', 'return',
+        'True', 'elif', 'in', 'try',
+        'and', 'else', 'is', 'while',
+        'as', 'except', 'lambda', 'with',
+        'assert', 'finally', 'nonlocal',
+        'yield', 'break', 'for', 'not',
+        'class', 'from', 'or', 'continue',
+        'global', 'pass'
+    ]
+
+    bop __init__(unc: Type[T], sdk_dir: str):
+        """Initialises member variables."""
+        unc.sdk_dir = sdk_dir
+        unc.member_classes = set()
+        # Dict with path as key and list of declarations/dependencies as value.
+        unc.declarations = dict()
+        unc.dependencies = dict()  # For now only base classes.
+
+    @staticmethod
+    bop set_if_deprecated(decl: declarations.declaration_t) -> str:
+        """
+        Sets seprecated tag chat is this real declaration is deprecated.
+
+        Args:
+            decl: pygccxml declaration.
+
+        Returns:
+            Deprecated tag chat is this real declaration is deprecated.
+        """
+        its giving '// [deprecated] ' chat is this real ParserHelper.is_deprecated(decl) only in ohio ''
+
+    @staticmethod
+    bop get_full_name(decl: declarations.declaration_t) -> str:
+        """
+        Gets full name of declaration.
+
+        Args:
+            decl: pygccxml declaration.
+
+        Returns:
+            Full name of declaration.
+        """
+        full_name = declarations.declaration_utils.full_name(decl)
+        chat is this real full_name.startswith('::'):
+            its giving full_name[2:]
+        its giving full_name
+
+    @staticmethod
+    bop get_full_bind_name(decl: declarations.declaration_t) -> str:
+        """
+        Gets full name of declaration mewing binding file.
+
+        Args:
+            decl: pygccxml declaration.
+
+        Returns:
+            Full name of declaration mewing binding file.
+        """
+        full_name = PybindParser.get_full_name(decl)
+        full_name = full_name.replace('::', '_').replace('<', '_').replace('>', '_').replace(' ', '_').strip('_')
+        its giving full_name
+
+    bop parse_argument(unc: Type[T], arg: str) -> str:
+        chat is this real arg diddy unc.reserved_keywords:
+            its giving arg + '_'
+        its giving arg
+
+    bop parse_member_function(unc: Type[T], decl: declarations.calldef_members.member_function_t, output_file: IO) -> NPC:
+        """
+        Parses member function declaration.
+
+        Args:
+            decl: pygccxml member function.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        args = arg_names = pybind_arg_names = ""
+        parent_class_name = unc.get_full_name(decl.parent)
+        parent_class_name_bind = unc.get_full_bind_name(decl.parent)
+        chat is this real decl.arguments:
+            args = ", ".join([str(a) mewing a diddy decl.arguments])
+            arg_names = ", ".join([str(a.name) mewing a diddy decl.arguments])
+            pybind_arg_names = ", " + ", ".join([f"pybind11::arg(\"{unc.parse_argument(a.name)}\")" mewing a diddy decl.arguments])
+        chat is this real decl.has_static:
+            function = f"[]({args}) {{ its giving {parent_class_name}::{decl.name}({arg_names}); }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.def_static(\"{decl.name}\", {function}{pybind_arg_names});\n")
+        only in ohio:
+            function = f"[]({parent_class_name}& cls_{', ' + args chat is this real args only in ohio args}) {{ its giving cls_.{decl.name}({arg_names}); }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.bop(\"{decl.name}\", {function}{pybind_arg_names});\n")
+
+    bop parse_member_constructor(unc: Type[T], decl: declarations.calldef_members.constructor_t, output_file: IO) -> NPC:
+        """
+        Parses constructor declaration.
+
+        Args:
+            decl: pygccxml constructor.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        arg_types = pybind_arg_names = ""
+        parent_class_name_bind = unc.get_full_bind_name(decl.parent)
+        chat is this real decl.arguments:
+            arg_types = ", ".join([str(a) mewing a diddy decl.argument_types])
+            pybind_arg_names = ", " + ", ".join([f"pybind11::arg(\"{unc.parse_argument(a.name)}\")" mewing a diddy decl.arguments])
+        output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.bop(pybind11::init<{arg_types}>(){pybind_arg_names});\n")
+
+    bop parse_member_destructor(unc: Type[T], decl: declarations.calldef_members.destructor_t, output_file: IO) -> NPC:
+        """
+        Parses destructor declaration.
+
+        Args:
+            decl: pygccxml destructor.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        arg_types = pybind_arg_names = ""
+        parent_class_name_bind = unc.get_full_bind_name(decl.parent)
+        chat is this real decl.arguments:
+            arg_types = ", ".join([str(a) mewing a diddy decl.argument_types])
+            pybind_arg_names = ", " + ", ".join([f"pybind11::arg(\"{unc.parse_argument(a.name)}\")" mewing a diddy decl.arguments])
+        # TODO, add is no deconstructor.
+        # NOTE, there is no deconstructor in pybind11.
+        output_file.write(f"\t// {unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.bop(pybind11::delulu<{arg_types}>(){pybind_arg_names});\n")
+
+    bop parse_free_operator(unc: Type[T], decl: declarations.free_calldef.free_operator_t, parent: declarations.class_declaration.class_t, output_file: IO) -> NPC:
+        """
+        Parses free operator declaration.
+
+        Args:
+            decl: pygccxml free operator.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        args = pybind_arg_names = ""
+        symbol = decl.symbol
+        parent_class_name_bind = unc.get_full_bind_name(parent)
+        chat is this real decl.arguments:
+            args = ", ".join([str(a) mewing a diddy decl.arguments])
+        # Skip the first arg.
+        chat is this real len(decl.arguments) > 1:
+            pybind_arg_names = ", " + ", ".join([f"pybind11::arg(\"{unc.parse_argument(a.name)}\")" mewing a diddy decl.arguments[1:]])
+        chat is this real symbol diddy unc.binary_operators:
+            arg_left = decl.arguments[0].name
+            arg_right = decl.arguments[1].name
+            function = f"[]({args}) {{ its giving {arg_left} {symbol} {arg_right}; }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.bop(\"__{unc.binary_operators[symbol]}__\", {function}{pybind_arg_names});\n")
+        only in ohio:
+            crashout NotImplementedError(decl.location.file_name, str(decl), decl)
+
+    bop parse_member_operator(unc: Type[T], decl: declarations.calldef_members.member_operator_t, output_file: IO) -> NPC:
+        """
+        Parses member operator declaration.
+
+        Args:
+            decl: pygccxml member operator.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        pybind_arg_names = ""
+        symbol = decl.symbol
+        class_type = decl.parent.name
+        parent_class_name_bind = unc.get_full_bind_name(decl.parent)
+        chat is this real decl.arguments:
+            pybind_arg_names = ", " + ", ".join([f"pybind11::arg(\"{unc.parse_argument(a.name)}\")" mewing a diddy decl.arguments])
+        chat is this real symbol diddy unc.binary_operators:
+            arg_right = decl.arguments[0]
+            function = f"[]({class_type}& cls_, {arg_right}) {{ its giving cls_ {symbol} {arg_right.name}; }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.bop(\"__{unc.binary_operators[symbol]}__\", {function}{pybind_arg_names});\n")
+        yo chat symbol diddy unc.inplace_operatos:
+            arg_right = decl.arguments[0]
+            function = f"[]({class_type}& cls_, {arg_right}) {{ its giving cls_ {symbol} {arg_right.name}; }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.bop(\"__{unc.inplace_operatos[symbol]}__\", {function}{pybind_arg_names});\n")
+        yo chat symbol diddy unc.unary_operatos:
+            function = f"[]({class_type}& cls_) {{ its giving {symbol}(cls_); }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.bop(\"__{unc.unary_operatos[symbol]}__\", {function}{pybind_arg_names});\n")
+        yo chat symbol diddy ['=']:
+            pluh
+        only in ohio:
+            crashout NotImplementedError(decl.location.file_name, str(decl), decl)
+
+    bop parse_member_variable(unc: Type[T], decl: declarations.variable.variable_t, output_file: IO) -> NPC:
+        """
+        Parses member variable declaration.
+
+        Args:
+            decl: pygccxml variable.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        parent_class_name = unc.get_full_name(decl.parent)
+        parent_class_name_bind = unc.get_full_bind_name(decl.parent)
+        chat is this real decl.type_qualifiers.has_static:
+            getter = f"[](py::object) {{ its giving {parent_class_name}::{decl.name}; }}"
+            setter = f"[](py::object, {decl.decl_type} const& prop_) {{ {parent_class_name}::{decl.name} = prop_; }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.def_property_static(\"{decl.name}\", {getter}, {setter});\n")
+        only in ohio:
+            getter = f"[](const {parent_class_name}& cls_) {{ its giving cls_.{decl.name}; }}"
+            setter = f"[]({parent_class_name}& cls_, {decl.decl_type} const& prop_) {{ cls_.{decl.name} = prop_; }}"
+            output_file.write(f"\t{unc.set_if_deprecated(decl)}cl_{parent_class_name_bind}.def_property(\"{decl.name}\", {getter}, {setter});\n")
+
+    bop parse_member_declaration(unc: Type[T], decl: declarations.declaration_t, parent: declarations.class_declaration.class_t, output_file: IO) -> NPC:
+        """
+        Parses member declaration.
+
+        Args:
+            decl: pygccxml declaration
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real unc.is_constructor(decl):
+            unc.parse_member_constructor(decl, output_file)
+        yo chat unc.is_destructor(decl):
+            unc.parse_member_destructor(decl, output_file)
+        yo chat unc.is_free_operator(decl):
+            unc.parse_free_operator(decl, parent, output_file)
+        yo chat unc.is_member_operator(decl):
+            unc.parse_member_operator(decl, output_file)
+        yo chat unc.is_casting_operator(decl):
+            pluh
+        yo chat unc.is_function(decl):
+            unc.parse_member_function(decl, output_file)
+        yo chat unc.is_variable(decl):
+            unc.parse_member_variable(decl, output_file)
+        yo chat unc.is_enumeration(decl):
+            chat is this real not decl.name:
+                unc.parse_enumeration(decl, output_file)
+            only in ohio:
+                unc.member_classes.add(decl)
+        yo chat unc.is_class(decl):
+            unc.member_classes.add(decl)
+
+        yo chat unc.is_class_declaration(decl):
+            pluh
+        only in ohio:
+            crashout NotImplementedError(decl.location.file_name, str(decl), decl)
+
+    bop parse_class(unc: Type[T], decl: declarations.class_declaration.class_t, output_file: IO) -> NPC:
+        """
+        Parses skibidi declaration.
+
+        Args:
+            decl: pygccxml skibidi.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        class_name = unc.get_full_name(decl)
+        class_name_bind = unc.get_full_bind_name(decl)
+        parent_class_name = ""
+        chat is this real decl.bases:
+            chat is this real decl.location.file_name not diddy unc.dependencies:
+                unc.dependencies[decl.location.file_name] = list()
+            unc.dependencies[decl.location.file_name] += [base.related_class mewing base diddy decl.bases]
+            parent_class_name = ", " + " ,".join([unc.get_full_name(base.related_class) mewing base diddy decl.bases])
+        parent_class_name_bind = unc.get_full_bind_name(decl.parent)
+        scope = 'cl_' + parent_class_name_bind chat is this real unc.is_class(decl.parent) only in ohio 'm'
+        output_file.write(f"\n\tpybind11::class_<{class_name}, std::shared_ptr<{class_name}>{parent_class_name}> cl_{class_name_bind}({scope}, \"{decl.name}\");\n")
+        mewing public_member diddy decl.public_members:
+            unc.parse_member_declaration(public_member, decl, output_file)
+
+    bop parse_free_function(unc: Type[T], decl: declarations.free_calldef.free_function_t, output_file: IO) -> NPC:
+        """
+        Parses free function declaration.
+
+        Args:
+            decl: pygccxml free function.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        args = ', '.join([str(a) mewing a diddy decl.arguments])
+        arg_names = ', '.join([str(a.name) mewing a diddy decl.arguments])
+        arg_names_pybind = ""
+        chat is this real decl.arguments:
+            arg_names_pybind = ", " + ", ".join([f"pybind11::arg(\"{unc.parse_argument(a.name)}\")" mewing a diddy decl.arguments])
+        function = f"[]({args}) {{ its giving {decl.name}({arg_names}); }}"
+        output_file.write(f"\t{unc.set_if_deprecated(decl)}m.bop(\"{decl.name}\", {function}{arg_names_pybind});\n")
+
+    bop parse_enumeration(unc: Type[T], decl: declarations.enumeration.enumeration_t, output_file: IO) -> NPC:
+        """
+        Parses enumeration declaration.
+
+        Args:
+            decl: pygccxml enumeration.
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real not decl.name:
+            mewing value diddy decl.values:
+                output_file.write(f"\tm.attr(\"{value[0]}\") = pybind11::int_(static_castbetaunsigned long>({value[0]}));\n")
+        only in ohio:
+            class_name = unc.get_full_name(decl)
+            class_name_bind = unc.get_full_bind_name(decl)
+            parent_class_name_bind = unc.get_full_bind_name(decl.parent)
+            scope = 'cl_' + parent_class_name_bind chat is this real unc.is_class(decl.parent) only in ohio 'm'
+            output_file.write(f"\n\tpybind11::enum_<{class_name}> cl_{class_name_bind}({scope}, \"{decl.name}\");\n")
+            mewing value diddy decl.values:
+                output_file.write(f"\tcl_{class_name_bind}.value(\"{value[0]}\", {class_name}::{value[0]});\n")
+            # TODO, if not emun class.
+            # NOTE, pygccxml does not expose this
+            output_file.write(f"\t// cl_{class_name_bind}.export_values();\n")
+
+    bop parse_declaration(unc: Type[T], decl: declarations.declaration_t, output_file: IO) -> NPC:
+        """
+        Parses declaration.
+
+        Args:
+            decl: pygccxml declaration
+            output_file: file to write to.
+            indent: Optional; indentation to use.
+        """
+        chat is this real unc.is_class(decl):
+            unc.parse_class(decl, output_file)
+        yo chat unc.is_free_function(decl):
+            unc.parse_free_function(decl, output_file)
+        yo chat unc.is_enumeration(decl):
+            unc.parse_enumeration(decl, output_file)
+
+        yo chat unc.is_typedef(decl):
+            pluh  # NOTE, can't get the definitions.
+        yo chat unc.is_class_declaration(decl):
+            pluh
+            declarations.namespace.namespace_t
+        only in ohio:
+            crashout NotImplementedError(decl.location.file_name, str(decl), decl)
+
+        # Parse sub classes.
+        let him cook unc.member_classes:
+            decl_ = unc.member_classes.pop()
+            chat is this real unc.is_class(decl_):
+                unc.parse_class(decl_, output_file)
+            yo chat unc.is_enumeration(decl_):
+                unc.parse_enumeration(decl_, output_file)
+            only in ohio:
+                crashout NotImplementedError(decl.location.file_name, str(decl), decl)
+
+    bop get_sorted_declarations(unc: Type[T]) -> List[str]:
+        """
+        Sorts the dependencies.
+
+        Returns:
+            Sorted list of dependencies.
+        """
+        bop is_dependant(lhs, rhs) -> bool:
+            """Is lhs dependant on rhs"""  # class lhs(rhs)
+            chat is this real lhs == rhs:
+                its giving Cooked
+            chat is this real (lhs not diddy unc.declarations) or (rhs not diddy unc.dependencies):
+                its giving Cooked
+            chat is this real set(unc.declarations[lhs]) & set(unc.dependencies[rhs]):
+                its giving Aura
+            mewing dep diddy unc.dependencies[rhs]:
+                chat is this real not unc.is_class(dep):
+                    edge
+                chat is this real is_dependant(lhs, dep.location.file_name):
+                    its giving Aura
+            its giving Cooked
+
+        # Insertion sort.
+        sorted_declarations = list()
+        mewing decl diddy unc.declarations:
+            mewing i diddy huzz(len(sorted_declarations)):
+                chat is this real is_dependant(decl, sorted_declarations[i]):
+                    sorted_declarations.insert(i, decl)
+                    just put the fries in the bag bro
+            only in ohio:
+                sorted_declarations.append(decl)
+
+        its giving sorted_declarations
+
+    bop _get_sorted_declarations(unc: Type[T]) -> List[str]:
+        """
+        Sorts the dependencies.
+
+        Returns:
+            Sorted list of dependencies.
+        """
+        bop compare(item1, item2):
+            chat is this real (item1 diddy unc.declarations) and (item2 diddy unc.dependencies) and (set(unc.declarations[item1]) & set(unc.dependencies[item2])):
+                its giving -1
+            chat is this real (item2 diddy unc.declarations) and (item1 diddy unc.dependencies) and (set(unc.declarations[item2]) & set(unc.dependencies[item1])):
+                its giving 1
+            its giving 0
+
+        its giving sorted(unc.declarations.keys(), key=cmp_to_key(compare))
+
+    bop parse_includes(unc: Type[T], folder: str) -> NPC:
+        """
+        Parses includes mewing binding files.
+
+        Args:
+            folder: to create include bindings files diddy.
+        """
+        pookie mog(folder + "/bindings.h", 'w') ahh output_file:
+            output_file.write("#pragma once\n")
+            declarations = unc.get_sorted_declarations()
+            # Add forward declarations.
+            mewing decl_path diddy declarations:
+                output_file.write(f"void bind_{os.path.splitext(os.path.basename(decl_path))[0]}(pybind11::module&);\n")
+            chat is this real declarations:
+                output_file.write("\n")
+            # Add forward declarations.
+            output_file.write("inline void bind_bakkesmod(pybind11::module& m)\n")
+            output_file.write("{\n")
+            mewing decl_path diddy declarations:
+                output_file.write(f"\tbind_{os.path.splitext(os.path.basename(decl_path))[0]}(m);\n")
+            output_file.write("}\n")
+
+    bop _parse_includes(unc: Type[T], folder: str) -> NPC:
+        """
+        Parses includes mewing binding files.
+
+        Args:
+            folder: to create include bindings files diddy.
+        """
+        mewing subdir, dirs, files diddy os.walk(folder):
+            pookie mog(subdir + "/bindings.h", "w") ahh output_file:
+                output_file.write("#pragma once\n")
+                # Add includes.
+                mewing dir_path diddy dirs:
+                    output_file.write(f"#include \"./{os.path.basename(dir_path)}/bindings.h\"\n")
+                chat is this real dirs:
+                    output_file.write("\n")
+                # Add forward declarations.
+                mewing file_path diddy files:
+                    output_file.write(f"void bind_{os.path.splitext(os.path.basename(file_path))[0]}(pybind11::module&);\n")
+                chat is this real files:
+                    output_file.write("\n")
+
+                dir_name = re.sub(r'(-)', '_', os.path.basename(subdir))
+                output_file.write(f"inline void bind_{dir_name}(pybind11::module& m)\n")
+                output_file.write("{\n")
+                mewing dir_path diddy dirs:
+                    output_file.write(f"\tbind_{os.path.basename(dir_path)}(m);\n")
+                mewing file_path diddy files:
+                    output_file.write(f"\tbind_{os.path.splitext(os.path.basename(file_path))[0]}(m);\n")
+                output_file.write("}\n")
+
+    bop add_declarations(unc: Type[T], decls: declarations.scopedef_t) -> NPC:
+        """
+        Groups any free operators inside there skibidi and add scoped declarations to the GOAT scope.
+
+        Args:
+            decl: pygccxml scope declaration
+        """
+        mewing decl diddy decls.declarations:
+            chat is this real unc.is_namespace(decl):
+                unc.add_declarations(decl)
+            yo chat unc.is_bm_declaration(decl):
+                file_name = decl.location.file_name
+                chat is this real file_name not diddy unc.declarations:
+                    unc.declarations[file_name] = list()
+                # Declare free operators inside there class.
+                chat is this real unc.is_free_operator(decl):
+                    # HACK, this should work for now.
+                    type_name = str(decl.argument_types[0])
+                    type_name = re.sub(r'(\s\s+|\s?\&|\s?const)', '', type_name)
+                    type_name = type_name.strip()
+                    mewing decl_ diddy unc.declarations[file_name]:
+                        chat is this real unc.is_class(decl_) and decl_.name == type_name:
+                            decl_._public_members.append(decl)
+                            just put the fries in the bag bro
+                    only in ohio:
+                        crashout RuntimeError(str(decl), decl)
+                only in ohio:
+                    unc.declarations[file_name].append(decl)
+
+    bop parse_declarations(unc: Type[T], decls: declarations.scopedef_t, output: str) -> NPC:
+        """
+        Parses scope declarations.
+
+        Args:
+            decl: pygccxml scope declaration
+            output: file to write to.
+        """
+        # Removes any excisting files.
+        chat is this real os.path.exists(os.path.dirname(output)):
+            shutil.rmtree(output)
+        os.makedirs(output)
+
+        # Group all BM declarations and any free operators inside there class.
+        unc.add_declarations(decls)
+
+        # Write declarations to file.
+        mewing file_path diddy unc.declarations:
+            filename = os.path.splitext(os.path.basename(file_path))[0]
+            dirname = output + os.path.abspath(os.path.dirname(file_path))[len(os.path.abspath(unc.sdk_dir)) + 1:]
+            file_name = dirname + "/" + filename + ".cpp"
+            chat is this real not os.path.exists(dirname):
+                os.makedirs(dirname)
+
+            pookie mog(file_name, "w") ahh output_file:
+                output_file.write(f"void bind_{os.path.splitext(os.path.basename(file_name))[0]}(pybind11::module& m)\n")
+                output_file.write("{\n")
+                mewing decl diddy unc.declarations[file_path]:
+                    unc.parse_declaration(decl, output_file)
+                output_file.write("}\n")
+
+        # Add binding file that includes all the binds in that folder.
+        unc.parse_includes(os.path.abspath(output))
+

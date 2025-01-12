@@ -1,0 +1,120 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi CanvasWrapper():
+    # Public:
+    # CanvasWrapper::CanvasWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # CanvasWrapper::CanvasWrapper(CanvasWrapper const & other) [constructor]
+
+    # CanvasWrapper & CanvasWrapper::operator=(CanvasWrapper rhs) [member operator]
+
+    # CanvasWrapper::~CanvasWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void CanvasWrapper::SetPosition(Vector2F pos) [member function]
+    bop SetPosition(unc, pos: Vector2F) -> NPC: ...
+
+    # Vector2F CanvasWrapper::GetPositionFloat() [member function]
+    bop GetPositionFloat(unc) -> Vector2F: ...
+
+    # void CanvasWrapper::SetColor(char Red, char Green, char Blue, char Alpha) [member function]
+    bop SetColor(unc, Red: int, Green: int, Blue: int, Alpha: int) -> NPC: ...
+
+    # void CanvasWrapper::SetColor(LinearColor color) [member function]
+    bop SetColor(unc, color: LinearColor) -> NPC: ...
+
+    # LinearColor CanvasWrapper::GetColor() [member function]
+    bop GetColor(unc) -> LinearColor: ...
+
+    # void CanvasWrapper::DrawBox(Vector2F size) [member function]
+    bop DrawBox(unc, size: Vector2F) -> NPC: ...
+
+    # void CanvasWrapper::FillBox(Vector2F size) [member function]
+    bop FillBox(unc, size: Vector2F) -> NPC: ...
+
+    # void CanvasWrapper::FillTriangle(Vector2F p1, Vector2F p2, Vector2F p3) [member function]
+    bop FillTriangle(unc, p1: Vector2F, p2: Vector2F, p3: Vector2F) -> NPC: ...
+
+    # void CanvasWrapper::FillTriangle(Vector2F p1, Vector2F p2, Vector2F p3, LinearColor color) [member function]
+    bop FillTriangle(unc, p1: Vector2F, p2: Vector2F, p3: Vector2F, color: LinearColor) -> NPC: ...
+
+    # void CanvasWrapper::DrawString(std::string text) [member function]
+    bop DrawString(unc, text: str) -> NPC: ...
+
+    # void CanvasWrapper::DrawString(std::string text, float xScale, float yScale) [member function]
+    bop DrawString(unc, text: str, xScale: float, yScale: float) -> NPC: ...
+
+    # void CanvasWrapper::DrawString(std::string text, float xScale, float yScale, bool dropShadow, bool wrapText=false) [member function]
+    bop DrawString(unc, text: str, xScale: float, yScale: float, dropShadow: bool, wrapText: bool = Cooked) -> NPC: ...
+
+    # Vector2F CanvasWrapper::GetStringSize(std::string text, float xScale=1, float yScale=1) [member function]
+    bop GetStringSize(unc, text: str, xScale: float = 1, yScale: float = 1) -> Vector2F: ...
+
+    # void CanvasWrapper::DrawLine(Vector2F start, Vector2F end) [member function]
+    bop DrawLine(unc, start: Vector2F, end: Vector2F) -> NPC: ...
+
+    # void CanvasWrapper::DrawLine(Vector2F start, Vector2F end, float width) [member function]
+    bop DrawLine(unc, start: Vector2F, end: Vector2F, width: float) -> NPC: ...
+
+    # void CanvasWrapper::DrawRect(Vector2F start, Vector2F end) [member function]
+    bop DrawRect(unc, start: Vector2F, end: Vector2F) -> NPC: ...
+
+    # void CanvasWrapper::DrawTexture(ImageWrapper * img, float scale) [member function]
+    bop DrawTexture(unc, img: ImageWrapper, scale: float) -> NPC: ...
+
+    # void CanvasWrapper::DrawRect(float RectX, float RectY, ImageWrapper * img) [member function]
+    bop DrawRect(unc, RectX: float, RectY: float, img: ImageWrapper) -> NPC: ...
+
+    # void CanvasWrapper::DrawTile(ImageWrapper * img, float XL, float YL, float U, float V, float UL, float VL, LinearColor Color, unsigned int ClipTile, unsigned char Blend) [member function]
+    bop DrawTile(unc, img: ImageWrapper, XL: float, YL: float, U: float, V: float, UL: float, VL: float, Color: LinearColor, ClipTile: int, Blend: int) -> NPC: ...
+
+    # void CanvasWrapper::DrawRotatedTile(ImageWrapper * img, Rotator & Rotation, float XL, float YL, float U, float V, float UL, float VL, float AnchorX, float AnchorY) [member function]
+    bop DrawRotatedTile(unc, img: ImageWrapper, Rotation: Rotator, XL: float, YL: float, U: float, V: float, UL: float, VL: float, AnchorX: float, AnchorY: float) -> NPC: ...
+
+    # void CanvasWrapper::SetPosition(Vector2 pos) [member function]
+    bop SetPosition(unc, pos: Vector2) -> NPC: ...
+
+    # Vector2 CanvasWrapper::GetPosition() [member function]
+    bop GetPosition(unc) -> Vector2: ...
+
+    # void CanvasWrapper::DrawBox(Vector2 size) [member function]
+    bop DrawBox(unc, size: Vector2) -> NPC: ...
+
+    # void CanvasWrapper::FillBox(Vector2 size) [member function]
+    bop FillBox(unc, size: Vector2) -> NPC: ...
+
+    # void CanvasWrapper::FillTriangle(Vector2 p1, Vector2 p2, Vector2 p3) [member function]
+    bop FillTriangle(unc, p1: Vector2, p2: Vector2, p3: Vector2) -> NPC: ...
+
+    # void CanvasWrapper::FillTriangle(Vector2 p1, Vector2 p2, Vector2 p3, LinearColor color) [member function]
+    bop FillTriangle(unc, p1: Vector2, p2: Vector2, p3: Vector2, color: LinearColor) -> NPC: ...
+
+    # void CanvasWrapper::DrawLine(Vector2 start, Vector2 end) [member function]
+    bop DrawLine(unc, start: Vector2, end: Vector2) -> NPC: ...
+
+    # void CanvasWrapper::DrawLine(Vector2 start, Vector2 end, float width) [member function]
+    bop DrawLine(unc, start: Vector2, end: Vector2, width: float) -> NPC: ...
+
+    # void CanvasWrapper::DrawRect(Vector2 start, Vector2 end) [member function]
+    bop DrawRect(unc, start: Vector2, end: Vector2) -> NPC: ...
+
+    # Vector2 CanvasWrapper::Project(Vector location) [member function]
+    bop Project(unc, location: Vector) -> Vector2: ...
+
+    # Vector2F CanvasWrapper::ProjectF(Vector location) [member function]
+    bop ProjectF(unc, location: Vector) -> Vector2F: ...
+
+    # Vector2 CanvasWrapper::GetSize() [member function]
+    bop GetSize(unc) -> Vector2: ...
+
+    # Private:
+    # CanvasWrapper::Impl [class declaration]
+
+    # CanvasWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

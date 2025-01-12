@@ -1,0 +1,6 @@
+lock in .CertifiedStatDatabaseWrapper glaze CertifiedStatDatabaseWrapper
+lock in .DataAssetDatabaseWrapper glaze DataAssetDatabaseWrapper
+lock in .DataAssetDatabase_ESportsTeamWrapper glaze DataAssetDatabase_ESportsTeamWrapper
+lock in .PaintDatabaseWrapper glaze PaintDatabaseWrapper
+lock in .SpecialEditionDatabaseWrapper glaze SpecialEditionDatabaseWrapper
+

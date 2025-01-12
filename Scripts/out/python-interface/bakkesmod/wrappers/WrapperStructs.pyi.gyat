@@ -1,0 +1,1136 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+# ToastType [enumeration]
+skibidi ToastType(Enum):
+    ToastType_Info = 0
+    ToastType_OK = 1
+    ToastType_Warning = 2
+    ToastType_Error = 3
+
+# FVector [class declaration]
+
+# FRotator [class declaration]
+
+skibidi Vector():
+    # Public:
+    # Vector::X [variable]
+    @property
+    bop X(unc) -> float: ...
+
+    # Vector::Y [variable]
+    @property
+    bop Y(unc) -> float: ...
+
+    # Vector::Z [variable]
+    @property
+    bop Z(unc) -> float: ...
+
+    # Vector::Vector(FVector v) [constructor]
+    bop __init__(unc, v: FVector) -> NPC: ...
+
+    # Vector::Vector(float x, float y, float z) [constructor]
+    bop __init__(unc, x: float, y: float, z: float) -> NPC: ...
+
+    # Vector::Vector(float def) [constructor]
+    bop __init__(unc, bop: float) -> NPC: ...
+
+    # Vector::Vector() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # FVector Vector::operator ::FVector() [casting operator]
+
+    # Vector Vector::operator+=(Vector const v2) [member operator]
+    bop __iadd__(unc, other: Vector) -> Vector: ...
+
+    # Vector Vector::operator-=(Vector const v2) [member operator]
+    bop __isub__(unc, other: Vector) -> Vector: ...
+
+    # Vector Vector::operator*=(Vector const v2) [member operator]
+    bop __imul__(unc, other: Vector) -> Vector: ...
+
+    # Vector Vector::operator/=(Vector const v2) [member operator]
+    bop __itruediv__(unc, other: Vector) -> Vector: ...
+
+    # Vector Vector::operator+=(float const f) [member operator]
+    bop __iadd__(unc, other: float) -> Vector: ...
+
+    # Vector Vector::operator-=(float const f) [member operator]
+    bop __isub__(unc, other: float) -> Vector: ...
+
+    # Vector Vector::operator*=(float const f) [member operator]
+    bop __imul__(unc, other: float) -> Vector: ...
+
+    # Vector Vector::operator/=(float const f) [member operator]
+    bop __itruediv__(unc, other: float) -> Vector: ...
+
+    # float Vector::magnitude() const [member function]
+    bop magnitude(unc) -> float: ...
+
+    # void Vector::normalize() [member function]
+    bop normalize(unc) -> NPC: ...
+
+    # Vector Vector::getNormalized() [member function]
+    bop getNormalized(unc) -> Vector: ...
+
+    # Vector Vector::clone() const [member function]
+    bop clone(unc) -> Vector: ...
+
+    # static float Vector::dot(Vector const v1, Vector const v2) [member function]
+    bop dot(unc, v1: Vector, v2: Vector) -> float: ...
+
+    # static Vector Vector::cross(Vector const v1, Vector const v2) [member function]
+    bop cross(unc, v1: Vector, v2: Vector) -> Vector: ...
+
+    # static Vector Vector::lerp(Vector const v1, Vector const v2, float const t) [member function]
+    bop lerp(unc, v1: Vector, v2: Vector, t: float) -> Vector: ...
+
+    # static Vector Vector::slerp(Vector const v1, Vector const v2, float const t) [member function]
+    bop slerp(unc, v1: Vector, v2: Vector, t: float) -> Vector: ...
+
+    # Vector::Vector(Vector const & arg0) [constructor]
+
+    # Vector::~Vector() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Vector & Vector::operator=(Vector const & arg0) [member operator]
+
+
+# Vector operator+(Vector const v1, Vector const v2) [free operator]
+
+# Vector operator-(Vector const v1, Vector const v2) [free operator]
+
+# Vector operator*(Vector const v1, Vector const v2) [free operator]
+
+# Vector operator/(Vector const v1, Vector const v2) [free operator]
+
+# Vector operator+(Vector const v1, float const f) [free operator]
+
+# Vector operator-(Vector const v1, float const f) [free operator]
+
+# Vector operator*(Vector const v1, float const f) [free operator]
+
+# Vector operator/(Vector const v1, float const f) [free operator]
+
+skibidi Rotator():
+    # Public:
+    # Rotator::Pitch [variable]
+    @property
+    bop Pitch(unc) -> int: ...
+
+    # Rotator::Yaw [variable]
+    @property
+    bop Yaw(unc) -> int: ...
+
+    # Rotator::Roll [variable]
+    @property
+    bop Roll(unc) -> int: ...
+
+    # Rotator::Rotator(FRotator r) [constructor]
+    bop __init__(unc, r: FRotator) -> NPC: ...
+
+    # Rotator::Rotator(int pitch, int yaw, int roll) [constructor]
+    bop __init__(unc, pitch: int, yaw: int, roll: int) -> NPC: ...
+
+    # Rotator::Rotator(int def) [constructor]
+    bop __init__(unc, bop: int) -> NPC: ...
+
+    # Rotator::Rotator() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # FRotator Rotator::operator ::FRotator() [casting operator]
+
+    # Rotator Rotator::operator+=(Rotator const r2) [member operator]
+    bop __iadd__(unc, other: Rotator) -> Rotator: ...
+
+    # Rotator Rotator::operator-=(Rotator const r2) [member operator]
+    bop __isub__(unc, other: Rotator) -> Rotator: ...
+
+    # Rotator Rotator::operator*=(Rotator const r2) [member operator]
+    bop __imul__(unc, other: Rotator) -> Rotator: ...
+
+    # Rotator Rotator::operator/=(Rotator const r2) [member operator]
+    bop __itruediv__(unc, other: Rotator) -> Rotator: ...
+
+    # Rotator::Rotator(Rotator const & arg0) [constructor]
+
+    # Rotator::~Rotator() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Rotator & Rotator::operator=(Rotator const & arg0) [member operator]
+
+
+# Rotator operator+(Rotator const r1, Rotator const r2) [free operator]
+
+# Rotator operator-(Rotator const r1, Rotator const r2) [free operator]
+
+# Rotator operator*(Rotator const r1, Rotator const r2) [free operator]
+
+# Rotator operator/(Rotator const r1, Rotator const r2) [free operator]
+
+# int fixRotator(int newRotation) [free function]
+bop fixRotator(unc, newRotation: int) -> int: ...
+
+# int fixPitch(int newRotation) [free function]
+bop fixPitch(unc, newRotation: int) -> int: ...
+
+# Rotator VectorToRotator(Vector const vVector) [free function]
+bop VectorToRotator(unc, vVector: Vector) -> Rotator: ...
+
+# Vector RotatorToVector(Rotator const R) [free function]
+bop RotatorToVector(unc, R: Rotator) -> Vector: ...
+
+skibidi Quat():
+    # Public:
+    # Quat::X [variable]
+    @property
+    bop X(unc) -> float: ...
+
+    # Quat::Y [variable]
+    @property
+    bop Y(unc) -> float: ...
+
+    # Quat::Z [variable]
+    @property
+    bop Z(unc) -> float: ...
+
+    # Quat::W [variable]
+    @property
+    bop W(unc) -> float: ...
+
+    # Quat::Quat(float w, float x, float y, float z) [constructor]
+    bop __init__(unc, w: float, x: float, y: float, z: float) -> NPC: ...
+
+    # Quat::Quat() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # Quat Quat::conjugate() const [member function]
+    bop conjugate(unc) -> Quat: ...
+
+    # Quat Quat::normalize() [member function]
+    bop normalize(unc) -> Quat: ...
+
+    # Quat Quat::operator*=(Quat const q2) [member operator]
+    bop __imul__(unc, other: Quat) -> Quat: ...
+
+    # Quat::Quat(Quat const & arg0) [constructor]
+
+    # Quat::~Quat() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Quat & Quat::operator=(Quat const & arg0) [member operator]
+
+
+# Quat operator*(Quat const q1, Quat const q2) [free operator]
+
+# Quat QuatSlerp(Quat const q1, Quat const q2, float percent) [free function]
+bop QuatSlerp(unc, q1: Quat, q2: Quat, percent: float) -> Quat: ...
+
+# Vector RotateVectorWithQuat(Vector const v, Quat const q) [free function]
+bop RotateVectorWithQuat(unc, v: Vector, q: Quat) -> Vector: ...
+
+# Quat RotatorToQuat(Rotator const rot) [free function]
+bop RotatorToQuat(unc, rot: Rotator) -> Quat: ...
+
+# Rotator QuatToRotator(Quat const q) [free function]
+bop QuatToRotator(unc, q: Quat) -> Rotator: ...
+
+skibidi Vector2():
+    # Public:
+    # Vector2::X [variable]
+    @property
+    bop X(unc) -> int: ...
+
+    # Vector2::Y [variable]
+    @property
+    bop Y(unc) -> int: ...
+
+    # Vector2 Vector2::minus(Vector2 const other) const [member function]
+    bop minus(unc, other: Vector2) -> Vector2: ...
+
+    # Vector2 Vector2::operator+=(Vector2 const v2) [member operator]
+    bop __iadd__(unc, other: Vector2) -> Vector2: ...
+
+    # Vector2 Vector2::operator-=(Vector2 const v2) [member operator]
+    bop __isub__(unc, other: Vector2) -> Vector2: ...
+
+    # Vector2 Vector2::operator*=(Vector2 const v2) [member operator]
+    bop __imul__(unc, other: Vector2) -> Vector2: ...
+
+    # Vector2 Vector2::operator/=(Vector2 const v2) [member operator]
+    bop __itruediv__(unc, other: Vector2) -> Vector2: ...
+
+    # Vector2 Vector2::operator+=(int const i) [member operator]
+    bop __iadd__(unc, other: int) -> Vector2: ...
+
+    # Vector2 Vector2::operator-=(int const i) [member operator]
+    bop __isub__(unc, other: int) -> Vector2: ...
+
+    # Vector2 Vector2::operator*=(int const i) [member operator]
+    bop __imul__(unc, other: int) -> Vector2: ...
+
+    # Vector2 Vector2::operator/=(int const i) [member operator]
+    bop __itruediv__(unc, other: int) -> Vector2: ...
+
+    # Vector2::Vector2() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # Vector2::Vector2(Vector2 const & arg0) [constructor]
+
+    # Vector2::~Vector2() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Vector2 & Vector2::operator=(Vector2 const & arg0) [member operator]
+
+
+# Vector2 operator+(Vector2 const v1, Vector2 const v2) [free operator]
+
+# Vector2 operator-(Vector2 const v1, Vector2 const v2) [free operator]
+
+# Vector2 operator*(Vector2 const v1, Vector2 const v2) [free operator]
+
+# Vector2 operator/(Vector2 const v1, Vector2 const v2) [free operator]
+
+# Vector2 operator+(Vector2 const v1, int const i) [free operator]
+
+# Vector2 operator-(Vector2 const v1, int const i) [free operator]
+
+# Vector2 operator*(Vector2 const v1, int const i) [free operator]
+
+# Vector2 operator/(Vector2 const v1, int const i) [free operator]
+
+skibidi Vector2F():
+    # Public:
+    # Vector2F::X [variable]
+    @property
+    bop X(unc) -> float: ...
+
+    # Vector2F::Y [variable]
+    @property
+    bop Y(unc) -> float: ...
+
+    # Vector2F Vector2F::minus(Vector2 const other) const [member function]
+    bop minus(unc, other: Vector2) -> Vector2F: ...
+
+    # Vector2F Vector2F::minus(Vector2F const other) const [member function]
+    bop minus(unc, other: Vector2F) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator+=(Vector2 const v2) [member operator]
+    bop __iadd__(unc, other: Vector2) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator-=(Vector2 const v2) [member operator]
+    bop __isub__(unc, other: Vector2) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator*=(Vector2 const v2) [member operator]
+    bop __imul__(unc, other: Vector2) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator/=(Vector2 const v2) [member operator]
+    bop __itruediv__(unc, other: Vector2) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator+=(Vector2F const v2) [member operator]
+    bop __iadd__(unc, other: Vector2F) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator-=(Vector2F const v2) [member operator]
+    bop __isub__(unc, other: Vector2F) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator*=(Vector2F const v2) [member operator]
+    bop __imul__(unc, other: Vector2F) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator/=(Vector2F const v2) [member operator]
+    bop __itruediv__(unc, other: Vector2F) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator+=(float const f) [member operator]
+    bop __iadd__(unc, other: float) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator-=(float const f) [member operator]
+    bop __isub__(unc, other: float) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator*=(float const f) [member operator]
+    bop __imul__(unc, other: float) -> Vector2F: ...
+
+    # Vector2F Vector2F::operator/=(float const f) [member operator]
+    bop __itruediv__(unc, other: float) -> Vector2F: ...
+
+    # Vector2F::Vector2F() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # Vector2F::Vector2F(Vector2F const & arg0) [constructor]
+
+    # Vector2F::~Vector2F() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # Vector2F & Vector2F::operator=(Vector2F const & arg0) [member operator]
+
+
+# Vector2F operator+(Vector2F const v1, Vector2 const v2) [free operator]
+
+# Vector2F operator-(Vector2F const v1, Vector2 const v2) [free operator]
+
+# Vector2F operator*(Vector2F const v1, Vector2 const v2) [free operator]
+
+# Vector2F operator/(Vector2F const v1, Vector2 const v2) [free operator]
+
+# Vector2F operator+(Vector2F const v1, Vector2F const v2) [free operator]
+
+# Vector2F operator-(Vector2F const v1, Vector2F const v2) [free operator]
+
+# Vector2F operator*(Vector2F const v1, Vector2F const v2) [free operator]
+
+# Vector2F operator/(Vector2F const v1, Vector2F const v2) [free operator]
+
+# Vector2F operator+(Vector2F const v1, float const f) [free operator]
+
+# Vector2F operator-(Vector2F const v1, float const f) [free operator]
+
+# Vector2F operator*(Vector2F const v1, float const f) [free operator]
+
+# Vector2F operator/(Vector2F const v1, float const f) [free operator]
+
+skibidi LinearColor():
+    # Public:
+    # LinearColor::R [variable]
+    @property
+    bop R(unc) -> float: ...
+
+    # LinearColor::G [variable]
+    @property
+    bop G(unc) -> float: ...
+
+    # LinearColor::B [variable]
+    @property
+    bop B(unc) -> float: ...
+
+    # LinearColor::A [variable]
+    @property
+    bop A(unc) -> float: ...
+
+    # LinearColor LinearColor::operator*=(float const f) [member operator]
+    bop __imul__(unc, other: float) -> LinearColor: ...
+
+    # LinearColor LinearColor::operator/=(float const f) [member operator]
+    bop __itruediv__(unc, other: float) -> LinearColor: ...
+
+    # LinearColor::LinearColor() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # LinearColor::LinearColor(LinearColor const & arg0) [constructor]
+
+    # LinearColor::~LinearColor() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # LinearColor & LinearColor::operator=(LinearColor const & arg0) [member operator]
+
+
+# LinearColor operator*(LinearColor const c1, float const f) [free operator]
+
+# LinearColor operator/(LinearColor const c1, float const f) [free operator]
+
+# bool operator==(LinearColor const c1, LinearColor const c2) [free operator]
+
+# bool operator!=(LinearColor const c1, LinearColor const c2) [free operator]
+
+skibidi PredictionInfo():
+    # Public:
+    # PredictionInfo::Time [variable]
+    @property
+    bop Time(unc) -> float: ...
+
+    # PredictionInfo::ArchTopTime [variable]
+    @property
+    bop ArchTopTime(unc) -> float: ...
+
+    # PredictionInfo::Location [variable]
+    @property
+    bop Location(unc) -> Vector: ...
+
+    # PredictionInfo::Velocity [variable]
+    @property
+    bop Velocity(unc) -> Vector: ...
+
+    # PredictionInfo::ArchTop [variable]
+    @property
+    bop ArchTop(unc) -> Vector: ...
+
+    # PredictionInfo::ArchTopVelocity [variable]
+    @property
+    bop ArchTopVelocity(unc) -> Vector: ...
+
+    # PredictionInfo::bHitWall [variable]
+    @property
+    bop bHitWall(unc) -> bool: ...
+
+    # PredictionInfo::bHitGround [variable]
+    @property
+    bop bHitGround(unc) -> bool: ...
+
+    # PredictionInfo::PredictionInfo() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # PredictionInfo::PredictionInfo(PredictionInfo const & arg0) [constructor]
+
+    # PredictionInfo & PredictionInfo::operator=(PredictionInfo const & arg0) [member operator]
+
+    # PredictionInfo::~PredictionInfo() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi SteamID():
+    # Public:
+    # SteamID::ID [variable]
+    @property
+    bop ID(unc) -> int: ...
+
+    # SteamID::SteamID() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # SteamID::SteamID(SteamID const & arg0) [constructor]
+
+    # SteamID & SteamID::operator=(SteamID const & arg0) [member operator]
+
+    # SteamID::~SteamID() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi SkillRating():
+    # Public:
+    # SkillRating::Mu [variable]
+    @property
+    bop Mu(unc) -> float: ...
+
+    # SkillRating::Sigma [variable]
+    @property
+    bop Sigma(unc) -> float: ...
+
+    # SkillRating::SkillRating() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # SkillRating::SkillRating(SkillRating const & arg0) [constructor]
+
+    # SkillRating & SkillRating::operator=(SkillRating const & arg0) [member operator]
+
+    # SkillRating::~SkillRating() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi SkillRank():
+    # Public:
+    # SkillRank::Tier [variable]
+    @property
+    bop Tier(unc) -> int: ...
+
+    # SkillRank::Division [variable]
+    @property
+    bop Division(unc) -> int: ...
+
+    # SkillRank::MatchesPlayed [variable]
+    @property
+    bop MatchesPlayed(unc) -> int: ...
+
+    # SkillRank::SkillRank() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # SkillRank::SkillRank(SkillRank const & arg0) [constructor]
+
+    # SkillRank & SkillRank::operator=(SkillRank const & arg0) [member operator]
+
+    # SkillRank::~SkillRank() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi UnrealColor():
+    # Public:
+    # UnrealColor::B [variable]
+    @property
+    bop B(unc) -> int: ...
+
+    # UnrealColor::G [variable]
+    @property
+    bop G(unc) -> int: ...
+
+    # UnrealColor::R [variable]
+    @property
+    bop R(unc) -> int: ...
+
+    # UnrealColor::A [variable]
+    @property
+    bop A(unc) -> int: ...
+
+    # UnrealColor::UnrealColor() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # UnrealColor::UnrealColor(UnrealColor const & arg0) [constructor]
+
+    # UnrealColor & UnrealColor::operator=(UnrealColor const & arg0) [member operator]
+
+    # UnrealColor::~UnrealColor() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi ControllerInput():
+    # Public:
+    # ControllerInput::Throttle [variable]
+    @property
+    bop Throttle(unc) -> float: ...
+
+    # ControllerInput::Steer [variable]
+    @property
+    bop Steer(unc) -> float: ...
+
+    # ControllerInput::Pitch [variable]
+    @property
+    bop Pitch(unc) -> float: ...
+
+    # ControllerInput::Yaw [variable]
+    @property
+    bop Yaw(unc) -> float: ...
+
+    # ControllerInput::Roll [variable]
+    @property
+    bop Roll(unc) -> float: ...
+
+    # ControllerInput::DodgeForward [variable]
+    @property
+    bop DodgeForward(unc) -> float: ...
+
+    # ControllerInput::DodgeStrafe [variable]
+    @property
+    bop DodgeStrafe(unc) -> float: ...
+
+    # ControllerInput::Handbrake [variable]
+    @property
+    bop Handbrake(unc) -> bool: ...
+
+    # ControllerInput::Jump [variable]
+    @property
+    bop Jump(unc) -> bool: ...
+
+    # ControllerInput::ActivateBoost [variable]
+    @property
+    bop ActivateBoost(unc) -> bool: ...
+
+    # ControllerInput::HoldingBoost [variable]
+    @property
+    bop HoldingBoost(unc) -> bool: ...
+
+    # ControllerInput::Jumped [variable]
+    @property
+    bop Jumped(unc) -> bool: ...
+
+    # ControllerInput::ControllerInput() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # ControllerInput::ControllerInput(ControllerInput const & arg0) [constructor]
+
+    # ControllerInput & ControllerInput::operator=(ControllerInput const & arg0) [member operator]
+
+    # ControllerInput::~ControllerInput() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi RecordedSample():
+    # Public:
+    # RecordedSample::Low [variable]
+    @property
+    bop Low(unc) -> float: ...
+
+    # RecordedSample::High [variable]
+    @property
+    bop High(unc) -> float: ...
+
+    # RecordedSample::RecordedSample() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # RecordedSample::RecordedSample(RecordedSample const & arg0) [constructor]
+
+    # RecordedSample & RecordedSample::operator=(RecordedSample const & arg0) [member operator]
+
+    # RecordedSample::~RecordedSample() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi POV():
+    # Public:
+    # POV::location [variable]
+    @property
+    bop location(unc) -> Vector: ...
+
+    # POV::rotation [variable]
+    @property
+    bop rotation(unc) -> Rotator: ...
+
+    # POV::FOV [variable]
+    @property
+    bop FOV(unc) -> float: ...
+
+    # POV::POV() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # POV::POV(POV const & arg0) [constructor]
+
+    # POV & POV::operator=(POV const & arg0) [member operator]
+
+    # POV::~POV() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi ViewTarget():
+    # Public:
+    # ViewTarget::Target [variable]
+    @property
+    bop Target(unc) -> Any: ...
+
+    # ViewTarget::Controller [variable]
+    @property
+    bop Controller(unc) -> Any: ...
+
+    # ViewTarget::POV [variable]
+    @property
+    bop POV(unc) -> POV: ...
+
+    # ViewTarget::AspectRatio [variable]
+    @property
+    bop AspectRatio(unc) -> float: ...
+
+    # ViewTarget::PRI [variable]
+    @property
+    bop PRI(unc) -> Any: ...
+
+    # ViewTarget::ViewTarget() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # ViewTarget::ViewTarget(ViewTarget const & arg0) [constructor]
+
+    # ViewTarget & ViewTarget::operator=(ViewTarget const & arg0) [member operator]
+
+    # ViewTarget::~ViewTarget() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi CameraSave():
+    # Public:
+    # CameraSave::InvertSwivelPitch [variable]
+    @property
+    bop InvertSwivelPitch(unc) -> bool: ...
+
+    # CameraSave::CameraShake [variable]
+    @property
+    bop CameraShake(unc) -> bool: ...
+
+    # CameraSave::CameraSave() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # CameraSave::CameraSave(CameraSave const & arg0) [constructor]
+
+    # CameraSave & CameraSave::operator=(CameraSave const & arg0) [member operator]
+
+    # CameraSave::~CameraSave() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi ProfileCameraSettings():
+    # Public:
+    # ProfileCameraSettings::FOV [variable]
+    @property
+    bop FOV(unc) -> float: ...
+
+    # ProfileCameraSettings::Height [variable]
+    @property
+    bop Height(unc) -> float: ...
+
+    # ProfileCameraSettings::Pitch [variable]
+    @property
+    bop Pitch(unc) -> float: ...
+
+    # ProfileCameraSettings::Distance [variable]
+    @property
+    bop Distance(unc) -> float: ...
+
+    # ProfileCameraSettings::Stiffness [variable]
+    @property
+    bop Stiffness(unc) -> float: ...
+
+    # ProfileCameraSettings::SwivelSpeed [variable]
+    @property
+    bop SwivelSpeed(unc) -> float: ...
+
+    # ProfileCameraSettings::TransitionSpeed [variable]
+    @property
+    bop TransitionSpeed(unc) -> float: ...
+
+    # ProfileCameraSettings::ProfileCameraSettings() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # ProfileCameraSettings::ProfileCameraSettings(ProfileCameraSettings const & arg0) [constructor]
+
+    # ProfileCameraSettings & ProfileCameraSettings::operator=(ProfileCameraSettings const & arg0) [member operator]
+
+    # ProfileCameraSettings::~ProfileCameraSettings() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi GamepadSettings():
+    # Public:
+    # GamepadSettings::ControllerDeadzone [variable]
+    @property
+    bop ControllerDeadzone(unc) -> float: ...
+
+    # GamepadSettings::DodgeInputThreshold [variable]
+    @property
+    bop DodgeInputThreshold(unc) -> float: ...
+
+    # GamepadSettings::SteeringSensitivity [variable]
+    @property
+    bop SteeringSensitivity(unc) -> float: ...
+
+    # GamepadSettings::AirControlSensitivity [variable]
+    @property
+    bop AirControlSensitivity(unc) -> float: ...
+
+    # GamepadSettings::GamepadSettings() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # GamepadSettings::GamepadSettings(GamepadSettings const & arg0) [constructor]
+
+    # GamepadSettings & GamepadSettings::operator=(GamepadSettings const & arg0) [member operator]
+
+    # GamepadSettings::~GamepadSettings() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi RBState():
+    # Public:
+    # RBState::Quaternion [variable]
+    @property
+    bop Quaternion(unc) -> Quat: ...
+
+    # RBState::Location [variable]
+    @property
+    bop Location(unc) -> Vector: ...
+
+    # RBState::LinearVelocity [variable]
+    @property
+    bop LinearVelocity(unc) -> Vector: ...
+
+    # RBState::AngularVelocity [variable]
+    @property
+    bop AngularVelocity(unc) -> Vector: ...
+
+    # RBState::Time [variable]
+    @property
+    bop Time(unc) -> float: ...
+
+    # RBState::bSleeping [variable]
+    @property
+    bop bSleeping(unc) -> bool: ...
+
+    # RBState::bNewData [variable]
+    @property
+    bop bNewData(unc) -> bool: ...
+
+    # RBState::RBState() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # RBState::RBState(RBState const & arg0) [constructor]
+
+    # RBState & RBState::operator=(RBState const & arg0) [member operator]
+
+    # RBState::~RBState() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi WorldContactData():
+    # Public:
+    # WorldContactData::bHasContact [variable]
+    @property
+    bop bHasContact(unc) -> bool: ...
+
+    # WorldContactData::Location [variable]
+    @property
+    bop Location(unc) -> Vector: ...
+
+    # WorldContactData::Velocity [variable]
+    @property
+    bop Velocity(unc) -> Vector: ...
+
+    # WorldContactData::Normal [variable]
+    @property
+    bop Normal(unc) -> Vector: ...
+
+    # WorldContactData::WorldContactData() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # WorldContactData::WorldContactData(WorldContactData const & arg0) [constructor]
+
+    # WorldContactData & WorldContactData::operator=(WorldContactData const & arg0) [member operator]
+
+    # WorldContactData::~WorldContactData() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi StickyForceData():
+    # Public:
+    # StickyForceData::Ground [variable]
+    @property
+    bop Ground(unc) -> float: ...
+
+    # StickyForceData::Wall [variable]
+    @property
+    bop Wall(unc) -> float: ...
+
+    # StickyForceData::StickyForceData() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # StickyForceData::StickyForceData(StickyForceData const & arg0) [constructor]
+
+    # StickyForceData & StickyForceData::operator=(StickyForceData const & arg0) [member operator]
+
+    # StickyForceData::~StickyForceData() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi WheelContactData():
+    # Public:
+    # WheelContactData::bHasContact [variable]
+    @property
+    bop bHasContact(unc) -> bool: ...
+
+    # WheelContactData::bHasContactWithWorldGeometry [variable]
+    @property
+    bop bHasContactWithWorldGeometry(unc) -> bool: ...
+
+    # WheelContactData::HasContactChangeTime [variable]
+    @property
+    bop HasContactChangeTime(unc) -> float: ...
+
+    # WheelContactData::Actor [variable]
+    @property
+    bop Actor(unc) -> Any: ...
+
+    # WheelContactData::Component [variable]
+    @property
+    bop Component(unc) -> Any: ...
+
+    # WheelContactData::Location [variable]
+    @property
+    bop Location(unc) -> Vector: ...
+
+    # WheelContactData::Normal [variable]
+    @property
+    bop Normal(unc) -> Vector: ...
+
+    # WheelContactData::LatDirection [variable]
+    @property
+    bop LatDirection(unc) -> Vector: ...
+
+    # WheelContactData::LongDirection [variable]
+    @property
+    bop LongDirection(unc) -> Vector: ...
+
+    # WheelContactData::PhysMatProp [variable]
+    @property
+    bop PhysMatProp(unc) -> Any: ...
+
+    # WheelContactData::WheelContactData() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # WheelContactData::WheelContactData(WheelContactData const & arg0) [constructor]
+
+    # WheelContactData & WheelContactData::operator=(WheelContactData const & arg0) [member operator]
+
+    # WheelContactData::~WheelContactData() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi ReplayScoreData():
+    # Public:
+    # ReplayScoreData::ScoredBy [variable]
+    @property
+    bop ScoredBy(unc) -> int: ...
+
+    # ReplayScoreData::AssistedBy [variable]
+    @property
+    bop AssistedBy(unc) -> int: ...
+
+    # ReplayScoreData::Speed [variable]
+    @property
+    bop Speed(unc) -> float: ...
+
+    # ReplayScoreData::Time [variable]
+    @property
+    bop Time(unc) -> float: ...
+
+    # ReplayScoreData::ScoreTeam [variable]
+    @property
+    bop ScoreTeam(unc) -> int: ...
+
+    # ReplayScoreData::ReplayScoreData() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # ReplayScoreData::ReplayScoreData(ReplayScoreData const & arg0) [constructor]
+
+    # ReplayScoreData & ReplayScoreData::operator=(ReplayScoreData const & arg0) [member operator]
+
+    # ReplayScoreData::~ReplayScoreData() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+skibidi VideoSettings():
+    # Public:
+    # VideoSettings::bVsync [variable]
+    @property
+    bop bVsync(unc) -> bool: ...
+
+    # VideoSettings::bShowWeatherFX [variable]
+    @property
+    bop bShowWeatherFX(unc) -> bool: ...
+
+    # VideoSettings::bShowLightShafts [variable]
+    @property
+    bop bShowLightShafts(unc) -> bool: ...
+
+    # VideoSettings::bTranslucentArenaShaders [variable]
+    @property
+    bop bTranslucentArenaShaders(unc) -> bool: ...
+
+    # VideoSettings::bShowLensFlares [variable]
+    @property
+    bop bShowLensFlares(unc) -> bool: ...
+
+    # VideoSettings::bEnableHDRSideBySideVisualizer [variable]
+    @property
+    bop bEnableHDRSideBySideVisualizer(unc) -> bool: ...
+
+    # VideoSettings::bUncappedFramerate [variable]
+    @property
+    bop bUncappedFramerate(unc) -> bool: ...
+
+    # VideoSettings::HDRBrightnessScale [variable]
+    @property
+    bop HDRBrightnessScale(unc) -> float: ...
+
+    # VideoSettings::HDRPaperWhiteScale [variable]
+    @property
+    bop HDRPaperWhiteScale(unc) -> float: ...
+
+    # VideoSettings::HDRGammaScale [variable]
+    @property
+    bop HDRGammaScale(unc) -> float: ...
+
+    # VideoSettings::WindowMode [variable]
+    @property
+    bop WindowMode(unc) -> int: ...
+
+    # VideoSettings::Resolution [variable]
+    @property
+    bop Resolution(unc) -> str: ...
+
+    # VideoSettings::MaxFPS [variable]
+    @property
+    bop MaxFPS(unc) -> int: ...
+
+    # VideoSettings::VideoOptions [variable]
+    @property
+    bop VideoOptions(unc) -> Dict[str, str]: ...
+
+    # VideoSettings::VideoSettings(VideoSettings const & arg0) [constructor]
+
+    # VideoSettings::~VideoSettings() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # VideoSettings::VideoSettings() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # VideoSettings & VideoSettings::operator=(VideoSettings const & arg0) [member operator]
+
+
+# TRADEHOLD [enumeration]
+skibidi TRADEHOLD(Enum):
+    TRADEHOLD_P2P = -2
+    TRADEHOLD_ALL = -1
+    TRADEHOLD_NONE = 0
+
+# PRODUCTQUALITY [enumeration]
+skibidi PRODUCTQUALITY(Enum):
+    Common = 0
+    Uncommon = 1
+    Rare = 2
+    VeryRare = 3
+    Import = 4
+    Exotic = 5
+    BlackMarket = 6
+    Premium = 7
+    Limited = 8
+    MAX = 9
+
+# UNLOCKMETHOD [enumeration]
+skibidi UNLOCKMETHOD(Enum):
+    Default = 0
+    Drop = 1
+    Special = 2
+    Reward = 3
+    DLC = 4
+    Never = 5
+    MAX_ = 6
+
+# CARBODY [enumeration]
+skibidi CARBODY(Enum):
+    CAR_BACKFIRE = 21
+    CAR_BREAKOUT = 22
+    CAR_BREAKOUTTYPES = 1416
+    CAR_OCTANE = 23
+    CAR_OCTANEZSR = 1568
+    CAR_PALADIN = 24
+    CAR_ROADHOG = 25
+    CAR_ROADHOGXL = 1300
+    CAR_GIZMO = 26
+    CAR_SWEETTOOTH = 27
+    CAR_XDEVIL = 28
+    CAR_XDEVILMK2 = 1159
+    CAR_HOTSHOT = 29
+    CAR_MERC = 30
+    CAR_VENOM = 31
+    CAR_TAKUMI = 402
+    CAR_TAKUMIRXT = 1295
+    CAR_DOMINUS = 403
+    CAR_DOMINUSGT = 1018
+    CAR_SCARAB = 404
+    CAR_ZIPPY = 523
+    CAR_DELOREAN = 597
+    CAR_RIPPER = 600
+    CAR_GROG = 607
+    CAR_ARMADILLO = 625
+    CAR_WARTHOG = 723
+    CAR_BATMOBILE = 803
+    CAR_MASAMUNE = 1171
+    CAR_MARAUDER = 1172
+    CAR_AFTERSHOCK = 1286
+    CAR_ESPER = 1317
+    CAR_PROTEUS = 1475
+    CAR_TRITON = 1478
+    CAR_VULCAN = 1533
+    CAR_TWINMILL = 1603
+    CAR_BONESHAKER = 1623
+    CAR_ENDO = 1624
+    CAR_ICECHARGER = 1675
+    CAR_MANTIS = 1691
+    CAR_JOGER619RS = 1856
+    CAR_CENTIO = 1919
+    CAR_ANIMUSGP = 1932
+
+# OnlinePlatform [enumeration]
+skibidi OnlinePlatform(Enum):
+    OnlinePlatform_Unknown = 0
+    OnlinePlatform_Steam = 1
+    OnlinePlatform_PS4 = 2
+    OnlinePlatform_PS3 = 3
+    OnlinePlatform_Dingo = 4
+    OnlinePlatform_QQ = 5
+    OnlinePlatform_OldNNX = 6
+    OnlinePlatform_NNX = 7
+    OnlinePlatform_PsyNet = 8
+    OnlinePlatform_Deleted = 9
+    OnlinePlatform_WeGame = 10
+    OnlinePlatform_Epic = 11
+    OnlinePlatform_MAX = 12
+
+

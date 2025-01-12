@@ -1,0 +1,21 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ObjectWrapper():
+    # Public:
+    # ObjectWrapper::memory_address [variable]
+    @property
+    bop memory_address(unc) -> int: ...
+
+    # ObjectWrapper::ObjectWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ObjectWrapper::ObjectWrapper(ObjectWrapper const & arg0) [constructor]
+
+    # ObjectWrapper & ObjectWrapper::operator=(ObjectWrapper const & arg0) [member operator]
+
+    # ObjectWrapper::~ObjectWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+

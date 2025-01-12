@@ -1,0 +1,176 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi GoalWrapper():
+    # Public:
+    # GoalWrapper::GoalWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # GoalWrapper::GoalWrapper(GoalWrapper const & other) [constructor]
+
+    # GoalWrapper & GoalWrapper::operator=(GoalWrapper rhs) [member operator]
+
+    # GoalWrapper::~GoalWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool GoalWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool GoalWrapper::operator bool() const [casting operator]
+
+    # ActorWrapper GoalWrapper::GetGoalOrientation() [member function]
+    bop GetGoalOrientation(unc) -> ActorWrapper: ...
+
+    # void GoalWrapper::SetGoalOrientation(ActorWrapper newGoalOrientation) [member function]
+    bop SetGoalOrientation(unc, newGoalOrientation: ActorWrapper) -> NPC: ...
+
+    # ArrayWrapper<ActorWrapper> GoalWrapper::GetOverrideGoalIndicatorOrientations() [member function]
+    bop GetOverrideGoalIndicatorOrientations(unc) -> ArrayWrapper_ActorWrapper: ...
+
+    # unsigned char GoalWrapper::GetTeamNum() [member function]
+    bop GetTeamNum(unc) -> int: ...
+
+    # void GoalWrapper::SetTeamNum(unsigned char newTeamNum) [member function]
+    bop SetTeamNum(unc, newTeamNum: int) -> NPC: ...
+
+    # FXActorWrapper GoalWrapper::GetScoreFX() [member function]
+    bop GetScoreFX(unc) -> FXActorWrapper: ...
+
+    # void GoalWrapper::SetScoreFX(FXActorWrapper newScoreFX) [member function]
+    bop SetScoreFX(unc, newScoreFX: FXActorWrapper) -> NPC: ...
+
+    # UnrealStringWrapper GoalWrapper::GetGoalIndicatorArchetype() [member function]
+    bop GetGoalIndicatorArchetype(unc) -> UnrealStringWrapper: ...
+
+    # long unsigned int GoalWrapper::GetbNoGoalIndicator() [member function]
+    bop GetbNoGoalIndicator(unc) -> bool: ...
+
+    # void GoalWrapper::SetbNoGoalIndicator(long unsigned int newbNoGoalIndicator) [member function]
+    bop SetbNoGoalIndicator(unc, newbNoGoalIndicator: bool) -> NPC: ...
+
+    # long unsigned int GoalWrapper::GetbOnlyGoalsFromDirection() [member function]
+    bop GetbOnlyGoalsFromDirection(unc) -> bool: ...
+
+    # void GoalWrapper::SetbOnlyGoalsFromDirection(long unsigned int newbOnlyGoalsFromDirection) [member function]
+    bop SetbOnlyGoalsFromDirection(unc, newbOnlyGoalsFromDirection: bool) -> NPC: ...
+
+    # long unsigned int GoalWrapper::GetbShowFocusExtent() [member function]
+    bop GetbShowFocusExtent(unc) -> bool: ...
+
+    # void GoalWrapper::SetbShowFocusExtent(long unsigned int newbShowFocusExtent) [member function]
+    bop SetbShowFocusExtent(unc, newbShowFocusExtent: bool) -> NPC: ...
+
+    # ActorWrapper GoalWrapper::GetGoalDirection() [member function]
+    bop GetGoalDirection(unc) -> ActorWrapper: ...
+
+    # void GoalWrapper::SetGoalDirection(ActorWrapper newGoalDirection) [member function]
+    bop SetGoalDirection(unc, newGoalDirection: ActorWrapper) -> NPC: ...
+
+    # int GoalWrapper::GetPointsToAward() [member function]
+    bop GetPointsToAward(unc) -> int: ...
+
+    # void GoalWrapper::SetPointsToAward(int newPointsToAward) [member function]
+    bop SetPointsToAward(unc, newPointsToAward: int) -> NPC: ...
+
+    # Vector GoalWrapper::GetAutoCamFocusExtent() [member function]
+    bop GetAutoCamFocusExtent(unc) -> Vector: ...
+
+    # void GoalWrapper::SetAutoCamFocusExtent(Vector newAutoCamFocusExtent) [member function]
+    bop SetAutoCamFocusExtent(unc, newAutoCamFocusExtent: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetGoalFocusLocationOffset() [member function]
+    bop GetGoalFocusLocationOffset(unc) -> Vector: ...
+
+    # void GoalWrapper::SetGoalFocusLocationOffset(Vector newGoalFocusLocationOffset) [member function]
+    bop SetGoalFocusLocationOffset(unc, newGoalFocusLocationOffset: Vector) -> NPC: ...
+
+    # float GoalWrapper::GetMaxGoalScorerAttachRadius() [member function]
+    bop GetMaxGoalScorerAttachRadius(unc) -> float: ...
+
+    # void GoalWrapper::SetMaxGoalScorerAttachRadius(float newMaxGoalScorerAttachRadius) [member function]
+    bop SetMaxGoalScorerAttachRadius(unc, newMaxGoalScorerAttachRadius: float) -> NPC: ...
+
+    # Vector GoalWrapper::GetGoalScoredDotDirection() [member function]
+    bop GetGoalScoredDotDirection(unc) -> Vector: ...
+
+    # void GoalWrapper::SetGoalScoredDotDirection(Vector newGoalScoredDotDirection) [member function]
+    bop SetGoalScoredDotDirection(unc, newGoalScoredDotDirection: Vector) -> NPC: ...
+
+    # float GoalWrapper::GetMinAttachGoalToScorerDot() [member function]
+    bop GetMinAttachGoalToScorerDot(unc) -> float: ...
+
+    # void GoalWrapper::SetMinAttachGoalToScorerDot(float newMinAttachGoalToScorerDot) [member function]
+    bop SetMinAttachGoalToScorerDot(unc, newMinAttachGoalToScorerDot: float) -> NPC: ...
+
+    # Vector GoalWrapper::GetLocation() [member function]
+    bop GetLocation(unc) -> Vector: ...
+
+    # void GoalWrapper::SetLocation(Vector newLocation) [member function]
+    bop SetLocation(unc, newLocation: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetDirection() [member function]
+    bop GetDirection(unc) -> Vector: ...
+
+    # void GoalWrapper::SetDirection(Vector newDirection) [member function]
+    bop SetDirection(unc, newDirection: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetRight() [member function]
+    bop GetRight(unc) -> Vector: ...
+
+    # void GoalWrapper::SetRight(Vector newRight) [member function]
+    bop SetRight(unc, newRight: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetUp() [member function]
+    bop GetUp(unc) -> Vector: ...
+
+    # void GoalWrapper::SetUp(Vector newUp) [member function]
+    bop SetUp(unc, newUp: Vector) -> NPC: ...
+
+    # Rotator GoalWrapper::GetRotation() [member function]
+    bop GetRotation(unc) -> Rotator: ...
+
+    # void GoalWrapper::SetRotation(Rotator newRotation) [member function]
+    bop SetRotation(unc, newRotation: Rotator) -> NPC: ...
+
+    # Vector GoalWrapper::GetLocalExtent() [member function]
+    bop GetLocalExtent(unc) -> Vector: ...
+
+    # void GoalWrapper::SetLocalExtent(Vector newLocalExtent) [member function]
+    bop SetLocalExtent(unc, newLocalExtent: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetWorldCenter() [member function]
+    bop GetWorldCenter(unc) -> Vector: ...
+
+    # void GoalWrapper::SetWorldCenter(Vector newWorldCenter) [member function]
+    bop SetWorldCenter(unc, newWorldCenter: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetWorldExtent() [member function]
+    bop GetWorldExtent(unc) -> Vector: ...
+
+    # void GoalWrapper::SetWorldExtent(Vector newWorldExtent) [member function]
+    bop SetWorldExtent(unc, newWorldExtent: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetWorldFrontCenter() [member function]
+    bop GetWorldFrontCenter(unc) -> Vector: ...
+
+    # void GoalWrapper::SetWorldFrontCenter(Vector newWorldFrontCenter) [member function]
+    bop SetWorldFrontCenter(unc, newWorldFrontCenter: Vector) -> NPC: ...
+
+    # Vector GoalWrapper::GetGoalFocusExtentCenter() [member function]
+    bop GetGoalFocusExtentCenter(unc) -> Vector: ...
+
+    # void GoalWrapper::Init() [member function]
+    bop Init(unc) -> NPC: ...
+
+    # void GoalWrapper::eventBeginPlay() [member function]
+    bop eventBeginPlay(unc) -> NPC: ...
+
+    # Private:
+    # GoalWrapper::Impl [class declaration]
+
+    # GoalWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

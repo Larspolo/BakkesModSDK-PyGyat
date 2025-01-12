@@ -1,0 +1,48 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi CarSpeedPickup():
+    # Public:
+    # CarSpeedPickup::CarSpeedPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # CarSpeedPickup::CarSpeedPickup(CarSpeedPickup const & other) [constructor]
+
+    # CarSpeedPickup & CarSpeedPickup::operator=(CarSpeedPickup rhs) [member operator]
+
+    # CarSpeedPickup::~CarSpeedPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float CarSpeedPickup::GetGravityScale() [member function]
+    bop GetGravityScale(unc) -> float: ...
+
+    # void CarSpeedPickup::SetGravityScale(float newGravityScale) [member function]
+    bop SetGravityScale(unc, newGravityScale: float) -> NPC: ...
+
+    # Vector CarSpeedPickup::GetAddedForce() [member function]
+    bop GetAddedForce(unc) -> Vector: ...
+
+    # void CarSpeedPickup::SetAddedForce(Vector newAddedForce) [member function]
+    bop SetAddedForce(unc, newAddedForce: Vector) -> NPC: ...
+
+    # float CarSpeedPickup::GetOrigGravityScale() [member function]
+    bop GetOrigGravityScale(unc) -> float: ...
+
+    # void CarSpeedPickup::SetOrigGravityScale(float newOrigGravityScale) [member function]
+    bop SetOrigGravityScale(unc, newOrigGravityScale: float) -> NPC: ...
+
+    # void CarSpeedPickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void CarSpeedPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # CarSpeedPickup::Impl [class declaration]
+
+    # CarSpeedPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

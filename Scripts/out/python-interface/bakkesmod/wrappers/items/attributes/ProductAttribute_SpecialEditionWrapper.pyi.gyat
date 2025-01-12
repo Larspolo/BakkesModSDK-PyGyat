@@ -1,0 +1,33 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_SpecialEditionWrapper():
+    # Public:
+    # ProductAttribute_SpecialEditionWrapper::ProductAttribute_SpecialEditionWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_SpecialEditionWrapper::ProductAttribute_SpecialEditionWrapper(ProductAttribute_SpecialEditionWrapper const & other) [constructor]
+
+    # ProductAttribute_SpecialEditionWrapper & ProductAttribute_SpecialEditionWrapper::operator=(ProductAttribute_SpecialEditionWrapper rhs) [member operator]
+
+    # ProductAttribute_SpecialEditionWrapper::~ProductAttribute_SpecialEditionWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int ProductAttribute_SpecialEditionWrapper::GetEditionID() [member function]
+    bop GetEditionID(unc) -> int: ...
+
+    # UnrealStringWrapper ProductAttribute_SpecialEditionWrapper::GetSortLabel() [member function]
+    bop GetSortLabel(unc) -> UnrealStringWrapper: ...
+
+    # int ProductAttribute_SpecialEditionWrapper::GetOverrideProductID(int ProductID) [member function]
+    bop GetOverrideProductID(unc, ProductID: int) -> int: ...
+
+    # Private:
+    # ProductAttribute_SpecialEditionWrapper::Impl [class declaration]
+
+    # ProductAttribute_SpecialEditionWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

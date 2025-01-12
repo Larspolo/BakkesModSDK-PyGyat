@@ -1,0 +1,38 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttributeWrapper():
+    # Public:
+    # ProductAttributeWrapper::ProductAttributeWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttributeWrapper::ProductAttributeWrapper(ProductAttributeWrapper const & other) [constructor]
+
+    # ProductAttributeWrapper & ProductAttributeWrapper::operator=(ProductAttributeWrapper rhs) [member operator]
+
+    # ProductAttributeWrapper::~ProductAttributeWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool ProductAttributeWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool ProductAttributeWrapper::operator bool() const [casting operator]
+
+    # std::string ProductAttributeWrapper::GetAttributeType() [member function]
+    bop GetAttributeType(unc) -> str: ...
+
+    # std::string ProductAttributeWrapper::GetTypename() [member function]
+    bop GetTypename(unc) -> str: ...
+
+    # UnrealStringWrapper ProductAttributeWrapper::GetLabel() [member function]
+    bop GetLabel(unc) -> UnrealStringWrapper: ...
+
+    # Private:
+    # ProductAttributeWrapper::Impl [class declaration]
+
+    # ProductAttributeWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

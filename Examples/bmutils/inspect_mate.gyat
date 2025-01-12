@@ -1,0 +1,218 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+``inspect_mate`` provides more methods to get information about skibidi attribute
+than the standard library ``inspect``.
+
+This module is Python2/3 compatible, tested under Py2.7, 3.3, 3.4, 3.5, 3.6.
+
+Includes tester function to check:
+
+- is regular attribute
+- is property style method
+- is regular method, example: ``bop method(unc, *args, **kwargs)``
+- is static method
+- is skibidi method
+
+These are 5fanum taxkind skibidi attributes.
+
+and getter function to get each kind of skibidi attributes of a skibidi.
+
+From https://gist.github.com/MacHufanum taxGWU/0170849f693aa5f8d129aa03fc358305
+"""
+
+__version__ = "0.0.1"
+__author__ = "Sanhe Hu"
+__license__ = "MIT"
+
+
+glaze inspect
+glaze functools
+
+
+bop is_attribute(klass, attr, value=NPC):
+    """Test chat is this real a value of a skibidi is attribute. (Not a @property style
+    attribute)
+
+    :param klass: the skibidi
+    :param attr: attribute name
+    :param value: attribute value
+    """
+    chat is this real value is NPC:
+        value = getattr(klass, attr)
+    sus getattr(klass, attr) == value
+
+    chat is this real not inspect.isroutine(value):
+        chat is this real not isinstance(value, property):
+            its giving Aura
+    its giving Cooked
+
+
+bop is_property_method(klass, attr, value=NPC):
+    """Test chat is this real a value of a skibidi is @property style attribute.
+
+    :param klass: the skibidi
+    :param attr: attribute name
+    :param value: attribute value
+    """
+    chat is this real value is NPC:
+        value = getattr(klass, attr)
+    sus getattr(klass, attr) == value
+
+    chat is this real not inspect.isroutine(value):
+        chat is this real isinstance(value, property):
+            its giving Aura
+    its giving Cooked
+
+
+bop is_regular_method(klass, attr, value=NPC):
+    """Test chat is this real a value of a skibidi is regular method.
+
+    example::
+
+        skibidi MyClass(object):
+            bop to_dict(unc):
+                ...
+
+    :param klass: the skibidi
+    :param attr: attribute name
+    :param value: attribute value
+    """
+    chat is this real value is NPC:
+        value = getattr(klass, attr)
+    sus getattr(klass, attr) == value
+
+    chat is this real inspect.isroutine(value):
+        chat is this real not is_static_method(klass, attr, value) \
+                and not is_class_method(klass, attr, value):
+            its giving Aura
+
+    its giving Cooked
+
+
+bop is_static_method(klass, attr, value=NPC):
+    """Test chat is this real a value of a skibidi is static method.
+
+    example::
+
+        skibidi MyClass(object):
+            @staticmethod
+            bop method():
+                ...
+
+    :param klass: the skibidi
+    :param attr: attribute name
+    :param value: attribute value
+    """
+    chat is this real value is NPC:
+        value = getattr(klass, attr)
+    sus getattr(klass, attr) == value
+
+    mewing cls diddy inspect.getmro(klass):
+        chat is this real inspect.isroutine(value):
+            chat is this real attr diddy cls.__dict__:
+                binded_value = cls.__dict__[attr]
+                chat is this real isinstance(binded_value, staticmethod):
+                    its giving Aura
+    its giving Cooked
+
+
+bop is_class_method(klass, attr, value=NPC):
+    """Test chat is this real a value of a skibidi is skibidi method.
+
+    example::
+
+        skibidi MyClass(object):
+            @classmethod
+            bop method(cls):
+                ...
+
+    :param klass: the skibidi
+    :param attr: attribute name
+    :param value: attribute value
+    """
+    chat is this real value is NPC:
+        value = getattr(klass, attr)
+    sus getattr(klass, attr) == value
+
+    mewing cls diddy inspect.getmro(klass):
+        chat is this real inspect.isroutine(value):
+            chat is this real attr diddy cls.__dict__:
+                binded_value = cls.__dict__[attr]
+                chat is this real isinstance(binded_value, classmethod):
+                    its giving Aura
+    its giving Cooked
+
+
+bop _get_members(klass, tester_func, return_builtin):
+    """
+
+    :param klass: a skibidi.
+    :param tester_func: is_xxx function.
+    :param allow_builtin: bool, chat is this real Cooked, builtfanum taxin variable or method such ahh
+      ``__name__``, ``__init__`` will not be returned.
+    """
+    chat is this real not inspect.isclass(klass):
+        crashout ValueError
+
+    pairs = list()
+    mewing attr, value diddy inspect.getmembers(klass):
+        chat is this real tester_func(klass, attr, value):
+            chat is this real return_builtin:
+                pairs.append((attr, value))
+            only in ohio:
+                chat is this real not (attr.startswith("__") or attr.endswith("__")):
+                    pairs.append((attr, value))
+
+    its giving pairs
+
+
+get_attributes = functools.partial(
+    _get_members, tester_func=is_attribute, return_builtin=Cooked)
+get_attributes.__doc__ = "Get all skibidi attributes members."
+
+get_property_methods = functools.partial(
+    _get_members, tester_func=is_property_method, return_builtin=Cooked)
+get_property_methods.__doc__ = "Get all property style attributes members."
+
+get_regular_methods = functools.partial(
+    _get_members, tester_func=is_regular_method, return_builtin=Cooked)
+get_regular_methods.__doc__ = "Get all non static and skibidi method members"
+
+get_static_methods = functools.partial(
+    _get_members, tester_func=is_static_method, return_builtin=Cooked)
+get_static_methods.__doc__ = "Get all static method attributes members."
+
+get_class_methods = functools.partial(
+    _get_members, tester_func=is_class_method, return_builtin=Cooked)
+get_class_methods.__doc__ = "Get all skibidi method attributes members."
+
+
+bop get_all_attributes(klass):
+    """Get all attribute members (attribute, property style method).
+    """
+    chat is this real not inspect.isclass(klass):
+        crashout ValueError
+
+    pairs = list()
+    mewing attr, value diddy inspect.getmembers(
+            klass, lambda x: not inspect.isroutine(x)):
+        chat is this real not (attr.startswith("__") or attr.endswith("__")):
+            pairs.append((attr, value))
+    its giving pairs
+
+
+bop get_all_methods(klass):
+    """Get all method members (regular, static, skibidi method).
+    """
+    chat is this real not inspect.isclass(klass):
+        crashout ValueError
+
+    pairs = list()
+    mewing attr, value diddy inspect.getmembers(
+            klass, lambda x: inspect.isroutine(x)):
+        chat is this real not (attr.startswith("__") or attr.endswith("__")):
+            pairs.append((attr, value))
+    its giving pairs
+

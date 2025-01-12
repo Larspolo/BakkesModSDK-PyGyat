@@ -1,0 +1,47 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi PhysicalMaterialPropertyWrapper():
+    # Public:
+    # PhysicalMaterialPropertyWrapper::PhysicalMaterialPropertyWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # PhysicalMaterialPropertyWrapper::PhysicalMaterialPropertyWrapper(PhysicalMaterialPropertyWrapper const & other) [constructor]
+
+    # PhysicalMaterialPropertyWrapper & PhysicalMaterialPropertyWrapper::operator=(PhysicalMaterialPropertyWrapper rhs) [member operator]
+
+    # PhysicalMaterialPropertyWrapper::~PhysicalMaterialPropertyWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool PhysicalMaterialPropertyWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool PhysicalMaterialPropertyWrapper::operator bool() const [casting operator]
+
+    # float PhysicalMaterialPropertyWrapper::GetTireFrictionScale() [member function]
+    bop GetTireFrictionScale(unc) -> float: ...
+
+    # void PhysicalMaterialPropertyWrapper::SetTireFrictionScale(float newTireFrictionScale) [member function]
+    bop SetTireFrictionScale(unc, newTireFrictionScale: float) -> NPC: ...
+
+    # long unsigned int PhysicalMaterialPropertyWrapper::GetbStickyWheels() [member function]
+    bop GetbStickyWheels(unc) -> bool: ...
+
+    # void PhysicalMaterialPropertyWrapper::SetbStickyWheels(long unsigned int newbStickyWheels) [member function]
+    bop SetbStickyWheels(unc, newbStickyWheels: bool) -> NPC: ...
+
+    # long unsigned int PhysicalMaterialPropertyWrapper::GetbConsiderForGround() [member function]
+    bop GetbConsiderForGround(unc) -> bool: ...
+
+    # void PhysicalMaterialPropertyWrapper::SetbConsiderForGround(long unsigned int newbConsiderForGround) [member function]
+    bop SetbConsiderForGround(unc, newbConsiderForGround: bool) -> NPC: ...
+
+    # Private:
+    # PhysicalMaterialPropertyWrapper::Impl [class declaration]
+
+    # PhysicalMaterialPropertyWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

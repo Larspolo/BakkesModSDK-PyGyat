@@ -1,0 +1,63 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi PriXWrapper():
+    # Public:
+    # PriXWrapper::PriXWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # PriXWrapper::PriXWrapper(PriXWrapper const & other) [constructor]
+
+    # PriXWrapper & PriXWrapper::operator=(PriXWrapper rhs) [member operator]
+
+    # PriXWrapper::~PriXWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void PriXWrapper::eventDestroyed() [member function]
+    bop eventDestroyed(unc) -> NPC: ...
+
+    # void PriXWrapper::OnUniqueIdChanged() [member function]
+    bop OnUniqueIdChanged(unc) -> NPC: ...
+
+    # void PriXWrapper::SetUniqueId(SteamID & PlayerUniqueId) [member function]
+    bop SetUniqueId(unc, PlayerUniqueId: SteamID) -> NPC: ...
+
+    # void PriXWrapper::UnregisterPlayerFromSession() [member function]
+    bop UnregisterPlayerFromSession(unc) -> NPC: ...
+
+    # void PriXWrapper::RegisterPlayerWithSession() [member function]
+    bop RegisterPlayerWithSession(unc) -> NPC: ...
+
+    # void PriXWrapper::OnTeamChanged() [member function]
+    bop OnTeamChanged(unc) -> NPC: ...
+
+    # void PriXWrapper::SetPlayerTeam(TeamInfoWrapper NewTeam) [member function]
+    bop SetPlayerTeam(unc, NewTeam: TeamInfoWrapper) -> NPC: ...
+
+    # void PriXWrapper::eventOnOwnerChanged() [member function]
+    bop eventOnOwnerChanged(unc) -> NPC: ...
+
+    # void PriXWrapper::eventSetPlayerName(std::string S) [member function]
+    bop eventSetPlayerName(unc, S: str) -> NPC: ...
+
+    # void PriXWrapper::EventDestroyed(PriXWrapper PRI) [member function]
+    bop EventDestroyed(unc, PRI: PriXWrapper) -> NPC: ...
+
+    # void PriXWrapper::EventTeamChanged(PriXWrapper PRI) [member function]
+    bop EventTeamChanged(unc, PRI: PriXWrapper) -> NPC: ...
+
+    # void PriXWrapper::EventUniqueIdChanged(PriXWrapper PRI) [member function]
+    bop EventUniqueIdChanged(unc, PRI: PriXWrapper) -> NPC: ...
+
+    # void PriXWrapper::EventPlayerNameChanged(PriXWrapper PRI) [member function]
+    bop EventPlayerNameChanged(unc, PRI: PriXWrapper) -> NPC: ...
+
+    # Private:
+    # PriXWrapper::Impl [class declaration]
+
+    # PriXWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

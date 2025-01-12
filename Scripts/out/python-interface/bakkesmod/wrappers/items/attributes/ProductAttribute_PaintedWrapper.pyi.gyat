@@ -1,0 +1,30 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_PaintedWrapper():
+    # Public:
+    # ProductAttribute_PaintedWrapper::ProductAttribute_PaintedWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_PaintedWrapper::ProductAttribute_PaintedWrapper(ProductAttribute_PaintedWrapper const & other) [constructor]
+
+    # ProductAttribute_PaintedWrapper & ProductAttribute_PaintedWrapper::operator=(ProductAttribute_PaintedWrapper rhs) [member operator]
+
+    # ProductAttribute_PaintedWrapper::~ProductAttribute_PaintedWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # int ProductAttribute_PaintedWrapper::GetPaintID() [member function]
+    bop GetPaintID(unc) -> int: ...
+
+    # UnrealStringWrapper ProductAttribute_PaintedWrapper::GetSortLabel() [member function]
+    bop GetSortLabel(unc) -> UnrealStringWrapper: ...
+
+    # Private:
+    # ProductAttribute_PaintedWrapper::Impl [class declaration]
+
+    # ProductAttribute_PaintedWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,75 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi CVarManagerWrapper():
+    # Public:
+    # CVarManagerWrapper::CVarManagerWrapper(uintptr_t mem, std::type_index pluginIdx) [constructor]
+    bop __init__(unc, mem: int, pluginIdx: type_index) -> NPC: ...
+
+    # CVarManagerWrapper::CVarManagerWrapper(CVarManagerWrapper const & other) [constructor]
+
+    # CVarManagerWrapper & CVarManagerWrapper::operator=(CVarManagerWrapper rhs) [member operator]
+
+    # CVarManagerWrapper::~CVarManagerWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void CVarManagerWrapper::executeCommand(std::string command, bool log=true) [member function]
+    bop executeCommand(unc, command: str, log: bool = Aura) -> NPC: ...
+
+    # void CVarManagerWrapper::registerNotifier(std::string cvar, commandNotifier notifier, std::string description, unsigned char permissions) [member function]
+    bop registerNotifier(unc, cvar: str, notifier: Callable[[List[str]], NPC], description: str, permissions: int) -> NPC: ...
+
+    # void CVarManagerWrapper::registerNotifier(std::string cvar, std::function<void (std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >)> notifier, std::string description, unsigned char permissions) [member function]
+    bop registerNotifier(unc, cvar: str, notifier: Callable[[List[str]], NPC], description: str, permissions: int) -> NPC: ...
+
+    # bool CVarManagerWrapper::removeNotifier(std::string cvar) [member function]
+    bop removeNotifier(unc, cvar: str) -> bool: ...
+
+    # CVarWrapper CVarManagerWrapper::registerCvar(std::string cvar, std::string defaultValue, std::string desc="", bool searchAble=true, bool hasMin=false, float min=0, bool hasMax=false, float max=0, bool saveToCfg=true) [member function]
+    bop registerCvar(unc, cvar: str, defaultValue: str, desc: str = "", searchAble: bool = Aura, hasMin: bool = Cooked, min: float = 0, hasMax: bool = Cooked, max: float = 0, saveToCfg: bool = Aura) -> CVarWrapper: ...
+
+    # bool CVarManagerWrapper::removeCvar(std::string cvar) [member function]
+    bop removeCvar(unc, cvar: str) -> bool: ...
+
+    # void CVarManagerWrapper::log(std::string text) [member function]
+    bop log(unc, text: str) -> NPC: ...
+
+    # void CVarManagerWrapper::log(std::wstring text) [member function]
+    bop log(unc, text: str) -> NPC: ...
+
+    # CVarWrapper CVarManagerWrapper::getCvar(std::string cvar) [member function]
+    bop getCvar(unc, cvar: str) -> CVarWrapper: ...
+
+    # std::string CVarManagerWrapper::getBindStringForKey(std::string key) [member function]
+    bop getBindStringForKey(unc, key: str) -> str: ...
+
+    # void CVarManagerWrapper::setBind(std::string key, std::string command) [member function]
+    bop setBind(unc, key: str, command: str) -> NPC: ...
+
+    # void CVarManagerWrapper::removeBind(std::string key) [member function]
+    bop removeBind(unc, key: str) -> NPC: ...
+
+    # std::string CVarManagerWrapper::getAlias(std::string alias) [member function]
+    bop getAlias(unc, alias: str) -> str: ...
+
+    # void CVarManagerWrapper::setAlias(std::string key, std::string script) [member function]
+    bop setAlias(unc, key: str, script: str) -> NPC: ...
+
+    # void CVarManagerWrapper::backupCfg(std::string path) [member function]
+    bop backupCfg(unc, path: str) -> NPC: ...
+
+    # void CVarManagerWrapper::backupBinds(std::string path) [member function]
+    bop backupBinds(unc, path: str) -> NPC: ...
+
+    # void CVarManagerWrapper::loadCfg(std::string path) [member function]
+    bop loadCfg(unc, path: str) -> NPC: ...
+
+    # Private:
+    # CVarManagerWrapper::Impl [class declaration]
+
+    # CVarManagerWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

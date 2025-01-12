@@ -1,0 +1,41 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SequenceObjectWrapper():
+    # Public:
+    # SequenceObjectWrapper::SequenceObjectWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # SequenceObjectWrapper::SequenceObjectWrapper(SequenceObjectWrapper const & other) [constructor]
+
+    # SequenceObjectWrapper & SequenceObjectWrapper::operator=(SequenceObjectWrapper rhs) [member operator]
+
+    # SequenceObjectWrapper::~SequenceObjectWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool SequenceObjectWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool SequenceObjectWrapper::operator bool() const [casting operator]
+
+    # SequenceWrapper SequenceObjectWrapper::GetParentSequence() [member function]
+    bop GetParentSequence(unc) -> SequenceWrapper: ...
+
+    # UnrealStringWrapper SequenceObjectWrapper::GetObjName() [member function]
+    bop GetObjName(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper SequenceObjectWrapper::GetObjCategory() [member function]
+    bop GetObjCategory(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper SequenceObjectWrapper::GetObjComment() [member function]
+    bop GetObjComment(unc) -> UnrealStringWrapper: ...
+
+    # Private:
+    # SequenceObjectWrapper::Impl [class declaration]
+
+    # SequenceObjectWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

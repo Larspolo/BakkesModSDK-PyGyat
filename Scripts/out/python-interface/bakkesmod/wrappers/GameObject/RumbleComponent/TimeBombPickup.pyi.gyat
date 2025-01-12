@@ -1,0 +1,87 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi TimeBombPickup():
+    # Public:
+    # TimeBombPickup::TimeBombPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # TimeBombPickup::TimeBombPickup(TimeBombPickup const & other) [constructor]
+
+    # TimeBombPickup & TimeBombPickup::operator=(TimeBombPickup rhs) [member operator]
+
+    # TimeBombPickup::~TimeBombPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float TimeBombPickup::GetRadius() [member function]
+    bop GetRadius(unc) -> float: ...
+
+    # void TimeBombPickup::SetRadius(float newRadius) [member function]
+    bop SetRadius(unc, newRadius: float) -> NPC: ...
+
+    # float TimeBombPickup::GetAlmostReadyDuration() [member function]
+    bop GetAlmostReadyDuration(unc) -> float: ...
+
+    # void TimeBombPickup::SetAlmostReadyDuration(float newAlmostReadyDuration) [member function]
+    bop SetAlmostReadyDuration(unc, newAlmostReadyDuration: float) -> NPC: ...
+
+    # float TimeBombPickup::GetStartMatSpeed() [member function]
+    bop GetStartMatSpeed(unc) -> float: ...
+
+    # void TimeBombPickup::SetStartMatSpeed(float newStartMatSpeed) [member function]
+    bop SetStartMatSpeed(unc, newStartMatSpeed: float) -> NPC: ...
+
+    # float TimeBombPickup::GetAlmostReadyMatSpeed() [member function]
+    bop GetAlmostReadyMatSpeed(unc) -> float: ...
+
+    # void TimeBombPickup::SetAlmostReadyMatSpeed(float newAlmostReadyMatSpeed) [member function]
+    bop SetAlmostReadyMatSpeed(unc, newAlmostReadyMatSpeed: float) -> NPC: ...
+
+    # float TimeBombPickup::GetImpulseForce() [member function]
+    bop GetImpulseForce(unc) -> float: ...
+
+    # void TimeBombPickup::SetImpulseForce(float newImpulseForce) [member function]
+    bop SetImpulseForce(unc, newImpulseForce: float) -> NPC: ...
+
+    # float TimeBombPickup::GetCarVerticalForce() [member function]
+    bop GetCarVerticalForce(unc) -> float: ...
+
+    # void TimeBombPickup::SetCarVerticalForce(float newCarVerticalForce) [member function]
+    bop SetCarVerticalForce(unc, newCarVerticalForce: float) -> NPC: ...
+
+    # float TimeBombPickup::GetCarTorque() [member function]
+    bop GetCarTorque(unc) -> float: ...
+
+    # void TimeBombPickup::SetCarTorque(float newCarTorque) [member function]
+    bop SetCarTorque(unc, newCarTorque: float) -> NPC: ...
+
+    # long unsigned int TimeBombPickup::GetbDemolish() [member function]
+    bop GetbDemolish(unc) -> bool: ...
+
+    # void TimeBombPickup::SetbDemolish(long unsigned int newbDemolish) [member function]
+    bop SetbDemolish(unc, newbDemolish: bool) -> NPC: ...
+
+    # long unsigned int TimeBombPickup::GetbImpulse() [member function]
+    bop GetbImpulse(unc) -> bool: ...
+
+    # void TimeBombPickup::SetbImpulse(long unsigned int newbImpulse) [member function]
+    bop SetbImpulse(unc, newbImpulse: bool) -> NPC: ...
+
+    # void TimeBombPickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void TimeBombPickup::AlmostReady2() [member function]
+    bop AlmostReady2(unc) -> NPC: ...
+
+    # void TimeBombPickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # TimeBombPickup::Impl [class declaration]
+
+    # TimeBombPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

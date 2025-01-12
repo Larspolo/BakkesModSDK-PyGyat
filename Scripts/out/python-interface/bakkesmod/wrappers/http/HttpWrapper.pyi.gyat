@@ -1,0 +1,29 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi HttpWrapper():
+    # Public:
+    # static void HttpWrapper::SendCurlRequest(CurlRequest request_data, CurlRequestDoneStringReturn on_complete) [member function]
+    bop SendCurlRequest(unc, request_data: CurlRequest, on_complete: Callable[[int, str], NPC]) -> NPC: ...
+
+    # static void HttpWrapper::SendCurlRequest(CurlRequest request_data, CurlRequestDoneBinaryReturn on_complete) [member function]
+    bop SendCurlRequest(unc, request_data: CurlRequest, on_complete: Callable[[int, str, int], NPC]) -> NPC: ...
+
+    # static void HttpWrapper::SendCurlRequest(CurlRequest request_data, std::wstring const & file_output, CurlRequestDoneFileReturn on_complete) [member function]
+    bop SendCurlRequest(unc, request_data: CurlRequest, file_output: str, on_complete: Callable[[int, str], NPC]) -> NPC: ...
+
+    # static void HttpWrapper::SendCurlJsonRequest(CurlRequest request_data, CurlRequestDoneStringReturn on_complete) [member function]
+    bop SendCurlJsonRequest(unc, request_data: CurlRequest, on_complete: Callable[[int, str], NPC]) -> NPC: ...
+
+    # HttpWrapper::HttpWrapper() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # HttpWrapper::HttpWrapper(HttpWrapper const & arg0) [constructor]
+
+    # HttpWrapper & HttpWrapper::operator=(HttpWrapper const & arg0) [member operator]
+
+    # HttpWrapper::~HttpWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+
+

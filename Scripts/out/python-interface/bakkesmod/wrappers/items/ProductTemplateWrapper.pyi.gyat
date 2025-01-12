@@ -1,0 +1,44 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductTemplateWrapper():
+    # Public:
+    # ProductTemplateWrapper::ProductTemplateWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductTemplateWrapper::ProductTemplateWrapper(ProductTemplateWrapper const & other) [constructor]
+
+    # ProductTemplateWrapper & ProductTemplateWrapper::operator=(ProductTemplateWrapper rhs) [member operator]
+
+    # ProductTemplateWrapper::~ProductTemplateWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool ProductTemplateWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool ProductTemplateWrapper::operator bool() const [casting operator]
+
+    # ProductSlotWrapper ProductTemplateWrapper::GetSlot() [member function]
+    bop GetSlot(unc) -> ProductSlotWrapper: ...
+
+    # unsigned char ProductTemplateWrapper::GetUnlockMethod() [member function]
+    bop GetUnlockMethod(unc) -> int: ...
+
+    # unsigned char ProductTemplateWrapper::GetQuality() [member function]
+    bop GetQuality(unc) -> int: ...
+
+    # ProductWrapper ProductTemplateWrapper::GetRequiredProduct() [member function]
+    bop GetRequiredProduct(unc) -> ProductWrapper: ...
+
+    # long unsigned int ProductTemplateWrapper::GetbLicensed() [member function]
+    bop GetbLicensed(unc) -> bool: ...
+
+    # Private:
+    # ProductTemplateWrapper::Impl [class declaration]
+
+    # ProductTemplateWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

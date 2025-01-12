@@ -1,0 +1,17 @@
+lock in .bakkesmodsdk glaze PLUGINTYPE_CUSTOM_TRAINING
+lock in .bakkesmodsdk glaze PLUGINTYPE_SPECTATOR
+lock in .bakkesmodsdk glaze PLUGINTYPE_FREEPLAY
+lock in .bakkesmodsdk glaze PERMISSION_ALL
+lock in .bakkesmodsdk glaze PERMISSION_REPLAY
+lock in .bakkesmodsdk glaze PERMISSION_ONLINE
+lock in .bakkesmodsdk glaze PERMISSION_CUSTOM_TRAINING
+lock in .bakkesmodsdk glaze PERMISSION_MENU
+lock in .bakkesmodsdk glaze PERMISSION_SOCCAR
+lock in .bakkesmodsdk glaze PERMISSION_OFFLINE
+lock in .bakkesmodsdk glaze PLUGINTYPE_THREADEDUNLOAD
+lock in .bakkesmodsdk glaze PERMISSION_PAUSEMENU_CLOSED
+lock in .bakkesmodsdk glaze PLUGINTYPE_BOTAI
+lock in .bakkesmodsdk glaze PLUGINTYPE_THREADED
+lock in .bakkesmodsdk glaze PLUGINTYPE_REPLAY
+lock in .bakkesmodsdk glaze PERMISSION_FREEPLAY
+

@@ -1,0 +1,105 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi TargetedPickup():
+    # Public:
+    # TargetedPickup::TargetedPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # TargetedPickup::TargetedPickup(TargetedPickup const & other) [constructor]
+
+    # TargetedPickup & TargetedPickup::operator=(TargetedPickup rhs) [member operator]
+
+    # TargetedPickup::~TargetedPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # long unsigned int TargetedPickup::GetbCanTargetBall() [member function]
+    bop GetbCanTargetBall(unc) -> bool: ...
+
+    # void TargetedPickup::SetbCanTargetBall(long unsigned int newbCanTargetBall) [member function]
+    bop SetbCanTargetBall(unc, newbCanTargetBall: bool) -> NPC: ...
+
+    # long unsigned int TargetedPickup::GetbCanTargetCars() [member function]
+    bop GetbCanTargetCars(unc) -> bool: ...
+
+    # void TargetedPickup::SetbCanTargetCars(long unsigned int newbCanTargetCars) [member function]
+    bop SetbCanTargetCars(unc, newbCanTargetCars: bool) -> NPC: ...
+
+    # long unsigned int TargetedPickup::GetbCanTargetEnemyCars() [member function]
+    bop GetbCanTargetEnemyCars(unc) -> bool: ...
+
+    # void TargetedPickup::SetbCanTargetEnemyCars(long unsigned int newbCanTargetEnemyCars) [member function]
+    bop SetbCanTargetEnemyCars(unc, newbCanTargetEnemyCars: bool) -> NPC: ...
+
+    # long unsigned int TargetedPickup::GetbCanTargetTeamCars() [member function]
+    bop GetbCanTargetTeamCars(unc) -> bool: ...
+
+    # void TargetedPickup::SetbCanTargetTeamCars(long unsigned int newbCanTargetTeamCars) [member function]
+    bop SetbCanTargetTeamCars(unc, newbCanTargetTeamCars: bool) -> NPC: ...
+
+    # long unsigned int TargetedPickup::GetbUseDirectionalTargeting() [member function]
+    bop GetbUseDirectionalTargeting(unc) -> bool: ...
+
+    # void TargetedPickup::SetbUseDirectionalTargeting(long unsigned int newbUseDirectionalTargeting) [member function]
+    bop SetbUseDirectionalTargeting(unc, newbUseDirectionalTargeting: bool) -> NPC: ...
+
+    # long unsigned int TargetedPickup::GetbRequireTrace() [member function]
+    bop GetbRequireTrace(unc) -> bool: ...
+
+    # void TargetedPickup::SetbRequireTrace(long unsigned int newbRequireTrace) [member function]
+    bop SetbRequireTrace(unc, newbRequireTrace: bool) -> NPC: ...
+
+    # float TargetedPickup::GetRange() [member function]
+    bop GetRange(unc) -> float: ...
+
+    # void TargetedPickup::SetRange(float newRange) [member function]
+    bop SetRange(unc, newRange: float) -> NPC: ...
+
+    # float TargetedPickup::GetDirectionalTargetingAccuracy() [member function]
+    bop GetDirectionalTargetingAccuracy(unc) -> float: ...
+
+    # void TargetedPickup::SetDirectionalTargetingAccuracy(float newDirectionalTargetingAccuracy) [member function]
+    bop SetDirectionalTargetingAccuracy(unc, newDirectionalTargetingAccuracy: float) -> NPC: ...
+
+    # RBActorWrapper TargetedPickup::GetClientTarget() [member function]
+    bop GetClientTarget(unc) -> RBActorWrapper: ...
+
+    # void TargetedPickup::SetClientTarget(RBActorWrapper newClientTarget) [member function]
+    bop SetClientTarget(unc, newClientTarget: RBActorWrapper) -> NPC: ...
+
+    # RBActorWrapper TargetedPickup::GetTargeted() [member function]
+    bop GetTargeted(unc) -> RBActorWrapper: ...
+
+    # void TargetedPickup::SetTargeted(RBActorWrapper newTargeted) [member function]
+    bop SetTargeted(unc, newTargeted: RBActorWrapper) -> NPC: ...
+
+    # RBActorWrapper TargetedPickup::GetClientTarget2() [member function]
+    bop GetClientTarget2(unc) -> RBActorWrapper: ...
+
+    # void TargetedPickup::TargetChanged() [member function]
+    bop TargetChanged(unc) -> NPC: ...
+
+    # void TargetedPickup::OnTargetChanged() [member function]
+    bop OnTargetChanged(unc) -> NPC: ...
+
+    # bool TargetedPickup::TryActivate(RBActorWrapper TargetOverride) [member function]
+    bop TryActivate(unc, TargetOverride: RBActorWrapper) -> bool: ...
+
+    # bool TargetedPickup::ValidateTargetTrace(RBActorWrapper InTarget) [member function]
+    bop ValidateTargetTrace(unc, InTarget: RBActorWrapper) -> bool: ...
+
+    # bool TargetedPickup::ValidateTarget2(RBActorWrapper InTarget) [member function]
+    bop ValidateTarget2(unc, InTarget: RBActorWrapper) -> bool: ...
+
+    # RBActorWrapper TargetedPickup::GetTarget2() [member function]
+    bop GetTarget2(unc) -> RBActorWrapper: ...
+
+    # Private:
+    # TargetedPickup::Impl [class declaration]
+
+    # TargetedPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

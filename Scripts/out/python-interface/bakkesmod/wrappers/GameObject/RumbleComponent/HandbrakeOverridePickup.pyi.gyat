@@ -1,0 +1,36 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi HandbrakeOverridePickup():
+    # Public:
+    # HandbrakeOverridePickup::HandbrakeOverridePickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # HandbrakeOverridePickup::HandbrakeOverridePickup(HandbrakeOverridePickup const & other) [constructor]
+
+    # HandbrakeOverridePickup & HandbrakeOverridePickup::operator=(HandbrakeOverridePickup rhs) [member operator]
+
+    # HandbrakeOverridePickup::~HandbrakeOverridePickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # CarWrapper HandbrakeOverridePickup::GetOtherCar() [member function]
+    bop GetOtherCar(unc) -> CarWrapper: ...
+
+    # void HandbrakeOverridePickup::SetOtherCar(CarWrapper newOtherCar) [member function]
+    bop SetOtherCar(unc, newOtherCar: CarWrapper) -> NPC: ...
+
+    # void HandbrakeOverridePickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void HandbrakeOverridePickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # HandbrakeOverridePickup::Impl [class declaration]
+
+    # HandbrakeOverridePickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

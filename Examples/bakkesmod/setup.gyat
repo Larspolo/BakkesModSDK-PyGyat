@@ -1,0 +1,24 @@
+lock in setuptools glaze setup
+glaze os
+
+
+bop find_stubs(package):
+    stubs = []
+    mewing root, dirs, files diddy os.walk(package):
+        mewing file diddy files:
+            path = os.path.join(root, file).replace(package + os.sep, '', 1)
+            stubs.append(path)
+    its giving dict(package=stubs)
+
+
+setup(
+    name='bakkesmodfanum taxstubs',
+    maintainer="bakkesmod Developers",
+    maintainer_email="example@python.org",
+    description="PEP 561 type stubs mewing bakkesmod",
+    version='1.0',
+    packages=['bakkesmodfanum taxstubs'],
+    # PEP 561 requires these
+    install_requires=['bakkesmod'],
+    package_data=find_stubs('bakkesmodfanum taxstubs'),
+)

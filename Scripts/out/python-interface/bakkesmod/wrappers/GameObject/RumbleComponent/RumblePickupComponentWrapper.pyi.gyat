@@ -1,0 +1,99 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi RumblePickupComponentWrapper():
+    # Public:
+    # RumblePickupComponentWrapper::RumblePickupComponentWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # RumblePickupComponentWrapper::RumblePickupComponentWrapper(RumblePickupComponentWrapper const & other) [constructor]
+
+    # RumblePickupComponentWrapper & RumblePickupComponentWrapper::operator=(RumblePickupComponentWrapper rhs) [member operator]
+
+    # RumblePickupComponentWrapper::~RumblePickupComponentWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # UnrealStringWrapper RumblePickupComponentWrapper::GetPickupName() [member function]
+    bop GetPickupName(unc) -> UnrealStringWrapper: ...
+
+    # long unsigned int RumblePickupComponentWrapper::GetbHudIgnoreUseTime() [member function]
+    bop GetbHudIgnoreUseTime(unc) -> bool: ...
+
+    # void RumblePickupComponentWrapper::SetbHudIgnoreUseTime(long unsigned int newbHudIgnoreUseTime) [member function]
+    bop SetbHudIgnoreUseTime(unc, newbHudIgnoreUseTime: bool) -> NPC: ...
+
+    # long unsigned int RumblePickupComponentWrapper::GetbHasActivated() [member function]
+    bop GetbHasActivated(unc) -> bool: ...
+
+    # void RumblePickupComponentWrapper::SetbHasActivated(long unsigned int newbHasActivated) [member function]
+    bop SetbHasActivated(unc, newbHasActivated: bool) -> NPC: ...
+
+    # long unsigned int RumblePickupComponentWrapper::GetbIsActive() [member function]
+    bop GetbIsActive(unc) -> bool: ...
+
+    # void RumblePickupComponentWrapper::SetbIsActive(long unsigned int newbIsActive) [member function]
+    bop SetbIsActive(unc, newbIsActive: bool) -> NPC: ...
+
+    # float RumblePickupComponentWrapper::GetActivationDuration() [member function]
+    bop GetActivationDuration(unc) -> float: ...
+
+    # void RumblePickupComponentWrapper::SetActivationDuration(float newActivationDuration) [member function]
+    bop SetActivationDuration(unc, newActivationDuration: float) -> NPC: ...
+
+    # FXActorWrapper RumblePickupComponentWrapper::GetPickupFXArchetype() [member function]
+    bop GetPickupFXArchetype(unc) -> FXActorWrapper: ...
+
+    # void RumblePickupComponentWrapper::SetPickupFXArchetype(FXActorWrapper newPickupFXArchetype) [member function]
+    bop SetPickupFXArchetype(unc, newPickupFXArchetype: FXActorWrapper) -> NPC: ...
+
+    # FXActorWrapper RumblePickupComponentWrapper::GetPickupFX() [member function]
+    bop GetPickupFX(unc) -> FXActorWrapper: ...
+
+    # void RumblePickupComponentWrapper::SetPickupFX(FXActorWrapper newPickupFX) [member function]
+    bop SetPickupFX(unc, newPickupFX: FXActorWrapper) -> NPC: ...
+
+    # bool RumblePickupComponentWrapper::HasActivated2() [member function]
+    bop HasActivated2(unc) -> bool: ...
+
+    # RBActorWrapper RumblePickupComponentWrapper::GetClientTarget() [member function]
+    bop GetClientTarget(unc) -> RBActorWrapper: ...
+
+    # void RumblePickupComponentWrapper::OnVehicleSetupComplete() [member function]
+    bop OnVehicleSetupComplete(unc) -> NPC: ...
+
+    # float RumblePickupComponentWrapper::GetActiveTimePercent() [member function]
+    bop GetActiveTimePercent(unc) -> float: ...
+
+    # void RumblePickupComponentWrapper::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void RumblePickupComponentWrapper::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # BoostWrapper RumblePickupComponentWrapper::GetBoostComponent() [member function]
+    bop GetBoostComponent(unc) -> BoostWrapper: ...
+
+    # void RumblePickupComponentWrapper::DeactivatePickup() [member function]
+    bop DeactivatePickup(unc) -> NPC: ...
+
+    # bool RumblePickupComponentWrapper::TryActivate(RBActorWrapper TargetOverride) [member function]
+    bop TryActivate(unc, TargetOverride: RBActorWrapper) -> bool: ...
+
+    # void RumblePickupComponentWrapper::OnCreated() [member function]
+    bop OnCreated(unc) -> NPC: ...
+
+    # bool RumblePickupComponentWrapper::CanPickup(CarWrapper InCar) [member function]
+    bop CanPickup(unc, InCar: CarWrapper) -> bool: ...
+
+    # void RumblePickupComponentWrapper::ApplyPickup(CarWrapper InCar) [member function]
+    bop ApplyPickup(unc, InCar: CarWrapper) -> NPC: ...
+
+    # Private:
+    # RumblePickupComponentWrapper::Impl [class declaration]
+
+    # RumblePickupComponentWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

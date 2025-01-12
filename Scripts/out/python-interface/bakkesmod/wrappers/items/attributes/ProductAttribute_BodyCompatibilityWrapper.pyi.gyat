@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_BodyCompatibilityWrapper():
+    # Public:
+    # ProductAttribute_BodyCompatibilityWrapper::ProductAttribute_BodyCompatibilityWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_BodyCompatibilityWrapper::ProductAttribute_BodyCompatibilityWrapper(ProductAttribute_BodyCompatibilityWrapper const & other) [constructor]
+
+    # ProductAttribute_BodyCompatibilityWrapper & ProductAttribute_BodyCompatibilityWrapper::operator=(ProductAttribute_BodyCompatibilityWrapper rhs) [member operator]
+
+    # ProductAttribute_BodyCompatibilityWrapper::~ProductAttribute_BodyCompatibilityWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # ArrayWrapper<ProductWrapper> ProductAttribute_BodyCompatibilityWrapper::GetCompatibleBodies() [member function]
+    bop GetCompatibleBodies(unc) -> ArrayWrapper_ProductWrapper: ...
+
+    # Private:
+    # ProductAttribute_BodyCompatibilityWrapper::Impl [class declaration]
+
+    # ProductAttribute_BodyCompatibilityWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

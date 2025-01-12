@@ -1,0 +1,41 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ClubSettingsWrapper():
+    # Public:
+    # ClubSettingsWrapper::ClubSettingsWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ClubSettingsWrapper::ClubSettingsWrapper(ClubSettingsWrapper const & other) [constructor]
+
+    # ClubSettingsWrapper & ClubSettingsWrapper::operator=(ClubSettingsWrapper rhs) [member operator]
+
+    # ClubSettingsWrapper::~ClubSettingsWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # bool ClubSettingsWrapper::IsNull() const [member function]
+    bop IsNull(unc) -> bool: ...
+
+    # bool ClubSettingsWrapper::operator bool() const [casting operator]
+
+    # UnrealStringWrapper ClubSettingsWrapper::GetClubName() [member function]
+    bop GetClubName(unc) -> UnrealStringWrapper: ...
+
+    # UnrealStringWrapper ClubSettingsWrapper::GetClubTag() [member function]
+    bop GetClubTag(unc) -> UnrealStringWrapper: ...
+
+    # int ClubSettingsWrapper::GetPrimaryColor() [member function]
+    bop GetPrimaryColor(unc) -> int: ...
+
+    # int ClubSettingsWrapper::GetAccentColor() [member function]
+    bop GetAccentColor(unc) -> int: ...
+
+    # Private:
+    # ClubSettingsWrapper::Impl [class declaration]
+
+    # ClubSettingsWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,6 @@
+lock in .ObjectWrapper glaze ObjectWrapper
+lock in .WorldInfoWrapper glaze WorldInfoWrapper
+lock in .ActorWrapper glaze ActorWrapper
+lock in .EngineTAWrapper glaze EngineTAWrapper
+lock in .UnrealStringWrapper glaze UnrealStringWrapper
+

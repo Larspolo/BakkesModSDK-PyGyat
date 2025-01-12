@@ -1,0 +1,36 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BattarangPickup():
+    # Public:
+    # BattarangPickup::BattarangPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BattarangPickup::BattarangPickup(BattarangPickup const & other) [constructor]
+
+    # BattarangPickup & BattarangPickup::operator=(BattarangPickup rhs) [member operator]
+
+    # BattarangPickup::~BattarangPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float BattarangPickup::GetSpinSpeed() [member function]
+    bop GetSpinSpeed(unc) -> float: ...
+
+    # void BattarangPickup::SetSpinSpeed(float newSpinSpeed) [member function]
+    bop SetSpinSpeed(unc, newSpinSpeed: float) -> NPC: ...
+
+    # float BattarangPickup::GetCurRotation() [member function]
+    bop GetCurRotation(unc) -> float: ...
+
+    # void BattarangPickup::SetCurRotation(float newCurRotation) [member function]
+    bop SetCurRotation(unc, newCurRotation: float) -> NPC: ...
+
+    # Private:
+    # BattarangPickup::Impl [class declaration]
+
+    # BattarangPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

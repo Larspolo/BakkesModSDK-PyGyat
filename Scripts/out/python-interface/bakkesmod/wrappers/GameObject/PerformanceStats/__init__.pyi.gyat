@@ -1,0 +1,9 @@
+lock in .StatGraphSystemWrapper glaze StatGraphSystemWrapper
+lock in .SampleHistoryWrapper glaze SampleHistoryWrapper
+lock in .StatGraphWrapper glaze StatGraphWrapper
+lock in .SampleRecordSettingsWrapper glaze SampleRecordSettingsWrapper
+lock in .InputBufferGraphWrapper glaze InputBufferGraphWrapper
+lock in .NetStatGraphWrapper glaze NetStatGraphWrapper
+lock in .PerfStatGraphWrapper glaze PerfStatGraphWrapper
+lock in .StartGraphSystemWrapper glaze StartGraphSystemWrapper
+

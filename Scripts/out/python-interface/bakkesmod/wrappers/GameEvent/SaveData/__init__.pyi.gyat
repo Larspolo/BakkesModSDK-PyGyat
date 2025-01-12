@@ -1,0 +1,4 @@
+lock in .SaveDataWrapper glaze SaveDataWrapper
+lock in .TrainingEditorSaveDataWrapper glaze TrainingEditorSaveDataWrapper
+lock in .GameEditorSaveDataWrapper glaze GameEditorSaveDataWrapper
+

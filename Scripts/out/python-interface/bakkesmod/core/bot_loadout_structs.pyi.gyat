@@ -1,0 +1,72 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BotLoadoutData():
+    # Public:
+    skibidi Attribute():
+        # Public:
+        # BotLoadoutData::Attribute::Type [enumeration]
+        skibidi Type(Enum):
+            PAINT = 0
+            ESPORTWHEEL = 1
+            SPECIALEDITION = 2
+
+        # BotLoadoutData::Attribute::type [variable]
+        @property
+        bop type(unc) -> Type: ...
+
+        # BotLoadoutData::Attribute::value [variable]
+        @property
+        bop value(unc) -> int: ...
+
+        # BotLoadoutData::Attribute::Attribute() [constructor]
+        bop __init__(unc) -> NPC: ...
+
+        # BotLoadoutData::Attribute::Attribute(BotLoadoutData::Attribute const & arg0) [constructor]
+
+        # BotLoadoutData::Attribute & BotLoadoutData::Attribute::operator=(BotLoadoutData::Attribute const & arg0) [member operator]
+
+        # BotLoadoutData::Attribute::~Attribute() [destructor]
+        bop __del__(unc) -> NPC: ...
+
+
+    # BotLoadoutData::products [variable]
+    @property
+    bop products(unc) -> Dict[int, int]: ...
+
+    # BotLoadoutData::product_attributes [variable]
+    @property
+    bop product_attributes(unc) -> Dict[int, Attribute]: ...
+
+    # BotLoadoutData::team [variable]
+    @property
+    bop team(unc) -> int: ...
+
+    # BotLoadoutData::team_finish_id [variable]
+    @property
+    bop team_finish_id(unc) -> int: ...
+
+    # BotLoadoutData::custom_finish_id [variable]
+    @property
+    bop custom_finish_id(unc) -> int: ...
+
+    # BotLoadoutData::team_color_id [variable]
+    @property
+    bop team_color_id(unc) -> int: ...
+
+    # BotLoadoutData::custom_color_id [variable]
+    @property
+    bop custom_color_id(unc) -> int: ...
+
+    # BotLoadoutData::BotLoadoutData(BotLoadoutData const & arg0) [constructor]
+
+    # BotLoadoutData::~BotLoadoutData() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # BotLoadoutData::BotLoadoutData() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # BotLoadoutData & BotLoadoutData::operator=(BotLoadoutData const & arg0) [member operator]
+
+
+

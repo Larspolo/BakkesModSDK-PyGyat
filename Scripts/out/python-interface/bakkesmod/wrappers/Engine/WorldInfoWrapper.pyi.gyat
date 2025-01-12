@@ -1,0 +1,66 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi WorldInfoWrapper():
+    # Public:
+    # WorldInfoWrapper::WorldInfoWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # WorldInfoWrapper::WorldInfoWrapper(WorldInfoWrapper const & other) [constructor]
+
+    # WorldInfoWrapper & WorldInfoWrapper::operator=(WorldInfoWrapper rhs) [member operator]
+
+    # WorldInfoWrapper::~WorldInfoWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # float WorldInfoWrapper::GetTimeDilation() [member function]
+    bop GetTimeDilation(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetDemoPlayTimeDilation() [member function]
+    bop GetDemoPlayTimeDilation(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetTimeSeconds() [member function]
+    bop GetTimeSeconds(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetRealTimeSeconds() [member function]
+    bop GetRealTimeSeconds(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetRealDeltaSeconds() [member function]
+    bop GetRealDeltaSeconds(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetAudioTimeSeconds() [member function]
+    bop GetAudioTimeSeconds(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetDeltaSeconds() [member function]
+    bop GetDeltaSeconds(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetPauseDelay() [member function]
+    bop GetPauseDelay(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetRealTimeToUnPause() [member function]
+    bop GetRealTimeToUnPause(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetStallZ() [member function]
+    bop GetStallZ(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetWorldGravityZ() [member function]
+    bop GetWorldGravityZ(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetDefaultGravityZ() [member function]
+    bop GetDefaultGravityZ(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetGlobalGravityZ() [member function]
+    bop GetGlobalGravityZ(unc) -> float: ...
+
+    # float WorldInfoWrapper::GetRBPhysicsGravityScaling() [member function]
+    bop GetRBPhysicsGravityScaling(unc) -> float: ...
+
+    # Private:
+    # WorldInfoWrapper::Impl [class declaration]
+
+    # WorldInfoWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

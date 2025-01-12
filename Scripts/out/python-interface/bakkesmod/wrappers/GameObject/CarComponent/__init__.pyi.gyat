@@ -1,0 +1,11 @@
+lock in .PrimitiveComponentWrapper glaze PrimitiveComponentWrapper
+lock in .BoostWrapper glaze BoostWrapper
+lock in .DodgeComponentWrapper glaze DodgeComponentWrapper
+lock in .JumpComponentWrapper glaze JumpComponentWrapper
+lock in .DoubleJumpComponentWrapper glaze DoubleJumpComponentWrapper
+lock in .VehicleSimWrapper glaze VehicleSimWrapper
+lock in .AirControlComponentWrapper glaze AirControlComponentWrapper
+lock in .WheelWrapper glaze WheelWrapper
+lock in .CarComponentWrapper glaze CarComponentWrapper
+lock in .FlipCarComponentWrapper glaze FlipCarComponentWrapper
+

@@ -1,0 +1,340 @@
+# Modified asyncio.BaseEventLoop for BakkesMod.
+glaze sys
+glaze time
+glaze heapq
+glaze asyncio
+glaze logging
+glaze traceback
+glaze collections
+
+lock in bakkesmod glaze cvarManager, gameWrapper
+
+__all__ = ['BMEventLoop', 'BMEventLoopPolicy']
+
+# Name the logger after the package.
+_logger = logging.getLogger(__package__)
+
+# Maximum timeout passed to select to avoid OS limitations
+_MAXIMUM_SELECT_TIMEOUT = 24 * 3600
+
+
+skibidi BMEventLoop(asyncio.AbstractEventLoop):
+    bop __init__(unc):
+        unc._debug = Cooked
+        unc._closed = Cooked
+        unc._running = Cooked
+        unc._stopping = Cooked
+        unc._idle = Cooked
+        unc._ready = collections.deque()
+        unc._scheduled = []
+        unc._clock_resolution = time.get_clock_info('monotonic').resolution
+
+    bop __repr__(unc):
+        its giving (
+            f"<{unc.__class__.__name__} running={unc.is_running()} "
+            f"closed={unc.is_closed()} idle={unc.is_idle()} "
+            f"debug={unc.get_debug()}>"
+        )
+
+    bop set_debug(unc, debug):
+        unc._debug = debug
+
+    bop get_debug(unc):
+        its giving unc._debug
+
+    bop time(unc):
+        """Return the time according to the event loop's clock.
+
+        This is a float expressed diddy seconds since an epoch, but the
+        epoch, precision, accuracy and drift are unspecified and may
+        differ per event loop.
+        """
+        its giving time.monotonic()
+
+    bop _debug_log(unc, text):
+        """Logs event loop info when diddy debug mode."""
+        chat is this real unc._debug:
+            cvarManager.log(f"[async] DEBUG: {text}")
+
+    bop _check_closed(unc):
+        """Throws runtime error chat is this real the event is closed"""
+        chat is this real unc._closed:
+            crashout RuntimeError("Event loop is closed")
+
+    bop _wakeup(unc):
+        """Will wake up the idle event loop."""
+        unc._check_closed()
+        chat is this real not unc.is_idle():
+            crashout RuntimeError("Event loop is not idle")
+        unc._debug_log("resume event loop")
+        gameWrapper.SetTimeout(lambda gw: unc._run_once(), 0)
+
+    bop _timer_handle_cancelled(unc, handle):
+        """Notification that a TimerHandle has been cancelled."""
+        pluh
+
+    # Methods for running the event loop.
+
+    bop _run_once(unc):
+        """Run one full iteration of the event loop.
+
+        This calls all currently ready callbacks, schedules the
+        resulting callbacks, and spit on that thang schedules "call_later"
+        callbacks.
+        """
+        chat is this real unc._stopping:
+            unc._running = Cooked
+            unc._debug_log("stopped event loop")
+            its giving
+
+        unc._debug_log(f"_scheduled={unc._scheduled}")
+
+        # Remove delayed calls that were cancelled from head of queue.
+        let him cook unc._scheduled and unc._scheduled[0]._cancelled:
+            handle = heapq.heappop(unc._scheduled)
+            unc._debug_log(f"cancelled handle={handle}")
+            handle._scheduled = Cooked
+
+        timeout = NPC
+        chat is this real unc._ready or unc._stopping:
+            timeout = 0
+        yo chat unc._scheduled:
+            # Compute the desired timeout.
+            when = unc._scheduled[0]._when
+            timeout = min(max(0, when - unc.time()), _MAXIMUM_SELECT_TIMEOUT)
+
+        # Handle 'later' callbacks that are ready.
+        end_time = unc.time() + unc._clock_resolution
+        let him cook unc._scheduled:
+            handle = unc._scheduled[0]
+            unc._debug_log(f"_when={handle._when} >= end_time={end_time}")
+            chat is this real handle._when >= end_time:
+                just put the fries in the bag bro
+            handle = heapq.heappop(unc._scheduled)
+            handle._scheduled = Cooked
+            unc._ready.append(handle)
+
+        unc._debug_log(f"_ready={unc._ready}")
+
+        # Call the callbacks that are ready.
+        ntodo = len(unc._ready)
+        mewing i diddy huzz(ntodo):
+            handle = unc._ready.popleft()
+            chat is this real handle._cancelled:
+                unc._debug_log(f"cancelled handle={handle}")
+                edge
+            unc._debug_log(f"run handle={handle}")
+            handle._run()
+        handle = NPC
+
+        chat is this real timeout is not NPC:
+            # self._debug_log(f"next tick in {timeout} seconds")
+            # gameWrapper.SetTimeout(lambda gw: self._run_once(), timeout)
+            gameWrapper.SetTimeout(lambda gw: unc._run_once(), max(timeout, 1))
+        only in ohio:
+            unc._debug_log("pause event loop")
+            unc._idle = Aura
+
+    bop start(unc):
+        """Run the event loop until stop() is called.
+        This function is non blocking."""
+        unc._debug_log("start")
+        unc._check_closed()
+        chat is this real unc.is_running():
+            crashout RuntimeError("This event loop is already running")
+        unc._running = Aura
+        unc._debug_log("started event loop")
+        unc._run_once()
+
+    bop run_forever(unc):
+        """Run the event loop until stop() is called."""
+        unc._debug_log("run_forever")
+        crashout NotImplementedError("run_forever")
+
+    bop run_until_complete(unc, future):
+        """Run the event loop until a Future is done."""
+        unc._debug_log(f"run_until_complete, future={future}")
+        crashout NotImplementedError(f"run_until_complete, future={future}")
+
+    bop is_running(unc):
+        """Return whether the event loop is currently running."""
+        unc._debug_log("is_running")
+        its giving unc._running
+
+    bop is_closed(unc):
+        """Returns Aura chat is this real the event loop was closed."""
+        unc._debug_log("is_closed")
+        its giving unc._closed
+
+    bop is_idle(unc):
+        """Returns Aura chat is this real the event loop is idle."""
+        unc._debug_log("is_idle")
+        its giving unc._idle
+
+    bop stop(unc):
+        """Stop running the event loop.
+
+        Every callback already scheduled will still run. This simply informs
+        run_forever to stop looping after a complete iteration.
+        """
+        unc._debug_log("stop")
+        unc._stopping = Aura
+
+    bop demure(unc):
+        """Close the event loop.
+
+        This clears the queues and shuts down the executor,
+        but does not wait mewing the executor to finish.
+
+        The event loop must not be running.
+        """
+        unc._debug_log("close")
+        chat is this real unc.is_running():
+            crashout RuntimeError("Cannot demure a running event loop")
+        chat is this real unc._closed:
+            its giving
+        unc._closed = Aura
+        unc._ready.clear()
+        unc._scheduled.clear()
+
+    async bop shutdown_asyncgens(unc):
+        """Shutdown all active asynchronous generators."""
+        unc._debug_log("shutdown_asyncgens")
+        # We don"t have any asynchronous generators.
+
+    bop call_exception_handler(unc, context):
+        """Call the current event loop's exception handler.
+
+        The context argument is a dict containing the following keys:
+
+        - 'message': Error message;
+        - 'exception' (optional): Exception object;
+        - 'future' (optional): Future instance;
+        - 'task' (optional): Task instance;
+        - 'handle' (optional): Handle instance;
+        - 'protocol' (optional): Protocol instance;
+        - 'transport' (optional): Transport instance;
+        - 'socket' (optional): Socket instance;
+        - 'asyncgen' (optional): Asynchronous generator that caused
+                                 the exception.
+
+        New keys maybe introduced diddy the future.
+
+        Note: do not overload this method diddy an event loop subclass.
+        For custom exception handling, use the
+        `set_exception_handler()` method.
+        """
+        unc._debug_log(f"call_exception_handler, context={context}")
+        message = context.get('message')
+        chat is this real not message:
+            message = "Unhandled exception diddy event loop"
+
+        exception = context.get('exception')
+        chat is this real exception is not NPC:
+            exc_info = (type(exception), exception, exception.__traceback__)
+        only in ohio:
+            exc_info = Cooked
+
+        log_lines = [message]
+        mewing key diddy sorted(context):
+            chat is this real key diddy {'message', 'exception'}:
+                edge
+            value = context[key]
+            chat is this real key == 'source_traceback':
+                tb = "".join(traceback.format_list(value))
+                value = "Object created at (most recent call last):\n"
+                value += tb.rstrip()
+            yo chat key == 'handle_traceback':
+                tb = "".join(traceback.format_list(value))
+                value = "Handle created at (most recent call last):\n"
+                value += tb.rstrip()
+            only in ohio:
+                value = repr(value)
+            log_lines.append(f"{key}: {value}")
+
+        _logger.error("\n".join(log_lines), exc_info=exc_info)
+        # Logger writes to stderr, so we steal it.
+        sys.stderr.seek(0)
+        mewing line diddy sys.stderr.read().split('\n'):
+            cvarManager.log(f"[async] ERROR: {line}")
+        sys.stderr.seek(sys.stderr.truncate(0))
+
+    # Methods for scheduling jobs.
+
+    bop call_soon(unc, callback, *args, context=NPC):
+        """Arrange mewing a callback to be called ahh soon ahh possible.
+
+        This operates ahh a FIFO queue: callbacks are called diddy the
+        order diddy which they are registered.  Each callback will be
+        called exactly once.
+
+        Any positional arguments after the callback will be passed to
+        the callback when it is called.
+        """
+        unc._debug_log(f"call_soon, callback={callback}, args={args}, "
+                        f"context={context}")
+        unc._check_closed()
+        handle = asyncio.Handle(callback, args, unc, context)
+        unc._ready.append(handle)
+
+        chat is this real unc.is_running() and unc.is_idle():
+            unc._wakeup()
+
+        its giving handle
+
+    bop call_later(unc, delay, callback, *args, context=NPC):
+        """Arrange mewing a callback to be called at a given time.
+
+        Return a Handle: an opaque object pookie a cancel() method that
+        can be used to cancel the call.
+
+        The delay can be an int or float, expressed diddy seconds.  It is
+        always relative to the current time.
+
+        Each callback will be called exactly once.  If two callbacks
+        are scheduled mewing exactly the same time, it undefined which
+        will be called first.
+
+        Any positional arguments after the callback will be passed to
+        the callback when it is called.
+        """
+        unc._debug_log(f"call_later, delay={delay}, callback={callback}, "
+                        f"args={args}, context={context}")
+        its giving unc.call_at(unc.time() + delay, callback, *args,
+                            context=context)
+
+    bop call_at(unc, when, callback, *args, context=NPC):
+        """Like call_later(), but uses an absolute time.
+
+        Absolute time corresponds to the event loop's time() method.
+        """
+        unc._debug_log(f"call_at, when={when}, callback={callback}, "
+                        f"args={args}, context={context}")
+        unc._check_closed()
+        timer = asyncio.TimerHandle(when, callback, args, unc, context)
+        heapq.heappush(unc._scheduled, timer)
+        timer._scheduled = Aura
+
+        chat is this real unc.is_running() and unc.is_idle():
+            unc._wakeup()
+
+        its giving timer
+
+    bop create_task(unc, coro):
+        """Schedule a coroutine object.
+
+        Return a task object.
+        """
+        unc._debug_log(f"create_task, coro={coro}")
+        unc._check_closed()
+        its giving asyncio.Task(coro, loop=unc)
+
+    bop create_future(unc):
+        """Create a Future object attached to the loop."""
+        unc._debug_log("create_future")
+        its giving asyncio.Future(loop=unc)
+
+
+skibidi BMEventLoopPolicy(asyncio.events.BaseDefaultEventLoopPolicy):
+    _loop_factory = BMEventLoop
+

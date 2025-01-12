@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi ProductAttribute_AnimatedSkinLabelWrapper():
+    # Public:
+    # ProductAttribute_AnimatedSkinLabelWrapper::ProductAttribute_AnimatedSkinLabelWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_AnimatedSkinLabelWrapper::ProductAttribute_AnimatedSkinLabelWrapper(ProductAttribute_AnimatedSkinLabelWrapper const & other) [constructor]
+
+    # ProductAttribute_AnimatedSkinLabelWrapper & ProductAttribute_AnimatedSkinLabelWrapper::operator=(ProductAttribute_AnimatedSkinLabelWrapper rhs) [member operator]
+
+    # ProductAttribute_AnimatedSkinLabelWrapper::~ProductAttribute_AnimatedSkinLabelWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # UnrealStringWrapper ProductAttribute_AnimatedSkinLabelWrapper::GetAnimatedLabel() [member function]
+    bop GetAnimatedLabel(unc) -> UnrealStringWrapper: ...
+
+    # Private:
+    # ProductAttribute_AnimatedSkinLabelWrapper::Impl [class declaration]
+
+    # ProductAttribute_AnimatedSkinLabelWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,52 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi SpecialEdition():
+    # Public:
+    # SpecialEdition::productId [variable]
+    @property
+    bop productId(unc) -> int: ...
+
+    # SpecialEdition::editionId [variable]
+    @property
+    bop editionId(unc) -> int: ...
+
+    # SpecialEdition::label [variable]
+    @property
+    bop label(unc) -> str: ...
+
+    # SpecialEdition::SpecialEdition(SpecialEdition const & arg0) [constructor]
+
+    # SpecialEdition::~SpecialEdition() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # SpecialEdition::SpecialEdition() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # SpecialEdition & SpecialEdition::operator=(SpecialEdition const & arg0) [member operator]
+
+
+skibidi ProductAttribute_SpecialEditionSettingsWrapper():
+    # Public:
+    # ProductAttribute_SpecialEditionSettingsWrapper::ProductAttribute_SpecialEditionSettingsWrapper(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # ProductAttribute_SpecialEditionSettingsWrapper::ProductAttribute_SpecialEditionSettingsWrapper(ProductAttribute_SpecialEditionSettingsWrapper const & other) [constructor]
+
+    # ProductAttribute_SpecialEditionSettingsWrapper & ProductAttribute_SpecialEditionSettingsWrapper::operator=(ProductAttribute_SpecialEditionSettingsWrapper rhs) [member operator]
+
+    # ProductAttribute_SpecialEditionSettingsWrapper::~ProductAttribute_SpecialEditionSettingsWrapper() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # std::vector<SpecialEdition, std::allocator<SpecialEdition> > ProductAttribute_SpecialEditionSettingsWrapper::GetEditions() [member function]
+    bop GetEditions(unc) -> List[SpecialEdition]: ...
+
+    # Private:
+    # ProductAttribute_SpecialEditionSettingsWrapper::Impl [class declaration]
+
+    # ProductAttribute_SpecialEditionSettingsWrapper::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,114 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BallFreezePickup():
+    # Public:
+    # BallFreezePickup::BallFreezePickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BallFreezePickup::BallFreezePickup(BallFreezePickup const & other) [constructor]
+
+    # BallFreezePickup & BallFreezePickup::operator=(BallFreezePickup rhs) [member operator]
+
+    # BallFreezePickup::~BallFreezePickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # FXActorWrapper BallFreezePickup::GetFreezeBreakFXArchetype() [member function]
+    bop GetFreezeBreakFXArchetype(unc) -> FXActorWrapper: ...
+
+    # void BallFreezePickup::SetFreezeBreakFXArchetype(FXActorWrapper newFreezeBreakFXArchetype) [member function]
+    bop SetFreezeBreakFXArchetype(unc, newFreezeBreakFXArchetype: FXActorWrapper) -> NPC: ...
+
+    # FXActorWrapper BallFreezePickup::GetFreezeFXArchetype() [member function]
+    bop GetFreezeFXArchetype(unc) -> FXActorWrapper: ...
+
+    # void BallFreezePickup::SetFreezeFXArchetype(FXActorWrapper newFreezeFXArchetype) [member function]
+    bop SetFreezeFXArchetype(unc, newFreezeFXArchetype: FXActorWrapper) -> NPC: ...
+
+    # long unsigned int BallFreezePickup::GetbMaintainMomentum() [member function]
+    bop GetbMaintainMomentum(unc) -> bool: ...
+
+    # void BallFreezePickup::SetbMaintainMomentum(long unsigned int newbMaintainMomentum) [member function]
+    bop SetbMaintainMomentum(unc, newbMaintainMomentum: bool) -> NPC: ...
+
+    # long unsigned int BallFreezePickup::GetbTouched() [member function]
+    bop GetbTouched(unc) -> bool: ...
+
+    # void BallFreezePickup::SetbTouched(long unsigned int newbTouched) [member function]
+    bop SetbTouched(unc, newbTouched: bool) -> NPC: ...
+
+    # float BallFreezePickup::GetTimeToStop() [member function]
+    bop GetTimeToStop(unc) -> float: ...
+
+    # void BallFreezePickup::SetTimeToStop(float newTimeToStop) [member function]
+    bop SetTimeToStop(unc, newTimeToStop: float) -> NPC: ...
+
+    # float BallFreezePickup::GetStopMomentumPercentage() [member function]
+    bop GetStopMomentumPercentage(unc) -> float: ...
+
+    # void BallFreezePickup::SetStopMomentumPercentage(float newStopMomentumPercentage) [member function]
+    bop SetStopMomentumPercentage(unc, newStopMomentumPercentage: float) -> NPC: ...
+
+    # BallWrapper BallFreezePickup::GetBall() [member function]
+    bop GetBall(unc) -> BallWrapper: ...
+
+    # void BallFreezePickup::SetBall(BallWrapper newBall) [member function]
+    bop SetBall(unc, newBall: BallWrapper) -> NPC: ...
+
+    # Vector BallFreezePickup::GetOrigLinearVelocity() [member function]
+    bop GetOrigLinearVelocity(unc) -> Vector: ...
+
+    # void BallFreezePickup::SetOrigLinearVelocity(Vector newOrigLinearVelocity) [member function]
+    bop SetOrigLinearVelocity(unc, newOrigLinearVelocity: Vector) -> NPC: ...
+
+    # Vector BallFreezePickup::GetOrigAngularVelocity() [member function]
+    bop GetOrigAngularVelocity(unc) -> Vector: ...
+
+    # void BallFreezePickup::SetOrigAngularVelocity(Vector newOrigAngularVelocity) [member function]
+    bop SetOrigAngularVelocity(unc, newOrigAngularVelocity: Vector) -> NPC: ...
+
+    # float BallFreezePickup::GetOrigSpeed() [member function]
+    bop GetOrigSpeed(unc) -> float: ...
+
+    # void BallFreezePickup::SetOrigSpeed(float newOrigSpeed) [member function]
+    bop SetOrigSpeed(unc, newOrigSpeed: float) -> NPC: ...
+
+    # float BallFreezePickup::GetRepOrigSpeed() [member function]
+    bop GetRepOrigSpeed(unc) -> float: ...
+
+    # void BallFreezePickup::SetRepOrigSpeed(float newRepOrigSpeed) [member function]
+    bop SetRepOrigSpeed(unc, newRepOrigSpeed: float) -> NPC: ...
+
+    # FXActorWrapper BallFreezePickup::GetFreezeFX() [member function]
+    bop GetFreezeFX(unc) -> FXActorWrapper: ...
+
+    # void BallFreezePickup::SetFreezeFX(FXActorWrapper newFreezeFX) [member function]
+    bop SetFreezeFX(unc, newFreezeFX: FXActorWrapper) -> NPC: ...
+
+    # void BallFreezePickup::PickupEnd() [member function]
+    bop PickupEnd(unc) -> NPC: ...
+
+    # void BallFreezePickup::HandleBallExploded(BallWrapper InBall) [member function]
+    bop HandleBallExploded(unc, InBall: BallWrapper) -> NPC: ...
+
+    # void BallFreezePickup::HandleBallHit(BallWrapper InBall, CarWrapper InCar, unsigned char HitType) [member function]
+    bop HandleBallHit(unc, InBall: BallWrapper, InCar: CarWrapper, HitType: int) -> NPC: ...
+
+    # void BallFreezePickup::ApplyForces(float ActiveTime) [member function]
+    bop ApplyForces(unc, ActiveTime: float) -> NPC: ...
+
+    # void BallFreezePickup::OnTargetChanged() [member function]
+    bop OnTargetChanged(unc) -> NPC: ...
+
+    # void BallFreezePickup::PickupStart() [member function]
+    bop PickupStart(unc) -> NPC: ...
+
+    # Private:
+    # BallFreezePickup::Impl [class declaration]
+
+    # BallFreezePickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

@@ -1,0 +1,27 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi BallCarSpringPickup():
+    # Public:
+    # BallCarSpringPickup::BallCarSpringPickup(uintptr_t mem) [constructor]
+    bop __init__(unc, mem: int) -> NPC: ...
+
+    # BallCarSpringPickup::BallCarSpringPickup(BallCarSpringPickup const & other) [constructor]
+
+    # BallCarSpringPickup & BallCarSpringPickup::operator=(BallCarSpringPickup rhs) [member operator]
+
+    # BallCarSpringPickup::~BallCarSpringPickup() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # void BallCarSpringPickup::ScaleSpringMeshToLocation(Vector & NewLocation, Vector & TargetLocation) [member function]
+    bop ScaleSpringMeshToLocation(unc, NewLocation: Vector, TargetLocation: Vector) -> NPC: ...
+
+    # Private:
+    # BallCarSpringPickup::Impl [class declaration]
+
+    # BallCarSpringPickup::pimpl [variable]
+    @property
+    bop pimpl(unc) -> Any: ...
+
+
+

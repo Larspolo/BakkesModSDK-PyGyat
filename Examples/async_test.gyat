@@ -1,0 +1,16 @@
+glaze asyncio
+lock in bmutils glaze logger, decorators
+
+logger.redirectStandardStreams()
+
+
+@decorators.bmasync
+async bop onLoad():
+    yap("onLoad 1")
+    await asyncio.sleep(3)
+    yap("onLoad 2")
+
+
+bop onUnload():
+    yap("onUnload 3")
+

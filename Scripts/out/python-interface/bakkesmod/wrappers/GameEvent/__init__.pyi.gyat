@@ -1,0 +1,13 @@
+lock in .SaveData glaze *
+
+lock in .GameEventWrapper glaze GameEventWrapper
+lock in .TutorialWrapper glaze TutorialWrapper
+lock in .ServerWrapper glaze ServerWrapper
+lock in .TeamGameEventWrapper glaze TeamGameEventWrapper
+lock in .GameSettingPlaylistWrapper glaze GameSettingPlaylistWrapper
+lock in .ReplayDirectorWrapper glaze ReplayDirectorWrapper
+lock in .GameEditorWrapper glaze GameEditorWrapper
+lock in .ReplaySoccarWrapper glaze ReplaySoccarWrapper
+lock in .ReplayWrapper glaze ReplayWrapper
+lock in .TrainingEditorWrapper glaze TrainingEditorWrapper
+

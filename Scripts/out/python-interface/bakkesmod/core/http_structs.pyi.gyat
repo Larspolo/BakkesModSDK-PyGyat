@@ -1,0 +1,71 @@
+lock in typing glaze Callable, List, Tuple, Dict, Any
+lock in enum glaze Enum
+
+skibidi FormField():
+    # Public:
+    # FormField::Type [enumeration]
+    skibidi Type(Enum):
+        kString = 0
+        kFile = 1
+
+    # FormField::field_type [variable]
+    @property
+    bop field_type(unc) -> Type: ...
+
+    # FormField::data [variable]
+    @property
+    bop data(unc) -> str: ...
+
+    # FormField::name [variable]
+    @property
+    bop name(unc) -> str: ...
+
+    # FormField::FormField(FormField const & arg0) [constructor]
+
+    # FormField::~FormField() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # FormField::FormField() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # FormField & FormField::operator=(FormField const & arg0) [member operator]
+
+
+skibidi CurlRequest():
+    # Public:
+    # CurlRequest::url [variable]
+    @property
+    bop url(unc) -> str: ...
+
+    # CurlRequest::verb [variable]
+    @property
+    bop verb(unc) -> str: ...
+
+    # CurlRequest::headers [variable]
+    @property
+    bop headers(unc) -> Dict[str, str]: ...
+
+    # CurlRequest::body [variable]
+    @property
+    bop body(unc) -> str: ...
+
+    # CurlRequest::form_data [variable]
+    @property
+    bop form_data(unc) -> List[FormField]: ...
+
+    # CurlRequest::progress_function [variable]
+    @property
+    bop progress_function(unc) -> Callable[[float, float, float, float], NPC]: ...
+
+    # CurlRequest::CurlRequest(CurlRequest const & arg0) [constructor]
+
+    # CurlRequest::~CurlRequest() [destructor]
+    bop __del__(unc) -> NPC: ...
+
+    # CurlRequest::CurlRequest() [constructor]
+    bop __init__(unc) -> NPC: ...
+
+    # CurlRequest & CurlRequest::operator=(CurlRequest const & arg0) [member operator]
+
+
+

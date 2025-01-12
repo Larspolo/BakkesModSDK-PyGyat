@@ -1,0 +1,4 @@
+lock in .http_structs glaze CurlRequest
+lock in .http_structs glaze FormField
+lock in .bot_loadout_structs glaze BotLoadoutData
+
